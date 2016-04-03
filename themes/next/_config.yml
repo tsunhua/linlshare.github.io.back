@@ -16,8 +16,14 @@ rss: /atom.xml
 # Specify the date when the site was setup
 #since: 2015
 
+#我的设置
 
-
+# title
+links_title: 友情链接
+links:
+    廖雪峰的官方网站: http://www.liaoxuefeng.com/
+    阮一峰的网络日志: http://www.ruanyifeng.com/blog/
+    Android开发技术周报: http://www.androidweekly.cn/
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -115,7 +121,9 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
+social:
+  Github: https://github.com/linlshare
+  Weibo: http://weibo.com/u/5718377389
   #LinkLabel: Link
 
 
@@ -148,14 +156,14 @@ toc:
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-creative_commons: by-nc-sa
-creative_commons:
+#creative_commons: by-nc-sa
+#creative_commons:
 
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
@@ -198,7 +206,7 @@ scroll_to_more: true
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: true
-  length: 150
+  length: 200
 
 
 # Use Lato font
@@ -237,7 +245,7 @@ mathjax:
 #add_this_id:
 
 # Share
-#duoshuo_share: true
+duoshuo_share: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
