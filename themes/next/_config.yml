@@ -24,7 +24,7 @@ links:
     廖雪峰的官方网站: http://www.liaoxuefeng.com/
     阮一峰的网络日志: http://www.ruanyifeng.com/blog/
     Android开发技术周报: http://www.androidweekly.cn/
-
+    Android Developers Blog: http://android-developers.blogspot.sg/
 # ---------------------------------------------------------------
 # Menu Settings
 # ---------------------------------------------------------------
@@ -195,7 +195,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night eighties
+highlight_theme: normal
 
 
 # Automatically scroll page to section which is under <!-- more --> mark.
@@ -219,7 +219,7 @@ use_font_lato: true
 # ---------------------------------------------------------------
 
 # MathJax Support
-mathjax:
+mathjax: true
 
 
 # Swiftype Search API Key
@@ -229,7 +229,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: linlshare   
 
 # Disqus
 #disqus_shortname:
@@ -241,8 +241,8 @@ mathjax:
 ##  type: button
 
 # Share
-#jiathis:
-#add_this_id:
+jiathis:
+add_this_id: 2093282
 
 # Share
 duoshuo_share: true
@@ -264,9 +264,9 @@ duoshuo_share: true
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
   ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: Author
+  admin_enable: true
+  user_id: 6268594533013915000
+  admin_nickname: Lshare
 
 
 # Facebook SDK Support.

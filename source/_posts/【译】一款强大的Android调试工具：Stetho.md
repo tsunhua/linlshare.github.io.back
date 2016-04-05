@@ -2,6 +2,7 @@
 title: 【译】一款强大的Android调试工具：Stetho
 date: 2016-03-30 14:25:24
 tags: [编程,Android]
+comments: true
 ---
 
 本文翻译自：[http://facebook.github.io/stetho/](http://facebook.github.io/stetho/)。没错，Facebook出品，必属精品！

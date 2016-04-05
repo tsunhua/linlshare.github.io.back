@@ -1,7 +1,8 @@
 ---
 title: OkHttp学习系列一：入门和简单使用
 date: 2016-04-03 16:29:14
-tags:
+comments: true
+tags: [编程,Android,HTTP]
 ---
 
 参考并有选择地翻译了：[http://square.github.io/okhttp/](http://square.github.io/okhttp/)
