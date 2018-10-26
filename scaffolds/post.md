@@ -1,14 +1,15 @@
 ---
 title: {{ title }}
 date: {{ date }}
-mathjax: true
-comments: true
+toc: true
 tags: 
+categories: 
 ---
 
 
-----------------
 
-><span style="font-size:12px">标题: <a href="{{ permalink }}">{{ title }}</a>
-作者: <a href="http://linlshare.github.io/">Lshare</a>  
-许可: <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">©署名-非商用-相同方式共享 4.0</a></span>
+
+
+## 参考资料
+> - []()
+> - []()
