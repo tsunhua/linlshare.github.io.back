@@ -1,4 +1,11 @@
-### 如何给类图增加一个字段？
+---
+title: Draw.io 使用笔记
+date: 2018-10-23 10:14:00
+tags: [Draw.io,绘图]
+comments: true
+---
+
+## 如何给类图增加一个字段？
 
 选中一个字段，然后按 `Ctrl +Enter` 即可。
 

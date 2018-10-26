@@ -1,3 +1,10 @@
+---
+title: Java 后端基础之 1. Nginx
+date: 2017-12-28 11:56:00
+tags: [Java,Nginx]
+comments: true
+---
+
 ### Nginx
 
 是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。

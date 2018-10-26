@@ -1,3 +1,10 @@
+---
+title: Java 后端基础之 3. JSP
+date: 2017-12-29 18:56:00
+tags: [Java,JSP]
+comments: true
+---
+
 ### JSP
 
 JavaServer Pages，是一门脚本语言，用于动态生成HTML、XML等。可以混合Java进行编程。

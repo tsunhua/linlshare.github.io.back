@@ -1,3 +1,11 @@
+---
+title: Java 后端基础之 2. Servlet
+date: 2017-12-29 14:55:00
+tags: [Java,Servlet]
+comments: true
+---
+
+
 ### Servlet
 
 Server + Applet，服务端小程序

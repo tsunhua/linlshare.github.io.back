@@ -1,3 +1,11 @@
+---
+title: Genesis 1 @Old Testament
+date: 2018-8-9 23:29:00
+tags: [Bible,English]
+comments: true
+---
+
+
 1. In the beginning God created the heaven and the earth.
 
    起 初 　 神 創 造 天 地 。

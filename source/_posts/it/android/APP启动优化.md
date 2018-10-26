@@ -1,3 +1,10 @@
+---
+title: APP启动优化
+date: 2018-1-20 15:28:00
+tags: [Android]
+comments: true
+---
+
 ### 1. 去除启动黑屏
 
 1.1 在`style.xml`中定义两种主题：

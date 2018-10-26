@@ -1,3 +1,11 @@
+---
+title: Linux命令总结
+date: 2018-8-6 20:25:00
+tags: [Linux,Shell]
+comments: true
+---
+
+
 ### SET 命令
 
 用途：

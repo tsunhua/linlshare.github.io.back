@@ -1,3 +1,10 @@
+---
+title: 从序列化到 Gson 排错记录
+date: 2018-8-10 23:15:00
+tags: [Java,Gson]
+comments: true
+---
+
 ### 写在前面
 
 #### 序列化、反序列化和持久化

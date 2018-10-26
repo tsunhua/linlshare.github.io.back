@@ -1,3 +1,11 @@
+---
+title: Java 后端基础之 7. MySql
+date: 2018-1-6 12:02:00
+tags: [Java,MySql]
+comments: true
+---
+
+
 ### Mysql
 
 #### 安装

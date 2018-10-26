@@ -1,3 +1,10 @@
+---
+title: Java 学习站点汇总
+date: 2017-2-7 11:04:00
+tags: [Java]
+comments: true
+---
+
 ## 设计模式
 
 - [图说设计模式](http://design-patterns.readthedocs.org/zh_CN/latest/index.html)

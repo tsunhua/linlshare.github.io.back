@@ -1,4 +1,9 @@
-## Kotlin的特性
+---
+title: Kotlin的特性
+date: 2017-12-17 20:07:00
+tags: [Kotlin]
+comments: true
+---
 
 1. time
 2. streams

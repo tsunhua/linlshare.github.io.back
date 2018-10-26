@@ -1,4 +1,10 @@
-# Kotlin 函数
+---
+title: Kotlin 函数
+date: 2017-12-16 20:07:00
+tags: [Kotlin]
+comments: true
+---
+
 
 ### 函数声明
 

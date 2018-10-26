@@ -1,3 +1,10 @@
+---
+title: Android 使用 DiffUtil 处理 RecyclerView 数据更新问题
+date: 2018-9-13 17:33:00
+tags: [Android]
+comments: true
+---
+
 ## 背景
 
 1. `RecyclerView.Adapter#notifyDataSetChanged()` 会每次刷新整个布局；

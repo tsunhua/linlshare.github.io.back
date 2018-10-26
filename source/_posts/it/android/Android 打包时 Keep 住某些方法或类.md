@@ -1,3 +1,10 @@
+---
+title: Android 打包时 Keep 住某些方法或类
+date: 2018-9-04 17:07:00
+tags: [Android]
+comments: true
+---
+
 ```shell
 # ${android_sdk}/tools/proguard/proguard-android.txt
 # Understand the @Keep support annotation.

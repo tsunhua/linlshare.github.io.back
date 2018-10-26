@@ -1,3 +1,10 @@
+---
+title: 解决 Android 中出现依赖多个版本支持库的问题
+date: 2018-8-21 15:08:00
+tags: [Android]
+comments: true
+---
+
 在 app 的 `build.gradle` 中引入依赖时发现如下错误：
 
 ```

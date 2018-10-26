@@ -1,3 +1,10 @@
+---
+title: MVP架构下解决 RxJava 自动解绑问题
+date: 2018-9-10 17:25:00
+tags: [Android]
+comments: true
+---
+
 ## 背景
 
 MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。
