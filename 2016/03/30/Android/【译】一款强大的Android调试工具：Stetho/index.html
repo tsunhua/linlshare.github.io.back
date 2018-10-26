@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>【译】一款强大的Android调试工具：Stetho | Lshare手札</title>
+    
+    
+        <meta name="keywords" content="编程,Android">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="本文翻译自：http://facebook.github.io/stetho/。没错，Facebook出品，必属精品！  一个专门给Android应用使用的调试桥工具  Stetho是一个给Android应用使用的高级调试桥工具。当启用后，开发者可以使用Chrome桌面浏览器的Chrome开发者工具特性。开发者也可以选择启用可选的dumpapp工具，它提供了一个强大的触及应用程序内部的命令行界面。">
+<meta name="keywords" content="编程,Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】一款强大的Android调试工具：Stetho">
+<meta property="og:url" content="http://linlshare.github.io/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="本文翻译自：http://facebook.github.io/stetho/。没错，Facebook出品，必属精品！  一个专门给Android应用使用的调试桥工具  Stetho是一个给Android应用使用的高级调试桥工具。当启用后，开发者可以使用Chrome桌面浏览器的Chrome开发者工具特性。开发者也可以选择启用可选的dumpapp工具，它提供了一个强大的触及应用程序内部的命令行界面。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/15721059.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/66293422.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/47307653.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/27240811.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/13927583.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/43030945.jpg">
+<meta property="og:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/96983497.jpg">
+<meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png">
+<meta property="og:updated_time" content="2018-10-26T14:58:13.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】一款强大的Android调试工具：Stetho">
+<meta name="twitter:description" content="本文翻译自：http://facebook.github.io/stetho/。没错，Facebook出品，必属精品！  一个专门给Android应用使用的调试桥工具  Stetho是一个给Android应用使用的高级调试桥工具。当启用后，开发者可以使用Chrome桌面浏览器的Chrome开发者工具特性。开发者也可以选择启用可选的dumpapp工具，它提供了一个强大的触及应用程序内部的命令行界面。">
+<meta name="twitter:image" content="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/15721059.jpg">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/">【译】一款强大的Android调试工具：Stetho</a></li>  <li class="file"><a href="/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/">OkHttp学习系列一：入门和简单使用</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  <li class="file"><a href="/2016/04/10/文化/回归常识/">回归常识</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2016/04/11/绕口令大全/">绕口令大全</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Android/【译】一款强大的Android调试工具：Stetho" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/编程/">编程</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/">
+            <time datetime="2016-03-30T06:25:24.000Z" itemprop="datePublished">2016-03-30</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Android/【译】一款强大的Android调试工具：Stetho.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Android/【译】一款强大的Android调试工具：Stetho.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Android/【译】一款强大的Android调试工具：Stetho.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            【译】一款强大的Android调试工具：Stetho
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>本文翻译自：<a href="http://facebook.github.io/stetho/" target="_blank" rel="noopener">http://facebook.github.io/stetho/</a>。没错，Facebook出品，必属精品！</p>
+<blockquote>
+<p>一个专门给Android应用使用的调试桥工具</p>
+</blockquote>
+<p>Stetho是一个给Android应用使用的高级调试桥工具。当启用后，开发者可以使用Chrome桌面浏览器的Chrome开发者工具特性。开发者也可以选择启用可选的dumpapp工具，它提供了一个强大的触及应用程序内部的命令行界面。<br><a id="more"></a></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://github.com/facebook/stetho/releases/download/v1.3.1/stetho-1.3.1-fatjar.jar" target="_blank" rel="noopener">Download v1.3.1</a></p>
+<p>或者你也可以通过Gradle或者Maven，从Maven中心仓库中下载Stetho到你的项目中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Gradle</span></span><br><span class="line">dependencies &#123; </span><br><span class="line">    compile <span class="string">'com.facebook.stetho:stetho:1.3.1'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Maven--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupid</span>&gt;</span>com.facebook.stetho<span class="tag">&lt;/<span class="name">groupid</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactid</span>&gt;</span>stetho<span class="tag">&lt;/<span class="name">artifactid</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只有stetho核心是必须的，你也可以同时包含进网络库，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123; </span><br><span class="line">  compile <span class="string">'com.facebook.stetho:stetho-okhttp3:1.3.1'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123; </span><br><span class="line">  compile <span class="string">'com.facebook.stetho:stetho-okhttp:1.3.1'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123; </span><br><span class="line">  compile <span class="string">'com.facebook.stetho:stetho-urlconnection:1.3.1'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h4 id="Chrome开发者工具"><a href="#Chrome开发者工具" class="headerlink" title="Chrome开发者工具"></a>Chrome开发者工具</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/15721059.jpg" alt="inspector-discovery"></p>
+<p>Stetho软件通过使用客户端/服务器协议实现了在Chrome开发者工具前端的集成。一旦你的应用集成了Stetho，只要在地址栏上输入<code>chrome://inspect</code>并点击<code>Inspect</code>就可以开始玩了。</p>
+<h4 id="网络监视"><a href="#网络监视" class="headerlink" title="网络监视"></a>网络监视</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/66293422.jpg" alt="inspector-network"></p>
+<p>可以使用Chrome开发者工具的全套功能来进行网络监视，包括图片预览、JSON响应协助，甚至是输出HAR格式的追踪信息。</p>
+<h4 id="数据库监视"><a href="#数据库监视" class="headerlink" title="数据库监视"></a>数据库监视</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/47307653.jpg" alt="inspector-sqlite"><br>SQLite数据库可以被可视化和交互式地浏览，并且具备完全的读写能力。</p>
+<h4 id="视图层级"><a href="#视图层级" class="headerlink" title="视图层级"></a>视图层级</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/27240811.jpg" alt="inspector-elements"></p>
+<p>视图层级功能支持ICS（API 15）以及更高版本的Android系统。有很多很棒的功能，比如说View实例被可视化地放置在视图层级中、视图高亮和点击view就可以跳到它在层级中的位置。</p>
+<h4 id="Dumpapp"><a href="#Dumpapp" class="headerlink" title="Dumpapp"></a>Dumpapp</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/13927583.jpg" alt="dumpapp-prefs"></p>
+<p>Dumpapp扩展超出了Chrome开发者工具所能显示的，它给应用组件提供了一个更具扩展性的命令行界面。它提供了一套默认的插件集，但是dumpapp真正强大之处是你可以创建你自己的插件。</p>
+<h4 id="JavaScript控制台"><a href="#JavaScript控制台" class="headerlink" title="JavaScript控制台"></a>JavaScript控制台</h4><p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/43030945.jpg" alt="inspector-js"></p>
+<p>JavaScript控制台允许你执行JavaScript代码，来跟应用甚至是Android SDK交互。</p>
+<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>集成Stetho对现在的大多数Android应用来说，是无缝和直接的。下面的例子展示了在你的Application中初始化Stetho。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义Application并在清单文件的&lt;application&gt;的name属性中配置</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate();</span><br><span class="line">    <span class="comment">//使用默认配置初始化Stetho</span></span><br><span class="line">    Stetho.initializeWithDefaults(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样子会启用许多默认的设置，但是没有启用一些额外的钩子功能（hook）（特别是网络监视）。</p>
+<p>接着看下面如何在自己的子系统中指定详细的设置。</p>
+<h4 id="启用网络监视"><a href="#启用网络监视" class="headerlink" title="启用网络监视"></a>启用网络监视</h4><p>如果你使用流行的2.2.x+或者3.x发布版的OkHttp库，你可以使用监视器系统来自动hook进已存在的栈。目前启用网络监视最简单的最直接的方法是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">client.networkInterceptors().add(<span class="keyword">new</span> StethoInterceptor());</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">    .addNetworkInterceptor(<span class="keyword">new</span> StethoInterceptor())</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+<p>如果你使用<code>HttpURLConnection</code>，那么你可以使用<code>StethoURLConnectionManager</code>来帮助你进行网络监视，虽然用这个方法时要留意下一些警告信息。值得一提的是，你必须显示添加<code>Accept-Encoding: gzip</code>到请求头中，并手动处理压缩后的响应，以便Stetho报告压缩载荷大小。</p>
+<p>查看<a href="https://github.com/facebook/stetho/tree/master/stetho-sample" target="_blank" rel="noopener">stetho-sample</a>项目来获取更多信息。</p>
+<h4 id="定制dumpapp插件"><a href="#定制dumpapp插件" class="headerlink" title="定制dumpapp插件"></a>定制dumpapp插件</h4><p>定制插件是一个继承dumpapp系统的绝好方法，它还可以在配置中很方便的。简单地替换下你的配置，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Stetho.initialize(Stetho.newInitializerBuilder(context)</span><br><span class="line">    .enableDumpapp(<span class="keyword">new</span> DumperPluginsProvider() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> Iterable&lt;DumperPlugin&gt; <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Stetho.DefaultDumperPluginsBuilder(context)</span><br><span class="line">            .provide(<span class="keyword">new</span> MyDumperPlugin())</span><br><span class="line">            .finish();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(context))</span><br><span class="line">    .build());</span><br></pre></td></tr></table></figure>
+<p>查看<a href="https://github.com/facebook/stetho/tree/master/stetho-sample" target="_blank" rel="noopener">stetho-sample</a>项目来获取更多信息。</p>
+<p><img src="http://7xsf09.com1.z0.glb.clouddn.com/16-3-30/96983497.jpg" alt="PS：倒骑驴的农民公众号开通啦"></p>
+<hr>
+<blockquote>
+<p><span style="font-size:12px">本文标题: <a href="http://linlshare.github.io/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/">【译】一款强大的Android调试工具：Stetho</a><br>文章作者: <a href="http://itxiehui.github.io/" target="_blank" rel="noopener">IT协会知识库</a><br>许可协议: <img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"><a rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">©署名-非商用-相同方式共享 4.0</a></span></p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    OkHttp学习系列一：入门和简单使用
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

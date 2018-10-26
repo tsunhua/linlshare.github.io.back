@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>OkHttp学习系列一：入门和简单使用 | Lshare手札</title>
+    
+    
+        <meta name="keywords" content="编程,Android,HTTP">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="参考并有选择地翻译了：http://square.github.io/okhttp/ 综述HTTP是是现代应用访问网络的方式。它是现在我们交换数据和媒体的方式。高效地使用HTTP可以让数据加载更快和节省带宽（bandwidth）。 OkHttp是一个适用于Android和Java的HTTP 和 HTTP/2的客户端。它很高效，默认支持：  HTTP/2支持允许到同一个主机（host）的所有的请求共">
+<meta name="keywords" content="编程,Android,HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OkHttp学习系列一：入门和简单使用">
+<meta property="og:url" content="http://linlshare.github.io/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="参考并有选择地翻译了：http://square.github.io/okhttp/ 综述HTTP是是现代应用访问网络的方式。它是现在我们交换数据和媒体的方式。高效地使用HTTP可以让数据加载更快和节省带宽（bandwidth）。 OkHttp是一个适用于Android和Java的HTTP 和 HTTP/2的客户端。它很高效，默认支持：  HTTP/2支持允许到同一个主机（host）的所有的请求共">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-26T14:58:13.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OkHttp学习系列一：入门和简单使用">
+<meta name="twitter:description" content="参考并有选择地翻译了：http://square.github.io/okhttp/ 综述HTTP是是现代应用访问网络的方式。它是现在我们交换数据和媒体的方式。高效地使用HTTP可以让数据加载更快和节省带宽（bandwidth）。 OkHttp是一个适用于Android和Java的HTTP 和 HTTP/2的客户端。它很高效，默认支持：  HTTP/2支持允许到同一个主机（host）的所有的请求共">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/">【译】一款强大的Android调试工具：Stetho</a></li>  <li class="file active"><a href="/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/">OkHttp学习系列一：入门和简单使用</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  <li class="file"><a href="/2016/04/10/文化/回归常识/">回归常识</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2016/04/11/绕口令大全/">绕口令大全</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Android/OkHttp学习系列一：入门和简单使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/HTTP/">HTTP</a>, <a class="tag-link" href="/tags/编程/">编程</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/">
+            <time datetime="2016-04-03T08:29:14.000Z" itemprop="datePublished">2016-04-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Android/OkHttp学习系列一：入门和简单使用.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Android/OkHttp学习系列一：入门和简单使用.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Android/OkHttp学习系列一：入门和简单使用.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            OkHttp学习系列一：入门和简单使用
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>参考并有选择地翻译了：<a href="http://square.github.io/okhttp/" target="_blank" rel="noopener">http://square.github.io/okhttp/</a></p>
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>HTTP是是现代应用访问网络的方式。它是现在我们交换数据和媒体的方式。高效地使用HTTP可以让数据加载更快和节省带宽（bandwidth）。</p>
+<p>OkHttp是一个适用于Android和Java的HTTP 和 HTTP/2的客户端。它很高效，默认支持：</p>
+<ul>
+<li>HTTP/2支持允许到同一个主机（host）的所有的请求共享一个socket</li>
+<li>连接池技术减少了请求延迟（如果HTTP/2不可用）</li>
+<li>悄无声息的GZIP支持减少了下载的体积</li>
+<li>响应缓存完全避免了网络服务于重复的请求</li>
+</ul>
+<p>当网络出错时，OkHttp坚持：默默地从普通的连接问题中恢复网络。如果你的服务中有多个IP地址，OkHttp会在第一次连接失败后尝试可选的地址。这对于IPv4+IPv6和拥有冗余数据中心的服务来说是很必须的。OkHttp采用现代的TLS（Transport Layer Security，传输层安全）（SNI和ALPN）初始化新的连接，当握手失败时会退回TLS1.0。</p>
+<p>使用OkHttp相当easy。它的请求/响应的API是用流畅的建造者模式构建并且具有不变性（？）。它同时支持同步阻塞调用和使用回调异步调用。</p>
+<p>OkHttp支持Android 2.3和以上版本。对应Java，最小的要求是1.7版本。</p>
+<blockquote>
+<p>小知识：OkHttp是Square这家移动支付公司开发并贡献到开源社区的开发库。<a href="[http://square.github.io](http://square.github.io/">Square Open Source主页</a>)展示了该公司开源的一些产品，诸如dagger、picasso、retrofit等都是出自该公司，该公司的开源团队由25人组成，其中最出名的是<a href="https://github.com/JakeWharton" target="_blank" rel="noopener">Jake Wharton</a>，他是ActionBarSherlock、butterknife、ViewPagerIndicator、NineOldAndroids等开源库的作者</p>
+</blockquote>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><p>下面的代码展示了如何从一个URL中获取内容数据并以字符串形式打印出来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetExample</span> </span>&#123;</span><br><span class="line">  OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">  <span class="function">String <span class="title">run</span><span class="params">(String url)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">        .url(url)</span><br><span class="line">        .build();</span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    <span class="keyword">return</span> response.body().string();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    GetExample example = <span class="keyword">new</span> GetExample();</span><br><span class="line">    String response = example.run(<span class="string">"https://raw.github.com/square/okhttp/master/README.md"</span>);</span><br><span class="line">    System.out.println(response);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><p>下面的例子演示了如何POST数据到服务器中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostExample</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> MediaType JSON</span><br><span class="line">      = MediaType.parse(<span class="string">"application/json; charset=utf-8"</span>);</span><br><span class="line"></span><br><span class="line">  OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line"></span><br><span class="line">  <span class="function">String <span class="title">post</span><span class="params">(String url, String json)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    RequestBody body = RequestBody.create(JSON, json);</span><br><span class="line">    Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">        .url(url)</span><br><span class="line">        .post(body)</span><br><span class="line">        .build();</span><br><span class="line">    Response response = client.newCall(request).execute();</span><br><span class="line">    <span class="keyword">return</span> response.body().string();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function">String <span class="title">bowlingJson</span><span class="params">(String player1, String player2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"&#123;'winCondition':'HIGH_SCORE',"</span></span><br><span class="line">        + <span class="string">"'name':'Bowling',"</span></span><br><span class="line">        + <span class="string">"'round':4,"</span></span><br><span class="line">        + <span class="string">"'lastSaved':1367702411696,"</span></span><br><span class="line">        + <span class="string">"'dateStarted':1367702378785,"</span></span><br><span class="line">        + <span class="string">"'players':["</span></span><br><span class="line">        + <span class="string">"&#123;'name':'"</span> + player1 + <span class="string">"','history':[10,8,6,7,8],'color':-13388315,'total':39&#125;,"</span></span><br><span class="line">        + <span class="string">"&#123;'name':'"</span> + player2 + <span class="string">"','history':[6,10,5,10,10],'color':-48060,'total':41&#125;"</span></span><br><span class="line">        + <span class="string">"]&#125;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    PostExample example = <span class="keyword">new</span> PostExample();</span><br><span class="line">    String json = example.bowlingJson(<span class="string">"Jesse"</span>, <span class="string">"Jake"</span>);</span><br><span class="line">    String response = example.post(<span class="string">"http://www.roundsapp.com/post"</span>, json);</span><br><span class="line">    System.out.println(response);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
+<li><a href="http://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/3.2.0/okhttp-3.2.0.jar" target="_blank" rel="noopener">okhttp-3.2.2.jar</a></li>
+<li><a href="https://search.maven.org/remote_content?g=com.squareup.okio&amp;a=okio&amp;v=LATEST" target="_blank" rel="noopener">okio-1.6.0.jar</a></li>
+</ul>
+<p>Okio用于给OkHttp提供快速的I/O和可调整大小的缓存池。<br>OkHttp的源代码，示例可以在<a href="http://github.com/square/okhttp" target="_blank" rel="noopener">GitHub</a>中取得。</p>
+<h4 id="Meven配置"><a href="#Meven配置" class="headerlink" title="Meven配置"></a>Meven配置</h4><pre class="lang:default decode:true ">&lt;dependency&gt;
+  &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;
+  &lt;artifactId&gt;okhttp&lt;/artifactId&gt;
+  &lt;version&gt;3.2.0&lt;/version&gt;
+&lt;/dependency&gt;</pre> 
+
+
+<h4 id="Gradle配置"><a href="#Gradle配置" class="headerlink" title="Gradle配置"></a>Gradle配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;com.squareup.okhttp3:okhttp:3.2.0&apos;</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p><span style="font-size:12px">本文标题: <a href="http://linlshare.github.io/2016/04/03/Android/OkHttp学习系列一：入门和简单使用/">OkHttp学习系列一：入门和简单使用</a><br>文章作者: <a href="http://linlshare.github.io/">Lshare</a><br>许可协议: <a rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">©署名-非商用-相同方式共享 4.0</a></span></p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2016/04/04/文化/从十进制数谈到巴比伦数字系统/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    从十进制数谈到巴比伦数字系统
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/03/30/Android/【译】一款强大的Android调试工具：Stetho/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">【译】一款强大的Android调试工具：Stetho</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
