@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Lshare手札</title>
+    
+    
+        <meta name="keywords" content="Lshare手札">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="背景MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。 定义 BasePresenter 如下： 12345678910111213141516171819202122public class BasePresenter&amp;lt;T extends MvpView&amp;gt; implements Presenter&amp;lt;T&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lshare手札">
+<meta property="og:url" content="http://linlshare.github.io/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="背景MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。 定义 BasePresenter 如下： 12345678910111213141516171819202122public class BasePresenter&amp;lt;T extends MvpView&amp;gt; implements Presenter&amp;lt;T&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-11T03:44:59.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lshare手札">
+<meta name="twitter:description" content="背景MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。 定义 BasePresenter 如下： 12345678910111213141516171819202122public class BasePresenter&amp;lt;T extends MvpView&amp;gt; implements Presenter&amp;lt;T&amp;gt;">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            horby
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guitar
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/"></a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/"></a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/"></a></li>  <li class="file active"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/"></a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/"></a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/"></a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Java 后端基础
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 1. Nginx/"></a></li>  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/"></a></li>  <li class="file"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 2. Servlet/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 5 .Spring/"></a></li>  <li class="file"><a href="/2018/01/03/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/"></a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 7. MySql/"></a></li>  <li class="file"><a href="/2018/01/08/it/java/Java 后端基础/Java 后端基础之 Spring Boot/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/it/java/aws/S3 Select for Java 使用记录/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/it/java/Java那些事/"></a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/14/it/kotlin/Kotlin函数/"></a></li>  <li class="file"><a href="/2017/12/07/it/kotlin/Kotlin的特性/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用小记/"></a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用手记/"></a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/"></a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 小记/"></a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/"></a></li>  <li class="file"><a href="/2018/10/26/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/"></a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/"></a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/"></a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/"></a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/"></a></li>  <li class="file"><a href="/2018/09/06/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/"></a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/"></a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/"></a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/"></a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/08/language/漢語言/古代漢語/《古代漢語》上一·文選/"></a></li>  <li class="file"><a href="/2018/08/23/language/漢語言/古代漢語/《古代漢語》上一·常用字/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/漢語言/字源/讀懂漢字偏旁部首/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/27/language/漢語言/汉语音韵中的四声八调及平仄/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語俚語小記/"></a></li>  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語拼音方案/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/18/thinking/movie/《海街日记》观后/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/thinking/一念廢立，貴在自律/"></a></li>  <li class="file"><a href="/2018/10/21/thinking/周记1021/"></a></li>  <li class="file"><a href="/2018/05/19/thinking/陆奇的故事/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/android/MVP架构下解决 RxJava 自动解绑问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。</p>
+<p>定义 BasePresenter 如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasePresenter</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpView</span>&gt; <span class="keyword">implements</span> <span class="title">Presenter</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> T mMvpView;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attachView</span><span class="params">(T mvpView)</span> </span>&#123;</span><br><span class="line">    mMvpView = mvpView;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mMvpView = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewAttached</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> T <span class="title">getMvpView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义 MvpView 如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MvpView</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举一个具体的实现，有记录页为 RecordActivity，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecordRecordActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">RecordMvpView</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Inject</span></span><br><span class="line">  	  RecordPresenter presenter;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">          <span class="comment">//...</span></span><br><span class="line">          presenter.attachView(<span class="keyword">this</span>);</span><br><span class="line">          <span class="comment">//...</span></span><br><span class="line">          onRefresh();</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">()</span></span>&#123;</span><br><span class="line">          presenter.queryReocrd();</span><br><span class="line">	  &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        presenter.detachView();</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showRecord</span><span class="params">(List&lt;RecordResponse&gt; data)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RecordMvpView 定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RecordMvpView</span> <span class="keyword">extends</span> <span class="title">MvpView</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">showRecord</span><span class="params">(List&lt;RecordResponse&gt; data)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RecordPresenter 的定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecordPresenter</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&lt;<span class="title">RecordMvpView</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> DataManager dataManager;</span><br><span class="line">  <span class="keyword">private</span> Disposable disposable;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Inject</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">RecordPresenter</span><span class="params">(DataManager dataManager)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dataManager = dataManager;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryRecord</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    RxUtil.dispose(disposable);</span><br><span class="line">    dataManager.queryRecord(page, count)</span><br><span class="line">               .subscribeOn(Schedulers.io())</span><br><span class="line">               .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">               .subscribe(<span class="keyword">new</span> SingleObserver&lt;List&lt;RecordResponse&gt;&gt;() &#123;</span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">                   disposable = d;</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(List&lt;RecordResponse&gt; resp)</span> </span>&#123;</span><br><span class="line">                   getMvpView().showRecord(resp);</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">                   Timber.e(e);</span><br><span class="line">                   getMvpView().showRecord(<span class="keyword">null</span>);</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上实现具有一个重大问题，当 Activity 处于 destroy 状态时调用 onRefresh 方法去加载数据，会导致 Presenter 中处理数据返回后调用 getMvpView 方法返回 null，从而导致 NPE。抑或，在 create 状态请求的数据在未返回前 Activity 就进入了 destroy 状态从而导致 NPE。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="（1）最简单的也是最复杂的解决方案"><a href="#（1）最简单的也是最复杂的解决方案" class="headerlink" title="（1）最简单的也是最复杂的解决方案"></a>（1）最简单的也是最复杂的解决方案</h3><p>在调用 getMvpView 前进行判空，即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isViewAttached())&#123;</span><br><span class="line">  getMvpView().showRecord(resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是很简单？是的，看起来简单，其实是最复杂的，应该它需要在每个回调的地方小心翼翼地包上这层判断，工作量大还容易出错，代码也不好看。更关键的是，<strong>它到底是执行了，并没有在 View 销毁后立即停止订阅</strong>。</p>
+<h3 id="（2）使用第三方库-RxLifecycle-或-AutoDispose"><a href="#（2）使用第三方库-RxLifecycle-或-AutoDispose" class="headerlink" title="（2）使用第三方库 RxLifecycle 或 AutoDispose"></a>（2）使用第三方库 RxLifecycle 或 AutoDispose</h3><p>这两个都是较出名的用于解决 RxJava 与Android 生命周期问题的第三方库。可以自行 Github 一下。</p>
+<p><strong>RxLifecycle</strong></p>
+<p>This library allows one to automatically complete sequences based on a second lifecycle stream.</p>
+<p>This capability is useful in Android, where incomplete subscriptions can cause memory leaks.</p>
+<p>该库允许在接收到第二个生命周期流时自动结束订阅。</p>
+<p>此种能力对于解决因未完成的订阅导致的Android 内存泄漏问题很有用。</p>
+<p>RxLifecycle 的局限性：</p>
+<ol>
+<li><p><strong>需要继承自 RxActivity 或 RxFragment 等；</strong></p>
+</li>
+<li><p><strong>其核心步骤需要 RxActivity 或 RxFragment 的引用。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.compose(<span class="keyword">this</span>.&lt;T&gt;bindUntilEvent(ActivityEvent.PAUSE))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>AutoDispose</strong></p>
+<p>AutoDispose is an RxJava 2 tool for automatically binding the execution of RxJava 2 streams to a provided scope via disposal/cancellation.</p>
+<p>AutoDispose 是 RxJava2 中的一款工具，能通过解绑或取消操作，使得 RxJava2 流执行到在给定的域中为止。</p>
+<p>其受 RxLifecycle 启发。</p>
+<p>优势：</p>
+<ol>
+<li><strong>将生命周期相关的从 Activity 或 Fragment 中分离出来，独立成 LifecycleOwner，可扩展。</strong></li>
+</ol>
+<h3 id="（3）结合项目情况自定义解决方案"><a href="#（3）结合项目情况自定义解决方案" class="headerlink" title="（3）结合项目情况自定义解决方案"></a>（3）结合项目情况自定义解决方案</h3><p>RxLifecycle 的原理是：</p>
+<ol>
+<li>BehaviorSubject 在订阅后会发送前一个数据值；</li>
+<li>ObservableTransformer、SingleTransformer 等等可以对整个流进行操作；</li>
+<li>takeUntil 操作符可以在第二个被观察者发送事件时自动停止订阅。</li>
+</ol>
+<p>结合 MVP 架构和 RxLifecycle 的原理，我的解决方案是：</p>
+<ol>
+<li><strong>使用 BehaviorSubject 发送 View 的绑定情况；</strong></li>
+<li><strong>在所有跟 View 相关的流中使用 compose 操作符，compose 一个自定义的 LifecycleTransformer 操作整个流，使用 takeUntil 操作符在观察到 BehaviorSubject 发送解绑消息后使用停止订阅。</strong></li>
+</ol>
+<p>具体代码实现如下：</p>
+<p>BasePresenter 修改为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasePresenter</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpView</span>&gt; <span class="keyword">implements</span> <span class="title">Presenter</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> T mMvpView;</span><br><span class="line">  <span class="keyword">private</span> CompositeDisposable compositeDisposable = <span class="keyword">new</span> CompositeDisposable();</span><br><span class="line">  <span class="keyword">private</span> BehaviorSubject&lt;Boolean&gt; behaviorSubject = BehaviorSubject.createDefault(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attachView</span><span class="params">(T mvpView)</span> </span>&#123;</span><br><span class="line">    mMvpView = mvpView;</span><br><span class="line">    behaviorSubject.subscribe();</span><br><span class="line">    behaviorSubject.onNext(<span class="keyword">true</span>); <span class="comment">// TRUE 表示 View 绑定了</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mMvpView = <span class="keyword">null</span>;</span><br><span class="line">    behaviorSubject.onNext(<span class="keyword">false</span>); <span class="comment">// FALSE 表示 View 解绑了</span></span><br><span class="line">    compositeDisposable.clear();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addDisposable</span><span class="params">(Disposable... disposables)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Disposable d : disposables) &#123;</span><br><span class="line">      compositeDisposable.add(d);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">deleteDispoable</span><span class="params">(Disposable disposable)</span> </span>&#123;</span><br><span class="line">    compositeDisposable.delete(disposable);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> &lt;R&gt; <span class="function">LifecycleTransformer&lt;R&gt; <span class="title">bindLifeCycle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LifecycleTransformer&lt;&gt;(behaviorSubject, <span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewAttached</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> T <span class="title">getMvpView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 LifecycleTransformer 定义为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LifecycleTransformer</span>&lt;<span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">ObservableTransformer</span>&lt;<span class="title">T</span>, <span class="title">T</span>&gt;, <span class="title">SingleTransformer</span>&lt;<span class="title">T</span>, <span class="title">T</span>&gt;, <span class="title">MaybeTransformer</span>&lt;<span class="title">T</span>, <span class="title">T</span>&gt;, <span class="title">CompletableTransformer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Observable&lt;Boolean&gt; observable;</span><br><span class="line">  <span class="keyword">private</span> BasePresenter presenter;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">LifecycleTransformer</span><span class="params">(Observable&lt;Boolean&gt; observable, BasePresenter presenter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.observable = observable;</span><br><span class="line">    <span class="keyword">this</span>.presenter = presenter;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ObservableSource&lt;T&gt; <span class="title">apply</span><span class="params">(Observable&lt;T&gt; upstream)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> upstream.takeUntil(getFilterFalseObservable()) <span class="comment">//当收到 View 解绑消息时自动解除订阅</span></span><br><span class="line">                   .subscribeOn(Schedulers.io())</span><br><span class="line">                   .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                   .doOnSubscribe(disposable -&gt; &#123;</span><br><span class="line">                     <span class="keyword">if</span> (!presenter.isViewAttached()) &#123; <span class="comment">// 当订阅时，若 View 解绑则自动解除订阅</span></span><br><span class="line">                       Timber.v(<span class="string">"dispose"</span>);</span><br><span class="line">                       disposable.dispose();</span><br><span class="line">                       <span class="keyword">return</span>;</span><br><span class="line">                     &#125;</span><br><span class="line">                     presenter.addDisposable(disposable);</span><br><span class="line">                   &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> SingleSource&lt;T&gt; <span class="title">apply</span><span class="params">(Single&lt;T&gt; upstream)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> upstream.takeUntil(getFilterFalseObservable().firstOrError())</span><br><span class="line">                   .subscribeOn(Schedulers.io())</span><br><span class="line">                   .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                   .doOnSubscribe(disposable -&gt; &#123;</span><br><span class="line">                     <span class="keyword">if</span> (!presenter.isViewAttached()) &#123;</span><br><span class="line">                       Timber.v(<span class="string">"dispose"</span>);</span><br><span class="line">                       disposable.dispose();</span><br><span class="line">                       <span class="keyword">return</span>;</span><br><span class="line">                     &#125;</span><br><span class="line">                     presenter.addDisposable(disposable);</span><br><span class="line">                   &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> CompletableSource <span class="title">apply</span><span class="params">(Completable upstream)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Completable.ambArray(upstream,</span><br><span class="line">                                getFilterFalseObservable().flatMapCompletable(CANCEL_COMPLETABLE))</span><br><span class="line">                      .subscribeOn(Schedulers.io())</span><br><span class="line">                      .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                      .doOnSubscribe(disposable -&gt; &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!presenter.isViewAttached()) &#123;</span><br><span class="line">                          Timber.v(<span class="string">"dispose"</span>);</span><br><span class="line">                          disposable.dispose();</span><br><span class="line">                          <span class="keyword">return</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        presenter.addDisposable(disposable);</span><br><span class="line">                      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> MaybeSource&lt;T&gt; <span class="title">apply</span><span class="params">(Maybe&lt;T&gt; upstream)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> upstream.takeUntil(getFilterFalseObservable().firstElement())</span><br><span class="line">                   .subscribeOn(Schedulers.io())</span><br><span class="line">                   .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                   .doOnSubscribe(disposable -&gt; &#123;</span><br><span class="line">                     <span class="keyword">if</span> (!presenter.isViewAttached()) &#123;</span><br><span class="line">                       Timber.v(<span class="string">"dispose"</span>);</span><br><span class="line">                       disposable.dispose();</span><br><span class="line">                       <span class="keyword">return</span>;</span><br><span class="line">                     &#125;</span><br><span class="line">                     presenter.addDisposable(disposable);</span><br><span class="line">                   &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> Observable&lt;Boolean&gt; <span class="title">getFilterFalseObservable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> observable.filter(aBoolean -&gt; !aBoolean);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Function&lt;Object, Completable&gt; CANCEL_COMPLETABLE =</span><br><span class="line">      ignore -&gt; Completable.error(<span class="keyword">new</span> CancellationException());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样原先的 RecordPresenter 就可以修改为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecordPresenter</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&lt;<span class="title">RecordMvpView</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> DataManager dataManager;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Inject</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">RecordPresenter</span><span class="params">(DataManager dataManager)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dataManager = dataManager;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryRecord</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    dataManager.queryRecord(page, count)</span><br><span class="line">               .compose(bindLifeCycle()) <span class="comment">// 关键代码</span></span><br><span class="line">               .subscribe(<span class="keyword">new</span> LifecycleSingleObserver&lt;List&lt;RecordResponse&gt;&gt;() &#123;</span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(List&lt;RecordResponse&gt; resp)</span> </span>&#123;</span><br><span class="line">                   Timber.i(<span class="string">"onSuccess --------------"</span>);</span><br><span class="line">                   getMvpView().showRecord(resp);</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">                   Timber.i(e, <span class="string">"onError --------------"</span>);</span><br><span class="line">                   getMvpView().showRecord(<span class="keyword">null</span>);</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 LifecycleSingleObserver 是为了简化 SingleObserver 引入的，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">LifecycleSingleObserver</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">SingleObserver</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，关于订阅的绑定及生命周期的问题已经在基类进行解决，具体使用时的代码大大简化（至少少了 5 行代码），只需加上一句 <code>.compose(bindLifeCycle())</code> 即可。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    (no title)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/09/07/it/tool/IDEA 小记/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title"></div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

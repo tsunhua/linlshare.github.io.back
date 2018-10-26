@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Lshare手札</title>
+    
+    
+        <meta name="keywords" content="Lshare手札">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Kotlin 函数函数声明123fun double(x: Int): Int&amp;#123;    return 2 * x&amp;#125; 描述：以fun为关键字，后接函数名，函数名后使用括号包裹函数参数，最后使用“:”+ 数据类型说明返回类型。 这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。 函数用法顶层函数直接调用 1val result = double(2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lshare手札">
+<meta property="og:url" content="http://linlshare.github.io/2017/12/14/it/kotlin/Kotlin函数/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="Kotlin 函数函数声明123fun double(x: Int): Int&amp;#123;    return 2 * x&amp;#125; 描述：以fun为关键字，后接函数名，函数名后使用括号包裹函数参数，最后使用“:”+ 数据类型说明返回类型。 这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。 函数用法顶层函数直接调用 1val result = double(2">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-16T10:07:02.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lshare手札">
+<meta name="twitter:description" content="Kotlin 函数函数声明123fun double(x: Int): Int&amp;#123;    return 2 * x&amp;#125; 描述：以fun为关键字，后接函数名，函数名后使用括号包裹函数参数，最后使用“:”+ 数据类型说明返回类型。 这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。 函数用法顶层函数直接调用 1val result = double(2">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            horby
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guitar
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/"></a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/"></a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/"></a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/"></a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/"></a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/"></a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Java 后端基础
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 1. Nginx/"></a></li>  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/"></a></li>  <li class="file"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 2. Servlet/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 5 .Spring/"></a></li>  <li class="file"><a href="/2018/01/03/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/"></a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 7. MySql/"></a></li>  <li class="file"><a href="/2018/01/08/it/java/Java 后端基础/Java 后端基础之 Spring Boot/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/it/java/aws/S3 Select for Java 使用记录/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/it/java/Java那些事/"></a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2017/12/14/it/kotlin/Kotlin函数/"></a></li>  <li class="file"><a href="/2017/12/07/it/kotlin/Kotlin的特性/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用小记/"></a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用手记/"></a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/"></a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 小记/"></a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/"></a></li>  <li class="file"><a href="/2018/10/26/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/"></a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/"></a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/"></a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/"></a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/"></a></li>  <li class="file"><a href="/2018/09/06/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/"></a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/"></a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/"></a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/"></a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/08/language/漢語言/古代漢語/《古代漢語》上一·文選/"></a></li>  <li class="file"><a href="/2018/08/23/language/漢語言/古代漢語/《古代漢語》上一·常用字/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/漢語言/字源/讀懂漢字偏旁部首/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/27/language/漢語言/汉语音韵中的四声八调及平仄/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語俚語小記/"></a></li>  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語拼音方案/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/18/thinking/movie/《海街日记》观后/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/thinking/一念廢立，貴在自律/"></a></li>  <li class="file"><a href="/2018/10/21/thinking/周记1021/"></a></li>  <li class="file"><a href="/2018/05/19/thinking/陆奇的故事/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/kotlin/Kotlin函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="Kotlin-函数"><a href="#Kotlin-函数" class="headerlink" title="Kotlin 函数"></a>Kotlin 函数</h1><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">double</span><span class="params">(x: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>描述：以fun为<strong>关键字</strong>，后接<strong>函数名</strong>，函数名后使用括号包裹<strong>函数参数</strong>，最后使用“:”+ 数据类型说明<strong>返回类型</strong>。</p>
+<p>这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。</p>
+<h3 id="函数用法"><a href="#函数用法" class="headerlink" title="函数用法"></a>函数用法</h3><p>顶层函数直接调用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = double(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>成员函数要先拿到对象实例才能调用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sample().foo()</span><br></pre></td></tr></table></figure>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><p>采用Pascal表示法定义，即 <em>name: type</em> ，参数采用逗号分隔，每个参数都须有显式类型：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">powerOf</span><span class="params">(number: <span class="type">Int</span>, exponent: <span class="type">Int</span>)</span></span>&#123;</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h4><p>参数可以设置默认值，当省略时使用默认值。</p>
+<p><u>解决的问题</u>：</p>
+<p>减少方法重载</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">read</span><span class="params">(b: <span class="type">Array</span>&lt;<span class="type">Byte</span>&gt;, off: <span class="type">Int</span> = <span class="number">0</span>, len: <span class="type">Int</span> = b.size)</span></span>&#123;</span><br><span class="line">  ......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(i: <span class="type">Int</span> = <span class="number">10</span>)</span></span>&#123;......&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>: <span class="type">A</span></span>()&#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(i: <span class="type">Int</span>)</span></span>&#123;......&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(bar: <span class="type">Int</span> = <span class="number">0</span>, baz: <span class="type">Int</span>)</span></span>&#123;......&#125;</span><br><span class="line">foo(baz = <span class="number">1</span>) <span class="comment">// bar使用默认值0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(bar: <span class="type">Int</span> = <span class="number">0</span>, baz: <span class="type">Int</span> = <span class="number">1</span>, qux:()</span></span>-&gt;<span class="built_in">Unit</span>)&#123;......&#125;</span><br><span class="line">foo(<span class="number">1</span>)&#123; println(<span class="string">"hello"</span>) &#125; <span class="comment">// baz使用默认值1</span></span><br><span class="line">foo()&#123; println(<span class="string">"hello"</span>) &#125; <span class="comment">// bar使用默认值0，baz使用默认值1</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>默认值通过在类型后面的 = 及给出的值来定义；</li>
+<li>覆盖方法总是使用与基类型方法相同的默认参数值，当覆盖一个带有默认参数值的方法时，必须从签名中省略默认参数值；</li>
+<li>若一个默认参数在一个无默认值的参数之前，那么该默认值只能通过<strong>命名参数</strong>调用来使用；</li>
+<li>若最后一个lambda表达式参数从括号外传给函数调用，那么允许默认参数不传值。</li>
+</ol>
+<p>且慢，从括号外传递函数作为函数参数？</p>
+<p>减少嵌套。</p>
+<h4 id="命名参数"><a href="#命名参数" class="headerlink" title="命名参数"></a>命名参数</h4><p>调用函数时使用命名的函数参数。</p>
+<p><u>解决的问题</u>：</p>
+<ol>
+<li>【可读性】当一个函数有大量参数时，看代码时很难直接看出值当意义所在；</li>
+<li>【明确值的传递】当默认参数在前面定义时，后面的值只能通过命名参数传递，否则会混乱，不清楚是赋给默认参数的还是无默认参数的值。</li>
+</ol>
+<h4 id="返回Unit的函数"><a href="#返回Unit的函数" class="headerlink" title="返回Unit的函数"></a>返回Unit的函数</h4><p>如果一个函数不返回任何有用的值，则其返回类型是Unit，不需要显式定义和返回。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printlnHello</span><span class="params">(name: <span class="type">String</span>?)</span></span>:<span class="built_in">Unit</span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (name == <span class="literal">null</span>) println(<span class="string">"Hello <span class="subst">$&#123;name&#125;</span>"</span>) <span class="keyword">else</span> println(<span class="string">"Hi there!"</span>)</span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">Unit</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相当于Java中的void。</p>
+<h4 id="单表达式函数"><a href="#单表达式函数" class="headerlink" title="单表达式函数"></a>单表达式函数</h4><p><u>表达式与语句的区别</u>：</p>
+<ol>
+<li>表达式（Expression），能被计算出结果的短语，包括带运算符的表达式、直接量表达式、对象和数组初始化表达式、函数定义表达式、属性访问表达式、函数调用表达式、创建对象表达式。</li>
+<li>语句（Statement）：表达式用于产生值，而语句用于make something happen。有些语句是由具有副作用（side-effect）的表达式构成，比如赋值和函数调用表达式、声明新的变量和定义函数时。</li>
+</ol>
+<p>单表达式即是一个表达式。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">double</span><span class="params">(x: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = x * <span class="number">2</span> <span class="comment">// 带运算符的表达式</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">double</span><span class="params">(x: <span class="type">Int</span>)</span></span> = x * <span class="number">2</span> <span class="comment">//当返回类型可推断时省略返回类型</span></span><br></pre></td></tr></table></figure>
+<h4 id="显式返回类型"><a href="#显式返回类型" class="headerlink" title="显式返回类型"></a>显式返回类型</h4><p>具有块代码体的函数必须始终显式指定返回类型，除非返回类型是Unit。Kotlin不会推断具有块代码体的函数的返回类型。</p>
+<h4 id="可变数量的参数（Varargs）"><a href="#可变数量的参数（Varargs）" class="headerlink" title="可变数量的参数（Varargs）"></a>可变数量的参数（Varargs）</h4><p>这跟java的可变形参类似，但kotlin使用<code>varargs</code>修饰，而java使用<code>...</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> <span class="title">asList</span><span class="params">(<span class="keyword">vararg</span> ts: <span class="type">T</span>)</span></span>: List&lt;T&gt;&#123;</span><br><span class="line">  <span class="keyword">val</span> result = ArrayList&lt;T&gt;()</span><br><span class="line">  <span class="keyword">for</span>(t <span class="keyword">in</span> ts)</span><br><span class="line">  	result.add(t)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="keyword">val</span> a = arrayOf(<span class="number">0</span>,<span class="number">9</span>,<span class="number">8</span>)</span><br><span class="line"><span class="keyword">val</span> ll = asList(<span class="number">1</span>,<span class="number">2</span>,*a,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>多个形参时，只有一个参数可以使用vararg；</li>
+<li>若vararg参数不是最后一个时，可以通过命名参数传值；</li>
+<li>若有一数组，希望将其内容传入该函数时，使用<strong>伸展操作符（*）</strong>拉平传入。</li>
+</ol>
+<h4 id="中缀表示法"><a href="#中缀表示法" class="headerlink" title="中缀表示法"></a>中缀表示法</h4><p>解决的问题：</p>
+<ol>
+<li>定义新的运算规则</li>
+</ol>
+<p>条件：</p>
+<ol>
+<li>成员函数或者扩展函数；</li>
+<li>只有一个参数；</li>
+<li>使用<code>infix</code>修饰fun。</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="function"><span class="keyword">fun</span> <span class="built_in">Int</span>.<span class="title">x</span><span class="params">(other: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = <span class="keyword">this</span> * other</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> result = <span class="number">1</span> x <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><ol>
+<li>顶层函数：直接值文件顶层声明的函数；</li>
+<li>局部函数：声明在函数里面的函数；</li>
+<li>成员函数：在类或对象内部定义的函数；</li>
+<li>扩展函数：扩展一个类的新功能而无需继承该类或使用装饰者这样的任何设计模式。</li>
+</ol>
+<h3 id="泛型函数"><a href="#泛型函数" class="headerlink" title="泛型函数"></a>泛型函数</h3><p>具备泛型参数的函数</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> <span class="title">singletonList</span><span class="params">(item: <span class="type">T</span>)</span></span>: List&lt;T&gt;&#123;</span><br><span class="line">  <span class="comment">//......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="尾递归函数"><a href="#尾递归函数" class="headerlink" title="尾递归函数"></a>尾递归函数</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tailrec</span> <span class="function"><span class="keyword">fun</span> <span class="title">findFixPoint</span><span class="params">(x: <span class="type">Double</span> = <span class="number">1.0</span>)</span></span>: <span class="built_in">Double</span></span><br><span class="line">        = <span class="keyword">if</span>(x == Math.cos(x)) x <span class="keyword">else</span> findFixPoint(Math.cos(x))</span><br></pre></td></tr></table></figure>
+<p>将循环算法改为递归函数形式来写，而无堆栈溢出风险，编译器会对该递归进行优化。</p>
+<p>使用限制：函数必须将自身调用作为它执行的最后一个操作。目前只在JVM后端支持。</p>
+<h3 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h3><h4 id="函数引用"><a href="#函数引用" class="headerlink" title="函数引用"></a>函数引用</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isOdd</span><span class="params">(x: <span class="type">Int</span>)</span></span> = x % <span class="number">2</span> !=<span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">isOdd</span><span class="params">(s: <span class="type">String</span>)</span></span> = s == <span class="string">"brilling"</span> || s == <span class="string">"slithy"</span> || s == <span class="string">"tove"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> numbers = listOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">println(numbers.filter(::isOdd)) <span class="comment">//可以重载</span></span><br></pre></td></tr></table></figure>
+<p><code>::isOdd</code> 是函数类型<code>(Int) -&gt; Boolean</code> 的一个值，<code>::</code>用于将函数作为值进行传递。</p>
+<p>使用成员函数或扩展函数进行引用：</p>
+<p><code>String.() -&gt; CharArray</code></p>
+<p>这样就限定了传入的函数必须为String 的扩展函数。</p>
+<h4 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h4><p>将函数用作参数或返回值的函数。</p>
+<p>Lock 函数示例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> <span class="title">lock</span><span class="params">(lock: <span class="type">Lock</span>, body: ()</span></span>-&gt;T):T&#123;</span><br><span class="line">  lock.lock()</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> body()</span><br><span class="line">  &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    lock.unlock()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方式1</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">toBeSynchronized</span><span class="params">()</span></span> = sharedresource.operation()</span><br><span class="line"><span class="keyword">val</span> result = lock(lock, ::toBeSynchronized)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方式2</span></span><br><span class="line"><span class="keyword">val</span> result = lock(lock, &#123;sharedResource.operation()&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方式3</span></span><br><span class="line"><span class="keyword">val</span> result = lock(lock)&#123;</span><br><span class="line">  sharedResource.operation()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Map函数示例</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T,R&gt;</span> List<span class="type">&lt;T&gt;</span>.map)<span class="params">(transform: (<span class="type">T</span>)</span></span> -&gt; R): List&lt;R&gt;&#123;</span><br><span class="line">  <span class="keyword">val</span> result = arrayListOf&lt;R&gt;()</span><br><span class="line">  <span class="keyword">for</span>(item <span class="keyword">in</span> <span class="keyword">this</span>)</span><br><span class="line">  	result.add(transform(item))</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用1</span></span><br><span class="line"><span class="keyword">val</span> doubled = ints.map&#123; value -&gt; value * <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用2</span></span><br><span class="line"><span class="keyword">val</span> doubled = ints.map&#123; it * <span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Lambda表达式-1"><a href="#Lambda表达式-1" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h4><p>规则：</p>
+<ol>
+<li>总是被大括号包围着；</li>
+<li>参数在<code>-&gt;</code>之前声明（参数类型可以省略）；</li>
+<li>函数体在<code>-&gt;</code>后面；</li>
+<li>如果函数的最后一个参数是一个函数，并且传递的是一个lambda表达式，则可以在圆括号之外指定它，以减少嵌套；</li>
+<li>如果lambda是调用的唯一参数，则调用中的圆括号可以完全省略；</li>
+<li>如果函数的字面值只有一个参数，那么可以它的声明可以省略（连同<code>-&gt;</code>），其名称为it；</li>
+<li>如果lambda表达式的参数未使用，那么可以使用下划线取代其名称（1.1 起）；</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.forEach&#123; _, value -&gt; prinln(<span class="string">"<span class="variable">$value</span>!"</span>) &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h3><p>解决的问题：高阶函数带来的运行时效率损失，因为每一个函数都是一个对象，并且会捕获一个闭包，即那些在函数题内会访问到的变量。</p>
+<p>使用<code>inline</code>修饰符修饰函数，使得编译器不为每个函数创建一个对象，而是进行内联，以lock函数为例，就是生成如下代码：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lock(l)&#123; foo() &#125;</span><br><span class="line"></span><br><span class="line">l.lock()</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  foo()</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">  l.unlock()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然也可以禁用内联，使用<code>noinline</code>修饰符</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(inlined: ()</span></span>-&gt; <span class="built_in">Unit</span>, <span class="keyword">noinline</span> notInlined: ()-&gt; <span class="built_in">Unit</span>)&#123;</span><br><span class="line">  <span class="comment">// .....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非局部返回（位于lambda表达式中，但退出包含它的函数）"><a href="#非局部返回（位于lambda表达式中，但退出包含它的函数）" class="headerlink" title="非局部返回（位于lambda表达式中，但退出包含它的函数）"></a>非局部返回（位于lambda表达式中，但退出包含它的函数）</h4><p>在Kotlin中我们可以只使用一个正常的、非限定的<code>return</code>来退出一个命名或匿名的函数。这意味着要退出一个lambda表达式，我们必须使用一个标签🏷️，并且在lambda表达式内部🈲️止使用裸<code>return</code>，因为lambda表达式不能使包含它的函数返回：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ordinaryFunction&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="comment">// Error，不能使foo在此处返回</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">  inlineFunction&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="comment">// Ok, 内联的可以做到</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    (no title)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/12/07/it/kotlin/Kotlin的特性/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title"></div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

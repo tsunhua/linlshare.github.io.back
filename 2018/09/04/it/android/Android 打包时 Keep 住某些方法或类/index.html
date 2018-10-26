@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Lshare手札</title>
+    
+    
+        <meta name="keywords" content="Lshare手札">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="1234567891011121314151617# $&amp;#123;android_sdk&amp;#125;/tools/proguard/proguard-android.txt# Understand the @Keep support annotation.-keep class android.support.annotation.Keep-keep @android.support.annot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lshare手札">
+<meta property="og:url" content="http://linlshare.github.io/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="1234567891011121314151617# $&amp;#123;android_sdk&amp;#125;/tools/proguard/proguard-android.txt# Understand the @Keep support annotation.-keep class android.support.annotation.Keep-keep @android.support.annot">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-04T09:37:57.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lshare手札">
+<meta name="twitter:description" content="1234567891011121314151617# $&amp;#123;android_sdk&amp;#125;/tools/proguard/proguard-android.txt# Understand the @Keep support annotation.-keep class android.support.annotation.Keep-keep @android.support.annot">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            horby
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guitar
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/"></a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/"></a></li>  <li class="file active"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/"></a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/"></a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/"></a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/"></a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Java 后端基础
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 1. Nginx/"></a></li>  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/"></a></li>  <li class="file"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 2. Servlet/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 5 .Spring/"></a></li>  <li class="file"><a href="/2018/01/03/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/"></a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 7. MySql/"></a></li>  <li class="file"><a href="/2018/01/08/it/java/Java 后端基础/Java 后端基础之 Spring Boot/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/it/java/aws/S3 Select for Java 使用记录/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/it/java/Java那些事/"></a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/14/it/kotlin/Kotlin函数/"></a></li>  <li class="file"><a href="/2017/12/07/it/kotlin/Kotlin的特性/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用小记/"></a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用手记/"></a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/"></a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 小记/"></a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/"></a></li>  <li class="file"><a href="/2018/10/26/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/"></a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/"></a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/"></a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/"></a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/"></a></li>  <li class="file"><a href="/2018/09/06/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/"></a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/"></a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/"></a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/"></a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/08/language/漢語言/古代漢語/《古代漢語》上一·文選/"></a></li>  <li class="file"><a href="/2018/08/23/language/漢語言/古代漢語/《古代漢語》上一·常用字/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/漢語言/字源/讀懂漢字偏旁部首/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/27/language/漢語言/汉语音韵中的四声八调及平仄/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語俚語小記/"></a></li>  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語拼音方案/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/18/thinking/movie/《海街日记》观后/"></a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/02/thinking/一念廢立，貴在自律/"></a></li>  <li class="file"><a href="/2018/10/21/thinking/周记1021/"></a></li>  <li class="file"><a href="/2018/05/19/thinking/陆奇的故事/"></a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/android/Android 打包时 Keep 住某些方法或类" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> $&#123;android_sdk&#125;/tools/proguard/proguard-android.txt</span><br><span class="line"><span class="meta">#</span> Understand the @Keep support annotation.</span><br><span class="line">-keep class android.support.annotation.Keep</span><br><span class="line"></span><br><span class="line">-keep @android.support.annotation.Keep class * &#123;*;&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;fields&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;init&gt;(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android/support/annotation/Keep.java</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Denotes that the annotated element should not be removed when</span></span><br><span class="line"><span class="comment"> * the code is minified at build time. This is typically used</span></span><br><span class="line"><span class="comment"> * on methods and classes that are accessed only via reflection</span></span><br><span class="line"><span class="comment"> * so a compiler may think that the code is unused.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * Example:</span></span><br><span class="line"><span class="comment"> * &lt;pre&gt;&lt;code&gt;</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Keep</span></span></span><br><span class="line"><span class="comment"> *  public void foo() &#123;</span></span><br><span class="line"><span class="comment"> *      ...</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> * &lt;/code&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Retention</span>(CLASS)</span><br><span class="line"><span class="meta">@Target</span>(&#123;PACKAGE,TYPE,ANNOTATION_TYPE,CONSTRUCTOR,METHOD,FIELD&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Keep &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// <a href="https://www.guardsquare.com/en/products/proguard/manual/usage" target="_blank" rel="noopener">https://www.guardsquare.com/en/products/proguard/manual/usage</a></p>
+<h3 id="File-filters"><a href="#File-filters" class="headerlink" title="File filters"></a>File filters</h3><p> Like general <a href="https://www.guardsquare.com/proguard/manual/usage#filters" target="_blank" rel="noopener">filters</a>, a file filter is a comma-separated list of file names that can contain wildcards. Only files with matching file names are read (in the case of input jars), or written (in the case of output jars). The following wildcards are supported:</p>
+<table>
+<thead>
+<tr>
+<th><strong>?</strong></th>
+<th>matches any single character in a file name.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>*</strong></td>
+<td>matches any part of a filename not containing the directory separator.</td>
+</tr>
+<tr>
+<td><strong><em>\</em></strong></td>
+<td>matches any part of a filename, possibly containing any number of directory separators.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, “<code>java/**.class,javax/**.class</code>“ matches all class files in the <code>java</code> and <code>javax</code>.</p>
+<p>Furthermore, a file name can be preceded by an exclamation mark ‘<strong>!</strong>‘ to <em>exclude</em> the file name from further attempts to match with <em>subsequent</em> file names.</p>
+<p>For example, “<code>!**.gif,images/**</code>“ matches all files in the <code>images</code> directory, except gif files.</p>
+<h3 id="Class-specifications"><a href="#Class-specifications" class="headerlink" title="Class specifications"></a>Class specifications</h3><p> A class specification is a template of classes and class members (fields and methods). It is used in the various <code>-keep</code> options and in the <code>-assumenosideeffects</code> option. The corresponding option is only applied to classes and class members that match the template.</p>
+<p>The template was designed to look very Java-like, with some extensions for wildcards. To get a feel for the syntax, you should probably look at the <a href="https://www.guardsquare.com/proguard/manual/examples" target="_blank" rel="noopener">examples</a>, but this is an attempt at a complete formal definition:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">@annotationtype</span>] [[!]<span class="keyword">public</span>|<span class="keyword">final</span>|<span class="keyword">abstract</span>|@ ...] [!]<span class="class"><span class="keyword">interface</span>|<span class="title">class</span>|<span class="title">enum</span> <span class="title">classname</span></span></span><br><span class="line">    [extends|implements [@annotationtype] classname]</span><br><span class="line">[&#123;</span><br><span class="line">    [<span class="meta">@annotationtype</span>] [[!]<span class="keyword">public</span>|<span class="keyword">private</span>|<span class="keyword">protected</span>|<span class="keyword">static</span>|<span class="keyword">volatile</span>|<span class="keyword">transient</span> ...] &lt;fields&gt; |</span><br><span class="line">                                                                      (fieldtype fieldname);</span><br><span class="line">    [<span class="meta">@annotationtype</span>] [[!]<span class="keyword">public</span>|<span class="keyword">private</span>|<span class="keyword">protected</span>|<span class="keyword">static</span>|<span class="keyword">synchronized</span>|<span class="keyword">native</span>|<span class="keyword">abstract</span>|<span class="keyword">strictfp</span> ...] &lt;methods&gt; |</span><br><span class="line">                                                                                           &lt;init&gt;(argumenttype,...) |</span><br><span class="line">                                                                                           classname(argumenttype,...) |</span><br><span class="line">                                                                                           (<span class="function">returntype <span class="title">methodname</span><span class="params">(argumenttype,...)</span>)</span>;</span><br><span class="line">    [<span class="meta">@annotationtype</span>] [[!]<span class="keyword">public</span>|<span class="keyword">private</span>|<span class="keyword">protected</span>|<span class="keyword">static</span> ... ] *;</span><br><span class="line">    ...</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>Square brackets “[ ]” mean that their contents are optional. Ellipsis dots “…” mean that any number of the preceding items may be specified. A vertical bar “|” delimits two alternatives. Non-bold parentheses “()” just group parts of the specification that belong together. The indentation tries to clarify the intended meaning, but white-space is irrelevant in actual configuration files.</p>
+<ul>
+<li><p>The <code>class</code> keyword refers to any interface or class. The <code>interface</code> keyword restricts matches to interface classes. The <code>enum</code> keyword restricts matches to enumeration classes. Preceding the <code>interface</code> or <code>enum</code> keywords by a <code>!</code> restricts matches to classes that are not interfaces or enumerations, respectively.</p>
+</li>
+<li><p>Every classname must be fully qualified, e.g. java.lang.String.Inner classes are separated by a dollar sign “\$”, e.g. <code>java.lang.Thread$State</code></p>
+<p>. Class names may be specified as regular expressions containing the following wildcards:</p>
+<p>| <strong>?</strong>   | matches any single character in a class name, but not the package separator. For example, “<code>com.example.Test?</code>“ matches “<code>com.example.Test1</code>“ and “<code>com.example.Test2</code>“, but not “<code>com.example.Test12</code>“. |<br>| ——- | ———————————————————— |<br>| <strong>*</strong>   | matches any part of a class name not containing the package separator. For example, “<code>com.example.*Test*</code>“ matches “<code>com.example.Test</code>“ and “<code>com.example.YourTestApplication</code>“, but not “<code>com.example.mysubpackage.MyTest</code>“. Or, more generally, “<code>com.example.*</code>“ matches all classes in “<code>com.example</code>“, but not in its subpackages. |<br>| <strong><em>\</em></strong> | matches any part of a class name, possibly containing any number of package separators. For example, “<code>**.Test</code>“ matches all <code>Test</code> classes in all packages except the root package. Or, “<code>com.example.**</code>“ matches all classes in “<code>com.example</code>“ and in its subpackages. |<br>| <strong><n></n></strong> | matches the <em>n</em>‘th matched wildcard in the same option. For example, “<code>com.example.*Foo&lt;1&gt;</code>“ matches “<code>com.example.BarFooBar</code>“. |</p>
+<p>For additional flexibility, class names can actually be comma-separated lists of class names, with optional <strong>!</strong> negators, just like file name filters. This notation doesn’t look very Java-like, so it should be used with moderation.</p>
+<p>For convenience and for backward compatibility, the class name <strong>*</strong> refers to any class, irrespective of its package.</p>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/09/05/language/漢語言/字源/讀懂漢字偏旁部首/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    (no title)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/09/04/language/日語/日語五十音考/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title"></div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
