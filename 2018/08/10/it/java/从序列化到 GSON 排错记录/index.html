@@ -3,22 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>Lshare手札</title>
+    <title>从序列化到 Gson 排错记录 | Lshare手札</title>
     
     
-        <meta name="keywords" content="Lshare手札">
+        <meta name="keywords" content="Java,Gson">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="写在前面序列化、反序列化和持久化序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。 序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。 第一种：对象输入输出流1">
+<meta name="keywords" content="Java,Gson">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lshare手札">
+<meta property="og:title" content="从序列化到 Gson 排错记录">
 <meta property="og:url" content="http://linlshare.github.io/2018/08/10/it/java/从序列化到 GSON 排错记录/index.html">
 <meta property="og:site_name" content="Lshare手札">
 <meta property="og:description" content="写在前面序列化、反序列化和持久化序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。 序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。 第一种：对象输入输出流1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T15:15:05.403Z">
+<meta property="og:updated_time" content="2018-10-26T16:06:14.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lshare手札">
+<meta name="twitter:title" content="从序列化到 Gson 排错记录">
 <meta name="twitter:description" content="写在前面序列化、反序列化和持久化序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。 序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。 第一种：对象输入输出流1">
     
 
@@ -166,7 +167,7 @@
                             &nbsp;
                             culture
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -182,7 +183,7 @@
                             &nbsp;
                             typeface
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -200,7 +201,7 @@
                             &nbsp;
                             guitar
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/">1. 认识吉他</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -218,7 +219,7 @@
                             &nbsp;
                             android
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/"></a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/"></a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/"></a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/"></a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/"></a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -227,7 +228,7 @@
                             &nbsp;
                             code
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/"></a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -243,7 +244,7 @@
                             &nbsp;
                             Java 后端基础
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 1. Nginx/"></a></li>  <li class="file"><a href="/2017/12/27/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/"></a></li>  <li class="file"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 2. Servlet/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/"></a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 5 .Spring/"></a></li>  <li class="file"><a href="/2018/01/03/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/"></a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 7. MySql/"></a></li>  <li class="file"><a href="/2018/01/08/it/java/Java 后端基础/Java 后端基础之 Spring Boot/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">Java 后端基础之 1. Nginx</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/">Java 后端基础之 0. Tomcat</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 2. Servlet/">Java 后端基础之 2. Servlet</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/">Java 后端基础之 4. Maven</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/">Java 后端基础之 3. JSP</a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 5 .Spring/">Java 后端基础之 5 .Spring</a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/">Java 后端基础之 6 .Spring MVC</a></li>  <li class="file"><a href="/2018/01/06/it/java/Java 后端基础/Java 后端基础之 7. MySql/">Java 后端基础之 7. MySql</a></li>  <li class="file"><a href="/2018/01/07/it/java/Java 后端基础/Java 后端基础之 Spring Boot/">Java 后端基础之 8. Spring Boot</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -252,9 +253,9 @@
                             &nbsp;
                             aws
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/it/java/aws/S3 Select for Java 使用记录/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/09/02/it/java/Java那些事/"></a></li>  <li class="file active"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/"></a></li>  </ul> 
+                     <li class="file active"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -263,7 +264,7 @@
                             &nbsp;
                             kotlin
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/14/it/kotlin/Kotlin函数/"></a></li>  <li class="file"><a href="/2017/12/07/it/kotlin/Kotlin的特性/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -272,7 +273,7 @@
                             &nbsp;
                             tool
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用小记/"></a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用手记/"></a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/"></a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 小记/"></a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/"></a></li>  <li class="file"><a href="/2018/10/26/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/"></a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/"></a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/"></a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/">Git 实战记录</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/">Vim 小记</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/">Linux命令总结</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用笔记/">Axure 使用笔记</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用笔记/">Draw.io 使用笔记</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 使用笔记/">IDEA 使用笔记</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -297,7 +298,7 @@
                             &nbsp;
                             Bible
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -308,7 +309,7 @@
                             &nbsp;
                             日語
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/"></a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/"></a></li>  <li class="file"><a href="/2018/09/06/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/"></a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/"></a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/"></a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/"></a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -324,7 +325,7 @@
                             &nbsp;
                             古代漢語
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/08/language/漢語言/古代漢語/《古代漢語》上一·文選/"></a></li>  <li class="file"><a href="/2018/08/23/language/漢語言/古代漢語/《古代漢語》上一·常用字/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -333,9 +334,9 @@
                             &nbsp;
                             字源
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/漢語言/字源/讀懂漢字偏旁部首/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/09/27/language/漢語言/汉语音韵中的四声八调及平仄/"></a></li>  </ul> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -344,7 +345,7 @@
                             &nbsp;
                             閩南語
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語俚語小記/"></a></li>  <li class="file"><a href="/2018/09/05/language/閩南語/閩南語拼音方案/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -362,9 +363,9 @@
                             &nbsp;
                             movie
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/18/thinking/movie/《海街日记》观后/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/09/02/thinking/一念廢立，貴在自律/"></a></li>  <li class="file"><a href="/2018/10/21/thinking/周记1021/"></a></li>  <li class="file"><a href="/2018/05/19/thinking/陆奇的故事/"></a></li>  </ul> 
+                     <li class="file"><a href="/2018/10/21/thinking/周记1021/">周记1021</a></li>  <li class="file"><a href="/2018/05/29/thinking/陆奇的故事/">陆奇的故事</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -441,6 +442,56 @@
     <div class="article-inner">
         
         
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Gson/">Gson</a>, <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">
+            <time datetime="2018-08-10T15:15:00.000Z" itemprop="datePublished">2018-08-10</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/从序列化到 GSON 排错记录.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/从序列化到 GSON 排错记录.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/从序列化到 GSON 排错记录.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            从序列化到 Gson 排错记录
+        </h1>
+    
+
+            </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -475,7 +526,7 @@
             <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    (no title)
+                    开发一个第三方库的一般性和团队特定规则
                 
             </div>
         </a>
@@ -483,7 +534,7 @@
     
         <a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title"></div>
+            <div class="article-nav-title">Genesis 1 @Old Testament</div>
         </a>
     
 </nav>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Java 后端基础之 1. Nginx | Lshare手札</title>
+    
+    
+        <meta name="keywords" content="Java,Nginx">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Nginx是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。 安装 编译安装  linux下安装方式： 12345yum -y install gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel //下载依赖库configure --prefix=/opt/nginx/ //进行环境配置,设置安装位置maks &amp;amp">
+<meta name="keywords" content="Java,Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 后端基础之 1. Nginx">
+<meta property="og:url" content="http://linlshare.github.io/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="Nginx是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。 安装 编译安装  linux下安装方式： 12345yum -y install gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel //下载依赖库configure --prefix=/opt/nginx/ //进行环境配置,设置安装位置maks &amp;amp">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-26T16:00:19.224Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 后端基础之 1. Nginx">
+<meta name="twitter:description" content="Nginx是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。 安装 编译安装  linux下安装方式： 12345yum -y install gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel //下载依赖库configure --prefix=/opt/nginx/ //进行环境配置,设置安装位置maks &amp;amp">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Entradas',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Categorias</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            horby
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guitar
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/">1. 认识吉他</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Java 后端基础
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">Java 后端基础之 1. Nginx</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/">Java 后端基础之 0. Tomcat</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 2. Servlet/">Java 后端基础之 2. Servlet</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/">Java 后端基础之 4. Maven</a></li>  <li class="file"><a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/">Java 后端基础之 3. JSP</a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 5 .Spring/">Java 后端基础之 5 .Spring</a></li>  <li class="file"><a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 6. Spring MVC/">Java 后端基础之 6 .Spring MVC</a></li>  <li class="file"><a href="/2018/01/06/it/java/Java 后端基础/Java 后端基础之 7. MySql/">Java 后端基础之 7. MySql</a></li>  <li class="file"><a href="/2018/01/07/it/java/Java 后端基础/Java 后端基础之 Spring Boot/">Java 后端基础之 8. Spring Boot</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/">Git 实战记录</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/">Vim 小记</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/">Linux命令总结</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用笔记/">Axure 使用笔记</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用笔记/">Draw.io 使用笔记</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 使用笔记/">IDEA 使用笔记</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/10/21/thinking/周记1021/">周记1021</a></li>  <li class="file"><a href="/2018/05/29/thinking/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/java/Java 后端基础/Java 后端基础之 1. Nginx" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/Java-后端基础/">Java 后端基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Nginx/">Nginx</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">
+            <time datetime="2017-12-28T03:56:00.000Z" itemprop="datePublished">2017-12-28</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Java 后端基础之 1. Nginx
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>编译安装</li>
+</ol>
+<p>linux下安装方式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel //下载依赖库</span><br><span class="line"></span><br><span class="line">configure --prefix=/opt/nginx/ //进行环境配置,设置安装位置</span><br><span class="line"></span><br><span class="line">maks &amp;&amp; make install // 编译安装</span><br></pre></td></tr></table></figure>
+<p>mac下安装方式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nginx // 会自动安装需要的依赖</span><br></pre></td></tr></table></figure>
+<p>提示信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that</span><br><span class="line">nginx can run without sudo.</span><br><span class="line"></span><br><span class="line">nginx will load all files in /usr/local/etc/nginx/servers/.</span><br><span class="line"></span><br><span class="line">To have launchd start nginx now and restart at login:</span><br><span class="line">  brew services start nginx</span><br><span class="line">Or, if you don't want/need a background service you can just run:</span><br><span class="line">  nginx</span><br></pre></td></tr></table></figure>
+<p>HomeBrew 是一款自由即开放源代码的软件包管理系统，用于Mac OS X系统上的软件安装过程。</p>
+<p>依赖列表：</p>
+<table>
+<thead>
+<tr>
+<th>gcc</th>
+<th>编译程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pcre pcre-devel</td>
+<td>configure过程需要的正则表达式</td>
+</tr>
+<tr>
+<td>zlib zlib-devel</td>
+<td>传输内容压缩</td>
+</tr>
+<tr>
+<td>openssl openssl-devel</td>
+<td>开启https支持需要</td>
+</tr>
+</tbody>
+</table>
+<p>注意：devel包含普通包，且多了头文件，编译时需要。</p>
+<p>补充：Https、SSL与OpenSSL三者关系</p>
+<table>
+<thead>
+<tr>
+<th>HTTPS</th>
+<th>Hyper Text Transfer Protocol over Secure Socket Layer</th>
+<th>HTTP的加密版本，底层使用SSL作为加密协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSL</td>
+<td>Secure Socket Layer（安全套接字层）</td>
+<td>在客户端和服务器之间建立一条SSL安全通道的加密协议</td>
+</tr>
+<tr>
+<td>OpenSSL</td>
+<td>–</td>
+<td>TLS/SSL协议的开源实现，提供开放库和命令行程序</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>Transport Layer Security（传输层安全协议）</td>
+<td>用于两个应用程序之间提供保密性和数据完整性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="启动与关闭"><a href="#启动与关闭" class="headerlink" title="启动与关闭"></a>启动与关闭</h4><p>进入nginx安装目录的<code>sbin</code>文件夹</p>
+<p>执行<code>nginx</code>，将启动两个nginx进程，分别是：</p>
+<p>master 进程：守护进程</p>
+<p>work进程 ：用于响应请求。</p>
+<p>执行<code>nginx -s stop</code> 关闭进程</p>
+<p>执行<code>nginx -s reload</code>重启进程</p>
+<p>自启动：编辑系统启动自动执行的脚本文件，在centos下是/etc/rc.d/rc.local ，增加nginx启动命令即可。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>编辑 nginx.conf 文件 </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 顶层配置信息，管理服务器级别行为</span></span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># event指令与事件模型有关，配置处理连接有关信息</span></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># http指令处理http请求</span></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="comment">#文件扩展名与文件类型映射表</span></span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="comment">#默认文件类型</span></span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">    <span class="comment">#                  '$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">    <span class="comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line">     <span class="comment">#开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改 成off。</span></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#防止网络阻塞</span></span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#长连接超时时间，单位是秒</span></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#开启gzip压缩输出</span></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#虚拟主机的配置，根据server_name进行匹配，当匹配不到时将请求发给第一个server</span></span><br><span class="line">    <span class="section">server</span> &#123; </span><br><span class="line">        <span class="comment">#监听端口</span></span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">8080</span>;</span><br><span class="line">        <span class="comment">#域名可以有多个，用空格隔开</span></span><br><span class="line">        <span class="attribute">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#默认编码</span></span><br><span class="line">        <span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#定义本虚拟主机的访问日志</span></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">allow</span> <span class="number">192.168.10.100</span>;</span><br><span class="line">            <span class="attribute">allow</span> <span class="number">172.29.73.0</span>/<span class="number">24</span>;</span><br><span class="line">            <span class="attribute">deny</span> all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="attribute">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    root           html;</span></span><br><span class="line">        <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">        <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">        <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">        <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">        <span class="comment"># concurs with nginx's one</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">        <span class="comment">#    deny  all;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># another virtual host using mix of IP-, name-, and port-based configuration</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       8000;</span></span><br><span class="line">    <span class="comment">#    listen       somename:8080;</span></span><br><span class="line">    <span class="comment">#    server_name  somename  alias  another.alias;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># HTTPS server</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       443 ssl;</span></span><br><span class="line">    <span class="comment">#    server_name  localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_certificate      cert.pem;</span></span><br><span class="line">    <span class="comment">#    ssl_certificate_key  cert.key;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_session_cache    shared:SSL:1m;</span></span><br><span class="line">    <span class="comment">#    ssl_session_timeout  5m;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span></span><br><span class="line">    <span class="comment">#    ssl_prefer_server_ciphers  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">    <span class="attribute">include</span> servers/*;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>location 表达式</strong></p>
+<p>syntax：<code>location [=|~|~*|^~|@] /uri/ {…}</code></p>
+<p>分为两种匹配模式 ：</p>
+<ol>
+<li>普通字符串匹配：无开头引导字符或以=开头表示普通字符串的匹配</li>
+<li>正则匹配：以<code>~</code>或<code>~*</code>开头表示正则匹配<code>~*</code>表示不区分大小写</li>
+</ol>
+<p>多个location时匹配规则：先普通后正则，只识别URI部分。例如请求为 <code>/test/1/abc.do?arg=xxx</code>：</p>
+<ol>
+<li><p>先查找是否有=开头的精确匹配，即<code>location = /test/1/abc.do {...}</code></p>
+</li>
+<li><p>再查找普通匹配，以 <em>最大前缀</em> 为规则，如有以下两个location</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">location /test/ &#123;...&#125;</span><br><span class="line">location /test/1 &#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>则匹配后一项</p>
+</li>
+<li><p>匹配到一个普通格式后，搜索并未结束，而是暂存当前结果，并继续搜索正则模式</p>
+</li>
+<li><p>在所有正则模式location中找到第一个匹配项后，以此匹配项为最终结果。所有正则匹配项匹配规则受定义前后顺序影响，但普通匹配不会</p>
+</li>
+<li><p>如果未找到正则匹配项，则以3中缓存的结果为最终结果</p>
+</li>
+<li><p>如果一个匹配都没有，返回404</p>
+</li>
+</ol>
+<p><code>location =/ {…}</code> 与 <code>location / {...}</code> 的差别：</p>
+<p>前一个是精确匹配，只响应<code>/</code>请求，所有<code>/xxx</code>类请求不会以前缀匹配形式匹配到它</p>
+<p>而后一个正相反，所有请求必然以<code>/</code>开头，所以没有其他匹配结果时一定会执行到它。</p>
+<p><code>location ^~ / {...}</code> <code>^~</code>表示非正则，表示匹配到此模式后不再继续正则搜索。因为一个请求在普通匹配规则下没得到其它普通匹配结果时，最终会匹配到这里，而这里又不允许正则，相当于匹配到此为止。 <code>/test/abc.jsp</code></p>
+<p><code>deny all;</code> 拒绝请求，返回403</p>
+<p><code>allow 192.168.10.0/24;</code> 允许指定IP段通过<br><code>proxy_pass http://192.168.1.61:8080;</code> 将匹配的请求代理到另一地址进行处理</p>
+<p>@类似于变量定义，比如：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">error_page</span> <span class="number">403</span> <span class="variable">@page403</span>;</span><br><span class="line"><span class="attribute">locaion</span> <span class="variable">@page403</span> &#123;</span><br><span class="line">  <span class="attribute">proxy_pass</span> http://www.xxx.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    Java 后端基础之 0. Tomcat
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/12/17/it/kotlin/Kotlin的特性/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">Kotlin的特性</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
