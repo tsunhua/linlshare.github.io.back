@@ -131,3 +131,33 @@ hexo g == hexo generate
 hexo s == hexo server
 hexo d == hexo deploy
 ```
+
+### 使用 Wikitten 主题
+
+访问 [hexo-theme-Wikitten](https://github.com/zthxxx/hexo-theme-Wikitten) 了解如何安装该款主题。
+
+### 默认显示文章目录（toc as default）
+
+在 `hemes/Wikitten/layout/common` 找到 `article.ejs` ，并修改
+
+```ejs
+<% if (post.toc) { %>
+<div id="toc" class="toc-article">
+<strong class="toc-title"><%= __('article.catalogue') %></strong>
+<%- toc(post.content) %>
+</div>
+<% } %>
+```
+
+为
+
+```ejs
+<% if (post.toc!=false) { %>
+<div id="toc" class="toc-article">
+<strong class="toc-title"><%= __('article.catalogue') %></strong>
+<%- toc(post.content) %>
+</div>
+<% } %>
+```
+
+然后重新生成部署（`hexo g -d`）即可。
