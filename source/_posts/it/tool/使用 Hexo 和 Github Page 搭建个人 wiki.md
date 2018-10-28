@@ -161,3 +161,27 @@ hexo d == hexo deploy
 ```
 
 然后重新生成部署（`hexo g -d`）即可。
+
+### 引用本地图片
+
+按照官方的 [asset-folders](https://hexo.io/zh-cn/docs/asset-folders.html) 的方法处理图片引用，在本地预览时是无法显示的，参考文章 [hexo中完美插入本地图片](http://etrd.org/2017/01/23/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/) ，总结出如下的解决方案：
+
+（1）开启 `post_asset_folder`
+
+```ym
+// config.yml
+post_asset_folder: true
+```
+
+（2）安装 `hexo-asset-image` 插件
+
+```shell
+npm install https://github.com/CodeFalling/hexo-asset-image --save
+```
+
+（3）使用方式
+
+1. 在与 `_posts/my_article.md`的平级位置上创建文件夹 `my_article`；
+2. 放置 `my_article.md` 文件中引用到的图片，例如 `my_pic.jpg`；
+3. 在 `my_article.md` 以 `![my_pic](my_article/my_pic.jpg)` 方式引用。
+
