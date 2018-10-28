@@ -132,11 +132,11 @@ hexo s == hexo server
 hexo d == hexo deploy
 ```
 
-### 使用 Wikitten 主题
+## 使用 Wikitten 主题
 
 访问 [hexo-theme-Wikitten](https://github.com/zthxxx/hexo-theme-Wikitten) 了解如何安装该款主题。
 
-### 默认显示文章目录（toc as default）
+## 默认显示文章目录（toc as default）
 
 在 `hemes/Wikitten/layout/common` 找到 `article.ejs` ，并修改
 
@@ -162,7 +162,7 @@ hexo d == hexo deploy
 
 然后重新生成部署（`hexo g -d`）即可。
 
-### 引用本地图片
+## 引用本地图片
 
 按照官方的 [asset-folders](https://hexo.io/zh-cn/docs/asset-folders.html) 的方法处理图片引用，在本地预览时是无法显示的，参考文章 [hexo中完美插入本地图片](http://etrd.org/2017/01/23/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/) ，总结出如下的解决方案：
 
