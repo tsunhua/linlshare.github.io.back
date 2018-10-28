@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Lshare手札">
 <meta property="og:description" content="Hexo 安装需要环境 Node.js Git  命令1234567npm install hexo-cli -gnpm install hexo --savenpm install hexo-servernpm install hexo-deployer-git --save#如果命令无法运行，可以尝试更换taobao的npm源npm install -g cnpm --registry=htt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T15:47:06.317Z">
+<meta property="og:updated_time" content="2018-10-28T16:08:21.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Hexo 和 Github Page 搭建个人 wiki">
 <meta name="twitter:description" content="Hexo 安装需要环境 Node.js Git  命令1234567npm install hexo-cli -gnpm install hexo --savenpm install hexo-servernpm install hexo-deployer-git --save#如果命令无法运行，可以尝试更换taobao的npm源npm install -g cnpm --registry=htt">
@@ -415,7 +415,7 @@ ga('send', 'pageview');
                             &nbsp;
                             自省
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/08/14/thinking/自省/不苟同的生活/">不苟同的生活</a></li>  <li class="file"><a href="/2018/10/21/thinking/自省/周记1021/">周记1021</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/08/14/thinking/自省/不苟同的生活/">不苟同的生活</a></li>  <li class="file"><a href="/2018/10/21/thinking/自省/周记1021/">周记1021</a></li>  <li class="file"><a href="/2018/10/28/thinking/自省/周记1028/">周记1028</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2017/01/25/thinking/美感三言/">美感三言</a></li>  </ul> 
                     </li> 
@@ -551,7 +551,7 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-安装"><span class="toc-number">1.</span> <span class="toc-text">Hexo 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要环境"><span class="toc-number">1.1.</span> <span class="toc-text">需要环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">1.2.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本配置"><span class="toc-number">1.3.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题配置"><span class="toc-number">1.4.</span> <span class="toc-text">主题配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写作"><span class="toc-number">1.5.</span> <span class="toc-text">写作</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-安装"><span class="toc-number">1.</span> <span class="toc-text">Hexo 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要环境"><span class="toc-number">1.1.</span> <span class="toc-text">需要环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-number">1.2.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本配置"><span class="toc-number">1.3.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题配置"><span class="toc-number">1.4.</span> <span class="toc-text">主题配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写作"><span class="toc-number">1.5.</span> <span class="toc-text">写作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Wikitten-主题"><span class="toc-number">1.6.</span> <span class="toc-text">使用 Wikitten 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认显示文章目录（toc-as-default）"><span class="toc-number">1.7.</span> <span class="toc-text">默认显示文章目录（toc as default）</span></a></li></ol></li></ol>
                 </div>
             
         
@@ -571,6 +571,13 @@ ga('send', 'pageview');
 <h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>使用hexo new “newpost”创建一个新文件，然后使用hexo d -g生成并部署到github上。注意在_config.yml中配置的deploy的repository要看是否电脑有多个github账号。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#常用命令</span><br><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#简写</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Wikitten-主题"><a href="#使用-Wikitten-主题" class="headerlink" title="使用 Wikitten 主题"></a>使用 Wikitten 主题</h3><p>访问 <a href="https://github.com/zthxxx/hexo-theme-Wikitten" target="_blank" rel="noopener">hexo-theme-Wikitten</a> 了解如何安装该款主题。</p>
+<h3 id="默认显示文章目录（toc-as-default）"><a href="#默认显示文章目录（toc-as-default）" class="headerlink" title="默认显示文章目录（toc as default）"></a>默认显示文章目录（toc as default）</h3><p>在 <code>hemes/Wikitten/layout/common</code> 找到 <code>article.ejs</code> ，并修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.toc) &#123; %&gt;</span><br><span class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</span><br><span class="line">&lt;strong class=&quot;toc-title&quot;&gt;&lt;%= __(&apos;article.catalogue&apos;) %&gt;&lt;/strong&gt;</span><br><span class="line">&lt;%- toc(post.content) %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.toc!=false) &#123; %&gt;</span><br><span class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</span><br><span class="line">&lt;strong class=&quot;toc-title&quot;&gt;&lt;%= __(&apos;article.catalogue&apos;) %&gt;&lt;/strong&gt;</span><br><span class="line">&lt;%- toc(post.content) %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>然后重新生成部署（<code>hexo g -d</code>）即可。</p>
+
             </div>
         
         <footer class="article-footer">
