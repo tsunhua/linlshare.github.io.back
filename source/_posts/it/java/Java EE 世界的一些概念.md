@@ -25,7 +25,7 @@ Java平台企业版，2018年3月更名为 **Jakarta EE**。Jave EE 是一系列
 - 文件服务器（File Server），提供文件存取服务。
 - 数据库服务器（Database Server），提供数据库存取服务。
 - 邮件服务器（Mail Server），提供邮件存取服务。
-- **网页服务器**（Web Server），提供网页浏览服务。
+- **网页服务器**（Web Server），提供网页浏览服务，通常所说的 Web 服务器，含义更广，包括了应用程序服务器。
 - FTP 服务器（FTP Server），提供文件传输服务。
 - **应用程序服务器**（Application Server），提供应用程序接口服务。
 - **代理服务器**（Proxy Server），提供代理服务，分正向和反向代理。
