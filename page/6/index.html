@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -278,7 +278,7 @@ ga('send', 'pageview');
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                     <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  <li class="file"><a href="/2018/10/29/it/java/Java EE 世界的一些概念/">Java EE 世界的一些概念</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -489,6 +489,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/Java 后端基础/Java 后端基础之 1. Nginx" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/Java-后端基础/">Java 后端基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Nginx/">Nginx</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">
+            <time datetime="2017-12-28T03:56:00.000Z" itemprop="datePublished">2017-12-28</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">Java 后端基础之 1. Nginx</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li>编译安装</li>
+</ol>
+<p>linux下安装方式：</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/kotlin/Kotlin的特性" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -579,7 +683,7 @@ ga('send', 'pageview');
         
             </p></ol></p></div>   
             <div class="article-more-link">
-                <a href="/2017/12/17/it/kotlin/Kotlin的特性/#more">자세히 보기</a>
+                <a href="/2017/12/17/it/kotlin/Kotlin的特性/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -683,7 +787,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">자세히 보기</a>
+                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -787,7 +891,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2017/12/02/it/tool/Github 使用笔记/#more">자세히 보기</a>
+                <a href="/2017/12/02/it/tool/Github 使用笔记/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -976,7 +1080,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/02/07/it/java/Java 学习站点汇总/#more">자세히 보기</a>
+                <a href="/2017/02/07/it/java/Java 学习站点汇总/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1169,7 +1273,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/01/05/thinking/tao/无为是怎样的一种体验？/#more">자세히 보기</a>
+                <a href="/2017/01/05/thinking/tao/无为是怎样的一种体验？/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1365,88 +1469,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-thinking/tao/世界是什么？" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/thinking/">thinking</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/thinking/tao/">tao</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/哲学/">哲学</a>, <a class="tag-link" href="/tags/生活/">生活</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/10/thinking/tao/世界是什么？/">
-            <time datetime="2016-04-10T04:03:18.000Z" itemprop="datePublished">2016-04-10</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/thinking/tao/世界是什么？.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/thinking/tao/世界是什么？.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/thinking/tao/世界是什么？.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/04/10/thinking/tao/世界是什么？/">世界是什么？</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                <p></p><p>“世界并不是一个三段论法或一个论据，而是一个生物；宇宙不做声，只是生活着；它并不做什么辨认，只是进行着。”   – 林语堂《生活的艺术》</p><p></p>
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2016/04/10/thinking/tao/世界是什么？/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/5/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/5/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Siguiente  &raquo;</a>
         </nav>
     
 </section>

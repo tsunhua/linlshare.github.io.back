@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -278,7 +278,7 @@ ga('send', 'pageview');
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                     <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  <li class="file"><a href="/2018/08/10/it/java/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  <li class="file"><a href="/2018/10/29/it/java/Java EE 世界的一些概念/">Java EE 世界的一些概念</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -489,6 +489,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/android/APP启动优化" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/android/">android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/20/it/android/APP启动优化/">
+            <time datetime="2018-01-20T07:28:00.000Z" itemprop="datePublished">2018-01-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/android/APP启动优化.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/android/APP启动优化.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/android/APP启动优化.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="1-去除启动黑屏"><a href="#1-去除启动黑屏" class="headerlink" title="1. 去除启动黑屏"></a>1. 去除启动黑屏</h3><p>1.1 在<code>style.xml</code>中定义两种主题：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.Splash"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/bg_splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.2 在<code>AndroidManifest.xml</code>中设置MainActivity的主题为<code>AppTheme.Splash</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"xxx.MainActivity"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme.Splash"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.3 在<code>MainActivity</code>的<code>onCreate</code>调用super的方法之前设置回原先的主题</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/01/20/it/android/APP启动优化/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/Java 后端基础/Java 后端基础之 Spring Boot" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -579,7 +683,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2018/01/07/it/java/Java 后端基础/Java 后端基础之 Spring Boot/#more">자세히 보기</a>
+                <a href="/2018/01/07/it/java/Java 后端基础/Java 后端基础之 Spring Boot/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -683,7 +787,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/01/06/it/java/Java 后端基础/Java 后端基础之 7. MySql/#more">자세히 보기</a>
+                <a href="/2018/01/06/it/java/Java 后端基础/Java 后端基础之 7. MySql/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -868,7 +972,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 5 .Spring/#more">자세히 보기</a>
+                <a href="/2018/01/05/it/java/Java 后端基础/Java 后端基础之 5 .Spring/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -972,7 +1076,7 @@ ga('send', 'pageview');
         
             </p></thead></table></div>   
             <div class="article-more-link">
-                <a href="/2018/01/04/horby/guitar/1. 认识吉他/#more">자세히 보기</a>
+                <a href="/2018/01/04/horby/guitar/1. 认识吉他/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1076,7 +1180,7 @@ ga('send', 'pageview');
         
             </p></ul></div>   
             <div class="article-more-link">
-                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/#more">자세히 보기</a>
+                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 4. Maven/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1180,7 +1284,7 @@ ga('send', 'pageview');
         
             </p></table></div>   
             <div class="article-more-link">
-                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/#more">자세히 보기</a>
+                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 3. JSP/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1284,7 +1388,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 2. Servlet/#more">자세히 보기</a>
+                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 2. Servlet/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1388,111 +1492,7 @@ ga('send', 'pageview');
         
             </p></li></ol></div>   
             <div class="article-more-link">
-                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/Java 后端基础/Java 后端基础之 1. Nginx" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/Java-后端基础/">Java 后端基础</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Nginx/">Nginx</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">
-            <time datetime="2017-12-28T03:56:00.000Z" itemprop="datePublished">2017-12-28</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/Java 后端基础/Java 后端基础之 1. Nginx.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/">Java 后端基础之 1. Nginx</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>是一个Web服务器，也可以用作反向代理，负载平衡器和HTTP缓存。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
-<li>编译安装</li>
-</ol>
-<p>linux下安装方式：</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2017/12/28/it/java/Java 后端基础/Java 后端基础之 1. Nginx/#more">자세히 보기</a>
+                <a href="/2017/12/29/it/java/Java 后端基础/Java 后端基础之 0. Tomcat/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1507,7 +1507,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Siguiente  &raquo;</a>
         </nav>
     
 </section>

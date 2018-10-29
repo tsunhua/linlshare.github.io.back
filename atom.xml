@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-10-28T16:02:48.040Z</updated>
+  <updated>2018-10-29T12:14:37.908Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java EE 世界的一些概念</title>
+    <link href="https://linlshare.github.io/2018/10/29/it/java/Java%20EE%20%E4%B8%96%E7%95%8C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/"/>
+    <id>https://linlshare.github.io/2018/10/29/it/java/Java EE 世界的一些概念/</id>
+    <published>2018-10-29T12:14:00.000Z</published>
+    <updated>2018-10-29T12:14:37.908Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h2><p>Java平台企业版，2018年3月更名为 <strong>Jakarta EE</strong>。Jave EE 是一系列技术标准所组成的平台，包括：</p><ul><li>Servlet</li><li>EJB</li><li>JDBC</li><li>JSP</li><li>JSTL</li><li>…</li></ul><h2 id="服务器与容器（Server-and-Container）"><a href="#服务器与容器（Server-and-Container）" class="headerlink" title="服务器与容器（Server and Container）"></a>服务器与容器（Server and Container）</h2><h3 id="服务器的定义"><a href="#服务器的定义" class="headerlink" title="服务器的定义"></a>服务器的定义</h3><p>依<a href="https://zh.wikipedia.org/zh-cn/%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="noopener">维基百科</a>，服务器（软件）是指一个管理资源并为用户提供服务的计算机软件。可分为：</p><ul><li>文件服务器（File Server），提供文件存取服务。</li><li>数据库服务器（Database Server），提供数据库存取服务。</li><li>邮件服务器（Mail Server），提供邮件存取服务。</li><li><strong>网页服务器</strong>（Web Server），提供网页浏览服务。</li><li>FTP 服务器（FTP Server），提供文件传输服务。</li><li><strong>应用程序服务器</strong>（Application Server），提供应用程序接口服务。</li><li><strong>代理服务器</strong>（Proxy Server），提供代理服务，分正向和反向代理。</li><li>…</li></ul><h3 id="正向代理（Forward-Proxy）与反向代理（Reverse-Proxy）"><a href="#正向代理（Forward-Proxy）与反向代理（Reverse-Proxy）" class="headerlink" title="正向代理（Forward Proxy）与反向代理（Reverse Proxy）"></a>正向代理（Forward Proxy）与反向代理（Reverse Proxy）</h3><p>正向代理和反向代理以代理对象为区分，正向代理代理的是客户端，而目标服务器对真实的客户端的请求是无感的；反向代理代理的是服务器群（或簇），而客户端对真实处理请求的服务器是无感的。更多信息参见：<a href="https://www.zhihu.com/question/24723688/answer/128105528" target="_blank" rel="noopener">反向代理为何叫反向代理？ - 刘志军的回答 - 知乎</a>。</p><h3 id="容器的定义"><a href="#容器的定义" class="headerlink" title="容器的定义"></a>容器的定义</h3><p>该语境下的容器，既不是上街买菜用的容器，也不是存取其他类的集合（比如 List），而是一个运行在 JVM 的 Java 程序，本身作为一个组件的运行时 ，起组件与服务器之间的接口作用，实际上也可以称之为服务器软件，只是当处在大的服务器软件包裹下时，选择另一种称呼罢了。</p><p>随着网络服务的要求越来越复杂，开发人员使用规范和组件的概念将服务划分，组件实现了规范，容器运行着组件，最新的 <em>规范-组件-功能-容器</em> 对应关系如下：</p><table><thead><tr><th>规范</th><th>组件</th><th>功能</th><th>容器</th></tr></thead><tbody><tr><td>JSR 369</td><td>Servlet 4.0</td><td>Server Applet，服务端小程序，处理基于 HTTP 的 Web 请求，响应动态 Web 内容。</td><td>Servlet 容器</td></tr><tr><td>JSR 245</td><td>JSP 2.1</td><td>JavaServer Pages，实现动态网页，其基于 Servlet 技术，故 JSP 容器是 Servlet 容器的子集。</td><td>JSP 容器</td></tr><tr><td>JSR 220</td><td>EJB 3.0</td><td><a href="https://zh.wikipedia.org/zh-cn/EJB#EJB_3.0" target="_blank" rel="noopener">Enterprise JavaBean</a>，封装业务逻辑，包括 Session Bean，Entity Bean 和 Message Driven Bean。</td><td>EJB 容器</td></tr></tbody></table><h3 id="常见的-Web-服务器"><a href="#常见的-Web-服务器" class="headerlink" title="常见的 Web 服务器"></a>常见的 Web 服务器</h3><ul><li>Apache HTTP Server</li><li>Nginx</li><li>IIS</li><li>Tomcat</li><li>Jetty</li><li>WildFly（原名JBoss AS或者JBoss）</li><li>Netty</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Java-EE&quot;&gt;&lt;a href=&quot;#Java-EE&quot; class=&quot;headerlink&quot; title=&quot;Java EE&quot;&gt;&lt;/a&gt;Java EE&lt;/h2&gt;&lt;p&gt;Java平台企业版，2018年3月更名为 &lt;strong&gt;Jakarta EE&lt;/strong&gt;。J
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="JavaEE" scheme="https://linlshare.github.io/tags/JavaEE/"/>
+    
+      <category term="服务器" scheme="https://linlshare.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>周记1028</title>
@@ -617,35 +648,6 @@
     
     
       <category term="閩南語" scheme="https://linlshare.github.io/tags/%E9%96%A9%E5%8D%97%E8%AA%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA 使用笔记</title>
-    <link href="https://linlshare.github.io/2018/09/07/it/tool/IDEA%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>https://linlshare.github.io/2018/09/07/it/tool/IDEA 使用笔记/</id>
-    <published>2018-09-07T09:38:00.000Z</published>
-    <updated>2018-10-26T16:13:36.834Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-查看某个类的-javadoc-的快捷键？"><a href="#1-查看某个类的-javadoc-的快捷键？" class="headerlink" title="1. 查看某个类的 javadoc 的快捷键？"></a>1. 查看某个类的 javadoc 的快捷键？</h3><p>在该类旁边敲击 <code>ctrl + j</code> 。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-查看某个类的-javadoc-的快捷键？&quot;&gt;&lt;a href=&quot;#1-查看某个类的-javadoc-的快捷键？&quot; class=&quot;headerlink&quot; title=&quot;1. 查看某个类的 javadoc 的快捷键？&quot;&gt;&lt;/a&gt;1. 查看某个类的 javadoc 的
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
-    
-    
-      <category term="IDEA" scheme="https://linlshare.github.io/tags/IDEA/"/>
-    
-      <category term="编辑器" scheme="https://linlshare.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
   </entry>
   
