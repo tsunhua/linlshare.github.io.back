@@ -7,34 +7,32 @@ comments: true
 
 ## Hexo 安装
 
-### 需要环境
+### 环境依赖
 
 - Node.js
 - Git
 
-### 命令
+### 开始安装
 
-```
+```shell
 npm install hexo-cli -g
 npm install hexo --save
-npm install hexo-server
-npm install hexo-deployer-git --save
 
 #如果命令无法运行，可以尝试更换taobao的npm源
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-### 基本配置
+### 基础配置
 
-```
+```shell
 #Hexo 将会在指定文件夹中新建所需要的文件。
-$ hexo init <folder>
-$ cd <folder>
-$ npm install
+hexo init <folder>
+cd <folder>
+npm install
 ```
 
-```
-# 安装Hexo插件
+```shell
+#安装Hexo插件
 npm install hexo-generator-index --save
 npm install hexo-generator-archive --save
 npm install hexo-generator-category --save
@@ -50,16 +48,16 @@ npm install hexo-generator-feed@1 --save
 npm install hexo-generator-sitemap@1 --save
 ```
 
-```
+```shell
 # 在本地查看效果
-$hexo server
+hexo server
 ```
 
 ### 主题配置
 
-1. 修改根目录的_config.yml
+修改根目录的 `_config.yml`，具体如下：
 
-```
+```yaml
 # Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
 ## Source: https://github.com/tommy351/hexo/
@@ -107,15 +105,15 @@ Plugins:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy: # 部署位置
   type: github
-  repository: https://github.com/cnfeat/cnfeat.github.io.git
+  repository: https://github.com/test/test.github.io.git
   branch: master     
 ```
 
-### 写作
+### 开始写作
 
-使用hexo new "newpost"创建一个新文件，然后使用hexo d -g生成并部署到github上。注意在_config.yml中配置的deploy的repository要看是否电脑有多个github账号。
+使用 `hexo new "article" `创建一个新文件，该文件为`*.md` 格式，可以使用 **Typora**（*一款优秀的 Markdown 写作工具，支持侧边栏显示目录和文件夹，最令人惊叹的是编辑和渲染合一的写作方式*）进行写作。然后使用 `hexo d -g ` 生成相关 web 页面并部署到 Github 上。注意在 `_config.yml `中配置的 deploy 的 repository 要看是否电脑有多个 Github 账号。
 
-```
+```shell
 #常用命令
 hexo new "postName" #新建文章
 hexo new page "pageName" #新建页面
@@ -168,7 +166,7 @@ hexo d == hexo deploy
 
 （1）开启 `post_asset_folder`
 
-```ym
+```yaml
 // config.yml
 post_asset_folder: true
 ```
@@ -184,4 +182,3 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 1. 在与 `_posts/my_article.md`的平级位置上创建文件夹 `my_article`；
 2. 放置 `my_article.md` 文件中引用到的图片，例如 `my_pic.jpg`；
 3. 在 `my_article.md` 以 `![my_pic](my_article/my_pic.jpg)` 方式引用。
-
