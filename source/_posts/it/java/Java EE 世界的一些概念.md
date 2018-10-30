@@ -20,7 +20,7 @@ Java平台企业版，2018年3月更名为 **Jakarta EE**。Jave EE 是一系列
 
 ### 服务器的定义
 
-依[维基百科](https://zh.wikipedia.org/zh-cn/%E6%9C%8D%E5%8A%A1%E5%99%A8)，服务器（软件）是指一个管理资源并为用户提供服务的计算机软件。可分为：
+依[*维基*](https://zh.wikipedia.org/zh-cn/%E6%9C%8D%E5%8A%A1%E5%99%A8)，服务器（软件）是指一个管理资源并为用户提供服务的计算机软件。可分为：
 
 - 文件服务器（File Server），提供文件存取服务。
 - 数据库服务器（Database Server），提供数据库存取服务。
@@ -33,7 +33,7 @@ Java平台企业版，2018年3月更名为 **Jakarta EE**。Jave EE 是一系列
 
 ### 正向代理（Forward Proxy）与反向代理（Reverse Proxy）
 
-正向代理和反向代理以代理对象为区分，正向代理代理的是客户端，而目标服务器对真实的客户端的请求是无感的；反向代理代理的是服务器群（或簇），而客户端对真实处理请求的服务器是无感的。更多信息参见：[反向代理为何叫反向代理？ - 刘志军的回答 - 知乎](https://www.zhihu.com/question/24723688/answer/128105528)。
+正向代理和反向代理以代理对象为区分，正向代理代理的是客户端，而目标服务器对真实的客户端的请求是无感的；反向代理代理的是服务器群（或簇），而客户端对真实处理请求的服务器是无感的。更多信息参见：[*反向代理为何叫反向代理？ - 刘志军的回答 - 知乎*](https://www.zhihu.com/question/24723688/answer/128105528)。
 
 ### 容器的定义
 
@@ -56,3 +56,37 @@ Java平台企业版，2018年3月更名为 **Jakarta EE**。Jave EE 是一系列
 - Jetty
 - WildFly（原名JBoss AS或者JBoss）
 - Netty
+
+## 架构（Architecture）
+
+软件架构是指软件的基本结构，阮一峰在 [*软件架构入门*](http://www.ruanyifeng.com/blog/2016/09/software-architecture.html) 中谈及架构的分类，可分为：分层架构（Layered Architecture）、事件驱动架构（Event-driven Architecture）、微核架构（Microkernel Architecture）、微服务架构（Microservices Architecture）、云架构（Cloud Architecture）。
+
+- 分层架构的核心是 “数据”，围绕数据的呈现、逻辑处理、持久化和存储进行分层；
+- 事件驱动架构的核心是 “事件”，围绕事件的整个发出、队列、分发、通道、处理进行分层；
+- 微核架构的核心是 “插件”，将每个小功能做成可插拔的插件形式嵌入内核；
+- 微服务架构的核心是 “微服务”，将每个服务单独运行，并通过远程通信协议联系在一起；
+- 云架构的核心是 “虚拟化”，没有中央数据库，由一个虚拟中间件（Virtualized Middleware）和若干处理单元（Processing Unit）组成，数据通过虚拟中间件中的数据中间件进行同步。
+
+## 框架（Framework）
+
+参考[*维基*](https://en.wikipedia.org/wiki/Software_framework)，软件框架是指一种通用的，实现基本功能的软件，用户可以在上面添加业务特定的代码。软件框架可能包括支持程序，编译器，代码库，工具集和应用程序编程接口（API），它汇集了所有不同的组件，以支持项目或系统的开发。框架相较于普通的代码库有如下特征：
+
+1. 控制反转，由框架决定程序的控制流程。
+2. 可扩展性。
+3. 封闭性，框架代码不可修改。
+
+常见的 Java EE 开发框架：
+
+- Spring
+- Spring MVC
+- Spring Cloud
+- Hibernate
+- MyBatis
+- Dubbo
+- Kafka
+
+常见的 Java EE 开发框架集：
+
+- Spring Boot
+- SSH（Spring + Spring MVC + Hibernate）
+- SSM（Spring + Spring MVC + MyBatis）

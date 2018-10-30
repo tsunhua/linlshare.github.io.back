@@ -8,13 +8,13 @@ comments: true
 
 ### 提交当前分支的更改到远程的同名分支
 
-```
+```shell
 $ git push origin HEAD
 ```
 
 ### 删除远程分支
 
-```
+```shell
 $ git push origin :dev-sth
 # 相当于
 $ git push origin --delete dev-sth
@@ -22,13 +22,19 @@ $ git push origin --delete dev-sth
 
 ### 撤销 git commit 但未 git push 的修改
 
-```
+```shell
 #找到想要撤销的 commit id
 $ git log
 #撤销，但不对代码修改进行撤销，还可以再次 commit
 $ git reset <commit id> 
 #撤销并忽略该次 commit 的代码修改
 $ git reset --hard <commit id>
+```
+
+### 移除远程分支上的脏文件（clean remote files）
+
+```shell
+$ git rm -rf <file1> <file2>
 ```
 
 ### 入门
@@ -48,7 +54,7 @@ Git中译为混账，是Linus先生花了一个星期写的分布式版本控制
 1. [下载Git](https://git-scm.com/download/win)并安装Git（注意：不懂英文的按默认配置就好）;
 2. 向全世界宣称你的存在
 
-    ```
+    ```shell
     //注意：--global表示你电脑里的所以Git仓库都采用相同的配置
     //如果有不用用户的Git仓库，就去掉吧。
     $ git config --global user.name "Your Name"
@@ -79,7 +85,7 @@ Git中译为混账，是Linus先生花了一个星期写的分布式版本控制
 
 根据【建个仓库放点东西】里说的步骤更新本地仓库中的信息：
 
-```
+```shell
 $ git add .
 $ git commit -m "update yuren.txt"
 ```
@@ -89,7 +95,7 @@ $ git commit -m "update yuren.txt"
 
 没关系，可以通过`git log`查看每次的提交信息。
 
-```
+```shell
 $ git log
 commit 1ba454f3ef3e48b88b4c24f72dc8055407cd9019
 Author: Your Name <email@example.com>
@@ -107,7 +113,7 @@ Date:   Fri Apr 1 16:17:35 2016 +0800
 
 回退到上一次commit，只需要执行
 
-```
+```shell
 $ git reset --hard HEAD^
 HEAD is now at ce58ee1 add yuren.text
 ```
@@ -120,7 +126,7 @@ HEAD is now at ce58ee1 add yuren.text
 
 人的心理真是捉摸不透，刚找回v1版本的信息了，就又怀念v2版本的信息了。然而，现在使用`git log`都救不了你了。
 
-```
+```shell
 $ git log
 commit ce58ee1a57d21c9d752e80b820b7f2968249ac2e
 Author: Lshare <linlshare@gmail.com>
@@ -134,7 +140,7 @@ v2版本的信息似乎丢失了。怎么办？
 - 方法一：如果你还知道v2版本的commit id的话可以`$ git reset --hard <commit id>`来解决；
 - 方法二：假如你不知道也没关系，使用`git reflog`查看你的每次命令，接下来就可以用方法一解决了。
 
-    ```
+    ```shell
     $ git reflog
     ce58ee1 HEAD@{0}: reset: moving to HEAD^
     1ba454f HEAD@{1}: commit: update yuren.txt
