@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Lshare手札">
 <meta property="og:description" content="提交当前分支的更改到远程的同名分支1$ git push origin HEAD 删除远程分支123$ git push origin :dev-sth# 相当于$ git push origin --delete dev-sth 撤销 git commit 但未 git push 的修改123456#找到想要撤销的 commit id$ git log#撤销，但不对代码修改进行撤销，还可以再次">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T15:15:52.707Z">
+<meta property="og:updated_time" content="2018-10-30T06:57:45.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 实战记录">
 <meta name="twitter:description" content="提交当前分支的更改到远程的同名分支1$ git push origin HEAD 删除远程分支123$ git push origin :dev-sth# 相当于$ git push origin --delete dev-sth 撤销 git commit 但未 git push 的修改123456#找到想要撤销的 commit id$ git log#撤销，但不对代码修改进行撤销，还可以再次">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -550,22 +550,23 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#提交当前分支的更改到远程的同名分支"><span class="toc-number">1.</span> <span class="toc-text">提交当前分支的更改到远程的同名分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除远程分支"><span class="toc-number">2.</span> <span class="toc-text">删除远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销-git-commit-但未-git-push-的修改"><span class="toc-number">3.</span> <span class="toc-text">撤销 git commit 但未 git push 的修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门"><span class="toc-number">4.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git是什么？"><span class="toc-number">4.1.</span> <span class="toc-text">Git是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git怎么玩？"><span class="toc-number">4.2.</span> <span class="toc-text">Git怎么玩？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置Git环境"><span class="toc-number">4.2.1.</span> <span class="toc-text">配置Git环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#建个仓库放点东西"><span class="toc-number">4.2.2.</span> <span class="toc-text">建个仓库放点东西</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">4.2.3.</span> <span class="toc-text">时光机穿梭</span></a></li></ol></li></ol></li></ol>
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#提交当前分支的更改到远程的同名分支"><span class="toc-number">1.</span> <span class="toc-text">提交当前分支的更改到远程的同名分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除远程分支"><span class="toc-number">2.</span> <span class="toc-text">删除远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销-git-commit-但未-git-push-的修改"><span class="toc-number">3.</span> <span class="toc-text">撤销 git commit 但未 git push 的修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除远程分支上的脏文件（clean-remote-files）"><span class="toc-number">4.</span> <span class="toc-text">移除远程分支上的脏文件（clean remote files）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门"><span class="toc-number">5.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git是什么？"><span class="toc-number">5.1.</span> <span class="toc-text">Git是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git怎么玩？"><span class="toc-number">5.2.</span> <span class="toc-text">Git怎么玩？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置Git环境"><span class="toc-number">5.2.1.</span> <span class="toc-text">配置Git环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#建个仓库放点东西"><span class="toc-number">5.2.2.</span> <span class="toc-text">建个仓库放点东西</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">5.2.3.</span> <span class="toc-text">时光机穿梭</span></a></li></ol></li></ol></li></ol>
                 </div>
             
         
         
-            <h3 id="提交当前分支的更改到远程的同名分支"><a href="#提交当前分支的更改到远程的同名分支" class="headerlink" title="提交当前分支的更改到远程的同名分支"></a>提交当前分支的更改到远程的同名分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD</span><br></pre></td></tr></table></figure>
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin :dev-sth</span><br><span class="line"># 相当于</span><br><span class="line">$ git push origin --delete dev-sth</span><br></pre></td></tr></table></figure>
-<h3 id="撤销-git-commit-但未-git-push-的修改"><a href="#撤销-git-commit-但未-git-push-的修改" class="headerlink" title="撤销 git commit 但未 git push 的修改"></a>撤销 git commit 但未 git push 的修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#找到想要撤销的 commit id</span><br><span class="line">$ git log</span><br><span class="line">#撤销，但不对代码修改进行撤销，还可以再次 commit</span><br><span class="line">$ git reset &lt;commit id&gt; </span><br><span class="line">#撤销并忽略该次 commit 的代码修改</span><br><span class="line">$ git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+            <h3 id="提交当前分支的更改到远程的同名分支"><a href="#提交当前分支的更改到远程的同名分支" class="headerlink" title="提交当前分支的更改到远程的同名分支"></a>提交当前分支的更改到远程的同名分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin :dev-sth</span><br><span class="line"><span class="meta">#</span> 相当于</span><br><span class="line"><span class="meta">$</span> git push origin --delete dev-sth</span><br></pre></td></tr></table></figure>
+<h3 id="撤销-git-commit-但未-git-push-的修改"><a href="#撤销-git-commit-但未-git-push-的修改" class="headerlink" title="撤销 git commit 但未 git push 的修改"></a>撤销 git commit 但未 git push 的修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>找到想要撤销的 commit id</span><br><span class="line"><span class="meta">$</span> git log</span><br><span class="line"><span class="meta">#</span>撤销，但不对代码修改进行撤销，还可以再次 commit</span><br><span class="line"><span class="meta">$</span> git reset &lt;commit id&gt; </span><br><span class="line"><span class="meta">#</span>撤销并忽略该次 commit 的代码修改</span><br><span class="line"><span class="meta">$</span> git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="移除远程分支上的脏文件（clean-remote-files）"><a href="#移除远程分支上的脏文件（clean-remote-files）" class="headerlink" title="移除远程分支上的脏文件（clean remote files）"></a>移除远程分支上的脏文件（clean remote files）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git rm -rf &lt;file1&gt; &lt;file2&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><h4 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h4><p>Git中译为混账，是Linus先生花了一个星期写的分布式版本控制系统（VCS，Version Control System），用于Linux内核的协同开发。所谓版本控制系统，个人理解就是可以保存文本文件的历史版本信息，并且可以回溯到某个历史版本的文本文件管理系统。它的设计就是为了方便软件开发的版本迭代和协同开发。</p>
 <p>比如，你打开电脑的记事本，一个不小心把昨天写的备忘全给删除了，而且还习惯性地按了Ctrl+S，你懵了。一般情况下是找不回来了。除非有版本备份，现在有些云笔记类软件就提供了这样的功能。其实质就是版本控制，它可以让你回溯到某个历史版本，像是吃了后悔药一般美妙。</p>
 <h4 id="Git怎么玩？"><a href="#Git怎么玩？" class="headerlink" title="Git怎么玩？"></a>Git怎么玩？</h4><h5 id="配置Git环境"><a href="#配置Git环境" class="headerlink" title="配置Git环境"></a>配置Git环境</h5><p>玩什么都有第一步，已经司空见惯了呃。没错就是配置环境。Git的环境配置还不算复杂：</p>
 <ol>
 <li><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">下载Git</a>并安装Git（注意：不懂英文的按默认配置就好）;</li>
 <li><p>向全世界宣称你的存在</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//注意：--global表示你电脑里的所以Git仓库都采用相同的配置</span><br><span class="line">//如果有不用用户的Git仓库，就去掉吧。</span><br><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//注意：--global表示你电脑里的所以Git仓库都采用相同的配置</span><br><span class="line">//如果有不用用户的Git仓库，就去掉吧。</span><br><span class="line"><span class="meta">$</span> git config --global user.name "Your Name"</span><br><span class="line"><span class="meta">$</span> git config --global user.email "email@example.com"</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h5 id="建个仓库放点东西"><a href="#建个仓库放点东西" class="headerlink" title="建个仓库放点东西"></a>建个仓库放点东西</h5><ol>
@@ -587,23 +588,23 @@ ga('send', 'pageview');
 <p>[微信红包]愚人节Happy！<br>是不是又冲进来了，这么激动干嘛，发几个文字而已~</p>
 </blockquote>
 <p>根据【建个仓库放点东西】里说的步骤更新本地仓库中的信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;update yuren.txt&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git add .</span><br><span class="line"><span class="meta">$</span> git commit -m "update yuren.txt"</span><br></pre></td></tr></table></figure>
 <hr>
 <p>不知道哪根筋不对，你又想要v1版本的yuren.txt了，但是又忘了上一次写的内容，怎么办？</p>
 <p>没关系，可以通过<code>git log</code>查看每次的提交信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit 1ba454f3ef3e48b88b4c24f72dc8055407cd9019</span><br><span class="line">Author: Your Name &lt;email@example.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:19:41 2016 +0800</span><br><span class="line"></span><br><span class="line">    update yuren.txt</span><br><span class="line"></span><br><span class="line">commit ce58ee1a57d21c9d752e80b820b7f2968249ac2e</span><br><span class="line">Author: Your Name &lt;email@example.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:17:35 2016 +0800</span><br><span class="line"></span><br><span class="line">    add yuren.text</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log</span><br><span class="line">commit 1ba454f3ef3e48b88b4c24f72dc8055407cd9019</span><br><span class="line">Author: Your Name &lt;email@example.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:19:41 2016 +0800</span><br><span class="line"></span><br><span class="line">    update yuren.txt</span><br><span class="line"></span><br><span class="line">commit ce58ee1a57d21c9d752e80b820b7f2968249ac2e</span><br><span class="line">Author: Your Name &lt;email@example.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:17:35 2016 +0800</span><br><span class="line"></span><br><span class="line">    add yuren.text</span><br></pre></td></tr></table></figure>
 <p>回退到上一次commit，只需要执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br><span class="line">HEAD is now at ce58ee1 add yuren.text</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reset --hard HEAD^</span><br><span class="line">HEAD is now at ce58ee1 add yuren.text</span><br></pre></td></tr></table></figure>
 <p>这里，HEAD^代表上一个版本，HEAD^^代表上上个版本，HEAD~100代表上100个版本。当然可以使用具体的commit id来回退，比如上面的等价于<code>$ git reset --hard ce58ee1</code></p>
 <p>重新打开yuren.txt来看，v1版本的信息果然回来了。</p>
 <hr>
 <p>人的心理真是捉摸不透，刚找回v1版本的信息了，就又怀念v2版本的信息了。然而，现在使用<code>git log</code>都救不了你了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit ce58ee1a57d21c9d752e80b820b7f2968249ac2e</span><br><span class="line">Author: Lshare &lt;linlshare@gmail.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:17:35 2016 +0800</span><br><span class="line"></span><br><span class="line">    add yuren.text</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log</span><br><span class="line">commit ce58ee1a57d21c9d752e80b820b7f2968249ac2e</span><br><span class="line">Author: Lshare &lt;linlshare@gmail.com&gt;</span><br><span class="line">Date:   Fri Apr 1 16:17:35 2016 +0800</span><br><span class="line"></span><br><span class="line">    add yuren.text</span><br></pre></td></tr></table></figure>
 <p>v2版本的信息似乎丢失了。怎么办？</p>
 <ul>
 <li>方法一：如果你还知道v2版本的commit id的话可以<code>$ git reset --hard &lt;commit id&gt;</code>来解决；</li>
 <li><p>方法二：假如你不知道也没关系，使用<code>git reflog</code>查看你的每次命令，接下来就可以用方法一解决了。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br><span class="line">ce58ee1 HEAD@&#123;0&#125;: reset: moving to HEAD^</span><br><span class="line">1ba454f HEAD@&#123;1&#125;: commit: update yuren.txt</span><br><span class="line">ce58ee1 HEAD@&#123;2&#125;: commit (initial): add yuren.text</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog</span><br><span class="line">ce58ee1 HEAD@&#123;0&#125;: reset: moving to HEAD^</span><br><span class="line">1ba454f HEAD@&#123;1&#125;: commit: update yuren.txt</span><br><span class="line">ce58ee1 HEAD@&#123;2&#125;: commit (initial): add yuren.text</span><br></pre></td></tr></table></figure></li>
 </ul>
 
             </div>
@@ -618,7 +619,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/10/21/thinking/自省/周记1021/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     周记1021
@@ -628,7 +629,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/09/29/language/日語/日语一周七天的记忆方法/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">日语一周七天的记忆方法</div>
         </a>
     

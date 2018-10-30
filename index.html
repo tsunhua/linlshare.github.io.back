@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -1131,11 +1131,11 @@ ga('send', 'pageview');
                 
                 
                     
-                    <p></p><h3 id="提交当前分支的更改到远程的同名分支"><a href="#提交当前分支的更改到远程的同名分支" class="headerlink" title="提交当前分支的更改到远程的同名分支"></a>提交当前分支的更改到远程的同名分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD</span><br></pre></td></tr></table></figure>
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin :dev-sth</span><br><span class="line"># 相当于</span><br><span class="line">$ git push origin --delete dev-sth</span><br></pre></td></tr></table></figure>
-<h3 id="撤销-git-commit-但未-git-push-的修改"><a href="#撤销-git-commit-但未-git-push-的修改" class="headerlink" title="撤销 git commit 但未 git push 的修改"></a>撤销 git commit 但未 git push 的修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#找到想要撤销的 commit id</span><br><span class="line">$ git log</span><br><span class="line">#撤销，但不对代码修改进行撤销，还可以再次 commit</span><br><span class="line">$ git reset &lt;commit id&gt; </span><br><span class="line">#撤销并忽略该次 commit 的代码修改</span><br><span class="line">$ git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+                    <p></p><h3 id="提交当前分支的更改到远程的同名分支"><a href="#提交当前分支的更改到远程的同名分支" class="headerlink" title="提交当前分支的更改到远程的同名分支"></a>提交当前分支的更改到远程的同名分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin :dev-sth</span><br><span class="line"><span class="meta">#</span> 相当于</span><br><span class="line"><span class="meta">$</span> git push origin --delete dev-sth</span><br></pre></td></tr></table></figure>
+<h3 id="撤销-git-commit-但未-git-push-的修改"><a href="#撤销-git-commit-但未-git-push-的修改" class="headerlink" title="撤销 git commit 但未 git push 的修改"></a>撤销 git commit 但未 git push 的修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>找到想要撤销的 commit id</span><br><span class="line"><span class="meta">$</span> git log</span><br><span class="line"><span class="meta">#</span>撤销，但不对代码修改进行撤销，还可以再次 commit</span><br><span class="line"><span class="meta">$</span> git reset &lt;commit id&gt; </span><br><span class="line"><span class="meta">#</span>撤销并忽略该次 commit 的代码修改</span><br><span class="line"><span class="meta">$</span> git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="移除远程分支上的脏文件（clean-remote-files）"><a href="#移除远程分支上的脏文件（clean-remote-files）" class="headerlink" title="移除远程分支上的脏文件（clean remote files）"></a>移除远程分支上的脏文件（clean remote files）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git rm -rf &lt;file1&gt; &lt;file2&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><h4 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h4><p>Git中译为混账，是Linus先生花了一个星期写的分布式版本控制系统（VCS，Version Control System），用于Linux内核的协同开发。所谓版本控制系统，个人理解就是可以保存文本文件的历史版本信息，并且可以回溯到某个历史版本的文本文件管理系统。它的设计就是为了方便软件开发的版本迭代和协同开发。</p>
-<p>比如，你打开电脑的记事本，一个不小心把昨天写的备忘全给删除了，而且还习惯性地按了Ctrl+S，你懵了。一般情况下是找不回来了。除非有版本备份，现在有些云笔记类软件就提供了这样的功能。其实质就是版本控制，它可以让你回溯到某个历史版本，像是吃了后悔药一般美妙。</p>
 <p>
                 
             
@@ -1470,7 +1470,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Suiv &raquo;</a>
         </nav>
     
 </section>
