@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-10-30T11:07:12.099Z</updated>
+  <updated>2018-11-04T14:31:20.875Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>周记 20181140</title>
+    <link href="https://linlshare.github.io/2018/11/04/thinking/%E8%87%AA%E7%9C%81/%E5%91%A8%E8%AE%B0%2020181104/"/>
+    <id>https://linlshare.github.io/2018/11/04/thinking/自省/周记 20181104/</id>
+    <published>2018-11-04T13:51:00.000Z</published>
+    <updated>2018-11-04T14:31:20.875Z</updated>
+    
+    <content type="html"><![CDATA[<p>已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡了又画。成了之后找框架的设计者聊了一下，消解了设计上的一些疑惑。然，接下来才是重头戏，要基于此抽取并加入新的模块设计，编码还没到时候呢。加油吧，到时候多总结下。</p><p><img src="/2018/11/04/thinking/自省/周记 20181104/code_design.png" alt="亲手画的类图，不努力的时候看一下"></p><p>另外，这几天不知为何睡眠质量很差，几乎没有深度睡眠，晚上早睡睡不着，早上四五点就自然醒了，搞得预定的任务缩水了。不过今晚研究《甲骨文简易词典》时倒是气定神闲，脑壳没有沉重的感觉，可能我比较适合从事文字学特别是汉字学的工作也不一定。</p><p>阅读《枕草子》时读到一首和歌很感动，原文是这样的：</p><blockquote><p>心是地下逝水在翻滚了</p><p>不言语，但相思</p><p>还胜似语话</p></blockquote><p>中宫久不见清少纳言，托人送信，信中引用该和歌，只写着  <code>不言语，但相思</code> ，令少纳言读后顿时落泪，过几天后就进宫去了。她们见面的情形大概可以用《鹊桥仙·纤云弄巧》里的 <code>金风玉露一相逢，便胜却，人间无数</code> （最近想起这句词，不自觉地背起来了）来表达了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡
+      
+    
+    </summary>
+    
+      <category term="thinking" scheme="https://linlshare.github.io/categories/thinking/"/>
+    
+      <category term="自省" scheme="https://linlshare.github.io/categories/thinking/%E8%87%AA%E7%9C%81/"/>
+    
+    
+      <category term="自省" scheme="https://linlshare.github.io/tags/%E8%87%AA%E7%9C%81/"/>
+    
+      <category term="周记" scheme="https://linlshare.github.io/tags/%E5%91%A8%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pipeline 模型</title>
+    <link href="https://linlshare.github.io/2018/11/04/it/java/Pipeline%20%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://linlshare.github.io/2018/11/04/it/java/Pipeline 模型/</id>
+    <published>2018-11-04T13:49:00.000Z</published>
+    <updated>2018-11-04T13:49:45.863Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><p>解决并发效率问题，将任务拆分成流水线，然后多线程并发执行，比之单线程执行快。</p><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul><li>CPU 流水线</li><li>Tomcat 容器</li><li>Structs</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;解决的问题&quot;&gt;&lt;a href=&quot;#解决的问题&quot; class=&quot;headerlink&quot; title=&quot;解决的问题&quot;&gt;&lt;/a&gt;解决的问题&lt;/h3&gt;&lt;p&gt;解决并发效率问题，将任务拆分成流水线，然后多线程并发执行，比之单线程执行快。&lt;/p&gt;
+&lt;h3 id=&quot;案例&quot;&gt;&lt;a 
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="pipeline" scheme="https://linlshare.github.io/tags/pipeline/"/>
+    
+  </entry>
   
   <entry>
     <title>Java EE 世界的一些概念</title>
@@ -48,11 +107,11 @@
   </entry>
   
   <entry>
-    <title>周记1028</title>
-    <link href="https://linlshare.github.io/2018/10/28/thinking/%E8%87%AA%E7%9C%81/%E5%91%A8%E8%AE%B01028/"/>
-    <id>https://linlshare.github.io/2018/10/28/thinking/自省/周记1028/</id>
+    <title>周记 20181028</title>
+    <link href="https://linlshare.github.io/2018/10/28/thinking/%E8%87%AA%E7%9C%81/%E5%91%A8%E8%AE%B0%2020181028/"/>
+    <id>https://linlshare.github.io/2018/10/28/thinking/自省/周记 20181028/</id>
     <published>2018-10-28T15:50:00.000Z</published>
-    <updated>2018-10-28T16:02:48.040Z</updated>
+    <updated>2018-11-04T13:50:25.924Z</updated>
     
     <content type="html"><![CDATA[<p>怎么说呢？先说坏的地方吧，Spring 的学习任务全部没完成，真遗憾，到底没能坚持，练吉他的安排也暂时搁置了，对音调的高低把握不准，再想想看有无方法解决。日语和古代汉语的学习任务完成 70% 左右，阅读《枕草子》的计划算是完成较好的，完成了 80% 。</p><p>值得开心的是，发现了原来可以使用 github page + hexo + wikitten 搭建一个个人的 wiki，知识管理又迈上了一个新台阶。</p><p>还有許進雄的《甲骨文簡易詞典》已经看完 1/3 了，等看完了一定要整理一份文档，从最简单的构件开始讲述文字隐藏的朴素的创意。</p>]]></content>
     
@@ -167,11 +226,11 @@
   </entry>
   
   <entry>
-    <title>周记1021</title>
-    <link href="https://linlshare.github.io/2018/10/21/thinking/%E8%87%AA%E7%9C%81/%E5%91%A8%E8%AE%B01021/"/>
-    <id>https://linlshare.github.io/2018/10/21/thinking/自省/周记1021/</id>
+    <title>周记 20181021</title>
+    <link href="https://linlshare.github.io/2018/10/21/thinking/%E8%87%AA%E7%9C%81/%E5%91%A8%E8%AE%B0%2020181021/"/>
+    <id>https://linlshare.github.io/2018/10/21/thinking/自省/周记 20181021/</id>
     <published>2018-10-21T08:51:00.000Z</published>
-    <updated>2018-10-28T15:57:09.884Z</updated>
+    <updated>2018-11-04T13:50:41.937Z</updated>
     
     <content type="html"><![CDATA[<p>恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产品（包含移动端和 Chrome 插件），相见恨晚，它快速简便地收集资料（文字、图片和链接），多端同步，还可以同步到印象笔记中，这样的软件即使付费使用我也愿意。哦，对了，我还重新认识了 Afred 这款 Mac 上的效率佳软，其剪贴板历史功能、查字典和文件查找快捷命令令我折服。</p><p>另一个我：工作上能意识到不足，然后补充相关的知识，这点很不错。但是要 output 啊，没见你输出什么笔记之类的，还有要有计划地学习，不能逮到什么学习什么，看到不足的可以先收集起来，然后下一周努力补上。学习上也是，那么厚的书，你有考虑到后果吗？你有安排什么时候会读完吗？不过说来你有在进行细致的读书补遗，这点很 nice，坚持补遗，才能有接近作者生活体验的读书体验。还有巴赫作品集实在是你这种单身狗的救星了，平和而又有变化的旋律可以稳定人的情绪，特别是那平均律，足以令你陶然其中。最后，效率软件要用起来，不能再依赖慢吞吞的触摸板点来点去了。</p>]]></content>
     
@@ -578,76 +637,6 @@
     
     
       <category term="Android" scheme="https://linlshare.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《日語自遊行の最和味》第二課 梅雨季節結束</title>
-    <link href="https://linlshare.github.io/2018/09/10/language/%E6%97%A5%E8%AA%9E/%E3%80%8A%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3%E3%80%8B%E7%AC%AC%E4%BA%8C%E8%AA%B2%20%E6%A2%85%E9%9B%A8%E5%AD%A3%E7%AF%80%E7%B5%90%E6%9D%9F/"/>
-    <id>https://linlshare.github.io/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/</id>
-    <published>2018-09-10T01:00:00.000Z</published>
-    <updated>2018-10-26T16:21:01.587Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="對話"><a href="#對話" class="headerlink" title="對話"></a>對話</h2><table><thead><tr><th>人</th><th>語</th></tr></thead><tbody><tr><td>桜</td><td>今日　は　いい　お天気　ですね。</td></tr><tr><td>健</td><td>そろそろ　梅雨明け　ですが。</td></tr><tr><td>桜</td><td>ええ、そろそろ　ですね。</td></tr><tr><td>健</td><td>今、日本中、梅雨　です　が。</td></tr><tr><td>桜</td><td>ええ、梅雨明けの時期は　違いますが。</td></tr><tr><td>健</td><td>そうですが。</td></tr><tr><td></td><td>ああ、北海道　へ　行きたい　です。</td></tr></tbody></table><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">桜：今天天氣不錯喲。</span><br><span class="line">健：梅雨季節該結束了吧？</span><br><span class="line">桜：嗯，差不多了吧。</span><br><span class="line">健：現在整個日本都是梅雨天氣嗎？</span><br><span class="line">桜：是的，而且梅雨季節結束的時間（各地）也不同，除了北海道是沒有梅雨季節的。</span><br><span class="line">健：這樣啊，好想去北海道。</span><br></pre></td></tr></table></figure><h2 id="附錄"><a href="#附錄" class="headerlink" title="附錄"></a>附錄</h2><ol><li><a href="http://rthk9.rthk.hk/elearning/gogojapan3/lesson.htm" target="_blank" rel="noopener">日語自遊行の最和味</a></li><li><a href="https://github.com/LinLshare/Blog/blob/master/data/%E6%97%A5%E8%AA%9E/%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3/%E3%80%8A%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3%E3%80%8B%E7%AC%AC%E4%BA%8C%E8%AA%B2%20%E6%A2%85%E9%9B%A8%E5%AD%A3%E7%AF%80%E7%B5%90%E6%9D%9F.pdf" target="_blank" rel="noopener">《日語自遊行の最和味》第二課 梅雨季節結束.pdf</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;對話&quot;&gt;&lt;a href=&quot;#對話&quot; class=&quot;headerlink&quot; title=&quot;對話&quot;&gt;&lt;/a&gt;對話&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;人&lt;/th&gt;
-&lt;th&gt;語&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;t
-      
-    
-    </summary>
-    
-      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
-    
-      <category term="日語" scheme="https://linlshare.github.io/categories/language/%E6%97%A5%E8%AA%9E/"/>
-    
-    
-      <category term="日語自遊行の最和味" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3/"/>
-    
-      <category term="日语" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AF%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>閩南語拼音方案</title>
-    <link href="https://linlshare.github.io/2018/09/08/language/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://linlshare.github.io/2018/09/08/language/閩南語/閩南語拼音方案/</id>
-    <published>2018-09-08T13:54:00.000Z</published>
-    <updated>2018-10-26T16:28:06.084Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="閩語拼音方案種種"><a href="#閩語拼音方案種種" class="headerlink" title="閩語拼音方案種種"></a>閩語拼音方案種種</h2><table><thead><tr><th>名稱</th><th>簡稱</th><th>特征</th><th>發佈情況</th></tr></thead><tbody><tr><td>白话字</td><td>POL</td><td>白话字是历史最为悠久的拉丁化方案，因此广泛流通于全球各地的闽南语流通地区。</td><td>17世紀文獻中，如英國人與鄭氏王朝通商的商館紀錄中，便存在以羅馬字母拼寫閩南語語音的「白話字」雛型。1850年，教會正式推行白話文。</td></tr><tr><td>臺灣語言音標方案</td><td>TLPA</td><td>內含臺灣閩南語音標系統、臺灣客家語音標系統、臺灣原住民語音標系統等三套系統。</td><td>台灣語文學會於1991年期間針對臺灣語言所制定的音標系統。</td></tr><tr><td>台灣闽南语罗马字拼音方案</td><td>TL</td><td>与白话字的相容性良好，可以视为白话字的增补或发展上的分支。在台湾，使用白话字的社群有较高的意愿使用台罗拼音，同时，在官方地位方面台罗拼音方案取代了TLPA。</td><td>2006年10月14日，台灣教育部正式發佈。</td></tr><tr><td>台語通用拼音方案</td><td>DT</td><td>與漢語拼音相容。目的在於統一華語、客語和閩語的拼音系統。</td><td>暫無相關資訊</td></tr><tr><td>闽南方言拼音方案</td><td>BP</td><td>與漢語拼音相容，并參考《汇集雅俗通十五音》，基於廈門口音。</td><td>另称“《普闽典》方案”来自于1982年10月厦门大学主编的《普通话闽南方言词典》一书。</td></tr></tbody></table><h2 id="臺羅系統和通用拼音之爭"><a href="#臺羅系統和通用拼音之爭" class="headerlink" title="臺羅系統和通用拼音之爭"></a>臺羅系統和通用拼音之爭</h2><blockquote><p>臺羅系統和通用拼音最大的爭執在於國際上普遍使用的濁音符號 b, d , g 要標示濁音，還是不送氣清音的問題。這個爭執，如果要考慮音標符號的普遍性，就變成可以討論的問題。 世界上沒有濁音的語言不多，世界上沒有濁音卻有送氣音的語言很少，華語正好是這種罕見的語言。世界上大部分的語言都是清濁音二元對立，華語沒有濁音卻有送氣音，一樣是二元對立，因此漢語拼音就把濁音符號 b, d, g 用來標示不送氣清音，而把清音符號用來標示送氣清音，這在中國本位立場雖然可行，卻違背了世界通用拼音的習慣。在中國境內，不但是北京話，即連其他有濁音的漢語也都遵從這個系統而修補，但這種系統只能在中國通行，可以說是中國通用拼音系統(簡稱C系統)，和世界通用的拼音系統(簡稱W系統)是不相容的。這一點從下表即可了解。 </p><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/%E4%B8%8D%E7%94%A8%E6%8B%BC%E9%9F%B3%E7%B3%BB%E7%B5%B1%E4%B8%8B%E7%9A%84%E6%B8%85%E6%BF%81%E9%80%81%E6%B0%A3%E4%B8%8D%E9%80%81%E6%B0%A3%E8%A1%A8%E7%A4%BA.jpg?raw=true" alt=""></p><p>— 引自<a href="http://kongtaigi.pts.org.tw/2012/09/blog-post_18.html" target="_blank" rel="noopener">《臺語拼音論戰簡史》</a></p></blockquote><blockquote><p>在台通拼音方案中，任一音节若用某个在台罗拼音已经采用的拼写法，则此音节在台通拼音中之拼写法亦相同、或有一等式符号与之对应。意即台通拼音与台罗拼音在拼音的结构上具有完全的相容性。</p><p>— 引自<a href="https://zh.wikipedia.org/zh-tw/%E8%87%BA%E8%AA%9E%E9%80%9A%E7%94%A8%E6%8B%BC%E9%9F%B3" target="_blank" rel="noopener">《臺語通用拼音-維基百科》</a></p></blockquote><h2 id="台灣闽南语罗马字拼音方案"><a href="#台灣闽南语罗马字拼音方案" class="headerlink" title="台灣闽南语罗马字拼音方案"></a>台灣闽南语罗马字拼音方案</h2><h3 id="閩南語的音節結構"><a href="#閩南語的音節結構" class="headerlink" title="閩南語的音節結構"></a>閩南語的音節結構</h3><p>閩南語是漢語的一種，因此音節結構也一樣可以區分為五個音位成分：聲母、韻頭（介音）、韻腹、韻尾、聲調。韻頭、韻腹、韻尾又合稱為韻母。閩南語有變調，而台羅方案和白話字一樣，都只標示本調，且採用變音符號來標示聲調，稱為調號或調符。</p><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E9%9F%B3%E7%AF%80%E7%B5%90%E6%A7%8B.png?raw=true" alt=""></p><h3 id="聲母"><a href="#聲母" class="headerlink" title="聲母"></a>聲母</h3><p>台灣閩南語的聲母有十八個音位，其中「零聲母」並非沒有聲母，而是喉塞音，漢字是TLPA方案所建議的，除了「毛、耐、雅」之外，大多為傳統十五音。零聲母「英」不標。</p><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/%E5%8F%B0%E7%BE%85%E6%8B%BC%E9%9F%B3%E7%9A%84%E8%81%B2%E6%AF%8D%E5%88%97%E8%A1%A8.png?raw=true" alt=""></p><p>台灣閩南語的塞音及塞擦音，分成了清送氣音、清不送氣音、鼻濁音三重對立。這也是通用拼音與臺羅拼音爭論的源頭。</p><h3 id="韻母"><a href="#韻母" class="headerlink" title="韻母"></a>韻母</h3><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/%E5%85%83%E9%9F%B3%E5%8F%8A%E9%9F%BB%E5%8C%96%E8%BC%94%E9%9F%B3%E8%A1%A8.png?raw=true" alt=""></p><h3 id="聲調"><a href="#聲調" class="headerlink" title="聲調"></a>聲調</h3><p>閩語有八音，普通腔沒有第六音（陽上音）。</p><table><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>傳統調類</td><td>陰平</td><td>陰上</td><td>陰去</td><td>陰入</td><td>陽平</td><td>陽上</td><td>陽去</td><td>陽入</td></tr><tr><td>台羅</td><td>a</td><td>á</td><td>à</td><td>ah</td><td>â</td><td>ǎ</td><td>ā</td><td>a̍h</td></tr><tr><td>例字</td><td>東</td><td>黨</td><td>棟</td><td>督</td><td>同</td><td>動</td><td>洞</td><td>毒</td></tr><tr><td><a href="https://zh.wikipedia.org/wiki/IPA" target="_blank" rel="noopener">IPA</a><a href="https://zh.wikipedia.org/w/index.php?title=%E8%AA%BF%E7%AC%A6&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">調符</a>（以<a href="https://zh.wikipedia.org/w/index.php?title=%E9%AB%98%E9%9B%84%E8%85%94&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">高雄腔</a>為主）</td><td>˦˦</td><td>˥˧</td><td>˨˩</td><td>˧˨</td><td>˨˦</td><td>˧˧（<a href="https://zh.wikipedia.org/w/index.php?title=%E6%B5%B7%E5%8F%A3%E8%85%94&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">鹿港腔</a>）</td><td>˧˧</td><td>˦</td></tr></tbody></table><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/%E9%96%A9%E8%AA%9E%E5%85%AB%E9%9F%B3%E5%9C%96%E8%A7%A3.png?raw=true" alt=""></p><p>其脫胎自 IPA 中聲調，并合二調符為一符，基本符合聲調的走向。第四調和第八調另加 <code>h</code> 或 <code>k</code> 表示入音。</p><p><img src="https://github.com/LinLshare/Blog/blob/master/data/%E9%96%A9%E5%8D%97%E8%AA%9E/%E9%96%A9%E5%8D%97%E8%AA%9E%E7%9A%84%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88/IPA%20%E8%81%B2%E8%AA%BF.png?raw=true" alt=""></p><h4 id="調號標識"><a href="#調號標識" class="headerlink" title="調號標識"></a>調號標識</h4><p>當一個音節有多個字母時，調號應該標示在響度（sonority）最大的字母上面（通常在韻腹）。由規則可以判定確切的字母：</p><ol><li>響度優先順序： a &gt; oo &gt; e = o &gt; i = u〈低元音 &gt; 高元音 &gt; 無擦通音 &gt; 擦音 &gt; 塞音〉</li><li>iu 及 ui ，調號都標在後一個字母，因為前一個字母是介音。</li><li>m 作韻腹時標於 m 上。</li><li>雙字母 oo 及 ng，標於前一個字母。</li><li>三字母 ere，標於最後的 e。</li></ol><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul><li><a href="https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E9%96%A9%E5%8D%97%E8%AA%9E%E7%BE%85%E9%A6%AC%E5%AD%97%E6%8B%BC%E9%9F%B3%E6%96%B9%E6%A1%88" target="_blank" rel="noopener">臺灣閩南語羅馬字拼音方案 –維基百科</a></li><li><a href="https://twblg.dict.edu.tw/holodict_new/index.html" target="_blank" rel="noopener">台灣閩南語常用詞辭典</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;閩語拼音方案種種&quot;&gt;&lt;a href=&quot;#閩語拼音方案種種&quot; class=&quot;headerlink&quot; title=&quot;閩語拼音方案種種&quot;&gt;&lt;/a&gt;閩語拼音方案種種&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名稱&lt;/th&gt;
-&lt;th&gt;簡稱&lt;/th&gt;
-&lt;th&gt;
-      
-    
-    </summary>
-    
-      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
-    
-      <category term="閩南語" scheme="https://linlshare.github.io/categories/language/%E9%96%A9%E5%8D%97%E8%AA%9E/"/>
-    
-    
-      <category term="閩南語" scheme="https://linlshare.github.io/tags/%E9%96%A9%E5%8D%97%E8%AA%9E/"/>
     
   </entry>
   
