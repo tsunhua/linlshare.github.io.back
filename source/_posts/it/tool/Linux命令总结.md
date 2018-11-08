@@ -280,3 +280,51 @@ ssh server-a "cat ~/test.txt" > ~/Desktop/test.txt;scp ~/Desktop/run.sh server-b
 tree -N folder
 ```
 
+### 更改文件访问权限
+
+> 以下摘引自 [鸟哥的 Linux 私房菜 第六章](http://cn.linux.vbird.org/linux_basic/0210filepermission.php)，略有删减。
+
+（1）**数字类型改变文件权限**
+
+Linux文件的基本权限就有九个，分别是 `owner/group/others` 三种身份各有自己的 `read/write/execute` 权限，文件的权限字符为：`-rwxrwxrwx`， 这九个权限是三个三个一组的！其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：
+
+> r:4
+> w:2
+> x:1
+
+每种身份( `owner/group/others` )各自的三个权限( `r/w/x` )分数是需要累加的，例如当权限为：` [-rwxrwx---]`  分数则是
+
+> owner = rwx = 4+2+1 = 7
+> group = rwx = 4+2+1 = 7
+> others= --- = 0+0+0 = 0
+
+变更权限的指令chmod的语法是这样的：
+
+```shell
+chmod [-R] xyz 文件或目录
+```
+
+选项与参数：
+
+- xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。
+- -R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都会变更。
+
+（2）**符号类型改变文件权限**
+
+还有一个改变权限的方法呦！从之前的介绍中我们可以发现，基本上就九个权限分别是 `(1)user (2)group (3)others `三种身份啦！那么我们就可以藉由 `u, g, o`来代表三种身份的权限！此外， `a`则代表 all 亦即全部的身份！那么读写的权限就可以写成 `r, w, x`！也就是可以使用底下的方式来看：
+
+| 格式 | chmod | u g o a | +(加入) -(除去) =(设定) | r w x | 文件或目录 |
+| ---- | ----- | ------- | ----------------------- | ----- | ---------- |
+| 例子 | chmod | a       | =                       | r     | .bashrc    |
+
+来实作一下吧！假如我们要设定一个文件的权限成为`-rwxr-xr-x`时，基本上就是：
+
+- user (u)：具有可读、可写、可执行的权限；
+- group 与 others (g/o)：具有可读与执行的权限。
+
+```shell
+chmod  u=rwx,go=rx  .bashrc
+# 注意喔！那个 u=rwx,go=rx 是连在一起的，中间并没有任何空格！
+chmod  a+w  .bashrc
+# 增加.bashrc这个文件的每个人均可写入的权限
+```
