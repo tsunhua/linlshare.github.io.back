@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Lshare手札">
 <meta property="og:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-26T16:14:32.397Z">
+<meta property="og:updated_time" content="2018-11-08T03:16:19.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令总结">
 <meta name="twitter:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
@@ -551,7 +551,7 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SET-命令"><span class="toc-number">1.</span> <span class="toc-text">SET 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-命令"><span class="toc-number">2.</span> <span class="toc-text">SSH 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程管理命令"><span class="toc-number">3.</span> <span class="toc-text">进程管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前后台切换命令-bg、fg"><span class="toc-number">3.1.</span> <span class="toc-text">前后台切换命令 bg、fg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#amp-字符的作用"><span class="toc-number">3.2.</span> <span class="toc-text">&amp; 字符的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nohup"><span class="toc-number">3.3.</span> <span class="toc-text">nohup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理命令"><span class="toc-number">4.</span> <span class="toc-text">文件管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tail-查看文件末尾"><span class="toc-number">4.1.</span> <span class="toc-text">tail 查看文件末尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cat-一次显示文件内容"><span class="toc-number">4.2.</span> <span class="toc-text">cat 一次显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more-逐页显示文件内容"><span class="toc-number">4.3.</span> <span class="toc-text">more 逐页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less-分页显示文件内容"><span class="toc-number">4.4.</span> <span class="toc-text">less 分页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep-查找文件内容"><span class="toc-number">4.5.</span> <span class="toc-text">grep 查找文件内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alias-添加别名"><span class="toc-number">5.</span> <span class="toc-text">alias 添加别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctrl-移动光标"><span class="toc-number">6.</span> <span class="toc-text">ctrl 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步一台服务器中的文件到另一台"><span class="toc-number">7.</span> <span class="toc-text">同步一台服务器中的文件到另一台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-命令中文乱码"><span class="toc-number">8.</span> <span class="toc-text">Tree 命令中文乱码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SET-命令"><span class="toc-number">1.</span> <span class="toc-text">SET 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-命令"><span class="toc-number">2.</span> <span class="toc-text">SSH 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程管理命令"><span class="toc-number">3.</span> <span class="toc-text">进程管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前后台切换命令-bg、fg"><span class="toc-number">3.1.</span> <span class="toc-text">前后台切换命令 bg、fg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#amp-字符的作用"><span class="toc-number">3.2.</span> <span class="toc-text">&amp; 字符的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nohup"><span class="toc-number">3.3.</span> <span class="toc-text">nohup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理命令"><span class="toc-number">4.</span> <span class="toc-text">文件管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tail-查看文件末尾"><span class="toc-number">4.1.</span> <span class="toc-text">tail 查看文件末尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cat-一次显示文件内容"><span class="toc-number">4.2.</span> <span class="toc-text">cat 一次显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more-逐页显示文件内容"><span class="toc-number">4.3.</span> <span class="toc-text">more 逐页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less-分页显示文件内容"><span class="toc-number">4.4.</span> <span class="toc-text">less 分页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep-查找文件内容"><span class="toc-number">4.5.</span> <span class="toc-text">grep 查找文件内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alias-添加别名"><span class="toc-number">5.</span> <span class="toc-text">alias 添加别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctrl-移动光标"><span class="toc-number">6.</span> <span class="toc-text">ctrl 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步一台服务器中的文件到另一台"><span class="toc-number">7.</span> <span class="toc-text">同步一台服务器中的文件到另一台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-命令中文乱码"><span class="toc-number">8.</span> <span class="toc-text">Tree 命令中文乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改文件访问权限"><span class="toc-number">9.</span> <span class="toc-text">更改文件访问权限</span></a></li></ol>
                 </div>
             
         
@@ -727,7 +727,55 @@ ga('send', 'pageview');
 <h3 id="同步一台服务器中的文件到另一台"><a href="#同步一台服务器中的文件到另一台" class="headerlink" title="同步一台服务器中的文件到另一台"></a>同步一台服务器中的文件到另一台</h3><p>基本思路：拷贝文件到本地，然后覆盖另一台上的同名文件。命令如下，其中 <code>server-a</code> 以及 <code>server-b</code> 是定义在文件 <code>~/.ssh/config</code> 中的 <code>HOST</code> 。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh server-a "cat ~/test.txt" &gt; ~/Desktop/test.txt;scp ~/Desktop/run.sh server-b:~/test.txt</span><br></pre></td></tr></table></figure>
 <h3 id="Tree-命令中文乱码"><a href="#Tree-命令中文乱码" class="headerlink" title="Tree 命令中文乱码"></a>Tree 命令中文乱码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree -N folder</span><br></pre></td></tr></table></figure>
-
+<h3 id="更改文件访问权限"><a href="#更改文件访问权限" class="headerlink" title="更改文件访问权限"></a>更改文件访问权限</h3><blockquote>
+<p>以下摘引自 <a href="http://cn.linux.vbird.org/linux_basic/0210filepermission.php" target="_blank" rel="noopener">鸟哥的 Linux 私房菜 第六章</a>，略有删减。</p>
+</blockquote>
+<p>（1）<strong>数字类型改变文件权限</strong></p>
+<p>Linux文件的基本权限就有九个，分别是 <code>owner/group/others</code> 三种身份各有自己的 <code>read/write/execute</code> 权限，文件的权限字符为：<code>-rwxrwxrwx</code>， 这九个权限是三个三个一组的！其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：</p>
+<blockquote>
+<p>r:4<br>w:2<br>x:1</p>
+</blockquote>
+<p>每种身份( <code>owner/group/others</code> )各自的三个权限( <code>r/w/x</code> )分数是需要累加的，例如当权限为：<code>[-rwxrwx---]</code>  分数则是</p>
+<blockquote>
+<p>owner = rwx = 4+2+1 = 7<br>group = rwx = 4+2+1 = 7<br>others= — = 0+0+0 = 0</p>
+</blockquote>
+<p>变更权限的指令chmod的语法是这样的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br></pre></td></tr></table></figure>
+<p>选项与参数：</p>
+<ul>
+<li>xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。</li>
+<li>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都会变更。</li>
+</ul>
+<p>（2）<strong>符号类型改变文件权限</strong></p>
+<p>还有一个改变权限的方法呦！从之前的介绍中我们可以发现，基本上就九个权限分别是 <code>(1)user (2)group (3)others</code>三种身份啦！那么我们就可以藉由 <code>u, g, o</code>来代表三种身份的权限！此外， <code>a</code>则代表 all 亦即全部的身份！那么读写的权限就可以写成 <code>r, w, x</code>！也就是可以使用底下的方式来看：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>chmod</th>
+<th>u g o a</th>
+<th>+(加入) -(除去) =(设定)</th>
+<th>r w x</th>
+<th>文件或目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>例子</td>
+<td>chmod</td>
+<td>a</td>
+<td>=</td>
+<td>r</td>
+<td>.bashrc</td>
+</tr>
+</tbody>
+</table>
+<p>来实作一下吧！假如我们要设定一个文件的权限成为<code>-rwxr-xr-x</code>时，基本上就是：</p>
+<ul>
+<li>user (u)：具有可读、可写、可执行的权限；</li>
+<li>group 与 others (g/o)：具有可读与执行的权限。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod  u=rwx,go=rx  .bashrc</span><br><span class="line"><span class="meta">#</span> 注意喔！那个 u=rwx,go=rx 是连在一起的，中间并没有任何空格！</span><br><span class="line">chmod  a+w  .bashrc</span><br><span class="line"><span class="meta">#</span> 增加.bashrc这个文件的每个人均可写入的权限</span><br></pre></td></tr></table></figure>
             </div>
         
         <footer class="article-footer">
