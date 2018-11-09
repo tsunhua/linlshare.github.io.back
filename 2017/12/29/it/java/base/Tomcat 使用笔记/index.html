@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Tomcat 使用笔记 | Lshare手札</title>
+    
+    
+        <meta name="keywords" content="Java,Tomcat">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Tomcat安装 从官网下载压缩包，放入程序安装的路径，需要的话设置下环境变量和Catalina_home，  mac下可以通过homebrew安装，命令为： 1brew install tomcat 安装完成后，提示信息为： 1234567==&amp;gt; CaveatsTo have launchd start tomcat now and restart at login:  brew serv">
+<meta name="keywords" content="Java,Tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat 使用笔记">
+<meta property="og:url" content="https://linlshare.github.io/2017/12/29/it/java/base/Tomcat 使用笔记/index.html">
+<meta property="og:site_name" content="Lshare手札">
+<meta property="og:description" content="Tomcat安装 从官网下载压缩包，放入程序安装的路径，需要的话设置下环境变量和Catalina_home，  mac下可以通过homebrew安装，命令为： 1brew install tomcat 安装完成后，提示信息为： 1234567==&amp;gt; CaveatsTo have launchd start tomcat now and restart at login:  brew serv">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-09T10:00:59.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat 使用笔记">
+<meta name="twitter:description" content="Tomcat安装 从官网下载压缩包，放入程序安装的路径，需要的话设置下环境变量和Catalina_home，  mac下可以通过homebrew安装，命令为： 1brew install tomcat 安装完成后，提示信息为： 1234567==&amp;gt; CaveatsTo have launchd start tomcat now and restart at login:  brew serv">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128207704-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Lshare手札</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中国文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/culture/中国文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日本文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            horby
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guitar
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/04/horby/guitar/1. 认识吉他/">1. 认识吉他</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arch
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws 使用笔记/">aws 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            base
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/29/it/java/base/Java EE 世界的一些概念/">Java EE 世界的一些概念</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven 使用笔记/">Maven 使用笔记</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP 使用笔记/">JSP 使用笔记</a></li>  <li class="file"><a href="/2018/11/09/it/java/base/MongoDB 使用笔记/">MongoDB 使用笔记</a></li>  <li class="file"><a href="/2018/01/06/it/java/base/MySql 使用笔记/">MySql 使用笔记</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis 使用笔记/">Redis 使用笔记</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx 使用笔记/">Nginx 使用笔记</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet 使用笔记/">Servlet 使用笔记</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC 使用笔记/">Spring MVC 使用笔记</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot 使用笔记/">Spring Boot 使用笔记</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring 使用笔记/">Spring 使用笔记</a></li>  <li class="file active"><a href="/2017/12/29/it/java/base/Tomcat 使用笔记/">Tomcat 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            exception
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2017/02/07/it/java/Java 学习站点汇总/">Java 学习站点汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用笔记/">Draw.io 使用笔记</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/">Git 实战记录</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用笔记/">Axure 使用笔记</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 使用笔记/">IDEA 使用笔记</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/11/07/it/tool/Gradle 使用笔记/">Gradle 使用笔记</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/">Linux命令总结</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github 使用笔记/">Github 使用笔记</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/">Vim 小记</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            person
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tao
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/10/thinking/tao/世界是什么？/">世界是什么？</a></li>  <li class="file"><a href="/2017/01/05/thinking/tao/生活圈/">生活圈</a></li>  <li class="file"><a href="/2017/01/05/thinking/tao/无为是怎样的一种体验？/">无为是怎样的一种体验？</a></li>  <li class="file"><a href="/2016/11/20/thinking/tao/读「老子的智慧」有感之一/">读「老子的智慧」有感之一</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            自省
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/08/14/thinking/自省/不苟同的生活/">不苟同的生活</a></li>  <li class="file"><a href="/2018/10/21/thinking/自省/周记 20181021/">周记 20181021</a></li>  <li class="file"><a href="/2018/11/04/thinking/自省/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/10/28/thinking/自省/周记 20181028/">周记 20181028</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2017/01/25/thinking/美感三言/">美感三言</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/java/base/Tomcat 使用笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Tomcat/">Tomcat</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/29/it/java/base/Tomcat 使用笔记/">
+            <time datetime="2017-12-28T16:56:00.000Z" itemprop="datePublished">2017-12-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Tomcat 使用笔记
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat"><span class="toc-number">1.</span> <span class="toc-text">Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录结构"><span class="toc-number">1.2.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置WEB站点的根目录和虚拟子目录"><span class="toc-number">1.3.</span> <span class="toc-text">配置WEB站点的根目录和虚拟子目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署描述符"><span class="toc-number">1.4.</span> <span class="toc-text">部署描述符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录的默认页面"><span class="toc-number">1.5.</span> <span class="toc-text">目录的默认页面</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li><p>从官网下载压缩包，放入程序安装的路径，需要的话设置下环境变量和Catalina_home，</p>
+</li>
+<li><p>mac下可以通过homebrew安装，命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tomcat</span><br></pre></td></tr></table></figure>
+<p>安装完成后，提示信息为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Caveats</span><br><span class="line">To have launchd start tomcat now and restart at login:</span><br><span class="line">  brew services start tomcat</span><br><span class="line">Or, if you don't want/need a background service you can just run:</span><br><span class="line">  catalina run</span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/tomcat/8.5.24: 632 files, 12.8MB, built in 51 seconds</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Catalina是一个servlet容器，用于处理servlet。Tomcat的核心由三部分组成：</p>
+<table>
+<thead>
+<tr>
+<th>Web容器</th>
+<th>处理静态页面</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servlet容器</td>
+<td>处理Servlet文件</td>
+</tr>
+<tr>
+<td>JSP容器</td>
+<td>将JSP翻译为Servlet</td>
+</tr>
+</tbody>
+</table>
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><table>
+<thead>
+<tr>
+<th>bin</th>
+<th>执行文件目录，包含启动和关闭tomcat的脚本</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conf</td>
+<td>web.xml</td>
+<td>webapp的默认配置</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>server.xml</td>
+<td>服务器默认配置文件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Catalina</td>
+<td>localhost</td>
+<td>配置WEB站点的根目录和虚拟子目录</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>存放公用的jar包，包含jsp等支持</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>webapps</td>
+<td>默认的WEB站点根目录</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>logs</td>
+<td>存放日志</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>work</td>
+<td>jsp的工作目录</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="配置WEB站点的根目录和虚拟子目录"><a href="#配置WEB站点的根目录和虚拟子目录" class="headerlink" title="配置WEB站点的根目录和虚拟子目录"></a>配置WEB站点的根目录和虚拟子目录</h4><p><strong>WEB站点的根目录</strong>：webapps物理上存储的位置，默认为tomcat的webapps目录，可以通过以下方式自定义：</p>
+<ol>
+<li>修改<code>conf/server.xml</code>文件的Host节点的<code>appBase</code>值，该值可以是绝对路径和相对路径：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在<code>&lt;catalina_home&gt;/conf/Catalina/localhost</code>下增加ROOT.xml 文件，内容为：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"&lt;站点根目录&gt;"</span> <span class="attr">path</span>=<span class="string">""</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>docBase</code> 表示对应path的文档根路径。</p>
+<p><code>path</code> 为空表示更改根目录的上下文环境。</p>
+<p><code></code>reloadable` 属性标示tomcat是否要在运行时监视class文件是否有改动，若有改动则自动重新加载webapps。</p>
+<ol start="3">
+<li>在<code>conf/server.xml</code>文件中配置<code>Context</code>节点，修改<code>docBase</code>属性</li>
+</ol>
+<p><strong>虚拟子目录</strong>：通过浏览器访问的路径，其修改方式如下：</p>
+<ol>
+<li>在<code>&lt;catalina_home&gt;/conf/Catalina/localhost</code>下增加XML文件，内容为：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"&lt;站点物理位置&gt;"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时，XML文件名就是虚拟子目录的名称，而path属性弃用。</p>
+<ol start="2">
+<li>在<code>conf/server.xml</code>文件中配置<code>Context</code>节点，修改<code>path</code>属性</li>
+</ol>
+<h4 id="部署描述符"><a href="#部署描述符" class="headerlink" title="部署描述符"></a>部署描述符</h4><p><code>web.xml</code>即是web应用的部署描述符</p>
+<h4 id="目录的默认页面"><a href="#目录的默认页面" class="headerlink" title="目录的默认页面"></a>目录的默认页面</h4><p>通过修改根目录下<code>web.xml</code>中的<code>&lt;welcom-file-list&gt;</code>节点进行全局配置，通过修改单个webapp下的<code>WEB-INF</code>x下的<code>web.xml</code>文件中的<code>&lt;welcom-file-list&gt;</code>节点</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2017/12/29/it/java/base/Servlet 使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Servlet 使用笔记
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/12/28/it/java/base/Nginx 使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Nginx 使用笔记</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
