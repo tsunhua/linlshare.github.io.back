@@ -1,7 +1,7 @@
 ---
 title: S3 Select for Java 使用记录
 date: 2018-8-19 19:33:00
-tags: [S3]
+tags: [aws,s3]
 comments: true
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Java 后端基础之 8. Spring Boot
+title: Spring Boot 使用笔记
 date: 2018-1-7 12:03:00
 tags: [Java,Spring,SpringBoot]
 comments: true

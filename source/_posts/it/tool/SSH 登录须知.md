@@ -82,6 +82,12 @@ Host xx-server
 | *.pfx          | 微软 IIS 的实现                                              |
 | *.jks          | Java Keytool 实现的证书格式                                  |
 
+## 排错
+
+### SSH 一直登陆不上，又没显示错误信息
+
+在 ssh 命名最后添加 -v/-vv 输出连接信息。
+
 ## 参考
 
 - [Secure Shell - 维基百科](https://zh.wikipedia.org/zh-cn/Secure_Shell)

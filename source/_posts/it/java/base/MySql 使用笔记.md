@@ -1,5 +1,5 @@
 ---
-title: Java 后端基础之 7. MySql
+title: MySql 使用笔记
 date: 2018-1-6 12:02:00
 tags: [Java,MySql]
 comments: true

@@ -1,5 +1,5 @@
 ---
-title: Java 后端基础之 4. Maven
+title: Maven 使用笔记
 date: 2017-12-29 19:34:00
 tags: [Java,Maven]
 comments: true

@@ -1,5 +1,5 @@
 ---
-title: Java 后端基础之 1. Nginx
+title: Nginx 使用笔记
 date: 2017-12-28 11:56:00
 tags: [Java,Nginx]
 comments: true
@@ -231,8 +231,8 @@ syntax：`location [=|~|~*|^~|@] /uri/ {…}`
 2. 再查找普通匹配，以 *最大前缀* 为规则，如有以下两个location
 
     ```nginx
-   location /test/ {...}
-   location /test/1 {...}
+      location /test/ {...}
+      location /test/1 {...}
     ```
 
    则匹配后一项
