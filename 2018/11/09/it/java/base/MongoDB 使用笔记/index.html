@@ -9,18 +9,18 @@
         <meta name="keywords" content="Java,MongoDB">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置。如果使">
+    <meta name="description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置，不支持">
 <meta name="keywords" content="Java,MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 使用笔记">
 <meta property="og:url" content="https://linlshare.github.io/2018/11/09/it/java/base/MongoDB 使用笔记/index.html">
 <meta property="og:site_name" content="Lshare手札">
-<meta property="og:description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置。如果使">
+<meta property="og:description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置，不支持">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-09T11:26:45.008Z">
+<meta property="og:updated_time" content="2018-11-12T02:14:43.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB 使用笔记">
-<meta name="twitter:description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置。如果使">
+<meta name="twitter:description" content="安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载并配置环境变量，如下： 1$ export PATH=&amp;#123;MONGODB_DIR&amp;#125;/bin:$PATH 启动12# &amp;#123;mongo_db_file_path&amp;#125; 为指定的数据库文件存放位置，不支持">
     
 
     
@@ -578,7 +578,7 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo brew install mongodb</span><br></pre></td></tr></table></figure>
 <p>也可以自己到 <a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">MongoDB 的下载中心</a> 下载并配置环境变量，如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export PATH=&#123;MONGODB_DIR&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> &#123;mongo_db_file_path&#125; 为指定的数据库文件存放位置。如果使用默认位置 /data/db ，也需要先手动创建。</span><br><span class="line"><span class="meta">$</span> mongod --dbpath=&#123;mongo_db_file_path&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> &#123;mongo_db_file_path&#125; 为指定的数据库文件存放位置，不支持~符号。如果使用默认位置 /data/db ，也需要先手动创建。</span><br><span class="line"><span class="meta">$</span> mongod --dbpath=&#123;mongo_db_file_path&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>（1）本地连接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mongo</span><br></pre></td></tr></table></figure>
 <p>（2）远程连接</p>

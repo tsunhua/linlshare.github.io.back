@@ -9,18 +9,18 @@
         <meta name="keywords" content="Java,Spring,SpringBoot">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门">
+    <meta name="description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门创建定时任务 在Spring Boot">
 <meta name="keywords" content="Java,Spring,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot 使用笔记">
 <meta property="og:url" content="https://linlshare.github.io/2018/01/07/it/java/base/Spring Boot 使用笔记/index.html">
 <meta property="og:site_name" content="Lshare手札">
-<meta property="og:description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门">
+<meta property="og:description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门创建定时任务 在Spring Boot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-09T09:58:58.811Z">
+<meta property="og:updated_time" content="2018-11-12T09:31:49.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot 使用笔记">
-<meta name="twitter:description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门">
+<meta name="twitter:description" content="简述 推出时间：从Maven仓库的时间看是2016.7.28 目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序 思想：约定优于配置（convention over configuration） 框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）  入门创建定时任务 在Spring Boot">
     
 
     
@@ -569,7 +569,7 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简述"><span class="toc-number">1.</span> <span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门"><span class="toc-number">2.</span> <span class="toc-text">入门</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简述"><span class="toc-number">1.</span> <span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门"><span class="toc-number">2.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建定时任务"><span class="toc-number">3.</span> <span class="toc-text">创建定时任务</span></a></li></ol>
                 </div>
             
         
@@ -580,7 +580,15 @@ ga('send', 'pageview');
 <li>思想：约定优于配置（convention over configuration）</li>
 <li>框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）</li>
 </ol>
-<h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3>
+<h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><h3 id="创建定时任务"><a href="#创建定时任务" class="headerlink" title="创建定时任务"></a>创建定时任务</h3><ol>
+<li><p>在Spring Boot 的主类加入 <code>@EnableScheduling</code> 注解，启用定时任务的配置；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableScheduling</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>@Scheduled(fixedRate = 1000)</code> 注解实现类需要定时执行的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScheduledTasks</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SimpleDateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Scheduled</span>(fixedRate = <span class="number">1000</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Current: "</span> + dateFormat.format(<span class="keyword">new</span> Date()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
             </div>
         
         <footer class="article-footer">

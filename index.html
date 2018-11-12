@@ -674,7 +674,7 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo brew install mongodb</span><br></pre></td></tr></table></figure>
 <p>也可以自己到 <a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">MongoDB 的下载中心</a> 下载并配置环境变量，如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export PATH=&#123;MONGODB_DIR&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> &#123;mongo_db_file_path&#125; 为指定的数据库文件存放位置。如果使用默认位置 /data/db ，也需要先手动创建。</span><br><span class="line"><span class="meta">$</span> mongod --dbpath=&#123;mongo_db_file_path&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> &#123;mongo_db_file_path&#125; 为指定的数据库文件存放位置，不支持~符号。如果使用默认位置 /data/db ，也需要先手动创建。</span><br><span class="line"><span class="meta">$</span> mongod --dbpath=&#123;mongo_db_file_path&#125;</span><br></pre></td></tr></table></figure>
 <p>
                 
             
