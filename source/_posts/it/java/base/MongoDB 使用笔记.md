@@ -22,7 +22,7 @@ $ export PATH={MONGODB_DIR}/bin:$PATH
 ## 启动
 
 ```shell
-# {mongo_db_file_path} 为指定的数据库文件存放位置。如果使用默认位置 /data/db ，也需要先手动创建。
+# {mongo_db_file_path} 为指定的数据库文件存放位置，不支持~符号。如果使用默认位置 /data/db ，也需要先手动创建。
 $ mongod --dbpath={mongo_db_file_path}
 ```
 

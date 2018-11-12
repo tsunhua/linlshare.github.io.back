@@ -15,3 +15,31 @@ comments: true
 
 ### 入门
 
+### 创建定时任务
+
+1. 在Spring Boot 的主类加入 `@EnableScheduling` 注解，启用定时任务的配置；
+
+   ```java
+   @SpringBootApplication
+   @EnableScheduling
+   public class Application {
+   	public static void main(String[] args) {
+   		SpringApplication.run(Application.class, args);
+   	}
+   }
+   ```
+
+2. 使用 `@Scheduled(fixedRate = 1000)` 注解实现类需要定时执行的方法。
+
+   ```java
+   @Component
+   public class ScheduledTasks implements Runnable{
+       private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+   
+       @Override
+       @Scheduled(fixedRate = 1000)
+       public void run() {
+           System.out.println("Current: " + dateFormat.format(new Date()));
+       }
+   }
+   ```
