@@ -328,3 +328,13 @@ chmod  u=rwx,go=rx  .bashrc
 chmod  a+w  .bashrc
 # 增加.bashrc这个文件的每个人均可写入的权限
 ```
+
+### 正则方式删除文件（Delete files with regular expression）
+
+偶然间，使用 `ll` 命令发现桌面上有许多 `~$` 开头的文件，是用微软三件套打开后暂存文件，原文件已经删除了，可这暂存文件还隐存在桌面上，于是想要批量删除它们。
+
+```shell
+# 在当前目录找到以 “~$” 开头的文件，然后执行删除操作
+find . -name "~\$*" -delete
+```
+
