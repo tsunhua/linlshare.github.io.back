@@ -3,24 +3,26 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>周记 20181021 | Share 杂志</title>
+    <title>周记 20181140 | Share 杂志</title>
     
     
         <meta name="keywords" content="自省,周记">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产">
+    <meta name="description" content="已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡了又画。成了之后找框架的设计者聊了一下，消解了设计上的一些疑惑。然，接下来才是重头戏，要基于此抽取并加入新的模块设计，编码还没">
 <meta name="keywords" content="自省,周记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="周记 20181021">
-<meta property="og:url" content="https://linlshare.github.io/2018/10/21/thinking/自省/周记 20181021/index.html">
+<meta property="og:title" content="周记 20181140">
+<meta property="og:url" content="https://linlshare.github.io/2018/11/04/thinking/weekly/周记 20181104/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产">
+<meta property="og:description" content="已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡了又画。成了之后找框架的设计者聊了一下，消解了设计上的一些疑惑。然，接下来才是重头戏，要基于此抽取并加入新的模块设计，编码还没">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-04T13:50:41.937Z">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/04/thinking/weekly/周记%2020181104/code_design.png">
+<meta property="og:updated_time" content="2018-11-04T14:43:52.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="周记 20181021">
-<meta name="twitter:description" content="恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产">
+<meta name="twitter:title" content="周记 20181140">
+<meta name="twitter:description" content="已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡了又画。成了之后找框架的设计者聊了一下，消解了设计上的一些疑惑。然，接下来才是重头戏，要基于此抽取并加入新的模块设计，编码还没">
+<meta name="twitter:image" content="https://linlshare.github.io/2018/11/04/thinking/weekly/周记%2020181104/code_design.png">
     
 
     
@@ -431,9 +433,9 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            自省
+                            weekly
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/08/14/thinking/自省/不苟同的生活/">不苟同的生活</a></li>  <li class="file active"><a href="/2018/10/21/thinking/自省/周记 20181021/">周记 20181021</a></li>  <li class="file"><a href="/2018/11/04/thinking/自省/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/10/28/thinking/自省/周记 20181028/">周记 20181028</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2018/11/04/thinking/weekly/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a></li>  <li class="file"><a href="/2018/10/28/thinking/weekly/周记 20181028/">周记 20181028</a></li>  <li class="file"><a href="/2017/08/14/thinking/weekly/不苟同的生活/">不苟同的生活</a></li>  <li class="file"><a href="/2018/10/21/thinking/weekly/周记 20181021/">周记 20181021</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2017/01/25/thinking/美感三言/">美感三言</a></li>  </ul> 
                     </li> 
@@ -508,7 +510,7 @@ ga('send', 'pageview');
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-thinking/自省/周记 20181021" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-thinking/weekly/周记 20181104" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -518,7 +520,7 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/thinking/">thinking</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/thinking/自省/">自省</a>
+        <a class="article-category-link" href="/categories/thinking/">thinking</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/thinking/weekly/">weekly</a>
     </div>
 
                         
@@ -530,8 +532,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/10/21/thinking/自省/周记 20181021/">
-            <time datetime="2018-10-21T08:51:00.000Z" itemprop="datePublished">2018-10-21</time>
+        <a href="/2018/11/04/thinking/weekly/周记 20181104/">
+            <time datetime="2018-11-04T13:51:00.000Z" itemprop="datePublished">2018-11-04</time>
         </a>
     </div>
 
@@ -542,13 +544,13 @@ ga('send', 'pageview');
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/thinking/自省/周记 20181021.md"> Source </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/thinking/weekly/周记 20181104.md"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/thinking/自省/周记 20181021.md"> Edit </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/thinking/weekly/周记 20181104.md"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/thinking/自省/周记 20181021.md"> History </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/thinking/weekly/周记 20181104.md"> History </a>
                             </div>
                         
                     </div>
@@ -556,7 +558,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            周记 20181021
+            周记 20181140
         </h1>
     
 
@@ -574,8 +576,16 @@ ga('send', 'pageview');
             
         
         
-            <p>恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产品（包含移动端和 Chrome 插件），相见恨晚，它快速简便地收集资料（文字、图片和链接），多端同步，还可以同步到印象笔记中，这样的软件即使付费使用我也愿意。哦，对了，我还重新认识了 Afred 这款 Mac 上的效率佳软，其剪贴板历史功能、查字典和文件查找快捷命令令我折服。</p>
-<p>另一个我：工作上能意识到不足，然后补充相关的知识，这点很不错。但是要 output 啊，没见你输出什么笔记之类的，还有要有计划地学习，不能逮到什么学习什么，看到不足的可以先收集起来，然后下一周努力补上。学习上也是，那么厚的书，你有考虑到后果吗？你有安排什么时候会读完吗？不过说来你有在进行细致的读书补遗，这点很 nice，坚持补遗，才能有接近作者生活体验的读书体验。还有巴赫作品集实在是你这种单身狗的救星了，平和而又有变化的旋律可以稳定人的情绪，特别是那平均律，足以令你陶然其中。最后，效率软件要用起来，不能再依赖慢吞吞的触摸板点来点去了。</p>
+            <p>已经决定挑战，往后台方向发展了。接手了一个爬虫框架的设计和开发任务，但心里其实没底的，因为不曾独立设计和开发过一个框架，对 Java EE 世界中的各种框架其实也不甚了解。但还是硬着头皮上了，花了两三天阅读已有案例的设计文档、代码，并亲手画出一个既有框架的类图，画了又睡，睡了又画。成了之后找框架的设计者聊了一下，消解了设计上的一些疑惑。然，接下来才是重头戏，要基于此抽取并加入新的模块设计，编码还没到时候呢。加油吧，到时候多总结下。</p>
+<p><img src="/2018/11/04/thinking/weekly/周记 20181104/code_design.png" alt="亲手画的类图，不努力的时候看一下"></p>
+<p>另外，这几天不知为何睡眠质量很差，几乎没有深度睡眠，晚上早睡睡不着，早上四五点就自然醒了，搞得预定的任务缩水了。不过今晚研究《甲骨文简易词典》时倒是气定神闲，脑壳没有沉重的感觉，可能我比较适合从事文字学特别是汉字学的工作也不一定。</p>
+<p>阅读《枕草子》时读到一首和歌很感动，原文是这样的：</p>
+<blockquote>
+<p>心是地下逝水在翻滚了</p>
+<p>不言语，但相思</p>
+<p>还胜似语话</p>
+</blockquote>
+<p>中宫久不见清少纳言，托人送信，信中引用该和歌，只写着  <code>不言语，但相思</code> ，令少纳言读后顿时落泪，过几天后就进宫去了。她们见面的情形大概可以用《鹊桥仙·纤云弄巧》里的 <code>金风玉露一相逢，便胜却，人间无数</code> （最近想起这句词，不自觉地背起来了）来表达了。</p>
 
             </div>
         
@@ -588,19 +598,19 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
-        <a href="/2018/10/23/it/tool/Draw.io 使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/11/07/it/tool/Gradle 使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Draw.io 使用笔记
+                    Gradle 使用笔记
                 
             </div>
         </a>
     
     
-        <a href="/2018/10/17/it/tool/Git 实战记录/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/11/04/it/java/arch/Pipeline 模型/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Git 实战记录</div>
+            <div class="article-nav-title">Pipeline 模型</div>
         </a>
     
 </nav>
