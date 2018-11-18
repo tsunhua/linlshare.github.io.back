@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>Kotlin 函数 | Lshare手札</title>
+    <title>Kotlin 函数 | Share 杂志</title>
     
     
         <meta name="keywords" content="Kotlin">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 函数">
 <meta property="og:url" content="https://linlshare.github.io/2017/12/16/it/kotlin/Kotlin函数/index.html">
-<meta property="og:site_name" content="Lshare手札">
+<meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="函数声明123fun double(x: Int): Int&amp;#123;    return 2 * x&amp;#125; 描述：以fun为关键字，后接函数名，函数名后使用括号包裹函数参数，最后使用“:”+ 数据类型说明返回类型。 这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。 函数用法顶层函数直接调用 1val result = double(2) 成员函数要先拿">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-10-26T16:07:16.407Z">
@@ -24,7 +24,7 @@
     
 
     
-        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+        <link rel="alternate" href="/atom.xml" title="Share 杂志" type="application/atom+xml">
     
 
     
@@ -73,7 +73,7 @@ ga('send', 'pageview');
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">Lshare手札</span>
+                <span class="site-title">Share 杂志</span>
             </a>
             <nav id="main-nav">
                 
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -568,7 +568,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
+                <strong class="toc-title">Catalogue</strong>
                     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数声明"><span class="toc-number">1.</span> <span class="toc-text">函数声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数用法"><span class="toc-number">2.</span> <span class="toc-text">函数用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数参数"><span class="toc-number">2.1.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#默认参数"><span class="toc-number">2.2.</span> <span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命名参数"><span class="toc-number">2.3.</span> <span class="toc-text">命名参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#返回Unit的函数"><span class="toc-number">2.4.</span> <span class="toc-text">返回Unit的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单表达式函数"><span class="toc-number">2.5.</span> <span class="toc-text">单表达式函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显式返回类型"><span class="toc-number">2.6.</span> <span class="toc-text">显式返回类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可变数量的参数（Varargs）"><span class="toc-number">2.7.</span> <span class="toc-text">可变数量的参数（Varargs）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中缀表示法"><span class="toc-number">2.8.</span> <span class="toc-text">中缀表示法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作用域"><span class="toc-number">3.</span> <span class="toc-text">函数作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型函数"><span class="toc-number">4.</span> <span class="toc-text">泛型函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尾递归函数"><span class="toc-number">5.</span> <span class="toc-text">尾递归函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda表达式"><span class="toc-number">6.</span> <span class="toc-text">Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数引用"><span class="toc-number">6.1.</span> <span class="toc-text">函数引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高阶函数"><span class="toc-number">6.2.</span> <span class="toc-text">高阶函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lambda表达式-1"><span class="toc-number">6.3.</span> <span class="toc-text">Lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联函数"><span class="toc-number">7.</span> <span class="toc-text">内联函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#非局部返回（位于lambda表达式中，但退出包含它的函数）"><span class="toc-number">7.1.</span> <span class="toc-text">非局部返回（位于lambda表达式中，但退出包含它的函数）</span></a></li></ol></li></ol>
                 </div>
             
@@ -683,7 +683,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2017/12/17/it/kotlin/Kotlin的特性/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     Kotlin的特性
@@ -693,7 +693,7 @@ ga('send', 'pageview');
     
     
         <a href="/2017/12/02/it/tool/Github 使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">Github 使用笔记</div>
         </a>
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lshare手札</title>
+  <title>Share 杂志</title>
   <icon>https://www.gravatar.com/avatar/67398ac80b713195e4e6faee10834ea3</icon>
   
   <link href="/atom.xml" rel="self"/>

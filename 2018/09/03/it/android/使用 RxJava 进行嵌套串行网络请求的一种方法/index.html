@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>使用 RxJava 进行嵌套串行网络请求的一种方法 | Lshare手札</title>
+    <title>使用 RxJava 进行嵌套串行网络请求的一种方法 | Share 杂志</title>
     
     
         <meta name="keywords" content="Android">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 RxJava 进行嵌套串行网络请求的一种方法">
 <meta property="og:url" content="https://linlshare.github.io/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/index.html">
-<meta property="og:site_name" content="Lshare手札">
+<meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="需求有这样一个列表数据，它包含了商店+订单的信息，获取订单列表时，订单实体中会包含商店的 ID，而列表显示时需要商店的名称和 logo，这时候就需要进行嵌套串行网络请求了。 关键词flatMap 、缓存 、Retrofit、RxJava 动手（1）使用 Retrofit 定义网络接口1234567// RemoteService.java// 请求订单信息@POST(&quot;/order/v1/orde">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-10-26T15:52:01.827Z">
@@ -24,7 +24,7 @@
     
 
     
-        <link rel="alternate" href="/atom.xml" title="Lshare手札" type="application/atom+xml">
+        <link rel="alternate" href="/atom.xml" title="Share 杂志" type="application/atom+xml">
     
 
     
@@ -73,7 +73,7 @@ ga('send', 'pageview');
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">Lshare手札</span>
+                <span class="site-title">Share 杂志</span>
             </a>
             <nav id="main-nav">
                 
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -568,7 +568,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
+                <strong class="toc-title">Catalogue</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-number">1.</span> <span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键词"><span class="toc-number">2.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动手"><span class="toc-number">3.</span> <span class="toc-text">动手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）使用-Retrofit-定义网络接口"><span class="toc-number">3.1.</span> <span class="toc-text">（1）使用 Retrofit 定义网络接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）使用-DataManager-管理数据"><span class="toc-number">3.2.</span> <span class="toc-text">（2）使用 DataManager 管理数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）多次FlatMap"><span class="toc-number">3.3.</span> <span class="toc-text">（3）多次FlatMap</span></a></li></ol></li></ol>
                 </div>
             
@@ -602,7 +602,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/09/03/language/日語/伊呂波歌/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     伊呂波歌
@@ -612,7 +612,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">《古代漢語》上一·常用字</div>
         </a>
     
