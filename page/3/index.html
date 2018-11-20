@@ -312,6 +312,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Xpath 使用笔记/">Xpath 使用笔记</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium 使用笔记/">Selenium 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             tool
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用笔记/">Draw.io 使用笔记</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/">Git 实战记录</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用笔记/">Axure 使用笔记</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 使用笔记/">IDEA 使用笔记</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/11/07/it/tool/Gradle 使用笔记/">Gradle 使用笔记</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/">Linux命令总结</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github 使用笔记/">Github 使用笔记</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/">Vim 小记</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  </ul> 
@@ -507,6 +516,214 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/android/">android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">
+            <time datetime="2018-09-13T09:33:00.000Z" itemprop="datePublished">2018-09-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+<li><code>RecyclerView.Adapter#notifyDataSetChanged()</code> 会每次刷新整个布局；</li>
+<li>每次手动调用 <code>RecyclerView.Adapter#notifyItemXx</code> 系列方法很麻烦；</li>
+<li>需要在新增的项目中跟旧的列表项重复时，只更新内容，而不是插入重复项。</li>
+</ol>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/language/">language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/language/日語/">日語</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/日語自遊行の最和味/">日語自遊行の最和味</a>, <a class="tag-link" href="/tags/日语/">日语</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">
+            <time datetime="2018-09-12T01:03:00.000Z" itemprop="datePublished">2018-09-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="詞彙"><a href="#詞彙" class="headerlink" title="詞彙"></a>詞彙</h2><table>
+<thead>
+<tr>
+<th>詞</th>
+<th>音</th>
+<p>
+                
+            
+        
+        
+            </p></tr></thead></table></div>   
+            <div class="article-more-link">
+                <a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/tool/Axure 使用笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1313,216 +1530,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-language/日語/《日語自遊行の最和味》第一課 秋葉原" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/language/">language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/language/日語/">日語</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/日語自遊行の最和味/">日語自遊行の最和味</a>, <a class="tag-link" href="/tags/日语/">日语</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">
-            <time datetime="2018-09-05T00:59:00.000Z" itemprop="datePublished">2018-09-05</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/language/日語/《日語自遊行の最和味》第一課 秋葉原.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/language/日語/《日語自遊行の最和味》第一課 秋葉原.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/language/日語/《日語自遊行の最和味》第一課 秋葉原.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="對話"><a href="#對話" class="headerlink" title="對話"></a>對話</h2><p>桜：<strong>秋葉原　は　日本最大　の　電気街です。 でも、今　は　「オタク」で　有名です。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秋葉原是日本最大的電器街。但是，現在卻以[御宅族]出名。</span><br></pre></td></tr></table></figure>
-<p>健：<strong>そです　よね。 秋葉原　は　若い人　の　新しい　観光名所　です　よね。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">說的正是啊。秋葉原是年輕人的新觀光勝地哦。</span><br></pre></td></tr></table></figure>
-<p>桜：<strong>香港　でわ　「電車男」で　有名　です。</strong></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-language/日語/日語五十音考" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/language/">language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/language/日語/">日語</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/日语/">日语</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/09/04/language/日語/日語五十音考/">
-            <time datetime="2018-09-04T15:33:00.000Z" itemprop="datePublished">2018-09-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/language/日語/日語五十音考.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/language/日語/日語五十音考.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/language/日語/日語五十音考.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="歷史"><a href="#歷史" class="headerlink" title="歷史"></a>歷史</h2><ul>
-<li>公元 5 世紀，正值中國東晉時期（317~420），日本古墳時代（300~600），僧侶們東渡日本，漢字傳播到了日本。</li>
-<li>公元 8 世紀，正值中國唐朝（618~907），《萬葉集》依據漢字草書，造出萬葉假名，表漢字之音，為女性所用。明治時代，日本政府根據萬葉假名確定出現今使用的平假名。</li>
-<li>平安時代（794~1185）初，也就是公元 8 世紀末，為了訓讀漢字，發明了片假名。初始時，一音可以對應多個片假名。到明治時代，日本政府確定了一音一片的對應規則。</li>
-</ul>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/04/language/日語/日語五十音考/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
         </nav>
     
 </section>

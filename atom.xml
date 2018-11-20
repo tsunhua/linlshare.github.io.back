@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-18T16:21:52.876Z</updated>
+  <updated>2018-11-20T12:15:13.065Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xpath 使用笔记</title>
+    <link href="https://linlshare.github.io/2018/11/20/it/robot/Xpath%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://linlshare.github.io/2018/11/20/it/robot/Xpath 使用笔记/</id>
+    <published>2018-11-20T11:38:55.000Z</published>
+    <updated>2018-11-20T12:15:13.065Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="何为-Xpath（Introduction）"><a href="#何为-Xpath（Introduction）" class="headerlink" title="何为 Xpath（Introduction）"></a>何为 Xpath（Introduction）</h2><p><a href="https://zh.wikipedia.org/zh-hans/XPath" target="_blank" rel="noopener">维基百科</a>：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p><p>所谓节点有七种，分别是：</p><ul><li>元素（element）</li><li>属性（attribute）</li><li>文本（text）</li><li>命名空间（namespace）</li><li>处理指令（processing-instruction）</li><li>注释（comment）</li><li>文档节点（document node, also called root element）</li></ul><p>示例：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure><p>其中，</p><ul><li><code>&lt;bookstore&gt;</code> 为根节点，或者称为文档节点；</li><li><code>&lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;</code> 为元素节点；</li><li><code>lang=&quot;en&quot;</code> 为属性节点；</li><li><code>Harry Potter</code> 为文本节点。</li></ul><h2 id="基础语法（Syntax）"><a href="#基础语法（Syntax）" class="headerlink" title="基础语法（Syntax）"></a>基础语法（Syntax）</h2><h3 id="路径表达式（Path-Expressions）"><a href="#路径表达式（Path-Expressions）" class="headerlink" title="路径表达式（Path Expressions）"></a>路径表达式（Path Expressions）</h3><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点。</td></tr><tr><td>/</td><td>从根节点选取。</td></tr><tr><td>//</td><td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td></tr><tr><td>.</td><td>选取当前节点。</td></tr><tr><td>..</td><td>选取当前节点的父节点。</td></tr><tr><td>@</td><td>选取属性。</td></tr><tr><td>text()</td><td>选取文本。</td></tr></tbody></table><h3 id="断言（Predicates）"><a href="#断言（Predicates）" class="headerlink" title="断言（Predicates）"></a>断言（Predicates）</h3><p>断言被用来在查找指定的节点或者包含指定值的节点，通常放在方括号 <code>[]</code> 中。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>/bookstore/book[1]</td><td>选取属于 bookstore 子元素的第一个 book 元素。</td></tr><tr><td>/bookstore/book[last()]</td><td>选取属于 bookstore 子元素的最后一个 book 元素。</td></tr><tr><td>/bookstore/book[last()-1]</td><td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td></tr><tr><td>/bookstore/book[position()&lt;3]</td><td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td></tr><tr><td>//title[@lang]</td><td>选取所有拥有名为 lang 的属性的 title 元素。</td></tr><tr><td>//title[@lang=’eng’]</td><td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td></tr><tr><td>//book[author[text()=’J K. Rowling’]]</td><td>选取 author 为 J K. Rowling 的 book 元素。</td></tr><tr><td>/bookstore/book[price&gt;35.00]</td><td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td></tr><tr><td>/bookstore/book[price&gt;35.00]/title</td><td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td></tr></tbody></table><h3 id="模糊选取（Selecting-Unknown-Nodes）"><a href="#模糊选取（Selecting-Unknown-Nodes）" class="headerlink" title="模糊选取（Selecting Unknown Nodes）"></a>模糊选取（Selecting Unknown Nodes）</h3><table><thead><tr><th>通配符</th><th>描述</th></tr></thead><tbody><tr><td>*</td><td>匹配任何元素节点。</td></tr><tr><td>@*</td><td>匹配任何属性节点。</td></tr><tr><td>node()</td><td>匹配任何类型的节点。</td></tr></tbody></table><h3 id="合并选取（Selecting-Several-Paths）"><a href="#合并选取（Selecting-Several-Paths）" class="headerlink" title="合并选取（Selecting Several Paths）"></a>合并选取（Selecting Several Paths）</h3><p>使用管道符 <code>|</code>  合并两个选取结果。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>//book/title \</td><td>//book/price</td><td>选取 book 元素的所有 title 和 price 元素。</td></tr><tr><td>//title \</td><td>//price</td><td>选取文档中的所有 title 和 price 元素。</td></tr><tr><td>/bookstore/book/title \</td><td>//price</td><td>选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td></tr></tbody></table><p>##正则匹配（Regular Match）</p><p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p><p>比如获取 Github 上某仓库的星星数的 Xpath 为，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div/a[ends-with(@href, &apos;stargazers&apos;)]/text()</span><br></pre></td></tr></table></figure><p> 表示获取 <code>div</code> 节点下的具备有属性为 <code>href</code>且值为 <code>stargazers</code> 结尾的 <code>a</code> 节点的文本内容。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;何为-Xpath（Introduction）&quot;&gt;&lt;a href=&quot;#何为-Xpath（Introduction）&quot; class=&quot;headerlink&quot; title=&quot;何为 Xpath（Introduction）&quot;&gt;&lt;/a&gt;何为 Xpath（Introductio
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="Robot" scheme="https://linlshare.github.io/tags/Robot/"/>
+    
+      <category term="Xpath" scheme="https://linlshare.github.io/tags/Xpath/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Selenium 使用笔记</title>
+    <link href="https://linlshare.github.io/2018/11/20/it/robot/Selenium%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://linlshare.github.io/2018/11/20/it/robot/Selenium 使用笔记/</id>
+    <published>2018-11-20T09:18:59.000Z</published>
+    <updated>2018-11-20T09:53:49.796Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装-Selenium"><a href="#安装-Selenium" class="headerlink" title="安装 Selenium"></a>安装 Selenium</h2><p><strong>（1）Java 编程环境下</strong></p><p>针对 Gradle</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.seleniumhq.selenium:selenium-java:RELEASE'</span></span><br></pre></td></tr></table></figure><p> 针对 Maven</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.seleniumhq.selenium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>selenium-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>（2）Python 编程环境下</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium</span><br></pre></td></tr></table></figure><h2 id="安装和配置-Driver"><a href="#安装和配置-Driver" class="headerlink" title="安装和配置 Driver"></a>安装和配置 Driver</h2><h3 id="下载-Driver"><a href="#下载-Driver" class="headerlink" title="下载 Driver"></a>下载 Driver</h3><p>不同的操作系统和浏览器有不同的 Driver 需根据需求选取：</p><ul><li>Chrome <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">driver</a></li><li>Edge <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/" target="_blank" rel="noopener">driver</a></li><li>Firefox <a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">driver</a></li><li>Safari <a href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/" target="_blank" rel="noopener">driver</a></li></ul><h3 id="配置-Driver（以-Mac-Linux-为例）"><a href="#配置-Driver（以-Mac-Linux-为例）" class="headerlink" title="配置 Driver（以 Mac/Linux 为例）"></a>配置 Driver（以 Mac/Linux 为例）</h3><p>（1）将下载的 driver zip 压缩包解压</p><p>（2）将文件复制到系统的 bin 目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp path/to/driver /usr/local/bin</span><br></pre></td></tr></table></figure><p>（3）赋予 driver 可执行权限（以chromdriver为例）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x /usr/local/bin/chromdriver</span><br></pre></td></tr></table></figure><blockquote><p>注意：Driver 的版本是跟 Selenium 相匹配的，如果发现有 NoSuchMethodError，请更新两者版本到最新稳定版。</p></blockquote><h2 id="自动生成-Selenium-代码"><a href="#自动生成-Selenium-代码" class="headerlink" title="自动生成 Selenium 代码"></a>自动生成 Selenium 代码</h2><p>在 Firefox 中安装插件 <a href="https://addons.mozilla.org/en-US/firefox/addon/katalon-automation-record/" target="_blank" rel="noopener">Katalon Recorder</a> 可以方便地进行录制用户行为，然后导出各个语言环境下的 Selenium 代码。使用路径：Record –&gt; [Some interactions] –&gt; Stop –&gt; Export。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装-Selenium&quot;&gt;&lt;a href=&quot;#安装-Selenium&quot; class=&quot;headerlink&quot; title=&quot;安装 Selenium&quot;&gt;&lt;/a&gt;安装 Selenium&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;（1）Java 编程环境下&lt;/strong&gt;&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="Robot" scheme="https://linlshare.github.io/tags/Robot/"/>
+    
+      <category term="Selenium" scheme="https://linlshare.github.io/tags/Selenium/"/>
+    
+  </entry>
   
   <entry>
     <title>周记 20181118</title>
@@ -562,71 +624,6 @@
     
     
       <category term="古漢語" scheme="https://linlshare.github.io/tags/%E5%8F%A4%E6%BC%A2%E8%AA%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</title>
-    <link href="https://linlshare.github.io/2018/09/13/it/android/Android%20%E4%BD%BF%E7%94%A8%20DiffUtil%20%E5%A4%84%E7%90%86%20RecyclerView%20%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/"/>
-    <id>https://linlshare.github.io/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/</id>
-    <published>2018-09-13T09:33:00.000Z</published>
-    <updated>2018-10-26T15:48:06.946Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol><li><code>RecyclerView.Adapter#notifyDataSetChanged()</code> 会每次刷新整个布局；</li><li>每次手动调用 <code>RecyclerView.Adapter#notifyItemXx</code> 系列方法很麻烦；</li><li>需要在新增的项目中跟旧的列表项重复时，只更新内容，而不是插入重复项。</li></ol><h2 id="DiffUtil"><a href="#DiffUtil" class="headerlink" title="DiffUtil"></a>DiffUtil</h2><p><code>DiffUtil</code> 就是为了简化 RecyclerVeiw 更新数据操作而生。其关键类和方法如下：</p><table><thead><tr><th>类</th><th>方法</th><th>描述</th></tr></thead><tbody><tr><td>DiffUtil</td><td>public static DiffResult <strong>calculateDiff</strong>(Callback cb)</td><td>根据 Callback 提供的数据分析出新旧数据列表的差异，返回 DiffResult</td></tr><tr><td>DiffUtil.Callback</td><td>public abstract int <strong>getOldListSize</strong>()</td><td>返回旧数据的数量</td></tr><tr><td></td><td>public abstract int <strong>getNewListSize</strong>()</td><td>返回新数据的数量</td></tr><tr><td></td><td>public abstract boolean <strong>areItemsTheSame</strong>(int oldItemPosition, int newItemPosition)</td><td>决定两个数据项是否是同一个</td></tr><tr><td></td><td>public abstract boolean <strong>areContentsTheSame</strong>(int oldItemPosition, int newItemPosition)</td><td>（当两个数据项是同一个时，）决定两个数据项的内容是否同样，或者说是否需要进行更新</td></tr><tr><td>DiffUtil.DiffResult</td><td>public void <strong>dispatchUpdatesTo</strong>(final RecyclerView.Adapter adapter)</td><td>将差异信息更新到 RecyclerView.Adapter 中</td></tr></tbody></table><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>创建一个类实现 <code>DiffUtil.Callback</code> ；</li><li>当新数据到来时，实例化自定义的 callback，传入新旧数据；</li><li>在子线程调用 <code>DiffUtil#calculateDiff</code> 计算差异；</li><li>将差异结果 <code>DiffResult</code> 更新到 RecyclerView.Adapter 中。</li></ol><h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><ul><li>使用 <code>android.support.v7.recyclerview.extensions.ListAdapter</code> 和 <code>android.support.v7.recyclerview.extensions.AsyncListDiffer</code></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;RecyclerView.Adapter#notifyDataSetChanged()&lt;/code&gt; 会每次刷新整个
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="android" scheme="https://linlshare.github.io/categories/it/android/"/>
-    
-    
-      <category term="Android" scheme="https://linlshare.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《日語自遊行の最和味》第四課 名古屋相撲大會</title>
-    <link href="https://linlshare.github.io/2018/09/12/language/%E6%97%A5%E8%AA%9E/%E3%80%8A%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3%E3%80%8B%E7%AC%AC%E5%9B%9B%E8%AA%B2%20%E5%90%8D%E5%8F%A4%E5%B1%8B%E7%9B%B8%E6%92%B2%E5%A4%A7%E6%9C%83/"/>
-    <id>https://linlshare.github.io/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/</id>
-    <published>2018-09-12T01:03:00.000Z</published>
-    <updated>2018-10-26T16:21:43.322Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="詞彙"><a href="#詞彙" class="headerlink" title="詞彙"></a>詞彙</h2><table><thead><tr><th>詞</th><th>音</th><th>義</th></tr></thead><tbody><tr><td>大　相撲</td><td>おお　ずもう</td><td>日本相撲協會主辦的職業相撲比賽。分析：「おお」是對漢字「大」或「太」的訓讀，「すもう」是對漢字「相撲」或「角力」的訓讀。</td></tr><tr><td>場所</td><td>ばしょ</td><td>（專指相撲的）會場；（專指相撲的）會期；地點。「ばしょ」是中文「場所」的音讀。</td></tr><tr><td>力士</td><td>りきし</td><td>相撲選手。「りきし」是對漢字「力士」的音讀。</td></tr><tr><td>体重</td><td>たいじゅう</td><td>體重。「たいじゅう」是對漢字「體重」的音讀。</td></tr><tr><td>大きい</td><td></td><td>高大；大氣的，大度的；誇大的；數量多的。</td></tr><tr><td>どのぐらい</td><td></td><td>大約多少。「どの」或「何の」，表示詢問大致的數量。「くらい」在這裡是副詞助詞，表示「大約」。</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;詞彙&quot;&gt;&lt;a href=&quot;#詞彙&quot; class=&quot;headerlink&quot; title=&quot;詞彙&quot;&gt;&lt;/a&gt;詞彙&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;詞&lt;/th&gt;
-&lt;th&gt;音&lt;/th&gt;
-&lt;th&gt;義&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbo
-      
-    
-    </summary>
-    
-      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
-    
-      <category term="日語" scheme="https://linlshare.github.io/categories/language/%E6%97%A5%E8%AA%9E/"/>
-    
-    
-      <category term="日語自遊行の最和味" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AA%9E%E8%87%AA%E9%81%8A%E8%A1%8C%E3%81%AE%E6%9C%80%E5%92%8C%E5%91%B3/"/>
-    
-      <category term="日语" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AF%AD/"/>
     
   </entry>
   

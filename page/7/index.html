@@ -312,6 +312,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Xpath 使用笔记/">Xpath 使用笔记</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium 使用笔记/">Selenium 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             tool
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/23/it/tool/Draw.io 使用笔记/">Draw.io 使用笔记</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git 实战记录/">Git 实战记录</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure 使用笔记/">Axure 使用笔记</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA 使用笔记/">IDEA 使用笔记</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/11/07/it/tool/Gradle 使用笔记/">Gradle 使用笔记</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux命令总结/">Linux命令总结</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github 使用笔记/">Github 使用笔记</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim 小记/">Vim 小记</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  </ul> 
@@ -507,6 +516,214 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/kotlin/Kotlin函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/kotlin/">kotlin</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Kotlin/">Kotlin</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/16/it/kotlin/Kotlin函数/">
+            <time datetime="2017-12-16T12:07:00.000Z" itemprop="datePublished">2017-12-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/kotlin/Kotlin函数.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/kotlin/Kotlin函数.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/kotlin/Kotlin函数.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">double</span><span class="params">(x: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>描述：以fun为<strong>关键字</strong>，后接<strong>函数名</strong>，函数名后使用括号包裹<strong>函数参数</strong>，最后使用“:”+ 数据类型说明<strong>返回类型</strong>。</p>
+<p>这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。</p>
+<h3 id="函数用法"><a href="#函数用法" class="headerlink" title="函数用法"></a>函数用法</h3><p>顶层函数直接调用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = double(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-it/tool/Github 使用笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Github/">Github</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/02/it/tool/Github 使用笔记/">
+            <time datetime="2017-12-02T11:35:00.000Z" itemprop="datePublished">2017-12-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Github 使用笔记.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Github 使用笔记.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Github 使用笔记.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/02/it/tool/Github 使用笔记/">Github 使用笔记</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="配置Github环境"><a href="#配置Github环境" class="headerlink" title="配置Github环境"></a>配置Github环境</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>参见 <a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">Git 官网</a></p>
+<h3 id="配置ssh-key"><a href="#配置ssh-key" class="headerlink" title="配置ssh-key"></a>配置ssh-key</h3><ol>
+<li><p>检查ssh-key的设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 第一次安装时没有该目录</span><br><span class="line">$ cd ~/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2017/12/02/it/tool/Github 使用笔记/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-thinking/weekly/不苟同的生活" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1255,112 +1472,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-culture/中国文化/从十进制数谈到巴比伦数字系统" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/culture/">culture</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/culture/中国文化/">中国文化</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IP地址/">IP地址</a>, <a class="tag-link" href="/tags/基础/">基础</a>, <a class="tag-link" href="/tags/巴比伦数字系统/">巴比伦数字系统</a>, <a class="tag-link" href="/tags/数字系统/">数字系统</a>, <a class="tag-link" href="/tags/玛雅数字系统/">玛雅数字系统</a>, <a class="tag-link" href="/tags/进制/">进制</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">
-            <time datetime="2016-04-04T11:12:40.000Z" itemprop="datePublished">2016-04-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/culture/中国文化/从十进制数谈到巴比伦数字系统.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/culture/中国文化/从十进制数谈到巴比伦数字系统.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/culture/中国文化/从十进制数谈到巴比伦数字系统.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="我们的计数方式"><a href="#我们的计数方式" class="headerlink" title="我们的计数方式"></a>我们的计数方式</h2><p>生活中我们普遍使用十进制进行计数。我们生下来不久就被老妈教着数手指头。没错，我们刚好十根手指头，用来计算方便极了。十进制很早就刻入了我们的脑海，以至于我们不需要知道这是十进制就可以计算早上买了一个面包，老板要找我多少钱。为什么用这个例子呢？聪明的你一定可以想到最早的计数就是用于交易的。早期的物物交换也得有个数吧，不然就乱了。</p>
-<p>嗯，除了这种用10个符号（0到9）计数的，我们还接触过12生肖，接触过1天24小时，1分钟60秒，1 兆 1024 个。这些可不是十进制哦。那这些算是什么呢？这得从数字系统讲起。</p>
-<h2 id="数字系统"><a href="#数字系统" class="headerlink" title="数字系统"></a>数字系统</h2><p>所谓数字系统就是确定如何用有限的符号来表示一个数字。数字或者说数量是现实存在的且不会因为所用的数字系统不同而改变，你可以用十进制的 2 来表示两个苹果，也可以用二进制的 10 来表示，这丝毫不会影响苹果的数量。这里的”2”和”10”都只是符号而已，只是为了描述的方便而产生。</p>
-<p>数字系统有两种，一种是位置化数字系统，另一种是非位置化数字系统。我们常用的是位置化数字系统，这里主要阐述的也是位置化数字系统。<br>所谓位置化，是指符号因所处的位置不同所表示的值也不同。你想啊，把 2 放在个位它就是 2 ，但是放在十位不就是 20 吗？这里的 20 后面有个 “0” ！！！这太重要了，如果没有 “0” ，位置化数字系统会变得有点尴尬，这点后面讨论就会感受到。</p>
-<h2 id="先谈谈十进制"><a href="#先谈谈十进制" class="headerlink" title="先谈谈十进制"></a>先谈谈十进制</h2><p>十进位是古印度人的发明，他们在公元前3世纪就有了这种计数方法。但是那时候还没有用阿拉伯数字表示，也没有 “0”。直到传入阿拉伯，善于经商的阿拉伯人改造了它，从此贸易就变得简单多了。再后来传入欧洲，而欧洲人误以为这是阿拉伯人的发明，就称之为 “阿拉伯计数法” 了，我们现在通常说的阿拉伯数字，其实就是欧化了的阿拉伯数字。</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
         </nav>
     
 </section>
