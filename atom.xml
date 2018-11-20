@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-20T12:39:40.741Z</updated>
+  <updated>2018-11-20T12:43:46.663Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -17,20 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://linlshare.github.io/2018/11/20/it/robot/Xpath%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>https://linlshare.github.io/2018/11/20/it/robot/Xpath 使用笔记/</id>
-    <published>2018-11-20T11:38:21.597Z</published>
-    <updated>2018-11-20T12:39:40.741Z</updated>
+    <title>Markdown 使用笔记</title>
+    <link href="https://linlshare.github.io/2018/11/20/it/tool/Markdown%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://linlshare.github.io/2018/11/20/it/tool/Markdown 使用笔记/</id>
+    <published>2018-11-20T12:41:20.000Z</published>
+    <updated>2018-11-20T12:43:46.663Z</updated>
     
-    <content type="html"><![CDATA[<p>title: Xpath 使用笔记<br>date: 2018-11-20 19:38:55<br>tags: [Java,Robot,Xpath]<br>comments: true</p><h2 id="何为-Xpath（Introduction）"><a href="#何为-Xpath（Introduction）" class="headerlink" title="何为 Xpath（Introduction）"></a>何为 Xpath（Introduction）</h2><p><a href="https://zh.wikipedia.org/zh-hans/XPath" target="_blank" rel="noopener">维基百科</a>：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p><p>所谓节点有七种，分别是：</p><ul><li>元素（element）</li><li>属性（attribute）</li><li>文本（text）</li><li>命名空间（namespace）</li><li>处理指令（processing-instruction）</li><li>注释（comment）</li><li>文档节点（document node, also called root element）</li></ul><p>示例：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure><p>其中，</p><ul><li><code>&lt;bookstore&gt;</code> 为根节点，或者称为文档节点；</li><li><code>&lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;</code> 为元素节点；</li><li><code>lang=&quot;en&quot;</code> 为属性节点；</li><li><code>Harry Potter</code> 为文本节点。</li></ul><h2 id="基础语法（Syntax）"><a href="#基础语法（Syntax）" class="headerlink" title="基础语法（Syntax）"></a>基础语法（Syntax）</h2><h3 id="路径表达式（Path-Expressions）"><a href="#路径表达式（Path-Expressions）" class="headerlink" title="路径表达式（Path Expressions）"></a>路径表达式（Path Expressions）</h3><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点。</td></tr><tr><td>/</td><td>从根节点选取。</td></tr><tr><td>//</td><td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td></tr><tr><td>.</td><td>选取当前节点。</td></tr><tr><td>..</td><td>选取当前节点的父节点。</td></tr><tr><td>@</td><td>选取属性。</td></tr><tr><td>text()</td><td>选取文本。</td></tr></tbody></table><h3 id="断言（Predicates）"><a href="#断言（Predicates）" class="headerlink" title="断言（Predicates）"></a>断言（Predicates）</h3><p>断言被用来在查找指定的节点或者包含指定值的节点，通常放在方括号 <code>[]</code> 中。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>/bookstore/book[1]</td><td>选取属于 bookstore 子元素的第一个 book 元素。</td></tr><tr><td>/bookstore/book[last()]</td><td>选取属于 bookstore 子元素的最后一个 book 元素。</td></tr><tr><td>/bookstore/book[last()-1]</td><td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td></tr><tr><td>/bookstore/book[position()&lt;3]</td><td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td></tr><tr><td>//title[@lang]</td><td>选取所有拥有名为 lang 的属性的 title 元素。</td></tr><tr><td>//title[@lang=’eng’]</td><td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td></tr><tr><td>//book[author[text()=’J K. Rowling’]]</td><td>选取 author 为 J K. Rowling 的 book 元素。</td></tr><tr><td>/bookstore/book[price&gt;35.00]</td><td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td></tr><tr><td>/bookstore/book[price&gt;35.00]/title</td><td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td></tr></tbody></table><h3 id="模糊选取（Selecting-Unknown-Nodes）"><a href="#模糊选取（Selecting-Unknown-Nodes）" class="headerlink" title="模糊选取（Selecting Unknown Nodes）"></a>模糊选取（Selecting Unknown Nodes）</h3><table><thead><tr><th>通配符</th><th>描述</th></tr></thead><tbody><tr><td>*</td><td>匹配任何元素节点。</td></tr><tr><td>@*</td><td>匹配任何属性节点。</td></tr><tr><td>node()</td><td>匹配任何类型的节点。</td></tr></tbody></table><h3 id="合并选取（Selecting-Several-Paths）"><a href="#合并选取（Selecting-Several-Paths）" class="headerlink" title="合并选取（Selecting Several Paths）"></a>合并选取（Selecting Several Paths）</h3><p>使用管道符 <code>|</code>  合并两个选取结果。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>//book/title&#124; //book/price</td><td>选取 book 元素的所有 title 和 price 元素。</td></tr><tr><td>//title &#124;  //price</td><td>选取文档中的所有 title 和 price 元素。</td></tr><tr><td>/bookstore/book/title &#124; //price</td><td>选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td></tr></tbody></table><h2 id="正则匹配（Regular-Match）"><a href="#正则匹配（Regular-Match）" class="headerlink" title="正则匹配（Regular Match）"></a>正则匹配（Regular Match）</h2><p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p><p>比如获取 Github 上某仓库的星星数的 Xpath 为，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div/a[ends-with(@href, &apos;stargazers&apos;)]/text()</span><br></pre></td></tr></table></figure><p> 表示获取 <code>div</code> 节点下的具备有属性为 <code>href</code>且值为 <code>stargazers</code> 结尾的 <code>a</code> 节点的文本内容。</p><h2 id="测试我的-Xpath（Test-Xpath）"><a href="#测试我的-Xpath（Test-Xpath）" class="headerlink" title="测试我的 Xpath（Test Xpath）"></a>测试我的 Xpath（Test Xpath）</h2><p> 可以使用 freeformatter.com 上提供的 <a href="https://www.freeformatter.com/xpath-tester.html" target="_blank" rel="noopener">Xpath Tester</a> 进行在线测试。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="在表格中输入管道符（-）"><a href="#在表格中输入管道符（-）" class="headerlink" title="在表格中输入管道符（|）"></a>在表格中输入管道符（|）</h2><p>管道符与表格分隔字段用的相冲突，会导致表格显示不正常，解决方案是：使用 <code>&amp;#124;</code>  代替 <code>|</code> 。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;title: Xpath 使用笔记&lt;br&gt;date: 2018-11-20 19:38:55&lt;br&gt;tags: [Java,Robot,Xpath]&lt;br&gt;comments: true&lt;/p&gt;
-&lt;h2 id=&quot;何为-Xpath（Introduction）&quot;&gt;&lt;a href=
+        &lt;h2 id=&quot;在表格中输入管道符（-）&quot;&gt;&lt;a href=&quot;#在表格中输入管道符（-）&quot; class=&quot;headerlink&quot; title=&quot;在表格中输入管道符（|）&quot;&gt;&lt;/a&gt;在表格中输入管道符（|）&lt;/h2&gt;&lt;p&gt;管道符与表格分隔字段用的相冲突，会导致表格显示不正常，解决方
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
+    
+    
+      <category term="Markdown" scheme="https://linlshare.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Xpath 使用笔记</title>
+    <link href="https://linlshare.github.io/2018/11/20/it/robot/Xpath%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://linlshare.github.io/2018/11/20/it/robot/Xpath 使用笔记/</id>
+    <published>2018-11-20T11:38:55.000Z</published>
+    <updated>2018-11-20T12:41:00.671Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="何为-Xpath（Introduction）"><a href="#何为-Xpath（Introduction）" class="headerlink" title="何为 Xpath（Introduction）"></a>何为 Xpath（Introduction）</h2><p><a href="https://zh.wikipedia.org/zh-hans/XPath" target="_blank" rel="noopener">维基百科</a>：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p><p>所谓节点有七种，分别是：</p><ul><li>元素（element）</li><li>属性（attribute）</li><li>文本（text）</li><li>命名空间（namespace）</li><li>处理指令（processing-instruction）</li><li>注释（comment）</li><li>文档节点（document node, also called root element）</li></ul><p>示例：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure><p>其中，</p><ul><li><code>&lt;bookstore&gt;</code> 为根节点，或者称为文档节点；</li><li><code>&lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;</code> 为元素节点；</li><li><code>lang=&quot;en&quot;</code> 为属性节点；</li><li><code>Harry Potter</code> 为文本节点。</li></ul><h2 id="基础语法（Syntax）"><a href="#基础语法（Syntax）" class="headerlink" title="基础语法（Syntax）"></a>基础语法（Syntax）</h2><h3 id="路径表达式（Path-Expressions）"><a href="#路径表达式（Path-Expressions）" class="headerlink" title="路径表达式（Path Expressions）"></a>路径表达式（Path Expressions）</h3><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点。</td></tr><tr><td>/</td><td>从根节点选取。</td></tr><tr><td>//</td><td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td></tr><tr><td>.</td><td>选取当前节点。</td></tr><tr><td>..</td><td>选取当前节点的父节点。</td></tr><tr><td>@</td><td>选取属性。</td></tr><tr><td>text()</td><td>选取文本。</td></tr></tbody></table><h3 id="断言（Predicates）"><a href="#断言（Predicates）" class="headerlink" title="断言（Predicates）"></a>断言（Predicates）</h3><p>断言被用来在查找指定的节点或者包含指定值的节点，通常放在方括号 <code>[]</code> 中。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>/bookstore/book[1]</td><td>选取属于 bookstore 子元素的第一个 book 元素。</td></tr><tr><td>/bookstore/book[last()]</td><td>选取属于 bookstore 子元素的最后一个 book 元素。</td></tr><tr><td>/bookstore/book[last()-1]</td><td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td></tr><tr><td>/bookstore/book[position()&lt;3]</td><td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td></tr><tr><td>//title[@lang]</td><td>选取所有拥有名为 lang 的属性的 title 元素。</td></tr><tr><td>//title[@lang=’eng’]</td><td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td></tr><tr><td>//book[author[text()=’J K. Rowling’]]</td><td>选取 author 为 J K. Rowling 的 book 元素。</td></tr><tr><td>/bookstore/book[price&gt;35.00]</td><td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td></tr><tr><td>/bookstore/book[price&gt;35.00]/title</td><td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td></tr></tbody></table><h3 id="模糊选取（Selecting-Unknown-Nodes）"><a href="#模糊选取（Selecting-Unknown-Nodes）" class="headerlink" title="模糊选取（Selecting Unknown Nodes）"></a>模糊选取（Selecting Unknown Nodes）</h3><table><thead><tr><th>通配符</th><th>描述</th></tr></thead><tbody><tr><td>*</td><td>匹配任何元素节点。</td></tr><tr><td>@*</td><td>匹配任何属性节点。</td></tr><tr><td>node()</td><td>匹配任何类型的节点。</td></tr></tbody></table><h3 id="合并选取（Selecting-Several-Paths）"><a href="#合并选取（Selecting-Several-Paths）" class="headerlink" title="合并选取（Selecting Several Paths）"></a>合并选取（Selecting Several Paths）</h3><p>使用管道符 <code>|</code>  合并两个选取结果。</p><p>示例：</p><table><thead><tr><th>路径表达式</th><th>结果</th></tr></thead><tbody><tr><td>//book/title&#124; //book/price</td><td>选取 book 元素的所有 title 和 price 元素。</td></tr><tr><td>//title &#124;  //price</td><td>选取文档中的所有 title 和 price 元素。</td></tr><tr><td>/bookstore/book/title &#124; //price</td><td>选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td></tr></tbody></table><h2 id="正则匹配（Regular-Match）"><a href="#正则匹配（Regular-Match）" class="headerlink" title="正则匹配（Regular Match）"></a>正则匹配（Regular Match）</h2><p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p><p>比如获取 Github 上某仓库的星星数的 Xpath 为，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div/a[ends-with(@href, &apos;stargazers&apos;)]/text()</span><br></pre></td></tr></table></figure><p> 表示获取 <code>div</code> 节点下的具备有属性为 <code>href</code>且值为 <code>stargazers</code> 结尾的 <code>a</code> 节点的文本内容。</p><h2 id="测试我的-Xpath（Test-Xpath）"><a href="#测试我的-Xpath（Test-Xpath）" class="headerlink" title="测试我的 Xpath（Test Xpath）"></a>测试我的 Xpath（Test Xpath）</h2><p> 可以使用 freeformatter.com 上提供的 <a href="https://www.freeformatter.com/xpath-tester.html" target="_blank" rel="noopener">Xpath Tester</a> 进行在线测试。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;何为-Xpath（Introduction）&quot;&gt;&lt;a href=&quot;#何为-Xpath（Introduction）&quot; class=&quot;headerlink&quot; title=&quot;何为 Xpath（Introduction）&quot;&gt;&lt;/a&gt;何为 Xpath（Introductio
       
     
     </summary>
@@ -39,6 +65,12 @@
     
       <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
     
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="Robot" scheme="https://linlshare.github.io/tags/Robot/"/>
+    
+      <category term="Xpath" scheme="https://linlshare.github.io/tags/Xpath/"/>
     
   </entry>
   
@@ -582,43 +614,6 @@
     
     
       <category term="字体设计" scheme="https://linlshare.github.io/tags/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>讀懂漢字偏旁部首</title>
-    <link href="https://linlshare.github.io/2018/09/14/language/%E6%BC%A2%E8%AA%9E%E8%A8%80/%E5%AD%97%E6%BA%90/%E8%AE%80%E6%87%82%E6%BC%A2%E5%AD%97%E5%81%8F%E6%97%81%E9%83%A8%E9%A6%96/"/>
-    <id>https://linlshare.github.io/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/</id>
-    <published>2018-09-14T00:16:00.000Z</published>
-    <updated>2018-10-26T16:25:56.276Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一劃"><a href="#一劃" class="headerlink" title="一劃"></a>一劃</h2><table><thead><tr><th>形</th><th>音</th><th>義</th></tr></thead><tbody><tr><td>丨</td><td>gǔn</td><td>《說文》上下通也。</td></tr><tr><td>亅</td><td>jué</td><td>《說文》鉤逆者謂之亅。</td></tr><tr><td>丿</td><td>piě</td><td>《說文》右戾也。象左引之形。《註》戾，曲也。</td></tr><tr><td>乛</td><td>yǐ</td><td>同“乙”。</td></tr><tr><td>一</td><td>yī</td><td>《說文》惟初大始，道立於一。造分天地，化成萬物。《廣韻》數之始也，物之極也。</td></tr><tr><td>乙</td><td>yǐ</td><td>《說文》象春艸木冤曲而出，陰气尚彊，其出乙乙也。與丨同意。乙承甲，象人頸。</td></tr><tr><td>乚</td><td>háo</td><td>同“毫”。《說文》玄鳥也。齊魯謂之乚。取其鳴自呼。象形。凡乚之屬皆从乚。鳦，乙或从鳥。《註》鳦，燕子。</td></tr><tr><td>丶</td><td>zhǔ</td><td>《說文》有所絕止，丶而識之也。</td></tr></tbody></table><h2 id="二劃"><a href="#二劃" class="headerlink" title="二劃"></a>二劃</h2><table><thead><tr><th>形</th><th>音</th><th>義</th></tr></thead><tbody><tr><td>八</td><td>bā</td><td>《說文》別也。象分別相背之形。</td></tr><tr><td>勹</td><td>bāo</td><td>《說文》裹也。象人曲形，有所包裹。</td></tr><tr><td>匕</td><td>bǐ</td><td>《說文》相與比敘也。从反人。匕，亦所以用比取飯，一名柶。《註》柶，古代舀取食物的礼器，像勺子，多用角做成。</td></tr><tr><td>冫</td><td>bīng</td><td>古同“冰”。</td></tr><tr><td>卜</td><td>bǔ</td><td>《說文》灼剝龜也。象炙龜之形。一曰象龜兆之縱橫也。一說是樹杈或神杖。</td></tr><tr><td>厂</td><td>hàn</td><td>《說文》山石之厓巖，人可居。</td></tr><tr><td>刀</td><td>dāo</td><td>《說文》兵也。</td></tr><tr><td>刂</td><td>dāo</td><td>同“刀”。</td></tr><tr><td>儿</td><td>ér</td><td>同“兒”。《說文》从儿，象小兒頭囟未合。</td></tr><tr><td>二</td><td>èr</td><td>《說文》地之數也。</td></tr><tr><td>匚</td><td>fāng</td><td>《說文》受物之器。</td></tr><tr><td>阝</td><td>fǔ</td><td>同“阜”，《說文》山無石者。《釋名》土山曰阜，言高厚也。</td></tr><tr><td>丷</td><td>bā</td><td>同“八”</td></tr><tr><td>几</td><td>jī</td><td>《說文》踞几也。《註》古人坐而凭几。</td></tr><tr><td>卩</td><td>jié</td><td>《說文》瑞信也。守國者用玉卪，守都鄙者用角卪…</td></tr><tr><td>冂</td><td>jiōng</td><td>《說文》邑外謂之郊，郊外謂之野，野外謂之林，林外謂之冂。象遠界也。</td></tr><tr><td>力</td><td>lì</td><td>《說文》筋也。象人筋之形。</td></tr><tr><td>冖</td><td>mì</td><td>《說文》覆也。从一下垂也。《註》今俗作冪。</td></tr><tr><td>凵</td><td>qiǎn</td><td>《說文》張口也。</td></tr><tr><td>人</td><td>rén</td><td>《說文》天地之性最貴者也。此籒文。象臂脛之形。</td></tr><tr><td>亻</td><td>rén</td><td>同“人”</td></tr><tr><td>入</td><td>rù</td><td>《說文》内也。象从上俱下也。《註》上下者、外中之象。</td></tr><tr><td>十</td><td>shí</td><td>《說文》數之具也。一爲東西，丨爲南北，則四方中央備矣。</td></tr><tr><td>厶</td><td>sī</td><td>《說文》姦衺也。韓非曰：“蒼頡作字，自營爲厶。”《象形字典—夜遊人》私：先有厶，也是私有的意思，这个字很直接形象，像人的臂弯，向自己怀中搂，那点像手里拿的东西，也就是把别人的东西拿到手并向自己的怀里搂据为已有。后来加“禾”，是将人们活命的稻谷搂在怀里据为已有。</td></tr><tr><td>亠</td><td>tóu</td><td>《字彙》徒鉤切，音頭。義闕。</td></tr><tr><td>匸</td><td>xì</td><td>《說文》衺徯，有所俠藏也。</td></tr><tr><td>讠</td><td>yán</td><td>同“言”。《說文》直言曰言，論難曰語。</td></tr><tr><td>廴</td><td>yǐn</td><td>《說文》長行也。</td></tr><tr><td>又</td><td>yòu</td><td>《說文註》手也。象形。此卽今之右字。</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;一劃&quot;&gt;&lt;a href=&quot;#一劃&quot; class=&quot;headerlink&quot; title=&quot;一劃&quot;&gt;&lt;/a&gt;一劃&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;形&lt;/th&gt;
-&lt;th&gt;音&lt;/th&gt;
-&lt;th&gt;義&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbo
-      
-    
-    </summary>
-    
-      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
-    
-      <category term="漢語言" scheme="https://linlshare.github.io/categories/language/%E6%BC%A2%E8%AA%9E%E8%A8%80/"/>
-    
-      <category term="字源" scheme="https://linlshare.github.io/categories/language/%E6%BC%A2%E8%AA%9E%E8%A8%80/%E5%AD%97%E6%BA%90/"/>
-    
-    
-      <category term="古漢語" scheme="https://linlshare.github.io/tags/%E5%8F%A4%E6%BC%A2%E8%AA%9E/"/>
     
   </entry>
   
