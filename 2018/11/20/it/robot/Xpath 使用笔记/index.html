@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="何为 Xpath（Introduction）维基百科：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。 所谓节点有七种，分别是：  元素（element） 属性（attribute） 文本（text） 命名空间（namespace） 处理指令（processi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-20T12:17:21.051Z">
+<meta property="og:updated_time" content="2018-11-20T12:18:31.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xpath 使用笔记">
 <meta name="twitter:description" content="何为 Xpath（Introduction）维基百科：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。 所谓节点有七种，分别是：  元素（element） 属性（attribute） 文本（text） 命名空间（namespace） 处理指令（processi">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -577,8 +577,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为-Xpath（Introduction）"><span class="toc-number">1.</span> <span class="toc-text">何为 Xpath（Introduction）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法（Syntax）"><span class="toc-number">2.</span> <span class="toc-text">基础语法（Syntax）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路径表达式（Path-Expressions）"><span class="toc-number">2.1.</span> <span class="toc-text">路径表达式（Path Expressions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#断言（Predicates）"><span class="toc-number">2.2.</span> <span class="toc-text">断言（Predicates）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模糊选取（Selecting-Unknown-Nodes）"><span class="toc-number">2.3.</span> <span class="toc-text">模糊选取（Selecting Unknown Nodes）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并选取（Selecting-Several-Paths）"><span class="toc-number">2.4.</span> <span class="toc-text">合并选取（Selecting Several Paths）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试我的-Xpath（Test-Xpath）"><span class="toc-number">3.</span> <span class="toc-text">测试我的 Xpath（Test Xpath）</span></a></li></ol>
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为-Xpath（Introduction）"><span class="toc-number">1.</span> <span class="toc-text">何为 Xpath（Introduction）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法（Syntax）"><span class="toc-number">2.</span> <span class="toc-text">基础语法（Syntax）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路径表达式（Path-Expressions）"><span class="toc-number">2.1.</span> <span class="toc-text">路径表达式（Path Expressions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#断言（Predicates）"><span class="toc-number">2.2.</span> <span class="toc-text">断言（Predicates）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模糊选取（Selecting-Unknown-Nodes）"><span class="toc-number">2.3.</span> <span class="toc-text">模糊选取（Selecting Unknown Nodes）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并选取（Selecting-Several-Paths）"><span class="toc-number">2.4.</span> <span class="toc-text">合并选取（Selecting Several Paths）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则匹配（Regular-Match）"><span class="toc-number">3.</span> <span class="toc-text">正则匹配（Regular Match）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试我的-Xpath（Test-Xpath）"><span class="toc-number">4.</span> <span class="toc-text">测试我的 Xpath（Test Xpath）</span></a></li></ol>
                 </div>
             
         
@@ -738,8 +738,7 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
-<p>##正则匹配（Regular Match）</p>
-<p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p>
+<h2 id="正则匹配（Regular-Match）"><a href="#正则匹配（Regular-Match）" class="headerlink" title="正则匹配（Regular Match）"></a>正则匹配（Regular Match）</h2><p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p>
 <p>比如获取 Github 上某仓库的星星数的 Xpath 为，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div/a[ends-with(@href, &apos;stargazers&apos;)]/text()</span><br></pre></td></tr></table></figure>
 <p> 表示获取 <code>div</code> 节点下的具备有属性为 <code>href</code>且值为 <code>stargazers</code> 结尾的 <code>a</code> 节点的文本内容。</p>
@@ -758,7 +757,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/20/it/robot/Selenium 使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">Selenium 使用笔记</div>
         </a>
     
