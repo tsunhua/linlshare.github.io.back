@@ -92,7 +92,7 @@ comments: true
 | //title \| //price               | 选取文档中的所有 title 和 price 元素。                       |
 | /bookstore/book/title \| //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
 
-##正则匹配（Regular Match）
+## 正则匹配（Regular Match）
 
 可以使用 `starts-with` 和 `ends-with` 进行简单的正则匹配。
 
