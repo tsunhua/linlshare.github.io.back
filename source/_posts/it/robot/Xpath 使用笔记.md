@@ -86,11 +86,11 @@ comments: true
 
 示例：
 
-| 路径表达式                       | 结果                                                         |
-| -------------------------------- | ------------------------------------------------------------ |
-| //book/title \| //book/price     | 选取 book 元素的所有 title 和 price 元素。                   |
-| //title \| //price               | 选取文档中的所有 title 和 price 元素。                       |
-| /bookstore/book/title \| //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
+| 路径表达式                           | 结果                                                         |
+| ------------------------------------ | ------------------------------------------------------------ |
+| //book/title&#124; //book/price      | 选取 book 元素的所有 title 和 price 元素。                   |
+| //title &#124;  //price              | 选取文档中的所有 title 和 price 元素。                       |
+| /bookstore/book/title &#124; //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
 
 ## 正则匹配（Regular Match）
 
