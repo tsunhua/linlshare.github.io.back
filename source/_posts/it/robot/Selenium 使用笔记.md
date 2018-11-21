@@ -63,3 +63,74 @@ sudo chmod a+x /usr/local/bin/chromdriver
 ## 自动生成 Selenium 代码
 
 在 Firefox 中安装插件 [Katalon Recorder](https://addons.mozilla.org/en-US/firefox/addon/katalon-automation-record/) 可以方便地进行录制用户行为，然后导出各个语言环境下的 Selenium 代码。使用路径：Record --> [Some interactions] --> Stop --> Export。
+
+## Headless Chrome
+
+没有 UI 界面的 Chrome 浏览器，便于进行自动化测试和在服务端环境运行，支持所有现代 Web 平台的特性。可参见 [官网](https://developers.google.com/web/updates/2017/04/headless-chrome) 了解更多。
+
+### 支持情况
+
+Chrome 59+
+
+### CLI（Command Line Interface）
+
+```shell
+{chrome} \
+  --headless \                   # 以 Headless 模式运行 Chrome
+  --disable-gpu \                # 运行在带视窗的环境中时暂时需要该 Flag.
+  --remote-debugging-port=9222 \
+  https://www.chromestatus.com   # 要打开的 URL, 默认为 about:blank.
+```
+
+上述的 `{chrome}` 在 Mac 中为 `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome` ，
+
+在 Windows 中为 `/path/to/chrome.exe`。
+
+建议设置 `alias` 将具体的路径对应到 `chrome` 命令，如下：
+
+```shell
+## 编辑 .bash_profile
+vim ~/.bash_profile
+## 末尾追加
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+## 保存退出
+:wq
+## 使 .bash_profile 立即生效
+source ~/.bash_profile
+```
+
+### 调试 Headless Chrome
+
+执行以下命令
+
+```shell
+chrome --headless --disable-gpu --remote-debugging-port=9222 https://www.github.com
+```
+
+然后在 Chrome 浏览器窗口打开 `http://localhost:9222`  就可以使用 `dev-tools` 进行远程调试了。
+
+### 在 Selenium 中使用 Headless Chrome
+
+**（1）Java 环境下**
+
+```java
+ChromeOptions options = new ChromeOptions();
+options.addArguments("headless");
+options.addArguments("window-size=1200x600");
+WebDriver driver = new ChromeDriver(options);
+driver.get("http://www.github.com");
+```
+
+**（2）Python3 环境下**
+
+```python
+import os  
+from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.chrome.options import Optionschrome_options = Options()  
+chrome_options.add_argument("--headless")
+chrome_options.binary_location ='/usr/bin/google-chrome-stable'
+chrome_options.add_argument('--no-sandbox')driver = webdriver.Chrome(chrome_options=chrome_options)
+driver.get('https://www.github.com')
+```
+
