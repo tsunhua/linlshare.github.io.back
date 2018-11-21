@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '포스트',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: '카테고리',
-            TAGS: '태그',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>카테고리</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -251,7 +251,7 @@ ga('send', 'pageview');
                             &nbsp;
                             code
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -516,6 +516,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/base/Tomcat 使用笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Tomcat/">Tomcat</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/29/it/java/base/Tomcat 使用笔记/">
+            <time datetime="2017-12-28T16:56:00.000Z" itemprop="datePublished">2017-12-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/Tomcat 使用笔记.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/29/it/java/base/Tomcat 使用笔记/">Tomcat 使用笔记</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol>
+<li><p>从官网下载压缩包，放入程序安装的路径，需要的话设置下环境变量和Catalina_home，</p>
+</li>
+<li><p>mac下可以通过homebrew安装，命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tomcat</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></li></ol></div>   
+            <div class="article-more-link">
+                <a href="/2017/12/29/it/java/base/Tomcat 使用笔记/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/base/Nginx 使用笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -606,7 +710,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/12/28/it/java/base/Nginx 使用笔记/#more">자세히 보기</a>
+                <a href="/2017/12/28/it/java/base/Nginx 使用笔记/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -710,7 +814,7 @@ ga('send', 'pageview');
         
             </p></ol></p></div>   
             <div class="article-more-link">
-                <a href="/2017/12/17/it/kotlin/Kotlin的特性/#more">자세히 보기</a>
+                <a href="/2017/12/17/it/kotlin/Kotlin的特性/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -814,7 +918,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">자세히 보기</a>
+                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -918,7 +1022,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2017/12/02/it/tool/Github 使用笔记/#more">자세히 보기</a>
+                <a href="/2017/12/02/it/tool/Github 使用笔记/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1107,7 +1211,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/02/07/it/java/Java 学习站点汇总/#more">자세히 보기</a>
+                <a href="/2017/02/07/it/java/Java 学习站点汇总/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1300,7 +1404,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2017/01/05/thinking/tao/无为是怎样的一种体验？/#more">자세히 보기</a>
+                <a href="/2017/01/05/thinking/tao/无为是怎样的一种体验？/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1399,105 +1503,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-thinking/tao/读「老子的智慧」有感之一" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/thinking/">thinking</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/thinking/tao/">tao</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/哲学/">哲学</a>, <a class="tag-link" href="/tags/生活/">生活</a>, <a class="tag-link" href="/tags/道/">道</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/11/20/thinking/tao/读「老子的智慧」有感之一/">
-            <time datetime="2016-11-20T15:43:00.000Z" itemprop="datePublished">2016-11-20</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/thinking/tao/读「老子的智慧」有感之一.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/thinking/tao/读「老子的智慧」有感之一.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/thinking/tao/读「老子的智慧」有感之一.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/11/20/thinking/tao/读「老子的智慧」有感之一/">读「老子的智慧」有感之一</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <p>道德经开篇就阐明，道不可言，不可名。因为可以说出来的道总是善变，可以说出名字的道也会随着时间的推移变换名称。我们假借着这本易产生歧义的不完美的语言来略微谈论下天地万物之道。</p>
-<p>天地开端于虚无，而后孕育出万物。此所谓「无，名天地之始；有，名万物之母」。想象下，我们超脱天地，在宇宙的虚无中观察天地的变换；我们超脱万物，在天地中静看万物生老病死。我们知道「无中生有」，但我们不知道，无何以生有。</p>
-<p>万物本质上是一，因为我们的分别才有了各式各样的名称。各种分别又处于相对的位置，是非然否，争辩不止。如果视角跳出万物，天地万物在宇宙中是多么渺小而不足道的存在，辩论又有何益？争夺又有何用？圣人早就看透了这点，所以才说「大道无名」。</p>
-<p>人处在万物之中，所感受的也仅限于万物。如果无法超脱万物，超脱天地，就无法感受到虚无的宇宙，进而了悟大道。</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; 이전</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">다음 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
         </nav>
     
 </section>

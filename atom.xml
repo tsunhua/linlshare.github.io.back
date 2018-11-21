@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-21T06:46:23.801Z</updated>
+  <updated>2018-11-21T08:44:59.252Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FSM</title>
+    <link href="https://linlshare.github.io/2018/11/21/it/code/FSM/"/>
+    <id>https://linlshare.github.io/2018/11/21/it/code/FSM/</id>
+    <published>2018-11-21T07:37:25.000Z</published>
+    <updated>2018-11-21T08:44:59.252Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>FSM, Finite State Machine 有限状态机，是一种数学计算模型，在任意给定的时刻只会存在在给定的有限状态中的一个。FSM 会在特定的外部输入条件下发生从一个状态到另一状态的改变，这个过程叫状态转移（transition）。</p><p>一个 FSM 由以下部分构成：</p><ul><li>状态表（a list of its states）</li><li>初始状态（Initial state）</li><li>每个转移的条件（the conditions for each transition）</li></ul><p>另外，在自动机理论中，FSM 也叫做 DFA（Deterministic Finite Automaton, 确定性有限自动机），与 NFA（Nondeterministic Finite Automaton, 非确定性有限自动机）相对。DFA 的特点是：</p><ul><li>每个状态转移由当前状态和输入唯一确定；</li><li>每次状态转移都要读取输入。</li></ul><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><h3 id="状态转移表（State-Transition-Table）"><a href="#状态转移表（State-Transition-Table）" class="headerlink" title="状态转移表（State Transition Table）"></a>状态转移表（State Transition Table）</h3><table><thead><tr><th>当前状态→ <br>条件↓</th><th>状态A</th><th>状态B</th><th>状态C</th></tr></thead><tbody><tr><td>条件X</td><td>…</td><td>…</td><td>…</td></tr><tr><td>条件Y</td><td>…</td><td>状态C</td><td>…</td></tr><tr><td>条件Z</td><td>…</td><td>…</td><td>…</td></tr></tbody></table><p>状态转移表描述了当某个状态下触发某个条件会达到什么状态。下面以投币式旋转门为例：</p><p><img src="/2018/11/21/it/code/FSM/投币式旋转门.jpg" alt=""></p><table><thead><tr><th>当前状态→ <br>条件↓</th><th>锁定</th><th>解锁</th></tr></thead><tbody><tr><td>推动旋转杠</td><td>锁定</td><td>锁定</td></tr><tr><td>投币</td><td>解锁</td><td>解锁</td></tr></tbody></table><h3 id="UML-状态机（UML-State-Machines）"><a href="#UML-状态机（UML-State-Machines）" class="headerlink" title="UML 状态机（UML State Machines）"></a>UML 状态机（UML State Machines）</h3><p><img src="/2018/11/21/it/code/FSM/FSM_UML.png" alt=""></p><p>使用 UML 语言在 <a href="https://draw.io" target="_blank" rel="noopener">draw.io</a> 上绘制上述的投币式旋转门的状态图如下：</p><p><img src="/2018/11/21/it/code/FSM/投币式旋转门状态图.jpg" alt=""></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://en.wikipedia.org/wiki/Finite-state_machine" target="_blank" rel="noopener">Finite-state mathine - wikipedia</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;FSM, Finite State Machine 有限状态机，是一种数学计算模型，在任意给定的时刻只会存在在给定的有限状态中的一个。FSM
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="code" scheme="https://linlshare.github.io/categories/it/code/"/>
+    
+    
+      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
+    
+      <category term="FSM" scheme="https://linlshare.github.io/tags/FSM/"/>
+    
+  </entry>
   
   <entry>
     <title>互联网上的一些概念</title>
@@ -583,37 +612,6 @@
     
     
       <category term="古漢語" scheme="https://linlshare.github.io/tags/%E5%8F%A4%E6%BC%A2%E8%AA%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSH 登录须知</title>
-    <link href="https://linlshare.github.io/2018/09/26/it/tool/SSH%20%E7%99%BB%E5%BD%95%E9%A1%BB%E7%9F%A5/"/>
-    <id>https://linlshare.github.io/2018/09/26/it/tool/SSH 登录须知/</id>
-    <published>2018-09-26T09:22:00.000Z</published>
-    <updated>2018-11-09T08:23:04.940Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="SSH-背景"><a href="#SSH-背景" class="headerlink" title="SSH 背景"></a>SSH 背景</h2><ul><li><p>解决的问题：明文登录信息暴露问题。</p></li><li><p>历史：</p><ol><li>1995 年，芬兰赫尔辛基理工大学的 <strong>Tatu Ylonen</strong> 发现自己学校存在嗅探密码的网络攻击，于是开发了 SSH （<strong>Secure Shell</strong>）通信安全协议，用于加密登录，并随后以免费软件形式发布，并创办 SSH 通信安全公司来继续开发和销售SSH。</li><li>截至2005年，<strong>OpenSSH</strong> 是唯一一种最流行的SSH实现，而且成为了大量操作系统的默认组件。</li></ol></li></ul><h2 id="SSH-原理"><a href="#SSH-原理" class="headerlink" title="SSH 原理"></a>SSH 原理</h2><p>核心：<strong>非对称加密</strong>。</p><p>整个过程是这样的：</p><ol><li>远程主机收到用户的登录请求，把自己的公钥发给用户。</li><li>用户使用这个公钥，将登录密码加密后，发送回来。</li><li>远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</li></ol><h2 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h2><p>用户使用 <code>ssh user@host</code> 登录远程主机时，系统会提示远程主机的公钥指纹，当用户确认接收该公钥指纹时，会保存到 <code>$HOME/.ssh/known_hosts</code> 中，下次登录时会跳过。</p><blockquote><p>公钥指纹：公钥长度较长（这里采用RSA算法，长达1024位），很难比对，所以对其进行MD5计算，将它变成一个128位的指纹。上例中是 <code>98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d</code>，再进行比较。</p></blockquote><h2 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h2><p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p><p>用户将自己的公钥储存在远程主机的具体过程如下：</p><ol><li><p>使用 <code>ssh-keygen</code> 在本地目录 <code>$HOME/.ssh/</code> 生成公钥 <code>id_rsa.pub</code> 和密钥 <code>id_rsa</code> ；</p></li><li><p>使用 <code>ssh-copy-id user@host</code> 将公钥上传至远程主机 host 中，实现细节是：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh user@host 'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li></ol><h2 id="SSH-CONFIG-FILE"><a href="#SSH-CONFIG-FILE" class="headerlink" title="SSH CONFIG FILE"></a>SSH CONFIG FILE</h2><p>可以通过配置文件快速进行 ssh 登录，配置文件有两种：</p><ol><li>用户配置文件 <code>~/.ssh/config</code>；</li><li>系统配置文件 <code>/etc/ssh/ssh_config)</code>。</li></ol><p>可配置项有：</p><ul><li><strong>Host</strong>，配置标识，使用 <code>ssh [Host]</code> 进行快速登录；</li><li><strong>HostName</strong>，服务器所在地址，可以是域名或 IP；</li><li><strong>User</strong>，进行 ssh 登录的用户名；</li><li><strong>Port</strong>，指定服务器端口；</li><li><strong>IdentityFile</strong>，指定私钥文件的位置。</li></ul><p>如在 <code>~/.ssh/config</code>文件中按如下配置，则可以通过 <code>ssh xx-server</code> 进行快速 ssh 登录。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host xx-server</span><br><span class="line">    HostName ssh.xx-server.com</span><br><span class="line">    User xx_user</span><br><span class="line">    Port 2200</span><br><span class="line">    IdentityFile ~/.ssh/local_id_rsa</span><br></pre></td></tr></table></figure><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><table><thead><tr><th>名词</th><th>含义</th></tr></thead><tbody><tr><td>X.509</td><td>一种通用的<strong>证书格式</strong>，包含证书持有人的公钥，加密算法等信息</td></tr><tr><td>pkcs1 ~ pkcs12</td><td>公钥加密（非对称加密）的一种标准，一般存储为 <code>*.pN</code>，<code>*.p12</code> 是包含证书和密钥的封装格式</td></tr><tr><td>*.der</td><td>证书的<strong>二进制存储格式</strong>（不常用）</td></tr><tr><td>*.pem</td><td>证书或密钥的 <strong>Base64 文本存储格式</strong>，可以单独存放证书或密钥，也可以同时存放</td></tr><tr><td>*.key</td><td><strong>单独存放的 pem 格式的密钥</strong>，一般保存为 <code>*.key</code></td></tr><tr><td><em>.cer </em>.crt</td><td>两个指的都是证书，Linux 下叫 crt，Windows 下叫 cer；存储格式可以是 <code>pem</code> 也可以是 <code>der</code></td></tr><tr><td>*.pfx</td><td>微软 IIS 的实现</td></tr><tr><td>*.jks</td><td>Java Keytool 实现的证书格式</td></tr></tbody></table><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="SSH-一直登陆不上，又没显示错误信息"><a href="#SSH-一直登陆不上，又没显示错误信息" class="headerlink" title="SSH 一直登陆不上，又没显示错误信息"></a>SSH 一直登陆不上，又没显示错误信息</h3><p>在 ssh 命名最后添加 -v/-vv 输出连接信息。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://zh.wikipedia.org/zh-cn/Secure_Shell" target="_blank" rel="noopener">Secure Shell - 维基百科</a></li><li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH原理与运用（一）：远程登录</a></li><li><a href="https://www.ssh.com/ssh/config/" target="_blank" rel="noopener">SSH CONFIG FILE - ssh.com</a></li><li><a href="https://www.zhihu.com/question/29620953/answer/242467271" target="_blank" rel="noopener">SSL中，公钥、私钥、证书的后缀名都是些啥？ - 海棠依旧的回答 - 知乎</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SSH-背景&quot;&gt;&lt;a href=&quot;#SSH-背景&quot; class=&quot;headerlink&quot; title=&quot;SSH 背景&quot;&gt;&lt;/a&gt;SSH 背景&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;解决的问题：明文登录信息暴露问题。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;历史：&lt;/p&gt;
-&lt;o
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
-    
-    
-      <category term="SSH" scheme="https://linlshare.github.io/tags/SSH/"/>
     
   </entry>
   

@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '포스트',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: '카테고리',
-            TAGS: '태그',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>카테고리</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -251,7 +251,7 @@ ga('send', 'pageview');
                             &nbsp;
                             code
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -516,6 +516,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/arch/Pipeline 模型" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/arch/">arch</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/pipeline/">pipeline</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/11/04/it/java/arch/Pipeline 模型/">
+            <time datetime="2018-11-04T13:49:00.000Z" itemprop="datePublished">2018-11-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/arch/Pipeline 模型.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/arch/Pipeline 模型.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/arch/Pipeline 模型.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><p>解决并发效率问题，将任务拆分成流水线，然后多线程并发执行，比之单线程执行快。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>CPU 流水线</li>
+<li>Tomcat 容器</li>
+<li>Structs</li>
+<p>
+                
+            
+        
+        
+            </p></ul></div>   
+            <div class="article-more-link">
+                <a href="/2018/11/04/it/java/arch/Pipeline 模型/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/base/Java EE 世界的一些概念" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -606,7 +710,7 @@ ga('send', 'pageview');
         
             </p></ul></div>   
             <div class="article-more-link">
-                <a href="/2018/10/29/it/java/base/Java EE 世界的一些概念/#more">자세히 보기</a>
+                <a href="/2018/10/29/it/java/base/Java EE 世界的一些概念/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -803,7 +907,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/10/28/it/java/base/Redis 使用笔记/#more">자세히 보기</a>
+                <a href="/2018/10/28/it/java/base/Redis 使用笔记/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -907,7 +1011,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/#more">자세히 보기</a>
+                <a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1189,7 +1293,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/10/17/it/tool/Git 实战记录/#more">자세히 보기</a>
+                <a href="/2018/10/17/it/tool/Git 实战记录/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1293,7 +1397,7 @@ ga('send', 'pageview');
         
             </p></tr></thead></table></div>   
             <div class="article-more-link">
-                <a href="/2018/09/29/language/日語/日语一周七天的记忆方法/#more">자세히 보기</a>
+                <a href="/2018/09/29/language/日語/日语一周七天的记忆方法/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1397,111 +1501,7 @@ ga('send', 'pageview');
         
             </p></tr></thead></table></div>   
             <div class="article-more-link">
-                <a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/tool/SSH 登录须知" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SSH/">SSH</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/09/26/it/tool/SSH 登录须知/">
-            <time datetime="2018-09-26T09:22:00.000Z" itemprop="datePublished">2018-09-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/SSH 登录须知.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/SSH 登录须知.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/SSH 登录须知.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="SSH-背景"><a href="#SSH-背景" class="headerlink" title="SSH 背景"></a>SSH 背景</h2><ul>
-<li><p>解决的问题：明文登录信息暴露问题。</p>
-</li>
-<li><p>历史：</p>
-<ol>
-<p>
-                
-            
-        
-        
-            </p></ol></li></ul></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/26/it/tool/SSH 登录须知/#more">자세히 보기</a>
+                <a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1516,7 +1516,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 이전</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">다음 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
         </nav>
     
 </section>
