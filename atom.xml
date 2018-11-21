@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-21T08:44:59.252Z</updated>
+  <updated>2018-11-21T09:56:07.253Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务鉴权机制</title>
+    <link href="https://linlshare.github.io/2018/11/21/it/secure/%E6%9C%8D%E5%8A%A1%E9%89%B4%E6%9D%83%E6%9C%BA%E5%88%B6/"/>
+    <id>https://linlshare.github.io/2018/11/21/it/secure/服务鉴权机制/</id>
+    <published>2018-11-21T09:31:26.000Z</published>
+    <updated>2018-11-21T09:56:07.253Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Token-验证机制"><a href="#Token-验证机制" class="headerlink" title="Token 验证机制"></a>Token 验证机制</h2><p>Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请求。一个 Token 可以由以下三部分组成：</p><ul><li>Token 字符串（token），可以是 UUID；</li><li>生成时的时间戳（timestamp）；</li><li>校验因子（sign），由 <code>token + timestamp</code>，通过一定的规则（比如 MD5）生成。</li></ul><p>示例（<code>sg = md5(tk+&quot;*&quot;+tm+&quot;*&quot;+&quot;k2@sz8-iA&quot;</code>）：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"tk"</span>:<span class="string">"116b6451-6028-4490-8869-d32a84082b7c"</span>,</span><br><span class="line">    <span class="attr">"tm"</span>:<span class="string">"1536595200000"</span>,</span><br><span class="line">    <span class="attr">"sg"</span>:<span class="string">"91672a6af6d7d078676e2b26e8396ea1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样，当请求到达客户端时，我们先用先前的规则构造一个 md5 值，看与请求中的 sg 字段值是否相同，再判定 当前的时间戳与 tm 中的时间戳差值是否不超过预定义的过期时长。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Token-验证机制&quot;&gt;&lt;a href=&quot;#Token-验证机制&quot; class=&quot;headerlink&quot; title=&quot;Token 验证机制&quot;&gt;&lt;/a&gt;Token 验证机制&lt;/h2&gt;&lt;p&gt;Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="secure" scheme="https://linlshare.github.io/categories/it/secure/"/>
+    
+    
+      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
+    
+      <category term="Secure" scheme="https://linlshare.github.io/tags/Secure/"/>
+    
+  </entry>
   
   <entry>
     <title>FSM</title>
@@ -585,33 +614,6 @@
     
     
       <category term="日语" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AF%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汉语音韵中的四声八调及平仄</title>
-    <link href="https://linlshare.github.io/2018/09/28/language/%E6%BC%A2%E8%AA%9E%E8%A8%80/%E6%B1%89%E8%AF%AD%E9%9F%B3%E9%9F%B5%E4%B8%AD%E7%9A%84%E5%9B%9B%E5%A3%B0%E5%85%AB%E8%B0%83%E5%8F%8A%E5%B9%B3%E4%BB%84/"/>
-    <id>https://linlshare.github.io/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/</id>
-    <published>2018-09-28T00:32:00.000Z</published>
-    <updated>2018-10-26T16:26:41.148Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="四声八调"><a href="#四声八调" class="headerlink" title="四声八调"></a>四声八调</h2><p>国语拼音中的四声为：一声、二声、三声、四声，其正式学名分别为：阴平、阳平、上声、去声。其 IPA 调值（根据五度分音法确定的相对调值）如下：</p><table><thead><tr><th>声调</th><th>IPA 调值</th><th>记号</th></tr></thead><tbody><tr><td>阴平</td><td>55</td><td>¯</td></tr><tr><td>阳平</td><td>35</td><td>ˊ</td></tr><tr><td>上声</td><td>214</td><td>ˇ</td></tr><tr><td>去声</td><td>51</td><td>ˋ</td></tr></tbody></table><p>在古代汉语中<strong>四声八调</strong>的说法。“四声” 源自唐宋时期中古汉语的 “平上去入” 四个声调。在发展过程中经历了以下的流变：</p><h3 id="平分阴阳"><a href="#平分阴阳" class="headerlink" title="平分阴阳"></a>平分阴阳</h3><p>在元代受声母发音方法中的清浊从每一声中分出阴阳二调（清者为阴，浊者为阳），构成 “阴平”、“阳平”、“阴上”、“阳上”、“阴去”、“阳去”、“阴去”、“阳去”、“阴入”、“阳入” 共八个调。</p><p>如今，官话北京话只有平声分阴阳，而吴语和闽南语只有上声不分阴阳。</p><h3 id="浊上归去"><a href="#浊上归去" class="headerlink" title="浊上归去"></a>浊上归去</h3><p>指声母为全浊的上声字改读去声（而次浊上字声调和清上字相同）。次浊和全浊的关键在于声带震动的程度，笔者母语福佬话中刚好与中古音相符。</p><table><thead><tr><th>汉字</th><th>中古音</th><th>汉语拼音</th><th>闽南语台罗拼音</th><th>吴语拼音（苏州闲话）</th></tr></thead><tbody><tr><td>岛</td><td>清上</td><td>dǎo</td><td>tó</td><td>tau5</td></tr><tr><td>道</td><td>全浊上</td><td>dào</td><td>tō</td><td>dau6</td></tr><tr><td>老</td><td>次浊上</td><td>lǎo</td><td>láu</td><td>lau6</td></tr></tbody></table><h3 id="入派三声"><a href="#入派三声" class="headerlink" title="入派三声"></a>入派三声</h3><p>官话及大多数方言中入声消失了，并归入了其他三声，而在南方的方言（包括粤语、闽南语、客语和吴语等）中仍然包含着入声。比如 “屋” 在在粤语、闽南语、客语和吴语都是入声，而在国语中是平声。</p><h2 id="平仄"><a href="#平仄" class="headerlink" title="平仄"></a>平仄</h2><p>中古汉语中，“平仄” 是指 平声为 “平”，其他三声为 “仄”。之后随着音韵的流变，原本诗词中的 “仄” 声变得难以判断。但是根据流变规律可以得出一个简易的判别方法：如果国语中为非平声，那么就是 “仄”；如果国语中为平声，而南方方言中为入声，那么就是 “仄”，否则为 “平”。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://blog.udn.com/wangtao/17127620" target="_blank" rel="noopener">【語文常識】甚麼是「四聲」、「平仄」- 教研札記</a></li><li><a href="https://zh.wikipedia.org/wiki/%E5%9B%9B%E8%81%B2" target="_blank" rel="noopener">四聲 - 維基百科</a></li><li><a href="https://www.wugniu.com/" target="_blank" rel="noopener">吳語學堂</a></li><li><a href="https://twblg.dict.edu.tw/holodict_new/index.html" target="_blank" rel="noopener">台灣閩南語常用詞辭典</a></li><li><a href="https://www.bilibili.com/video/av11828488/?p=5" target="_blank" rel="noopener">【苏白学堂/教程】吴语苏州话语音基础入门（学堂版拼音）- Bilibili</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;四声八调&quot;&gt;&lt;a href=&quot;#四声八调&quot; class=&quot;headerlink&quot; title=&quot;四声八调&quot;&gt;&lt;/a&gt;四声八调&lt;/h2&gt;&lt;p&gt;国语拼音中的四声为：一声、二声、三声、四声，其正式学名分别为：阴平、阳平、上声、去声。其 IPA 调值（根据五度分音法确定的
-      
-    
-    </summary>
-    
-      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
-    
-      <category term="漢語言" scheme="https://linlshare.github.io/categories/language/%E6%BC%A2%E8%AA%9E%E8%A8%80/"/>
-    
-    
-      <category term="古漢語" scheme="https://linlshare.github.io/tags/%E5%8F%A4%E6%BC%A2%E8%AA%9E/"/>
     
   </entry>
   
