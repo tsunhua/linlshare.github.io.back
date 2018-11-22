@@ -38,15 +38,54 @@ NIO 中的通道（Channel）类似 BIO 中的流（Stream），但是是双向�
 
 ### 状态变量（State Variables）
 
-- position，表征读了或写了多少数据到数组中，指向下一个元素的位置；
-- limit，表征剩余可读或可写的的数据量，初始情况下 limit = capacity。
-- capacity，表征 Buffer 的最大容量。
+- Position，表征读了或写了多少数据到数组中，指向下一个元素的位置；
+- Limit，表征剩余可读或可写的的数据量，初始情况下 Limit = Capacity。
+- Capacity，表征 Buffer 的最大容量。
 
-三者关系：position <= limit <= capacity
+三者关系：Position <= Limit <= Capacity
+
+下面从微观角度观察各状态变量在读写操作中的变化：
+
+（1） Init
+
+初始状态下，Position 指向第一个元素的位置，Limit 和 Capacity 指向最后一个元素的下一个虚拟元素的位置。由于 Capacity 保持不变，下面的讨论中予以略过。
+
+![](NIO/NIO-state-init.png)
+
+（2）Channel.read
+
+读取 5 个元素到缓冲区后，Position 指向第六个元素的位置，Limit 不变。
+
+![](NIO/NIO-state-read.png)
+
+（3）Buffer.flip
+
+进行 Flip 操作后，Limit 指向当前的 Position 的位置，Position 指回第一个元素的位置，
+
+![](NIO/NIO-state-flip.png)
+
+（4）Channel.write
+
+从缓冲区读取 5 个元素写入 Channel 后，Position 指向 Limit 所在的位置。
+
+![](NIO/NIO-state-write-2.png)
+
+（5）Buffer.clear
+
+clear 后缓冲区重置到初始状态。
+
+![](NIO/NIO-state-clear.png)
 
 ### 存取方法（Accessor ）
 
+存取方法分为：
 
+- 相对方法（Relative Method）：在当前 position 进行读写操作，随后 position 自增1。
+- 绝对方法（Absolute Method）：在某个索引位置进行读写操作，不影响 position 和 limit。
+
+（1）get 系列方法（包括 `array()` )，用于读取缓冲区的数据，其中 `byte get(int index)`  为绝对方法。
+
+（2）put 系列方法，用于写入数据到缓冲区，其中 `ByteBuffer put(int index, byte b)` 为绝对方法。
 
 ## 使用（Show U the Code）
 
