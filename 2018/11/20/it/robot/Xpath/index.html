@@ -3,24 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>Mac 上的那些骚操作 | Share 杂志</title>
+    <title>Xpath | Share 杂志</title>
     
     
-        <meta name="keywords" content="Mac,OS">
+        <meta name="keywords" content="Java,Robot,Xpath">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。 1. 快速移动网页到顶部或底部用双指上下划触摸板吗？NO，我们有更骚的操作： command + ↑ 回到顶部 command + ↓ 滚到底部 另外， fn + ↑ 上滚一页 fn + ↓ 下滚一页 fn + ← Home，回到顶部 fn + → End，滚到底部 2. Dock 中只显示打开的应用Mac 用着用着 Doc">
-<meta name="keywords" content="Mac,OS">
+    <meta name="description" content="何为 Xpath（Introduction）维基百科：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。 所谓节点有七种，分别是：  元素（element） 属性（attribute） 文本（text） 命名空间（namespace） 处理指令（processi">
+<meta name="keywords" content="Java,Robot,Xpath">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 上的那些骚操作">
-<meta property="og:url" content="https://linlshare.github.io/2018/08/21/it/tool/Mac 上的那些骚操作/index.html">
+<meta property="og:title" content="Xpath">
+<meta property="og:url" content="https://linlshare.github.io/2018/11/20/it/robot/Xpath/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。 1. 快速移动网页到顶部或底部用双指上下划触摸板吗？NO，我们有更骚的操作： command + ↑ 回到顶部 command + ↓ 滚到底部 另外， fn + ↑ 上滚一页 fn + ↓ 下滚一页 fn + ← Home，回到顶部 fn + → End，滚到底部 2. Dock 中只显示打开的应用Mac 用着用着 Doc">
+<meta property="og:description" content="何为 Xpath（Introduction）维基百科：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。 所谓节点有七种，分别是：  元素（element） 属性（attribute） 文本（text） 命名空间（namespace） 处理指令（processi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-26T16:17:39.056Z">
+<meta property="og:updated_time" content="2018-11-22T09:37:23.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac 上的那些骚操作">
-<meta name="twitter:description" content="本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。 1. 快速移动网页到顶部或底部用双指上下划触摸板吗？NO，我们有更骚的操作： command + ↑ 回到顶部 command + ↓ 滚到底部 另外， fn + ↑ 上滚一页 fn + ↓ 下滚一页 fn + ← Home，回到顶部 fn + → End，滚到底部 2. Dock 中只显示打开的应用Mac 用着用着 Doc">
+<meta name="twitter:title" content="Xpath">
+<meta name="twitter:description" content="何为 Xpath（Introduction）维基百科：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。 所谓节点有七种，分别是：  元素（element） 属性（attribute） 文本（text） 命名空间（namespace） 处理指令（processi">
     
 
     
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'pos',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'kategori',
-            TAGS: 'tag',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>kategori</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -260,7 +260,7 @@ ga('send', 'pageview');
                             &nbsp;
                             aws
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws 使用笔记/">aws 使用笔记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws/">aws</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -292,13 +292,13 @@ ga('send', 'pageview');
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             robot
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Xpath 使用笔记/">Xpath 使用笔记</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium 使用笔记/">Selenium 使用笔记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file active"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -310,13 +310,13 @@ ga('send', 'pageview');
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/secure/服务鉴权机制/">服务鉴权机制</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             tool
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  <li class="file"><a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 wiki/">Hexo + Github Page = 个人 wiki.</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH/">SSH</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac/">Mac</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2018/11/21/it/互联网上的一些概念/">互联网上的一些概念</a></li>  </ul> 
                     </li> 
@@ -499,7 +499,7 @@ ga('send', 'pageview');
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-it/tool/Mac 上的那些骚操作" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-it/robot/Xpath" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -509,20 +509,20 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/robot/">robot</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/OS/">OS</a>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Robot/">Robot</a>, <a class="tag-link" href="/tags/Xpath/">Xpath</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">
-            <time datetime="2018-08-21T14:53:00.000Z" itemprop="datePublished">2018-08-21</time>
+        <a href="/2018/11/20/it/robot/Xpath/">
+            <time datetime="2018-11-20T11:38:55.000Z" itemprop="datePublished">2018-11-20</time>
         </a>
     </div>
 
@@ -533,13 +533,13 @@ ga('send', 'pageview');
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Mac 上的那些骚操作.md"> Source </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/robot/Xpath.md"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Mac 上的那些骚操作.md"> Edit </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/robot/Xpath.md"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Mac 上的那些骚操作.md"> History </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/robot/Xpath.md"> History </a>
                             </div>
                         
                     </div>
@@ -547,7 +547,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Mac 上的那些骚操作
+            Xpath
         </h1>
     
 
@@ -559,39 +559,169 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">カタログ</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-快速移动网页到顶部或底部"><span class="toc-number">1.</span> <span class="toc-text">1. 快速移动网页到顶部或底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Dock-中只显示打开的应用"><span class="toc-number">2.</span> <span class="toc-text">2. Dock 中只显示打开的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-粘贴文字时不要带样式"><span class="toc-number">3.</span> <span class="toc-text">3. 粘贴文字时不要带样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-输入英文时首字母不要自动大写"><span class="toc-number">4.</span> <span class="toc-text">4. 输入英文时首字母不要自动大写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-我要剪切或移动文件"><span class="toc-number">5.</span> <span class="toc-text">5. 我要剪切或移动文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-快速转换中文简繁体"><span class="toc-number">6.</span> <span class="toc-text">6. 快速转换中文简繁体</span></a></li></ol>
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为-Xpath（Introduction）"><span class="toc-number">1.</span> <span class="toc-text">何为 Xpath（Introduction）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法（Syntax）"><span class="toc-number">2.</span> <span class="toc-text">基础语法（Syntax）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路径表达式（Path-Expressions）"><span class="toc-number">2.1.</span> <span class="toc-text">路径表达式（Path Expressions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#断言（Predicates）"><span class="toc-number">2.2.</span> <span class="toc-text">断言（Predicates）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模糊选取（Selecting-Unknown-Nodes）"><span class="toc-number">2.3.</span> <span class="toc-text">模糊选取（Selecting Unknown Nodes）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并选取（Selecting-Several-Paths）"><span class="toc-number">2.4.</span> <span class="toc-text">合并选取（Selecting Several Paths）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则匹配（Regular-Match）"><span class="toc-number">3.</span> <span class="toc-text">正则匹配（Regular Match）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试我的-Xpath（Test-Xpath）"><span class="toc-number">4.</span> <span class="toc-text">测试我的 Xpath（Test Xpath）</span></a></li></ol>
                 </div>
             
         
         
-            <p>本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。</p>
-<h3 id="1-快速移动网页到顶部或底部"><a href="#1-快速移动网页到顶部或底部" class="headerlink" title="1. 快速移动网页到顶部或底部"></a>1. 快速移动网页到顶部或底部</h3><p>用双指上下划触摸板吗？NO，我们有更骚的操作：</p>
-<p><code>command + ↑</code> 回到顶部</p>
-<p><code>command + ↓</code> 滚到底部</p>
-<p>另外，</p>
-<p><code>fn + ↑</code> 上滚一页</p>
-<p><code>fn + ↓</code> 下滚一页</p>
-<p><code>fn + ←</code> Home，回到顶部</p>
-<p><code>fn + →</code> End，滚到底部</p>
-<h3 id="2-Dock-中只显示打开的应用"><a href="#2-Dock-中只显示打开的应用" class="headerlink" title="2. Dock 中只显示打开的应用"></a>2. Dock 中只显示打开的应用</h3><p>Mac 用着用着 Dock 上显示了一堆的图标，看着无法集中注意力，这时候可以打开 Terminal 输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock static-only -boolean true; killall Dock</span><br></pre></td></tr></table></figure>
-<p>回车就可以让 Dock 只显示打开的应用了，世界一下子清爽了。</p>
-<p>PS，如果想恢复原样，可以执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock static-only; killall Dock</span><br></pre></td></tr></table></figure>
-<h3 id="3-粘贴文字时不要带样式"><a href="#3-粘贴文字时不要带样式" class="headerlink" title="3. 粘贴文字时不要带样式"></a>3. 粘贴文字时不要带样式</h3><p>有时候从网上看到不错的文字想要粘贴到 Word、Evernote 或者文字编辑应用上，但使用 <code>command + v</code>  会连文字样式都带过来，这时候就要使用骚一点的操作了，那就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command + shift + v</span><br></pre></td></tr></table></figure>
-<h3 id="4-输入英文时首字母不要自动大写"><a href="#4-输入英文时首字母不要自动大写" class="headerlink" title="4. 输入英文时首字母不要自动大写"></a>4. 输入英文时首字母不要自动大写</h3><p>当你在文字编辑软件上写英文时，Mac 会很贴心地识别首字母并自动大写。但常常让我觉得画蛇添足，明明我不想大写，特别是在博客中或写或改一些代码或脚本时更觉得是捣乱。这时候，我找到了一个禁止自动首字母自动大写的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统偏好设置 —&gt; 键盘 —&gt; 文本 —&gt; 去除勾选【自动大写字词的首字母】</span><br></pre></td></tr></table></figure>
-<h3 id="5-我要剪切或移动文件"><a href="#5-我要剪切或移动文件" class="headerlink" title="5. 我要剪切或移动文件"></a>5. 我要剪切或移动文件</h3><p>Mac 中，复制的快捷键是 <code>command + c</code>，粘贴的快捷键是 <code>command + v</code> ，但是剪切的快捷键可不是 <code>command + x</code> ，如果要移动文件，你是不是还在进行 <em>粘贴完再删除</em> 的复杂操作？</p>
-<p>NO，其实移动文件可以复制后使用快捷键 <code>command + option + v</code> 实现，快去试试吧。</p>
-<h3 id="6-快速转换中文简繁体"><a href="#6-快速转换中文简繁体" class="headerlink" title="6. 快速转换中文简繁体"></a>6. 快速转换中文简繁体</h3><p>确保简繁体转换服务已经开启，路径如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统偏好设置 —&gt; 键盘 —&gt; 快捷键 —&gt; 服务 —&gt; 将文字转换为繁体中文 / 将文字转换为简体中文</span><br></pre></td></tr></table></figure>
-<p>选中需要进行简繁对换的文字，按：</p>
+            <h2 id="何为-Xpath（Introduction）"><a href="#何为-Xpath（Introduction）" class="headerlink" title="何为 Xpath（Introduction）"></a>何为 Xpath（Introduction）</h2><p><a href="https://zh.wikipedia.org/zh-hans/XPath" target="_blank" rel="noopener">维基百科</a>：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p>
+<p>所谓节点有七种，分别是：</p>
 <ul>
-<li><code>control + shift + command + c</code> 将文字转为繁体中文</li>
-<li><code>control + option + shift + command + c</code>  将文字转为简体中文</li>
+<li>元素（element）</li>
+<li>属性（attribute）</li>
+<li>文本（text）</li>
+<li>命名空间（namespace）</li>
+<li>处理指令（processing-instruction）</li>
+<li>注释（comment）</li>
+<li>文档节点（document node, also called root element）</li>
 </ul>
+<p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>&lt;bookstore&gt;</code> 为根节点，或者称为文档节点；</li>
+<li><code>&lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;</code> 为元素节点；</li>
+<li><code>lang=&quot;en&quot;</code> 为属性节点；</li>
+<li><code>Harry Potter</code> 为文本节点。</li>
+</ul>
+<h2 id="基础语法（Syntax）"><a href="#基础语法（Syntax）" class="headerlink" title="基础语法（Syntax）"></a>基础语法（Syntax）</h2><h3 id="路径表达式（Path-Expressions）"><a href="#路径表达式（Path-Expressions）" class="headerlink" title="路径表达式（Path Expressions）"></a>路径表达式（Path Expressions）</h3><table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取。</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点。</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性。</td>
+</tr>
+<tr>
+<td>text()</td>
+<td>选取文本。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="断言（Predicates）"><a href="#断言（Predicates）" class="headerlink" title="断言（Predicates）"></a>断言（Predicates）</h3><p>断言被用来在查找指定的节点或者包含指定值的节点，通常放在方括号 <code>[]</code> 中。</p>
+<p>示例：</p>
+<table>
+<thead>
+<tr>
+<th>路径表达式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bookstore/book[1]</td>
+<td>选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[last()]</td>
+<td>选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[last()-1]</td>
+<td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[position()&lt;3]</td>
+<td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td>//title[@lang]</td>
+<td>选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+<tr>
+<td>//title[@lang=’eng’]</td>
+<td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td>
+</tr>
+<tr>
+<td>//book[author[text()=’J K. Rowling’]]</td>
+<td>选取 author 为 J K. Rowling 的 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[price&gt;35.00]</td>
+<td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+<tr>
+<td>/bookstore/book[price&gt;35.00]/title</td>
+<td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="模糊选取（Selecting-Unknown-Nodes）"><a href="#模糊选取（Selecting-Unknown-Nodes）" class="headerlink" title="模糊选取（Selecting Unknown Nodes）"></a>模糊选取（Selecting Unknown Nodes）</h3><table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配任何元素节点。</td>
+</tr>
+<tr>
+<td>@*</td>
+<td>匹配任何属性节点。</td>
+</tr>
+<tr>
+<td>node()</td>
+<td>匹配任何类型的节点。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="合并选取（Selecting-Several-Paths）"><a href="#合并选取（Selecting-Several-Paths）" class="headerlink" title="合并选取（Selecting Several Paths）"></a>合并选取（Selecting Several Paths）</h3><p>使用管道符 <code>|</code>  合并两个选取结果。</p>
+<p>示例：</p>
+<table>
+<thead>
+<tr>
+<th>路径表达式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>//book/title&#124; //book/price</td>
+<td>选取 book 元素的所有 title 和 price 元素。</td>
+</tr>
+<tr>
+<td>//title &#124;  //price</td>
+<td>选取文档中的所有 title 和 price 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book/title &#124; //price</td>
+<td>选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="正则匹配（Regular-Match）"><a href="#正则匹配（Regular-Match）" class="headerlink" title="正则匹配（Regular Match）"></a>正则匹配（Regular Match）</h2><p>可以使用 <code>starts-with</code> 和 <code>ends-with</code> 进行简单的正则匹配。</p>
+<p>比如获取 Github 上某仓库的星星数的 Xpath 为，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div/a[ends-with(@href, &apos;stargazers&apos;)]/text()</span><br></pre></td></tr></table></figure>
+<p> 表示获取 <code>div</code> 节点下的具备有属性为 <code>href</code>且值为 <code>stargazers</code> 结尾的 <code>a</code> 节点的文本内容。</p>
+<h2 id="测试我的-Xpath（Test-Xpath）"><a href="#测试我的-Xpath（Test-Xpath）" class="headerlink" title="测试我的 Xpath（Test Xpath）"></a>测试我的 Xpath（Test Xpath）</h2><p> 可以使用 freeformatter.com 上提供的 <a href="https://www.freeformatter.com/xpath-tester.html" target="_blank" rel="noopener">Xpath Tester</a> 进行在线测试。</p>
 
             </div>
         
@@ -604,19 +734,19 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
-        <a href="/2018/08/22/it/code/代码质量控制/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Lebih baru</strong>
+        <a href="/2018/11/20/it/tool/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    代码质量控制
+                    Markdown
                 
             </div>
         </a>
     
     
-        <a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Lebih Tua</strong>
-            <div class="article-nav-title">解决 Android 中出现依赖多个版本支持库的问题</div>
+        <a href="/2018/11/20/it/robot/Selenium/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">Selenium</div>
         </a>
     
 </nav>
