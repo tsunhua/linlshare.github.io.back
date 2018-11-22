@@ -17,10 +17,16 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="概念（NIO vs BIO）NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。 BIO 与 NIO 的区别如下：    类别 I/O 方式 最低可用的 JDK 版本     BIO 流式 JDK 1.0   NIO 块式 JDK 1.4    所谓流式处理，就是单个字节的数据移动，通过一个称为 Strea">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T06:57:47.975Z">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-init.png">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-read.png">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-flip.png">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-write-2.png">
+<meta property="og:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-clear.png">
+<meta property="og:updated_time" content="2018-11-22T11:12:02.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NIO">
 <meta name="twitter:description" content="概念（NIO vs BIO）NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。 BIO 与 NIO 的区别如下：    类别 I/O 方式 最低可用的 JDK 版本     BIO 流式 JDK 1.0   NIO 块式 JDK 1.4    所谓流式处理，就是单个字节的数据移动，通过一个称为 Strea">
+<meta name="twitter:image" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/NIO-state-init.png">
     
 
     
@@ -90,7 +96,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +115,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +147,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -158,7 +164,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -269,7 +275,7 @@ ga('send', 'pageview');
                             &nbsp;
                             base
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file active"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/01/06/it/java/base/MySql/">MySql</a></li>  <li class="file"><a href="/2018/11/09/it/java/base/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file active"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/01/06/it/java/base/MySql/">MySql</a></li>  <li class="file"><a href="/2018/11/09/it/java/base/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Kafka/">Kafka</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -559,7 +565,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
+                <strong class="toc-title">Catalogue</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念（NIO-vs-BIO）"><span class="toc-number">1.</span> <span class="toc-text">概念（NIO vs BIO）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区和通道（Buffer-amp-Channel）"><span class="toc-number">2.</span> <span class="toc-text">缓冲区和通道（Buffer &amp; Channel）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区内部细节（Buffer-Internals）"><span class="toc-number">3.</span> <span class="toc-text">缓冲区内部细节（Buffer Internals）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#状态变量（State-Variables）"><span class="toc-number">3.1.</span> <span class="toc-text">状态变量（State Variables）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存取方法（Accessor-）"><span class="toc-number">3.2.</span> <span class="toc-text">存取方法（Accessor ）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用（Show-U-the-Code）"><span class="toc-number">4.</span> <span class="toc-text">使用（Show U the Code）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-number">4.1.</span> <span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-number">4.2.</span> <span class="toc-text">写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边读边写"><span class="toc-number">4.3.</span> <span class="toc-text">边读边写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
@@ -602,12 +608,35 @@ ga('send', 'pageview');
 </ul>
 <p>NIO 中的通道（Channel）类似 BIO 中的流（Stream），但是是双向的，可以用来读、写或者同时读写。流之所以是单向的，是因为一个 Stream 要么是 InputStream，要么是 OutputStream，不能兼有。</p>
 <h2 id="缓冲区内部细节（Buffer-Internals）"><a href="#缓冲区内部细节（Buffer-Internals）" class="headerlink" title="缓冲区内部细节（Buffer Internals）"></a>缓冲区内部细节（Buffer Internals）</h2><h3 id="状态变量（State-Variables）"><a href="#状态变量（State-Variables）" class="headerlink" title="状态变量（State Variables）"></a>状态变量（State Variables）</h3><ul>
-<li>position，表征读了或写了多少数据到数组中，指向下一个元素的位置；</li>
-<li>limit，表征剩余可读或可写的的数据量，初始情况下 limit = capacity。</li>
-<li>capacity，表征 Buffer 的最大容量。</li>
+<li>Position，表征读了或写了多少数据到数组中，指向下一个元素的位置；</li>
+<li>Limit，表征剩余可读或可写的的数据量，初始情况下 Limit = Capacity。</li>
+<li>Capacity，表征 Buffer 的最大容量。</li>
 </ul>
-<p>三者关系：position &lt;= limit &lt;= capacity</p>
-<h3 id="存取方法（Accessor-）"><a href="#存取方法（Accessor-）" class="headerlink" title="存取方法（Accessor ）"></a>存取方法（Accessor ）</h3><h2 id="使用（Show-U-the-Code）"><a href="#使用（Show-U-the-Code）" class="headerlink" title="使用（Show U the Code）"></a>使用（Show U the Code）</h2><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><ol>
+<p>三者关系：Position &lt;= Limit &lt;= Capacity</p>
+<p>下面从微观角度观察各状态变量在读写操作中的变化：</p>
+<p>（1） Init</p>
+<p>初始状态下，Position 指向第一个元素的位置，Limit 和 Capacity 指向最后一个元素的下一个虚拟元素的位置。由于 Capacity 保持不变，下面的讨论中予以略过。</p>
+<p><img src="/2018/11/22/it/java/base/NIO/NIO-state-init.png" alt=""></p>
+<p>（2）Channel.read</p>
+<p>读取 5 个元素到缓冲区后，Position 指向第六个元素的位置，Limit 不变。</p>
+<p><img src="/2018/11/22/it/java/base/NIO/NIO-state-read.png" alt=""></p>
+<p>（3）Buffer.flip</p>
+<p>进行 Flip 操作后，Limit 指向当前的 Position 的位置，Position 指回第一个元素的位置，</p>
+<p><img src="/2018/11/22/it/java/base/NIO/NIO-state-flip.png" alt=""></p>
+<p>（4）Channel.write</p>
+<p>从缓冲区读取 5 个元素写入 Channel 后，Position 指向 Limit 所在的位置。</p>
+<p><img src="/2018/11/22/it/java/base/NIO/NIO-state-write-2.png" alt=""></p>
+<p>（5）Buffer.clear</p>
+<p>clear 后缓冲区重置到初始状态。</p>
+<p><img src="/2018/11/22/it/java/base/NIO/NIO-state-clear.png" alt=""></p>
+<h3 id="存取方法（Accessor-）"><a href="#存取方法（Accessor-）" class="headerlink" title="存取方法（Accessor ）"></a>存取方法（Accessor ）</h3><p>存取方法分为：</p>
+<ul>
+<li>相对方法（Relative Method）：在当前 position 进行读写操作，随后 position 自增1。</li>
+<li>绝对方法（Absolute Method）：在某个索引位置进行读写操作，不影响 position 和 limit。</li>
+</ul>
+<p>（1）get 系列方法（包括 <code>array()</code> )，用于读取缓冲区的数据，其中 <code>byte get(int index)</code>  为绝对方法。</p>
+<p>（2）put 系列方法，用于写入数据到缓冲区，其中 <code>ByteBuffer put(int index, byte b)</code> 为绝对方法。</p>
+<h2 id="使用（Show-U-the-Code）"><a href="#使用（Show-U-the-Code）" class="headerlink" title="使用（Show U the Code）"></a>使用（Show U the Code）</h2><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><ol>
 <li>从 FileInputStream 中获取 Channel；</li>
 <li>创建 Buffer；</li>
 <li>将数据从 Channel 读到 Buffer 中。</li>
@@ -646,9 +675,18 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
+        <a href="/2018/11/22/it/java/base/Kafka/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Kafka
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/11/22/it/java/base/Netty/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">Netty</div>
         </a>
     
