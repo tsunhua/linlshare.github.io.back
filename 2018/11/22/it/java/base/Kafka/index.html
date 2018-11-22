@@ -9,18 +9,18 @@
         <meta name="keywords" content="Java,JavaEE,Kafka">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="杂而志之，理而顺之，沉之淀之。">
+    <meta name="description" content="概念Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：  Topic（话题） Producer（生产者） Consumer（消费者） Broker（经纪人）  在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Top">
 <meta name="keywords" content="Java,JavaEE,Kafka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka">
 <meta property="og:url" content="https://linlshare.github.io/2018/11/22/it/java/base/Kafka/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="杂而志之，理而顺之，沉之淀之。">
+<meta property="og:description" content="概念Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：  Topic（话题） Producer（生产者） Consumer（消费者） Broker（经纪人）  在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Top">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T09:44:04.975Z">
+<meta property="og:updated_time" content="2018-11-22T12:04:52.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka">
-<meta name="twitter:description" content="杂而志之，理而顺之，沉之淀之。">
+<meta name="twitter:description" content="概念Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：  Topic（话题） Producer（生产者） Consumer（消费者） Broker（经纪人）  在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Top">
     
 
     
@@ -560,12 +560,20 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
                 </div>
             
         
         
-            
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：</p>
+<ul>
+<li>Topic（话题）</li>
+<li>Producer（生产者）</li>
+<li>Consumer（消费者）</li>
+<li>Broker（经纪人）</li>
+</ul>
+<p>在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Topic 中读取消息。作为一个分布式系统，Kafka 运行在集群中，集群中的每个节点称之为 Broker。</p>
+
             </div>
         
         <footer class="article-footer">

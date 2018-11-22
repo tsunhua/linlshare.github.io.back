@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-22T09:44:04.975Z</updated>
+  <updated>2018-11-22T12:04:52.485Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -21,9 +21,16 @@
     <link href="https://linlshare.github.io/2018/11/22/it/java/base/Kafka/"/>
     <id>https://linlshare.github.io/2018/11/22/it/java/base/Kafka/</id>
     <published>2018-11-22T09:44:02.000Z</published>
-    <updated>2018-11-22T09:44:04.975Z</updated>
+    <updated>2018-11-22T12:04:52.485Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：</p><ul><li>Topic（话题）</li><li>Producer（生产者）</li><li>Consumer（消费者）</li><li>Broker（经纪人）</li></ul><p>在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Topic 中读取消息。作为一个分布式系统，Kafka 运行在集群中，集群中的每个节点称之为 Broker。</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核
+      
     
     </summary>
     
