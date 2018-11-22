@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>NIO | Share 杂志</title>
+    
+    
+        <meta name="keywords" content="Java,IT,NIO">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="概念（NIO vs BIO）NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。 BIO 与 NIO 的区别如下：    类别 I/O 方式 最低可用的 JDK 版本     BIO 流式 JDK 1.0   NIO 块式 JDK 1.4    所谓流式处理，就是单个字节的数据移动，通过一个称为 Strea">
+<meta name="keywords" content="Java,IT,NIO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NIO">
+<meta property="og:url" content="https://linlshare.github.io/2018/11/22/it/java/base/NIO/index.html">
+<meta property="og:site_name" content="Share 杂志">
+<meta property="og:description" content="概念（NIO vs BIO）NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。 BIO 与 NIO 的区别如下：    类别 I/O 方式 最低可用的 JDK 版本     BIO 流式 JDK 1.0   NIO 块式 JDK 1.4    所谓流式处理，就是单个字节的数据移动，通过一个称为 Strea">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-22T06:57:47.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NIO">
+<meta name="twitter:description" content="概念（NIO vs BIO）NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。 BIO 与 NIO 的区别如下：    类别 I/O 方式 最低可用的 JDK 版本     BIO 流式 JDK 1.0   NIO 块式 JDK 1.4    所谓流式处理，就是单个字节的数据移动，通过一个称为 Strea">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Share 杂志" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128207704-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Share 杂志</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'pos',
+            PAGES: 'Pages',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>kategori</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中国文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/culture/中国文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日本文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arch
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws 使用笔记/">aws 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            base
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file active"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/01/06/it/java/base/MySql/">MySql</a></li>  <li class="file"><a href="/2018/11/09/it/java/base/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            exception
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Xpath 使用笔记/">Xpath 使用笔记</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium 使用笔记/">Selenium 使用笔记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            secure
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/secure/服务鉴权机制/">服务鉴权机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/21/it/tool/Mac 上的那些骚操作/">Mac 上的那些骚操作</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH 登录须知/">SSH 登录须知</a></li>  <li class="file"><a href="/2018/10/28/it/tool/使用 Hexo 和 Github Page 搭建个人 wiki/">使用 Hexo 和 Github Page 搭建个人 wiki</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/11/21/it/互联网上的一些概念/">互联网上的一些概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            person
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            weekly
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/thinking/weekly/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a></li>  <li class="file"><a href="/2018/10/28/thinking/weekly/周记 20181028/">周记 20181028</a></li>  <li class="file"><a href="/2018/10/21/thinking/weekly/周记 20181021/">周记 20181021</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/java/base/NIO" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/NIO/">NIO</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/11/22/it/java/base/NIO/">
+            <time datetime="2018-11-22T03:27:06.000Z" itemprop="datePublished">2018-11-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/NIO.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/NIO.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/NIO.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            NIO
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">カタログ</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念（NIO-vs-BIO）"><span class="toc-number">1.</span> <span class="toc-text">概念（NIO vs BIO）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区和通道（Buffer-amp-Channel）"><span class="toc-number">2.</span> <span class="toc-text">缓冲区和通道（Buffer &amp; Channel）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区内部细节（Buffer-Internals）"><span class="toc-number">3.</span> <span class="toc-text">缓冲区内部细节（Buffer Internals）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#状态变量（State-Variables）"><span class="toc-number">3.1.</span> <span class="toc-text">状态变量（State Variables）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存取方法（Accessor-）"><span class="toc-number">3.2.</span> <span class="toc-text">存取方法（Accessor ）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用（Show-U-the-Code）"><span class="toc-number">4.</span> <span class="toc-text">使用（Show U the Code）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-number">4.1.</span> <span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-number">4.2.</span> <span class="toc-text">写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边读边写"><span class="toc-number">4.3.</span> <span class="toc-text">边读边写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="概念（NIO-vs-BIO）"><a href="#概念（NIO-vs-BIO）" class="headerlink" title="概念（NIO vs BIO）"></a>概念（NIO vs BIO）</h2><p>NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。</p>
+<p>BIO 与 NIO 的区别如下：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>I/O 方式</th>
+<th>最低可用的 JDK 版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIO</td>
+<td>流式</td>
+<td>JDK 1.0</td>
+</tr>
+<tr>
+<td>NIO</td>
+<td>块式</td>
+<td>JDK 1.4</td>
+</tr>
+</tbody>
+</table>
+<p>所谓流式处理，就是单个字节的数据移动，通过一个称为 Stream 的对象一次移动一个字节；而块式处理，就是单个字节数组的数据移动，通过一个叫 Buffer 的对象一次移动一个字节数组。JDK 中的 NIO 库已经集成了原来的标准 I/O 功能。</p>
+<h2 id="缓冲区和通道（Buffer-amp-Channel）"><a href="#缓冲区和通道（Buffer-amp-Channel）" class="headerlink" title="缓冲区和通道（Buffer &amp; Channel）"></a>缓冲区和通道（Buffer &amp; Channel）</h2><p>NIO 中的缓冲区（Buffer）实质是一个数组，通常为字节数组（ByteBuffer），用作读写缓冲，以及对数据的结构化访问，还可以用来跟踪系统的读写进程。</p>
+<p>Buffer 类型：</p>
+<ul>
+<li>ByteBuffer</li>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer</li>
+</ul>
+<p>NIO 中的通道（Channel）类似 BIO 中的流（Stream），但是是双向的，可以用来读、写或者同时读写。流之所以是单向的，是因为一个 Stream 要么是 InputStream，要么是 OutputStream，不能兼有。</p>
+<h2 id="缓冲区内部细节（Buffer-Internals）"><a href="#缓冲区内部细节（Buffer-Internals）" class="headerlink" title="缓冲区内部细节（Buffer Internals）"></a>缓冲区内部细节（Buffer Internals）</h2><h3 id="状态变量（State-Variables）"><a href="#状态变量（State-Variables）" class="headerlink" title="状态变量（State Variables）"></a>状态变量（State Variables）</h3><ul>
+<li>position，表征读了或写了多少数据到数组中，指向下一个元素的位置；</li>
+<li>limit，表征剩余可读或可写的的数据量，初始情况下 limit = capacity。</li>
+<li>capacity，表征 Buffer 的最大容量。</li>
+</ul>
+<p>三者关系：position &lt;= limit &lt;= capacity</p>
+<h3 id="存取方法（Accessor-）"><a href="#存取方法（Accessor-）" class="headerlink" title="存取方法（Accessor ）"></a>存取方法（Accessor ）</h3><h2 id="使用（Show-U-the-Code）"><a href="#使用（Show-U-the-Code）" class="headerlink" title="使用（Show U the Code）"></a>使用（Show U the Code）</h2><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><ol>
+<li>从 FileInputStream 中获取 Channel；</li>
+<li>创建 Buffer；</li>
+<li>将数据从 Channel 读到 Buffer 中。</li>
+</ol>
+<p>示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 a_file 读到 StringBuilder 中</span></span><br><span class="line">FileInputStream fin = <span class="keyword">new</span> FileInputStream(<span class="string">"/path/to/a_file"</span>);</span><br><span class="line">FileChannel fc = fin.getChannel();</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"><span class="keyword">while</span> (fc.read(buffer) != -<span class="number">1</span>) &#123;</span><br><span class="line">    sb.append(<span class="keyword">new</span> String(buffer.array(), <span class="number">0</span>, buffer.position()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><ol>
+<li>从 FileOutputStream 中获取 Channel；</li>
+<li>创建 Buffer；</li>
+<li>写入数据到 Buffer；</li>
+<li>将数据从 Buffer 写入 Channel 中。</li>
+</ol>
+<p>示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 "Something" 写入 a_file 中</span></span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"/path/to/a_file"</span>);</span><br><span class="line">FileChannel fc = fos.getChannel();</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">byte</span>[] content = <span class="string">"Something"</span>.getBytes();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">byte</span> aContent : content) &#123;</span><br><span class="line">    buffer.put(aContent);</span><br><span class="line">&#125;</span><br><span class="line">buffer.flip();</span><br><span class="line"></span><br><span class="line">fc.write(buffer);</span><br></pre></td></tr></table></figure>
+<h3 id="边读边写"><a href="#边读边写" class="headerlink" title="边读边写"></a>边读边写</h3><ol>
+<li>清除 Buffer；</li>
+<li>从输入流的 Channel 读数据到 Buffer；</li>
+<li>写入 Buffer 中的数据到输出流的 Channel；</li>
+<li>循环直到输入流的 Channel 中没有数据。</li>
+</ol>
+<p>示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fin = <span class="keyword">new</span> FileInputStream(<span class="string">"path/to/in_file"</span>);</span><br><span class="line">FileOutputStream fout = <span class="keyword">new</span> FileOutputStream(<span class="string">"path/to/out_file"</span>);</span><br><span class="line"></span><br><span class="line">FileChannel fcin = fin.getChannel();</span><br><span class="line">FileChannel fcout = fout.getChannel();</span><br><span class="line"></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">    buffer.clear();</span><br><span class="line">    <span class="keyword">int</span> r = fcin.read(buffer);</span><br><span class="line">    <span class="keyword">if</span> (r == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    buffer.flip();</span><br><span class="line">    fcout.write(buffer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="noopener">NIO 入门 - IBM</a></li>
+<li><a href="https://www.ibm.com/developerworks/java/tutorials/j-nio/j-nio.html" target="_blank" rel="noopener">Getting started with new I/O (NIO) - IBM</a></li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2018/11/22/it/java/base/Netty/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Lebih Tua</strong>
+            <div class="article-nav-title">Netty</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
