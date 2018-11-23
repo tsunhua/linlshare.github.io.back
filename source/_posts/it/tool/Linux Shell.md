@@ -119,6 +119,35 @@ IdentityFile ~/env/<username>.id_rsa
 2. 使用 `bg <pid>` 将其放入后台运行；
 3. 再使用 `disown <pid>` ，可以避免 HUP 信号的影响。
 
+#### ps
+
+process status, 列出当前运行的进程的快照。命令参数：
+
+1. [-A] 显示所有进程；
+2. [-e] 显示环境变量；
+3. [-f] 显示程序间的关系；
+4. [-aux] 显示所有包含其他使用者的进程。
+
+查找特定的名称的进程时通常与 grep 命令连用，以查找 Wechat 相关进程为例：
+
+```shell
+# 将所有进程中的包含 Wechat 的连同表头一起输出
+> ps -ef | grep -Ei 'PID|Wechat'
+```
+
+在我的电脑上输出结果是：
+
+```shel
+  UID   PID  PPID   C STIME   TTY           TIME CMD
+  501  1079     1   0 Thu10AM ??         3:23.55 /Applications/WeChat.app/Contents/MacOS/WeChat
+```
+
+#### kill
+
+终止进程的命令，参数有：
+
+1. [-9] 强制删除；
+
 ### 文件管理命令
 
 #### tail 查看文件末尾
@@ -229,12 +258,17 @@ grep (global search regular expression(RE) and print out the line，全面搜索
 5. [-m num] 当匹配了 num 行后不再继续查找
 6. [-n] 显示匹配行所在行号
 7. [-v] 输出未匹配的行
+8. [-i] 不区分大小写
+9. [-E] --extended-regexp  支持扩展的正则表达式
 
 示例：
 
 ```shell
 # 查询日志文件中包含 keyword 但不含 keywords 的行，最多输出 10 行匹配，且显示匹配行前后 2 行
 > grep -C 2 -n -m 10 keyword *.log | grep -v keywords
+
+# 同时查找多个关键字
+> grep -E 'a_key|b_key' a.file
 ```
 
 ### alias 添加别名
