@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -277,6 +277,15 @@ ga('send', 'pageview');
                             exception
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guava
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -498,6 +507,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/guava/Guava Cache" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/guava/">guava</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Cache/">Cache</a>, <a class="tag-link" href="/tags/Guava/">Guava</a>, <a class="tag-link" href="/tags/IT/">IT</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/11/23/it/java/guava/Guava Cache/">
+            <time datetime="2018-11-23T09:32:02.000Z" itemprop="datePublished">2018-11-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/guava/Guava Cache.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/guava/Guava Cache.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/guava/Guava Cache.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="Guava-Cache-是做什么的？"><a href="#Guava-Cache-是做什么的？" class="headerlink" title="Guava Cache 是做什么的？"></a>Guava Cache 是做什么的？</h2><p>内存缓存，类似于 ConcurrentMap，支持自动缓存、缓存回收和缓存移除回调。</p>
+<h2 id="两种加载方式"><a href="#两种加载方式" class="headerlink" title="两种加载方式"></a>两种加载方式</h2><h3 id="使用CacheLoader"><a href="#使用CacheLoader" class="headerlink" title="使用CacheLoader"></a>使用CacheLoader</h3><p>当有默认的加载或计算方式使用该方式。示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LoadingCache&lt;Key, Value&gt; cache = CacheBuilder.newBuilder()</span><br><span class="line">    .maximumSize(<span class="number">1000</span>)</span><br><span class="line">    .expireAfterWrite(<span class="number">10</span>, TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(MY_LISTENER)</span><br><span class="line">    .build(</span><br><span class="line">    <span class="keyword">new</span> CacheLoader&lt;Key, Value&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Value <span class="title">load</span><span class="params">(Key key)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> createExpensiveValue(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   cache.get(key);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e)&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Callable"><a href="#使用-Callable" class="headerlink" title="使用 Callable"></a>使用 Callable</h3><p>当没有默认加载运算，或者想要覆盖默认的加载运算，同时保留 “获取缓存 – 如果没有 – 则计算”（get-if-absent-compute）的原子语义时使用该方式。示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Cache&lt;Key, Value&gt; cache =  CacheBuilder.newBuilder()</span><br><span class="line">    .expireAfterWrite(<span class="number">1</span>,TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(<span class="keyword">this</span>)</span><br><span class="line">    .build();</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// 1. get</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  cache.get(key, <span class="keyword">new</span> Callable&lt;Value&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> AnyException </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> doThingsTheHardWay(key);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. getIfPresent</span></span><br><span class="line">cache.getIfPresent(key);</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/11/23/it/java/guava/Guava Cache/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/base/Kafka" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1396,112 +1509,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-thinking/weekly/周记 20181118" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/thinking/">thinking</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/thinking/weekly/">weekly</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/周记/">周记</a>, <a class="tag-link" href="/tags/自省/">自省</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/18/thinking/weekly/周记 20181118/">
-            <time datetime="2018-11-18T15:19:05.000Z" itemprop="datePublished">2018-11-18</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/thinking/weekly/周记 20181118.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/thinking/weekly/周记 20181118.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/thinking/weekly/周记 20181118.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>又翻起了《瓦尔登湖》，一本自高中就伴随着我的书，王义国的译本。记得当时是在家附近的一所书店里买的，店里有卖各种盗版教辅书。书的纸质很粗糙，也不知是因为用了再生纸还是本身就是盗版的。不过，如今纸张愈加泛黄了，与书里节俭和自然的精神倒是挺配的。</p>
-<p>每次拾起这本书都觉内心似泛着粼粼微波的湖面般平静，不管对现实有多大的不满足，对世界有什么欲求，都在此刻停止了，只觉得此刻的宁静是一种享受，很少有人能享受这份宁静，而我在这里找到了。</p>
-<p>梭罗绝对是一个生活的冒险家，他认为当生活的必需品（食物、栖息处、衣服和燃料）满足之后，就应该开始生活的冒险，就像植物一样，根扎好了就要向上开花结果；而不是继续去追求奢侈品，或者说非必需品，那是一种被物役的表现，智者不为。</p>
-<p>对待劳作，梭罗说：<code>劳作的人日复一日，都没有闲情逸致获得一种真正的人格</code>。劳作不息人就如机器，失去了人格。故而要好好对待自己的时间，合理平衡工作和生活，健全自己的人格才是。</p>
-<p>对于生活，梭罗说：<code>芸芸众生过的生活是既安静又绝望</code>，又说：<code>老的行为是让老年人来做的，而新的行为则是让年轻人来做</code>。这是说不要只听老人言而不动脑，不要老是在旧的生活方式中打转，要敢于尝试新的东西，不要害怕失败，不要听天由命。</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/18/thinking/weekly/周记 20181118/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Siguiente  &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
         </nav>
     
 </section>
