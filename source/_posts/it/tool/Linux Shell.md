@@ -271,6 +271,26 @@ grep (global search regular expression(RE) and print out the line，全面搜索
 > grep -E 'a_key|b_key' a.file
 ```
 
+#### tar 解压缩文件
+
+tar 最初的设计目的是将文件备份到磁带上（**t**ape **ar**chie），故名 tar。
+
+tar 代表未压缩的 tar 文件，已经压缩的 tar 文件会附加压缩文件的扩展名，如 `.tar.gz` 表示经过 gzip 压缩。
+
+命令参数：
+
+1. [-x] --extract 解开 tar 文件
+2. [-z] --gzip,--gunzip,--unzip 调用 gzip 执行压缩或解压缩
+3. [-f] --file 指定要处理的文件名
+4. [-t] --list 列出 tar 文件中包含的文件的信息
+
+```shell
+# 解压 .tar.gz 文件到当前文件夹
+> tar -zxf a_file.tar.gz
+# 解压 .tar 文件到 tmp 文件夹
+> tar -xf b_file.tar tmp/
+```
+
 ### alias 添加别名
 
 树状查看文件：
