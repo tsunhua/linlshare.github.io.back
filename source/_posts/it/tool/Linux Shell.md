@@ -95,7 +95,7 @@ IdentityFile ~/env/<username>.id_rsa
 
 1. [-l] 显示pid。
 
-#### nohup
+#### nohup 保住进程
 
 当用户关闭窗口时，终端会受到HUP（hungup）信号，从而关闭其所有子进程。
 
@@ -119,7 +119,7 @@ IdentityFile ~/env/<username>.id_rsa
 2. 使用 `bg <pid>` 将其放入后台运行；
 3. 再使用 `disown <pid>` ，可以避免 HUP 信号的影响。
 
-#### ps
+#### ps 进程快照
 
 process status, 列出当前运行的进程的快照。命令参数：
 
@@ -142,7 +142,7 @@ process status, 列出当前运行的进程的快照。命令参数：
   501  1079     1   0 Thu10AM ??         3:23.55 /Applications/WeChat.app/Contents/MacOS/WeChat
 ```
 
-#### kill
+#### kill 终止进程
 
 终止进程的命令，参数有：
 
@@ -257,7 +257,7 @@ grep (global search regular expression(RE) and print out the line，全面搜索
 4. [--color=auto] 匹配结果自动配色
 5. [-m num] 当匹配了 num 行后不再继续查找
 6. [-n] 显示匹配行所在行号
-7. [-v] 输出未匹配的行
+7. [-v] --invert-match 输出不匹配的行
 8. [-i] 不区分大小写
 9. [-E] --extended-regexp  支持扩展的正则表达式
 
@@ -289,6 +289,42 @@ tar 代表未压缩的 tar 文件，已经压缩的 tar 文件会附加压缩文
 > tar -zxf a_file.tar.gz
 # 解压 .tar 文件到 tmp 文件夹
 > tar -xf b_file.tar tmp/
+```
+
+#### awk 文本分析
+
+文本处理语言和工具，用于在文件中查找与模式匹配的行并在这些行上执行指定的操作，名称取自三位创始人 Alfred **A**ho，Peter **W**einberger, 和 Brian **K**ernighan 的 Family Name 的首字符。可参见 [AWK程序设计语言](https://awk.readthedocs.io/en/latest/index.html) 、 [awk命令 - IBM](https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_72/com.ibm.aix.cmds1/awk.htm)  以及 [Linux awk 命令 - runoob.com](http://www.runoob.com/linux/linux-comm-awk.html) 进行完整的学习。下面简单介绍下语法：
+
+```shell
+> awk '{[pattern] action}' {filenames}   # 行匹配语句 awk '' 只能用单引号
+```
+
+Pattern 支持：
+
+- 正则表达式，eg. `awk '/smith?/' a_file`
+- 关系表达式，eg. `awk '$1 > $3' b_file`
+- 模式的组合，以上模式的组合
+  - 与或非 `|| && !`，值为真则匹配
+  - 圆括号 `()` ，组合匹配
+  - 逗号 `,` ，匹配前一个的匹配
+- BEGIN 和 END 模式
+  - BEGIN 模式在读取输入前执行
+  - END 模式在读取输入后执行
+
+示例：
+
+```shell
+# 指定分隔符(默认是空格或 TAB)，有两种写法
+## 用逗号分割
+> awk -F, '{print $3}' a_file
+> awk 'BEGIN{FS=","} {print $3}' a_file
+## 先用空格分割再用逗号分割
+> awk -F '[ ,]'  '{print $3}' a_file
+> awk 'BEGIN{FS="[ ,]"} {print $3}' a_file
+# 忽略匹配文本的大小写
+> awk 'BEGIN{IGNORECASE=1} /a_key/' a_file
+# 获取 Kafka 进程的 ID
+> ps aux | grep server.properties | grep -v grep | awk '{print $2}'
 ```
 
 ### alias 添加别名
