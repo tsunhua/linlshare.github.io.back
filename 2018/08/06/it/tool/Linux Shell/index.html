@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T05:15:23.684Z">
+<meta property="og:updated_time" content="2018-11-23T08:56:11.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Shell">
 <meta name="twitter:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
@@ -560,7 +560,7 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SET-命令"><span class="toc-number">1.</span> <span class="toc-text">SET 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-命令"><span class="toc-number">2.</span> <span class="toc-text">SSH 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程管理命令"><span class="toc-number">3.</span> <span class="toc-text">进程管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前后台切换命令-bg、fg"><span class="toc-number">3.1.</span> <span class="toc-text">前后台切换命令 bg、fg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#amp-字符的作用"><span class="toc-number">3.2.</span> <span class="toc-text">&amp; 字符的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nohup"><span class="toc-number">3.3.</span> <span class="toc-text">nohup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ps"><span class="toc-number">3.4.</span> <span class="toc-text">ps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kill"><span class="toc-number">3.5.</span> <span class="toc-text">kill</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理命令"><span class="toc-number">4.</span> <span class="toc-text">文件管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tail-查看文件末尾"><span class="toc-number">4.1.</span> <span class="toc-text">tail 查看文件末尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cat-一次显示文件内容"><span class="toc-number">4.2.</span> <span class="toc-text">cat 一次显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more-逐页显示文件内容"><span class="toc-number">4.3.</span> <span class="toc-text">more 逐页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less-分页显示文件内容"><span class="toc-number">4.4.</span> <span class="toc-text">less 分页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep-查找文件内容"><span class="toc-number">4.5.</span> <span class="toc-text">grep 查找文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tar-解压缩文件"><span class="toc-number">4.6.</span> <span class="toc-text">tar 解压缩文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alias-添加别名"><span class="toc-number">5.</span> <span class="toc-text">alias 添加别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctrl-移动光标"><span class="toc-number">6.</span> <span class="toc-text">ctrl 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步一台服务器中的文件到另一台"><span class="toc-number">7.</span> <span class="toc-text">同步一台服务器中的文件到另一台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-命令中文乱码"><span class="toc-number">8.</span> <span class="toc-text">Tree 命令中文乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改文件访问权限"><span class="toc-number">9.</span> <span class="toc-text">更改文件访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则方式删除文件（Delete-files-with-regular-expression）"><span class="toc-number">10.</span> <span class="toc-text">正则方式删除文件（Delete files with regular expression）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SET-命令"><span class="toc-number">1.</span> <span class="toc-text">SET 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-命令"><span class="toc-number">2.</span> <span class="toc-text">SSH 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程管理命令"><span class="toc-number">3.</span> <span class="toc-text">进程管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前后台切换命令-bg、fg"><span class="toc-number">3.1.</span> <span class="toc-text">前后台切换命令 bg、fg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#amp-字符的作用"><span class="toc-number">3.2.</span> <span class="toc-text">&amp; 字符的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nohup-保住进程"><span class="toc-number">3.3.</span> <span class="toc-text">nohup 保住进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ps-进程快照"><span class="toc-number">3.4.</span> <span class="toc-text">ps 进程快照</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kill-终止进程"><span class="toc-number">3.5.</span> <span class="toc-text">kill 终止进程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理命令"><span class="toc-number">4.</span> <span class="toc-text">文件管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tail-查看文件末尾"><span class="toc-number">4.1.</span> <span class="toc-text">tail 查看文件末尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cat-一次显示文件内容"><span class="toc-number">4.2.</span> <span class="toc-text">cat 一次显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more-逐页显示文件内容"><span class="toc-number">4.3.</span> <span class="toc-text">more 逐页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less-分页显示文件内容"><span class="toc-number">4.4.</span> <span class="toc-text">less 分页显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep-查找文件内容"><span class="toc-number">4.5.</span> <span class="toc-text">grep 查找文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tar-解压缩文件"><span class="toc-number">4.6.</span> <span class="toc-text">tar 解压缩文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#awk-文本分析"><span class="toc-number">4.7.</span> <span class="toc-text">awk 文本分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alias-添加别名"><span class="toc-number">5.</span> <span class="toc-text">alias 添加别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctrl-移动光标"><span class="toc-number">6.</span> <span class="toc-text">ctrl 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步一台服务器中的文件到另一台"><span class="toc-number">7.</span> <span class="toc-text">同步一台服务器中的文件到另一台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree-命令中文乱码"><span class="toc-number">8.</span> <span class="toc-text">Tree 命令中文乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改文件访问权限"><span class="toc-number">9.</span> <span class="toc-text">更改文件访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则方式删除文件（Delete-files-with-regular-expression）"><span class="toc-number">10.</span> <span class="toc-text">正则方式删除文件（Delete files with regular expression）</span></a></li></ol>
                 </div>
             
         
@@ -601,7 +601,7 @@ ga('send', 'pageview');
 <ol>
 <li>[-l] 显示pid。</li>
 </ol>
-<h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><p>当用户关闭窗口时，终端会受到HUP（hungup）信号，从而关闭其所有子进程。</p>
+<h4 id="nohup-保住进程"><a href="#nohup-保住进程" class="headerlink" title="nohup 保住进程"></a>nohup 保住进程</h4><p>当用户关闭窗口时，终端会受到HUP（hungup）信号，从而关闭其所有子进程。</p>
 <p>若要让命令不被终止，有两种处理方式：</p>
 <ol>
 <li>让进程忽略HUP信号， <code>nohup</code> 之所为</li>
@@ -615,7 +615,7 @@ ga('send', 'pageview');
 <li>使用 <code>bg &lt;pid&gt;</code> 将其放入后台运行；</li>
 <li>再使用 <code>disown &lt;pid&gt;</code> ，可以避免 HUP 信号的影响。</li>
 </ol>
-<h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h4><p>process status, 列出当前运行的进程的快照。命令参数：</p>
+<h4 id="ps-进程快照"><a href="#ps-进程快照" class="headerlink" title="ps 进程快照"></a>ps 进程快照</h4><p>process status, 列出当前运行的进程的快照。命令参数：</p>
 <ol>
 <li>[-A] 显示所有进程；</li>
 <li>[-e] 显示环境变量；</li>
@@ -626,7 +626,7 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 将所有进程中的包含 Wechat 的连同表头一起输出</span><br><span class="line"><span class="meta">&gt;</span> ps -ef | grep -Ei 'PID|Wechat'</span><br></pre></td></tr></table></figure>
 <p>在我的电脑上输出结果是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UID   PID  PPID   C STIME   TTY           TIME CMD</span><br><span class="line">501  1079     1   0 Thu10AM ??         3:23.55 /Applications/WeChat.app/Contents/MacOS/WeChat</span><br></pre></td></tr></table></figure>
-<h4 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h4><p>终止进程的命令，参数有：</p>
+<h4 id="kill-终止进程"><a href="#kill-终止进程" class="headerlink" title="kill 终止进程"></a>kill 终止进程</h4><p>终止进程的命令，参数有：</p>
 <ol>
 <li>[-9] 强制删除；</li>
 </ol>
@@ -689,7 +689,7 @@ ga('send', 'pageview');
 <li>[–color=auto] 匹配结果自动配色</li>
 <li>[-m num] 当匹配了 num 行后不再继续查找</li>
 <li>[-n] 显示匹配行所在行号</li>
-<li>[-v] 输出未匹配的行</li>
+<li>[-v] –invert-match 输出不匹配的行</li>
 <li>[-i] 不区分大小写</li>
 <li>[-E] –extended-regexp  支持扩展的正则表达式</li>
 </ol>
@@ -705,6 +705,26 @@ ga('send', 'pageview');
 <li>[-t] –list 列出 tar 文件中包含的文件的信息</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 解压 .tar.gz 文件到当前文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -zxf a_file.tar.gz</span><br><span class="line"><span class="meta">#</span> 解压 .tar 文件到 tmp 文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -xf b_file.tar tmp/</span><br></pre></td></tr></table></figure>
+<h4 id="awk-文本分析"><a href="#awk-文本分析" class="headerlink" title="awk 文本分析"></a>awk 文本分析</h4><p>文本处理语言和工具，用于在文件中查找与模式匹配的行并在这些行上执行指定的操作，名称取自三位创始人 Alfred <strong>A</strong>ho，Peter <strong>W</strong>einberger, 和 Brian <strong>K</strong>ernighan 的 Family Name 的首字符。可参见 <a href="https://awk.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">AWK程序设计语言</a> 、 <a href="https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_72/com.ibm.aix.cmds1/awk.htm" target="_blank" rel="noopener">awk命令 - IBM</a>  以及 <a href="http://www.runoob.com/linux/linux-comm-awk.html" target="_blank" rel="noopener">Linux awk 命令 - runoob.com</a> 进行完整的学习。下面简单介绍下语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> awk '&#123;[pattern] action&#125;' &#123;filenames&#125;   # 行匹配语句 awk '' 只能用单引号</span><br></pre></td></tr></table></figure>
+<p>Pattern 支持：</p>
+<ul>
+<li>正则表达式，eg. <code>awk &#39;/smith?/&#39; a_file</code></li>
+<li>关系表达式，eg. <code>awk &#39;$1 &gt; $3&#39; b_file</code></li>
+<li>模式的组合，以上模式的组合<ul>
+<li>与或非 <code>|| &amp;&amp; !</code>，值为真则匹配</li>
+<li>圆括号 <code>()</code> ，组合匹配</li>
+<li>逗号 <code>,</code> ，匹配前一个的匹配</li>
+</ul>
+</li>
+<li>BEGIN 和 END 模式<ul>
+<li>BEGIN 模式在读取输入前执行</li>
+<li>END 模式在读取输入后执行</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 指定分隔符(默认是空格或 TAB)，有两种写法</span><br><span class="line"><span class="meta">#</span># 用逗号分割</span><br><span class="line"><span class="meta">&gt;</span> awk -F, '&#123;print $3&#125;' a_file</span><br><span class="line"><span class="meta">&gt;</span> awk 'BEGIN&#123;FS=","&#125; &#123;print $3&#125;' a_file</span><br><span class="line"><span class="meta">#</span># 先用空格分割再用逗号分割</span><br><span class="line"><span class="meta">&gt;</span> awk -F '[ ,]'  '&#123;print $3&#125;' a_file</span><br><span class="line"><span class="meta">&gt;</span> awk 'BEGIN&#123;FS="[ ,]"&#125; &#123;print $3&#125;' a_file</span><br><span class="line"><span class="meta">#</span> 忽略匹配文本的大小写</span><br><span class="line"><span class="meta">&gt;</span> awk 'BEGIN&#123;IGNORECASE=1&#125; /a_key/' a_file</span><br><span class="line"><span class="meta">#</span> 获取 Kafka 进程的 ID</span><br><span class="line"><span class="meta">&gt;</span> ps aux | grep server.properties | grep -v grep | awk '&#123;print $2&#125;'</span><br></pre></td></tr></table></figure>
 <h3 id="alias-添加别名"><a href="#alias-添加别名" class="headerlink" title="alias 添加别名"></a>alias 添加别名</h3><p>树状查看文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 注意：这种方式会列出所有文件，建议使用 brew instal tree. 因为可以使用 `tree -L [depth]`自定义深度</span><br><span class="line"><span class="meta">&gt;</span> alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"</span><br><span class="line"><span class="meta">&gt;</span> source ~/.zshrc</span><br></pre></td></tr></table></figure>
 <p>取消别名：</p>
