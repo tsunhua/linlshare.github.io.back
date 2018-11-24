@@ -249,3 +249,9 @@ git clone git@github_second:username/reponame
 >> git merge --no-ff khhhshhh-develop
 >> git push origin develop
 ```
+
+## 使用热键
+
+使用热键可以便捷地使用 Github。使用热键 `?` 查看所有可用的热键，也可以访问 [Github Help](https://help.github.com/articles/using-keyboard-shortcuts/) 获取详细的热键列表。常用的热键如下：
+
+![](Github/github_hotkey.jpg)
