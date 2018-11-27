@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-11-24T15:13:54.930Z</updated>
+  <updated>2018-11-27T06:39:39.797Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>etcd</title>
+    <link href="https://linlshare.github.io/2018/11/27/it/java/base/etcd/"/>
+    <id>https://linlshare.github.io/2018/11/27/it/java/base/etcd/</id>
+    <published>2018-11-27T06:17:35.000Z</published>
+    <updated>2018-11-27T06:39:39.797Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="etcd-是什么？（What-is-etcd）"><a href="#etcd-是什么？（What-is-etcd）" class="headerlink" title="etcd 是什么？（What is etcd）"></a>etcd 是什么？（What is etcd）</h2><p>etcd 是一个一致的分布式可靠的键值存储技术。可被用来做配置共享和服务发现。</p><ul><li>开发语言：Go</li><li>共识算法：<a href="https://raft.github.io/" target="_blank" rel="noopener">Raft</a></li><li>命名来源：表示分布式的 <code>etc</code> 目录，发音为<code>/ˈɛtsiːdiː/</code>。</li></ul><h2 id="参考（Reference）"><a href="#参考（Reference）" class="headerlink" title="参考（Reference）"></a>参考（Reference）</h2><ol><li><a href="https://github.com/etcd-io/etcd" target="_blank" rel="noopener">etcd-io/etcd - Github</a></li><li><a href="https://etcd.readthedocs.io/en/latest/" target="_blank" rel="noopener">etcd Documentation</a></li><li><a href="https://ralphbupt.github.io/2017/05/04/etcd-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/" target="_blank" rel="noopener">etcd 服务注册与发现</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;etcd-是什么？（What-is-etcd）&quot;&gt;&lt;a href=&quot;#etcd-是什么？（What-is-etcd）&quot; class=&quot;headerlink&quot; title=&quot;etcd 是什么？（What is etcd）&quot;&gt;&lt;/a&gt;etcd 是什么？（What is
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="base" scheme="https://linlshare.github.io/categories/it/java/base/"/>
+    
+    
+      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
+    
+      <category term="ETCD" scheme="https://linlshare.github.io/tags/ETCD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式</title>
+    <link href="https://linlshare.github.io/2018/11/26/it/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://linlshare.github.io/2018/11/26/it/design/设计模式/</id>
+    <published>2018-11-26T07:45:40.000Z</published>
+    <updated>2018-11-27T07:05:45.339Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><h4 id="（1）适用场景"><a href="#（1）适用场景" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>当解决问题的方法有多种方式，需要可替换时。</p><h4 id="（2）核心"><a href="#（2）核心" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合，封装成一个个算法，即是策略。</p><h4 id="（3）类图"><a href="#（3）类图" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern_strtegy.jpg" alt=""></p><h3 id="抽象工厂模式（Abstract-Factory-Pattern）"><a href="#抽象工厂模式（Abstract-Factory-Pattern）" class="headerlink" title="抽象工厂模式（Abstract Factory Pattern）"></a>抽象工厂模式（Abstract Factory Pattern）</h3><h4 id="（1）适用场景-1"><a href="#（1）适用场景-1" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><ol><li>产品有<strong>不同的提供商</strong>，不同的提供商提供不同品牌和风味的产品；</li><li>同一提供商有<strong>不同的流水线</strong>，不同的流水线生产不同的产品。</li></ol><h4 id="（2）核心-1"><a href="#（2）核心-1" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>从创建开始就对产品进行了区分，生而不同。</p><h4 id="（3）类图-1"><a href="#（3）类图-1" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern-abstract factory.jpg" alt=""></p><h3 id="适配器模式（Adapter-Pattern）"><a href="#适配器模式（Adapter-Pattern）" class="headerlink" title="适配器模式（Adapter Pattern）"></a>适配器模式（Adapter Pattern）</h3><h4 id="（1）适用场景-2"><a href="#（1）适用场景-2" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>将外部服务融合进内部而外部接口与现有服务不兼容（表现在命名、返回值、入参等不同），需要进行适配才能使用时。</p><h4 id="（2）核心-2"><a href="#（2）核心-2" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合或者多继承，包装旧接口到包装类（或称为适配器）中。使用组合的称之为对象适配器，使用多继承的称之为类适配器。</p><h4 id="（3）类图-2"><a href="#（3）类图-2" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern-adapter-object.jpg" alt="对象适配器"></p><p><img src="/2018/11/26/it/design/设计模式/design_pattern-adapter-class.jpg" alt="类适配器"></p><h3 id="参考（Reference）"><a href="#参考（Reference）" class="headerlink" title="参考（Reference）"></a>参考（Reference）</h3><ol><li><a href="https://design-patterns.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">图说设计模式</a></li><li>Head First 设计模式</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;策略模式（Strategy-Pattern）&quot;&gt;&lt;a href=&quot;#策略模式（Strategy-Pattern）&quot; class=&quot;headerlink&quot; title=&quot;策略模式（Strategy Pattern）&quot;&gt;&lt;/a&gt;策略模式（Strategy Patter
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="design" scheme="https://linlshare.github.io/categories/it/design/"/>
+    
+    
+      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
+    
+      <category term="设计模式" scheme="https://linlshare.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>广州生物岛摄影 20181124</title>
@@ -161,9 +221,9 @@
     <link href="https://linlshare.github.io/2018/11/22/it/java/base/Netty/"/>
     <id>https://linlshare.github.io/2018/11/22/it/java/base/Netty/</id>
     <published>2018-11-22T03:23:41.000Z</published>
-    <updated>2018-11-22T09:23:43.281Z</updated>
+    <updated>2018-11-26T02:20:05.406Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Netty-是干什么的？"><a href="#Netty-是干什么的？" class="headerlink" title="Netty 是干什么的？"></a>Netty 是干什么的？</h2><p>Netty 是一个 NIO 客户端服务器框架，用于快速开发网络应用。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Netty-是干什么的？"><a href="#Netty-是干什么的？" class="headerlink" title="Netty 是干什么的？"></a>Netty 是干什么的？</h2><p>Netty 是一个 NIO 客户端服务器框架，用于快速开发网络应用。</p><p>支持扩展协议。</p>]]></content>
     
     <summary type="html">
     
@@ -578,67 +638,6 @@
       <category term="JavaEE" scheme="https://linlshare.github.io/tags/JavaEE/"/>
     
       <category term="服务器" scheme="https://linlshare.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>周记 20181028</title>
-    <link href="https://linlshare.github.io/2018/10/28/thinking/weekly/%E5%91%A8%E8%AE%B0%2020181028/"/>
-    <id>https://linlshare.github.io/2018/10/28/thinking/weekly/周记 20181028/</id>
-    <published>2018-10-28T15:50:00.000Z</published>
-    <updated>2018-11-04T13:50:25.924Z</updated>
-    
-    <content type="html"><![CDATA[<p>怎么说呢？先说坏的地方吧，Spring 的学习任务全部没完成，真遗憾，到底没能坚持，练吉他的安排也暂时搁置了，对音调的高低把握不准，再想想看有无方法解决。日语和古代汉语的学习任务完成 70% 左右，阅读《枕草子》的计划算是完成较好的，完成了 80% 。</p><p>值得开心的是，发现了原来可以使用 github page + hexo + wikitten 搭建一个个人的 wiki，知识管理又迈上了一个新台阶。</p><p>还有許進雄的《甲骨文簡易詞典》已经看完 1/3 了，等看完了一定要整理一份文档，从最简单的构件开始讲述文字隐藏的朴素的创意。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;怎么说呢？先说坏的地方吧，Spring 的学习任务全部没完成，真遗憾，到底没能坚持，练吉他的安排也暂时搁置了，对音调的高低把握不准，再想想看有无方法解决。日语和古代汉语的学习任务完成 70% 左右，阅读《枕草子》的计划算是完成较好的，完成了 80% 。&lt;/p&gt;
-&lt;p&gt;值得开
-      
-    
-    </summary>
-    
-      <category term="thinking" scheme="https://linlshare.github.io/categories/thinking/"/>
-    
-      <category term="weekly" scheme="https://linlshare.github.io/categories/thinking/weekly/"/>
-    
-    
-      <category term="自省" scheme="https://linlshare.github.io/tags/%E8%87%AA%E7%9C%81/"/>
-    
-      <category term="周记" scheme="https://linlshare.github.io/tags/%E5%91%A8%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis</title>
-    <link href="https://linlshare.github.io/2018/10/28/it/java/base/Redis/"/>
-    <id>https://linlshare.github.io/2018/10/28/it/java/base/Redis/</id>
-    <published>2018-10-28T15:02:00.000Z</published>
-    <updated>2018-11-22T09:26:46.508Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install redis</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="启动-Redis-Server"><a href="#启动-Redis-Server" class="headerlink" title="启动 Redis Server"></a>启动 Redis Server</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>./redis-server</span><br></pre></td></tr></table></figure><h3 id="进入-Redis-命令行"><a href="#进入-Redis-命令行" class="headerlink" title="进入 Redis 命令行"></a>进入 Redis 命令行</h3><p>（1）本地连接</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>redis-cli</span><br><span class="line">redis 127.0.0.1:6379&gt;</span><br><span class="line">redis 127.0.0.1:6379&gt; PING</span><br><span class="line"></span><br><span class="line">PONG</span><br></pre></td></tr></table></figure><p>（2）远程连接</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> redis-cli -h host -p port -a password</span><br></pre></td></tr></table></figure><h3 id="取键相关命令"><a href="#取键相关命令" class="headerlink" title="取键相关命令"></a>取键相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查找所有 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS *</span><br><span class="line"><span class="meta">#</span> 查找符合给定正则的 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS pattern</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除某个 key</span><br><span class="line"><span class="meta">&gt;</span> DEL a_key</span><br><span class="line"><span class="meta">#</span> 检查某个 key 是否存在</span><br><span class="line"><span class="meta">&gt;</span> EXISTS a_key</span><br><span class="line"><span class="meta">#</span> 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span><br><span class="line"><span class="meta">&gt;</span> TTL a_key</span><br><span class="line"><span class="meta">#</span> 获知某个 key 存储值的类型</span><br><span class="line"><span class="meta">&gt;</span> TYPE a_key</span><br></pre></td></tr></table></figure><h3 id="取值相关命令"><a href="#取值相关命令" class="headerlink" title="取值相关命令"></a>取值相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置指定 key 的值</span><br><span class="line"><span class="meta">&gt;</span> SET a_key a_value</span><br><span class="line"><span class="meta">#</span> 获取指定 key 的字符串值</span><br><span class="line"><span class="meta">&gt;</span> GET a_key</span><br></pre></td></tr></table></figure><h3 id="List-相关命令"><a href="#List-相关命令" class="headerlink" title="List 相关命令"></a>List 相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 获知列表长度</span><br><span class="line"><span class="meta">&gt;</span> Llen a_key</span><br><span class="line"><span class="meta">#</span> 获取列表指定范围内的元素。其中 0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span><br><span class="line"><span class="meta">&gt;</span> Lrange a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</span><br><span class="line"><span class="meta">&gt;</span> Ltrim a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除并返回列表的最后一个元素。</span><br><span class="line"><span class="meta">&gt;</span> Lpop a_key</span><br></pre></td></tr></table></figure><h3 id="删库跑路相关命令"><a href="#删库跑路相关命令" class="headerlink" title="删库跑路相关命令"></a>删库跑路相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除所有数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHALL</span><br><span class="line"><span class="meta">#</span> 删除当前数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHDB</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://www.redis.net.cn/order/" target="_blank" rel="noopener">Redis 命令参考</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="base" scheme="https://linlshare.github.io/categories/it/java/base/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="Redis" scheme="https://linlshare.github.io/tags/Redis/"/>
     
   </entry>
   
