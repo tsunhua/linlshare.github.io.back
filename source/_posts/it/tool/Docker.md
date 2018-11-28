@@ -101,6 +101,51 @@ tags: [Docker]
 1. [阿里云加速器](https://cr.console.aliyun.com/#/accelerator)
 2. [DaoCloud 加速器](https://www.daocloud.io/mirror#accelerator-doc)
 
+## 命令
+
+### 镜像相关
+
+| 命令                           | 功能               |
+| ------------------------------ | ------------------ |
+| docker images                  | 列出所有拉取的镜像 |
+| docker inspect [name]          | 检视镜像的详细信息 |
+| docker rmi [镜像标签或镜像 ID] | 删除镜像           |
+| docker pull [name]             | 拉取镜像           |
+
+
+### 容器相关
+
+| 命令                                 | 功能                   |
+| ------------------------------------ | ---------------------- |
+| docker ps -a                         | 列出所有容器及其状态   |
+| docker ps                            | 列出所有运行中的容器   |
+| docker  rm [容器 ID]                 | 删除容器               |
+| docker crate -it [镜像标签或镜像 ID] | 新建一个容器           |
+| docker start [容器 ID]               | 运行处于终止状态的容器 |
+| docker kill [容器 ID]                | 强制终止容器           |
+| docker kill [容器 ID]                | 停止容器               |
+| docker restart [容器 ID]             | 重启一个容器           |
+| docker logs [容器ID]                 | 查看容器日志           |
+
+### 更进一步
+
+| 命令                                       | 功能                       |
+| ------------------------------------------ | -------------------------- |
+| docker exec -ti [容器ID] /bin/bash         | 进入具体容器中运行交互命令 |
+| docker exec [容器 ID 或容器 name] 具体命令 | 直接执行具体容器的命令     |
+
+## 排错
+
+### Error: Cannot Start Container: stat /bin/sh: no such file or directory”
+
+（1）使用 `docker inspect`  检视镜像的 `Cmd` 选项；
+
+（2）如果 `Cmd` 中不包含 `/bin/sh` 那意味着可能被你重写了。
+
+### Run container but exited immediately
+
+
+
 ## 参考
 
 1. [Docker -- 从入门到实践](https://legacy.gitbook.com/book/yeasy/docker_practice/details)（绝佳的入门文档）
