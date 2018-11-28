@@ -43,5 +43,6 @@ bin/kafka-server-start.sh config/server.properties
 bin/zookeeper-server-stop.sh config/zookeeper.properties
 # 停止 kafka
 ps aux | grep kafka | grep -v grep | awk '{print $2}'
+kill [pid]
 ```
 

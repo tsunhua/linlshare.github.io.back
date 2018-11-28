@@ -1,15 +1,8 @@
 ---
-title: 互联网上的一些概念
+title: NAS
 date: 2018-11-21 14:36:20
-tags: [IT,Internet]
-comments: true
+tags: [IT,NAS]
 ---
-
-## Dark Net（暗网）
-
-
-
-## NAS
 
 NAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。
 
