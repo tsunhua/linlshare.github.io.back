@@ -24,7 +24,7 @@ compile "ch.qos.logback:logback-core:1.2.+"
 compile "ch.qos.logback:logback-classic:1.2.+"
 ```
 
-（2）编写 `logback.xml` 并防止到 `resources` 文件夹中
+（2）编写 `logback.xml` 并放置到 `resources` 文件夹中
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
