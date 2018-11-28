@@ -3,24 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>互联网上的一些概念 | Share 杂志</title>
+    <title>分布式与集群 | Share 杂志</title>
     
     
-        <meta name="keywords" content="IT,Internet">
+        <meta name="keywords" content="IT,分布式,集群">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Dark Net（暗网）NASNAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。 常见的 NAS 硬件有：  群晖 / 威联通 惠普 ProLiant MicroServer Acer Altos C100 F3  常见的 NAS 软件有：  Nextcloud O">
-<meta name="keywords" content="IT,Internet">
+    <meta name="description" content="分布式与集群的区别（Distributed vs Cluster） 分布式：一个业务分拆多个子业务，部署在不同的服务器上。 集群：同一个业务，部署在多个服务器上。 — 分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎">
+<meta name="keywords" content="IT,分布式,集群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="互联网上的一些概念">
-<meta property="og:url" content="https://linlshare.github.io/2018/11/21/it/互联网上的一些概念/index.html">
+<meta property="og:title" content="分布式与集群">
+<meta property="og:url" content="https://linlshare.github.io/2018/11/28/it/concept/分布式与集群/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="Dark Net（暗网）NASNAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。 常见的 NAS 硬件有：  群晖 / 威联通 惠普 ProLiant MicroServer Acer Altos C100 F3  常见的 NAS 软件有：  Nextcloud O">
+<meta property="og:description" content="分布式与集群的区别（Distributed vs Cluster） 分布式：一个业务分拆多个子业务，部署在不同的服务器上。 集群：同一个业务，部署在多个服务器上。 — 分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T03:22:29.269Z">
+<meta property="og:updated_time" content="2018-11-28T14:28:59.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="互联网上的一些概念">
-<meta name="twitter:description" content="Dark Net（暗网）NASNAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。 常见的 NAS 硬件有：  群晖 / 威联通 惠普 ProLiant MicroServer Acer Altos C100 F3  常见的 NAS 软件有：  Nextcloud O">
+<meta name="twitter:title" content="分布式与集群">
+<meta name="twitter:description" content="分布式与集群的区别（Distributed vs Cluster） 分布式：一个业务分拆多个子业务，部署在不同的服务器上。 集群：同一个业务，部署在多个服务器上。 — 分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎">
     
 
     
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -236,6 +236,15 @@ ga('send', 'pageview');
                             code
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            concept
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -336,7 +345,7 @@ ga('send', 'pageview');
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH/">SSH</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac/">Mac</a></li>  <li class="file"><a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/">Hexo + Github Page = 个人 WiKi</a></li>  <li class="file"><a href="/2018/11/27/it/tool/Docker/">Docker</a></li>  <li class="file"><a href="/2018/11/28/it/tool/zsh/">zsh</a></li>  </ul> 
                     </li> 
-                     <li class="file active"><a href="/2018/11/21/it/互联网上的一些概念/">互联网上的一些概念</a></li>  </ul> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -526,7 +535,7 @@ ga('send', 'pageview');
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-it/互联网上的一些概念" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-it/concept/分布式与集群" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -536,20 +545,20 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/concept/">concept</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/Internet/">Internet</a>
+        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/分布式/">分布式</a>, <a class="tag-link" href="/tags/集群/">集群</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/11/21/it/互联网上的一些概念/">
-            <time datetime="2018-11-21T06:36:20.000Z" itemprop="datePublished">2018-11-21</time>
+        <a href="/2018/11/28/it/concept/分布式与集群/">
+            <time datetime="2018-11-28T14:09:37.000Z" itemprop="datePublished">2018-11-28</time>
         </a>
     </div>
 
@@ -560,13 +569,13 @@ ga('send', 'pageview');
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/互联网上的一些概念.md"> Source </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/concept/分布式与集群.md"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/互联网上的一些概念.md"> Edit </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/concept/分布式与集群.md"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/互联网上的一些概念.md"> History </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/concept/分布式与集群.md"> History </a>
                             </div>
                         
                     </div>
@@ -574,7 +583,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            互联网上的一些概念
+            分布式与集群
         </h1>
     
 
@@ -586,30 +595,17 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dark-Net（暗网）"><span class="toc-number">1.</span> <span class="toc-text">Dark Net（暗网）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAS"><span class="toc-number">2.</span> <span class="toc-text">NAS</span></a></li></ol>
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式与集群的区别（Distributed-vs-Cluster）"><span class="toc-number">1.</span> <span class="toc-text">分布式与集群的区别（Distributed vs Cluster）</span></a></li></ol>
                 </div>
             
         
         
-            <h2 id="Dark-Net（暗网）"><a href="#Dark-Net（暗网）" class="headerlink" title="Dark Net（暗网）"></a>Dark Net（暗网）</h2><h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><p>NAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。</p>
-<p>常见的 NAS 硬件有：</p>
-<ul>
-<li>群晖 / 威联通</li>
-<li>惠普 ProLiant MicroServer</li>
-<li>Acer Altos C100 F3</li>
-</ul>
-<p>常见的 NAS 软件有：</p>
-<ul>
-<li>Nextcloud</li>
-<li>Owncloud</li>
-<li>Seefile</li>
-<li>群晖 / 威联通系列软件</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/21359049" target="_blank" rel="noopener">搭建家庭 NAS 服务器有什么好方案？ - 知乎</a></li>
-</ul>
+            <h2 id="分布式与集群的区别（Distributed-vs-Cluster）"><a href="#分布式与集群的区别（Distributed-vs-Cluster）" class="headerlink" title="分布式与集群的区别（Distributed vs Cluster）"></a>分布式与集群的区别（Distributed vs Cluster）</h2><blockquote>
+<p>分布式：一个业务分拆多个子业务，部署在不同的服务器上。</p>
+<p>集群：同一个业务，部署在多个服务器上。</p>
+<p>— <a href="https://www.zhihu.com/question/20004877/answer/26076092" target="_blank" rel="noopener">分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎</a></p>
+</blockquote>
 
             </div>
         
@@ -622,19 +618,19 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
-        <a href="/2018/11/21/it/code/FSM/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+        <a href="/2018/11/28/it/concept/服务发现/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    FSM
+                    服务发现
                 
             </div>
         </a>
     
     
-        <a href="/2018/11/20/it/tool/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
-            <div class="article-nav-title">Markdown</div>
+        <a href="/2018/11/28/it/java/base/Logback/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">Logback</div>
         </a>
     
 </nav>
