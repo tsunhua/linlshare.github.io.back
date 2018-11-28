@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="Logback 是什么？Logback 是一个 Java 平台上的日志框架，是 log4j 的加强版本，目前分为以下模块：  logback-core，放置为下面两个模块服务的基础代码； logback-classic，log4j 的加强版本，实现了 SLF4J API，以便于切换其他日志框架； logback-access，与 Servlet 容器集成，提供 HTTP 访问日志功能。   SLF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T07:12:30.858Z">
+<meta property="og:updated_time" content="2018-11-28T13:55:26.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logback">
 <meta name="twitter:description" content="Logback 是什么？Logback 是一个 Java 平台上的日志框架，是 log4j 的加强版本，目前分为以下模块：  logback-core，放置为下面两个模块服务的基础代码； logback-classic，log4j 的加强版本，实现了 SLF4J API，以便于切换其他日志框架； logback-access，与 Servlet 容器集成，提供 HTTP 访问日志功能。   SLF">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            CATEGORIES: 'Catégories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -603,7 +603,7 @@ ga('send', 'pageview');
 </blockquote>
 <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>（1）引入依赖</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">"org.slf4j:slf4j-api:1.7.+"</span></span><br><span class="line">compile <span class="string">"ch.qos.logback:logback-core:1.2.+"</span></span><br><span class="line">compile <span class="string">"ch.qos.logback:logback-classic:1.2.+"</span></span><br></pre></td></tr></table></figure>
-<p>（2）编写 <code>logback.xml</code> 并防止到 <code>resources</code> 文件夹中</p>
+<p>（2）编写 <code>logback.xml</code> 并放置到 <code>resources</code> 文件夹中</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;appender name=<span class="string">"STDOUT"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">    &lt;encoder&gt;</span><br><span class="line">      &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/pattern&gt;</span><br><span class="line">    &lt;/encoder&gt;</span><br><span class="line">  &lt;/appender&gt;</span><br><span class="line">  &lt;root level=<span class="string">"DEBUG"</span>&gt;          </span><br><span class="line">    &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">  &lt;/root&gt;  </span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 <p>（3）在代码中使用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Logger LOGGER = LoggerFactory.getLogger(Main.class);</span><br><span class="line">LOGGER.debug(<span class="string">"Hello, Logback"</span>);</span><br></pre></td></tr></table></figure>
@@ -625,7 +625,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/28/it/tool/zsh/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">zsh</div>
         </a>
     
