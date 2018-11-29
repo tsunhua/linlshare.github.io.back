@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="Docker 是什么？Docker 是一种虚拟化的容器，隔离了文件系统、网络互联和进程等等，但比之传统的虚拟化技术，精简了内核和硬件的虚拟，容器内的应用进程直接运行在宿主内核。 安装macOS（1）Homebrew 安装 1&amp;gt; brew cask install docker （2）下载安装 Docker.dmg 下载 检查安装情况123&amp;gt; docker --version&amp;gt; d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T03:34:08.114Z">
+<meta property="og:updated_time" content="2018-11-29T04:02:48.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Docker 是什么？Docker 是一种虚拟化的容器，隔离了文件系统、网络互联和进程等等，但比之传统的虚拟化技术，精简了内核和硬件的虚拟，容器内的应用进程直接运行在宿主内核。 安装macOS（1）Homebrew 安装 1&amp;gt; brew cask install docker （2）下载安装 Docker.dmg 下载 检查安装情况123&amp;gt; docker --version&amp;gt; d">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -595,8 +595,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-是什么？"><span class="toc-number">1.</span> <span class="toc-text">Docker 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">2.1.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查安装情况"><span class="toc-number">2.2.</span> <span class="toc-text">检查安装情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用镜像加速器"><span class="toc-number">2.3.</span> <span class="toc-text">使用镜像加速器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始：启动一个-Nginx-服务器"><span class="toc-number">3.</span> <span class="toc-text">快速开始：启动一个 Nginx 服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#镜像（Image）"><span class="toc-number">4.1.</span> <span class="toc-text">镜像（Image）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器（Container）"><span class="toc-number">4.2.</span> <span class="toc-text">容器（Container）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Registry"><span class="toc-number">4.3.</span> <span class="toc-text">Registry</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">5.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#镜像相关"><span class="toc-number">5.1.</span> <span class="toc-text">镜像相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器相关"><span class="toc-number">5.2.</span> <span class="toc-text">容器相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更进一步"><span class="toc-number">5.3.</span> <span class="toc-text">更进一步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排错"><span class="toc-number">6.</span> <span class="toc-text">排错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-Cannot-Start-Container-stat-bin-sh-no-such-file-or-directory”"><span class="toc-number">6.1.</span> <span class="toc-text">Error: Cannot Start Container: stat /bin/sh: no such file or directory”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-container-but-exited-immediately"><span class="toc-number">6.2.</span> <span class="toc-text">Run container but exited immediately</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-是什么？"><span class="toc-number">1.</span> <span class="toc-text">Docker 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">2.1.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查安装情况"><span class="toc-number">2.2.</span> <span class="toc-text">检查安装情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用镜像加速器"><span class="toc-number">2.3.</span> <span class="toc-text">使用镜像加速器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始：启动一个-Nginx-服务器"><span class="toc-number">3.</span> <span class="toc-text">快速开始：启动一个 Nginx 服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#镜像（Image）"><span class="toc-number">4.1.</span> <span class="toc-text">镜像（Image）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器（Container）"><span class="toc-number">4.2.</span> <span class="toc-text">容器（Container）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Registry"><span class="toc-number">4.3.</span> <span class="toc-text">Registry</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">5.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#镜像相关"><span class="toc-number">5.1.</span> <span class="toc-text">镜像相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器相关"><span class="toc-number">5.2.</span> <span class="toc-text">容器相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更进一步"><span class="toc-number">5.3.</span> <span class="toc-text">更进一步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dockerfile"><span class="toc-number">6.</span> <span class="toc-text">Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令解析"><span class="toc-number">6.1.</span> <span class="toc-text">命令解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）FROM"><span class="toc-number">6.1.1.</span> <span class="toc-text">（1）FROM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）RUN"><span class="toc-number">6.1.2.</span> <span class="toc-text">（2）RUN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-Compose"><span class="toc-number">7.</span> <span class="toc-text">Docker Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-1"><span class="toc-number">7.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速开始"><span class="toc-number">7.2.</span> <span class="toc-text">快速开始</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排错"><span class="toc-number">8.</span> <span class="toc-text">排错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-Cannot-Start-Container-stat-bin-sh-no-such-file-or-directory”"><span class="toc-number">8.1.</span> <span class="toc-text">Error: Cannot Start Container: stat /bin/sh: no such file or directory”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-container-but-exited-immediately"><span class="toc-number">8.2.</span> <span class="toc-text">Run container but exited immediately</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
@@ -735,6 +735,26 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>Dockerfile 用来定制镜像，是一组指令，描述如何在基础镜像中一步步构建自定义的镜像。下面以修改 nginx 服务器首页为例：</p>
+<p>（1）新建名为 <code>Dockerfile</code> 的文件，内容如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx</span><br><span class="line"><span class="keyword">RUN</span> echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
+<p>（2）使用 <code>docker build</code> 开始构建</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 确保在 Dockerfile 所在的目录下执行该命令，</span><br><span class="line"><span class="meta">#</span> 否则需要使用 `-f [file_name]` 指定 Dockerfile</span><br><span class="line"><span class="meta">#</span> 使用 `-t [name:tag]` 指定镜像的名称和标签</span><br><span class="line">docker build -t nginx:v3</span><br></pre></td></tr></table></figure>
+<h3 id="命令解析"><a href="#命令解析" class="headerlink" title="命令解析"></a>命令解析</h3><h4 id="（1）FROM"><a href="#（1）FROM" class="headerlink" title="（1）FROM"></a>（1）FROM</h4><p>指定基础镜像。</p>
+<h4 id="（2）RUN"><a href="#（2）RUN" class="headerlink" title="（2）RUN"></a>（2）RUN</h4><p>执行命令行命令，支持 shell 格式和 exec 格式。</p>
+<blockquote>
+<p>注意：Dockerfile 每个指令都会建立一层，Union FS 有最大层数限制。多个命令行指令可以使用 <code>&amp;&amp;</code> 串联。</p>
+</blockquote>
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><p><a href="https://github.com/docker/compose" target="_blank" rel="noopener">Docker Compose</a> 是 Docker 官方的开源项目之一，用来快速地部署分布式应用。官方定位是「<strong>定义和运行多个 Docker 容器的应用</strong>（Defining and running multi-container Docker applications）」。衍生概念有：</p>
+<ol>
+<li>服务（Service）, 一个 Docker 容器称之为一个服务；</li>
+<li>项目（Project），一个 Compose，或者说一组相关联的服务，称之为一个项目 。</li>
+</ol>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>Docker Compose 在 Docker 客户端中已经包含，可以直接使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 检查是否可用</span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>（1）使用 <code>Dockerfile</code> 定义应用的环境；</p>
+<p>（2）使用 <code>docker-compose.yml</code> 定义组成应用的各项服务；</p>
+<p>（2）执行 <code>docker-compose up</code> 进行部署。</p>
 <h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="Error-Cannot-Start-Container-stat-bin-sh-no-such-file-or-directory”"><a href="#Error-Cannot-Start-Container-stat-bin-sh-no-such-file-or-directory”" class="headerlink" title="Error: Cannot Start Container: stat /bin/sh: no such file or directory”"></a>Error: Cannot Start Container: stat /bin/sh: no such file or directory”</h3><p>（1）使用 <code>docker inspect</code>  检视镜像的 <code>Cmd</code> 选项；</p>
 <p>（2）如果 <code>Cmd</code> 中不包含 <code>/bin/sh</code> 那意味着可能被你重写了。</p>
 <h3 id="Run-container-but-exited-immediately"><a href="#Run-container-but-exited-immediately" class="headerlink" title="Run container but exited immediately"></a>Run container but exited immediately</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
@@ -754,7 +774,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/11/28/it/tool/zsh/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     zsh
@@ -764,7 +784,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/27/it/java/base/etcd/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">etcd</div>
         </a>
     
