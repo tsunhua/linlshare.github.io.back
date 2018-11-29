@@ -44,10 +44,230 @@ docker run --name etcd \
     --initial-advertise-peer-urls http://${ETCD_NODE1}:2380 --listen-peer-urls http://0.0.0.0:2380 \
     --advertise-client-urls http://${ETCD_NODE1}:2379 --listen-client-urls http://0.0.0.0:2379 \
     --initial-cluster node1=http://${ETCD_NODE1}:2380
+# 进入etcd 命令行交互
+docker exec -it etcd /bin/sh
 # 验证安装
-docker exec etcd etcd -version
-docker exec etcd etcdctl -version
+etcd -version
+etcdctl -version
 ```
+
+### Docker Compose 快速部署
+
+参考 Docker Compose 的使用说明，编辑 `docker-compose.yml` 文件如下：
+
+```yaml
+version: "3.6"
+services:
+
+  node1:
+    image: quay.io/coreos/etcd
+    volumes:
+      - node1-data:/etcd-data
+    expose:
+      - 2379
+      - 2380      
+    networks:
+      cluster_net:
+        ipv4_address: 172.16.238.100
+    environment:
+      - ETCDCTL_API=3
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node1
+      - --initial-advertise-peer-urls
+      - http://172.16.238.100:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://172.16.238.100:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+      - node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+
+  node2:
+    image: quay.io/coreos/etcd
+    volumes:
+      - node2-data:/etcd-data
+    networks:
+      cluster_net:
+        ipv4_address: 172.16.238.101
+    environment:
+      - ETCDCTL_API=3
+    expose:
+      - 2379
+      - 2380
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node2
+      - --initial-advertise-peer-urls
+      - http://172.16.238.101:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://172.16.238.101:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+      - node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+
+  node3:
+    image: quay.io/coreos/etcd
+    volumes:
+      - node3-data:/etcd-data
+    networks:
+      cluster_net:
+        ipv4_address: 172.16.238.102
+    environment:
+      - ETCDCTL_API=3
+    expose:
+      - 2379
+      - 2380
+    command:
+      - /usr/local/bin/etcd
+      - --data-dir=/etcd-data
+      - --name
+      - node3
+      - --initial-advertise-peer-urls
+      - http://172.16.238.102:2380
+      - --listen-peer-urls
+      - http://0.0.0.0:2380
+      - --advertise-client-urls
+      - http://172.16.238.102:2379
+      - --listen-client-urls
+      - http://0.0.0.0:2379
+      - --initial-cluster
+      - node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380
+      - --initial-cluster-state
+      - new
+      - --initial-cluster-token
+      - docker-etcd
+
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:
+
+networks:
+  cluster_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.16.238.0/24
+```
+
+## etcdctl
+
+### 数据库操作
+
+#### （1）set
+
+设置某个键的值，支持选项：
+
+```shell
+--ttl '0'                该键值的超时时间（单位为秒），不配置（默认为 0）则永不超时
+--swap-with-value value  若该键现在的值是 value，则进行设置操作
+--swap-with-index '0'    若该键现在的索引值是指定索引，则进行设置操作
+```
+
+示例：
+
+```shell
+etcdctl set /testdir/testkey "Hello etcd"
+```
+
+#### （2）get
+
+获取指定键的值，支持选项：
+
+```shell
+--sort       对结果进行排序
+--consistent 将请求发给主节点，保证获取内容的一致性
+```
+
+示例：
+
+```shell
+etcdctl get /testdir/testkey
+```
+
+#### （3）update
+
+更新某个键的值，支持选项：
+
+```shell
+--ttl '0'    该键值的超时时间（单位为秒），不配置（默认为 0）则永不超时
+```
+
+示例：
+
+```shell
+etcdctl update /testdir/testkey "你好 etcd"
+```
+
+#### （4）rm
+
+删除某个键，支持选项：
+
+```shell
+--dir            删除空目录或键值对
+--recursive, -r  删除当前键及其子键(当为目录时)
+--with-value     当值匹配时删除
+--with-index '0' 当索引匹配时删除
+```
+
+示例：
+
+```shell
+etcdctl rm /testdir/testkey --with-value "Hello etcd"
+```
+
+#### （5）ls
+
+列出目录（默认为根目录 `/`）下的键和子目录，默认不显示子目录中内容。支持选项：
+
+```shell
+--sort         将输出结果排序
+--recursive    如果目录下有子目录，则递归输出其中的内容
+-p             对于输出为目录，在最后添加 / 进行区分
+```
+
+示例：
+
+```shell
+etcdctl ls -r -p
+```
+
+### 集群操作
+
+使用 `member` 命令进行 etcd 实例与集群的操作：
+
+1.  `list`  列出 etcd 集群中的所有实例
+2. `add` 添加 etcd 实例到集群中
+3.  `remove`  从集群中删除 etcd 实例
+4. `update` 更新集群中的 etcd 实例
+
+示例：
+
+```shell
+etcdctl member list
+```
+
+
 
 ## 参考（Reference）
 
@@ -55,4 +275,5 @@ docker exec etcd etcdctl -version
 2. [etcd-io/jetcd - Github](https://github.com/etcd-io/jetcd)
 3. [etcd Documentation](https://etcd.readthedocs.io/en/latest/)
 4. [etcd 服务注册与发现](https://ralphbupt.github.io/2017/05/04/etcd-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/)
+5. [初试ETCD -  Tony Deng](https://tonydeng.github.io/2015/11/24/etcd-the-first-using/)
 

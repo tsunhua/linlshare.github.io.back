@@ -134,6 +134,62 @@ tags: [Docker]
 | docker exec -ti [容器ID] /bin/bash         | 进入具体容器中运行交互命令 |
 | docker exec [容器 ID 或容器 name] 具体命令 | 直接执行具体容器的命令     |
 
+## Dockerfile
+
+Dockerfile 用来定制镜像，是一组指令，描述如何在基础镜像中一步步构建自定义的镜像。下面以修改 nginx 服务器首页为例：
+
+（1）新建名为 `Dockerfile` 的文件，内容如下：
+
+```dockerfile
+FROM nginx
+RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
+```
+
+（2）使用 `docker build` 开始构建
+
+```shell
+# 确保在 Dockerfile 所在的目录下执行该命令，
+# 否则需要使用 `-f [file_name]` 指定 Dockerfile
+# 使用 `-t [name:tag]` 指定镜像的名称和标签
+docker build -t nginx:v3
+```
+
+### 命令解析
+
+#### （1）FROM
+
+指定基础镜像。
+
+#### （2）RUN
+
+执行命令行命令，支持 shell 格式和 exec 格式。
+
+> 注意：Dockerfile 每个指令都会建立一层，Union FS 有最大层数限制。多个命令行指令可以使用 `&&` 串联。
+
+## Docker Compose
+
+[Docker Compose](https://github.com/docker/compose) 是 Docker 官方的开源项目之一，用来快速地部署分布式应用。官方定位是「**定义和运行多个 Docker 容器的应用**（Defining and running multi-container Docker applications）」。衍生概念有：
+
+1. 服务（Service）, 一个 Docker 容器称之为一个服务；
+2. 项目（Project），一个 Compose，或者说一组相关联的服务，称之为一个项目 。
+
+### 安装
+
+Docker Compose 在 Docker 客户端中已经包含，可以直接使用。
+
+```shell
+# 检查是否可用
+docker-compose --version
+```
+
+### 快速开始
+
+（1）使用 `Dockerfile` 定义应用的环境；
+
+（2）使用 `docker-compose.yml` 定义组成应用的各项服务；
+
+（2）执行 `docker-compose up` 进行部署。
+
 ## 排错
 
 ### Error: Cannot Start Container: stat /bin/sh: no such file or directory”
