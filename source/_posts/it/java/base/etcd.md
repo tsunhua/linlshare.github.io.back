@@ -49,6 +49,8 @@ docker exec -it etcd /bin/sh
 # 验证安装
 etcd -version
 etcdctl -version
+# 验证是否启动
+curl http://127.0.0.1:2379/version
 ```
 
 ### Docker Compose 快速部署
@@ -170,9 +172,20 @@ networks:
         subnet: 172.16.238.0/24
 ```
 
-## etcdctl
+## etcdctl v3（主流）
 
-### 数据库操作
+> Tip：可以通过 `ETCDCTL_API=3 etcdctl -h` 查看 v3 版本的命令行帮助页
+
+#### （1）查看所有键值对
+
+```shell
+# 指定版本为 v3 且 key 前缀为空，也就是所有 key 了
+ETCDCTL_API=3 etcdctl get --prefix=true ""
+```
+
+## etcdctl v2（兼容）
+
+> Tip：可以通过 `etcdctl -h` 查看 v2 版本的命令行帮助页
 
 #### （1）set
 
@@ -252,7 +265,7 @@ etcdctl rm /testdir/testkey --with-value "Hello etcd"
 etcdctl ls -r -p
 ```
 
-### 集群操作
+## 集群操作
 
 使用 `member` 命令进行 etcd 实例与集群的操作：
 
@@ -264,10 +277,25 @@ etcdctl ls -r -p
 示例：
 
 ```shell
+# v2
 etcdctl member list
+# v3
+ETCDCTL_API=3 etcdctl member list
 ```
 
+## HTTP 访问
 
+### （1）查看版本
+
+```shell
+curl http://127.0.0.1:2379/version
+```
+
+### （2）get
+
+```shell
+curl http://127.0.0.1:2379/v3/keys/testdir/testkey
+```
 
 ## 参考（Reference）
 

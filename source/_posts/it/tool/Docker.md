@@ -105,12 +105,12 @@ tags: [Docker]
 
 ### 镜像相关
 
-| 命令                           | 功能               |
-| ------------------------------ | ------------------ |
-| docker images                  | 列出所有拉取的镜像 |
-| docker inspect [name]          | 检视镜像的详细信息 |
-| docker rmi [镜像标签或镜像 ID] | 删除镜像           |
-| docker pull [name]             | 拉取镜像           |
+| 命令                          | 功能               |
+| ----------------------------- | ------------------ |
+| docker images                 | 列出所有拉取的镜像 |
+| docker inspect [name]         | 检视镜像的详细信息 |
+| docker rmi [REPOSITORY]:[TAG] | 删除镜像           |
+| docker pull [name]            | 拉取镜像           |
 
 
 ### 容器相关
