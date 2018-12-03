@@ -5,6 +5,8 @@ tags: [Java,MongoDB]
 comments: true
 ---
 
+MongoDB 是一款开源的面向文档的数据库（document database）， [NoSQL](https://zh.wikipedia.org/zh-cn/NoSQL) 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。
+
 ## 安装
 
 Mac 用户可以直接使用 Homebrew 安装，命令如下：
@@ -26,7 +28,7 @@ $ export PATH={MONGODB_DIR}/bin:$PATH
 $ mongod --dbpath={mongo_db_file_path}
 ```
 
-## 连接
+## 终端连接
 
 （1）本地连接
 
@@ -41,7 +43,7 @@ $ mongo
 > mongodb://admin:123456@localhost/
 ```
 
-## 操作数据库
+## 终端操作
 
 ### database 级别
 
@@ -84,5 +86,23 @@ $ mongo
 > db.a_collection.drop({})
 ```
 
+##  Java 版本
 
+### 模块划分
+
+1. bson：高性能的编码解码。
+2. mongodb-driver-core：核心库，抽取出来主要是用于自定义 API。
+3. mongodb-driver-legacy：兼容旧的 API 的同步 Java Driver。
+4. mongodb-driver-sync：只包含 MongoCollection 泛型接口，服从一套新的跨 Driver 的 CRUD 规范。
+5. mongodb-driver：mongodb-driver-legacy + mongodb-driver-sync，新项目推荐使用它！
+6. mongodb-driver-async：新的异步 API，充分利用 Netty 或者 Java7 的 AsynchronousSocketChannel 已达到快而非阻塞的 IO。
+7. mongo-java-driver（uber-jar）：包含 bson,  mongodb-driver-core 和 mongodb-driver。
+
+## Q&A
+
+### 一个服务中该使用一个还是多个 MongoClient？
+
+通常一个服务应使用一个全局的 MongoClient，并且 MongoClient 中已经实现了一个连接池，最大值默认为 1000000 的连接限制，这相当于没有限制。
+
+参考：[为什么 MongoDB 连接数被用满了？](http://www.mongoing.com/archives/3145)
 
