@@ -14,12 +14,12 @@ JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Rela
 
 ## 实现
 
-| 项目                                                         | 开发公司           | 数据库支持  | 备注                  |
-| ------------------------------------------------------------ | ------------------ | ----------- | --------------------- |
-| [Hibernate](http://hibernate.org/)                           | RedHat             | SQL         | JPA 制定的参考。      |
-| [Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/2.1.3.RELEASE/reference/html/) | Pivotal            | SQL 及NoSQL | 支持 RESTful API 查询 |
-| [EclipseLink](https://www.eclipse.org/eclipselink/)          | Eclipse Foundation | SQL 及NoSQL | 基于 TopLink          |
-| [OpenJPA](https://openjpa.apache.org/)                       | Apache             | SQL         | 支持缓存。            |
+| 项目                                                         | 开发公司           | 数据库支持  | 备注                             |
+| ------------------------------------------------------------ | ------------------ | ----------- | -------------------------------- |
+| [Hibernate](http://hibernate.org/)                           | RedHat             | SQL         | JPA 制定的参考。                 |
+| [Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/2.1.3.RELEASE/reference/html/) | Pivotal            | SQL         | 支持 RESTful API 查询，支持 CRUD |
+| [EclipseLink](https://www.eclipse.org/eclipselink/)          | Eclipse Foundation | SQL 及NoSQL | 基于 TopLink                     |
+| [OpenJPA](https://openjpa.apache.org/)                       | Apache             | SQL         | 支持缓存。                       |
 
 \* 2001年，澳大利亚墨尔本一位名为Gavin King的27岁的程序员，上街买了一本SQL编程的书，他厌倦了实体bean，认为自己可以开发出一个匹配对象关系映射理论，并且真正好用的Java持久化层框架，因此他需要先学习一下SQL。这一年的11月，Hibernate的第一个版本发布了。
 

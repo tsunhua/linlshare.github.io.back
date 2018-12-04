@@ -18,7 +18,7 @@ tags: [Java,JDBC]
 **（2）不同点**
 
 - JPA 是 Java 持久化 API 的规范，关注将数据库中的表与实体类做映射；
-- JDBC 是 Java 数据库访问的接口，关注数据的 CRUD。
+- JDBC 是 Java 数据库访问的接口，将数据访问与具体的关系型数据库分离，使用驱动完成具体的数据操作。
 
 参看 [JPA or JDBC, how are they different? - stackoverfow](https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different)
 
