@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linlshare.github.io/2018/12/04/it/tool/Alfred/</loc>
+    
+    <lastmod>2018-12-04T12:27:08.247Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</loc>
     
-    <lastmod>2018-12-04T09:51:14.626Z</lastmod>
+    <lastmod>2018-12-04T11:19:45.453Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linlshare.github.io/2018/12/04/it/java/persistence/Spring%20Data%20JPA/</loc>
+    
+    <lastmod>2018-12-04T11:17:03.102Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/</loc>
     
-    <lastmod>2018-12-04T09:40:19.343Z</lastmod>
+    <lastmod>2018-12-04T10:00:15.286Z</lastmod>
     
   </url>
   

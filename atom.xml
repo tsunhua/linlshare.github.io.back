@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-04T09:40:19.343Z</updated>
+  <updated>2018-12-04T12:27:08.247Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -17,13 +17,105 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Alfred</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/tool/Alfred/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/tool/Alfred/</id>
+    <published>2018-12-04T12:17:22.000Z</published>
+    <updated>2018-12-04T12:27:08.247Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="实用的-Alfred-Workflow"><a href="#实用的-Alfred-Workflow" class="headerlink" title="实用的 Alfred Workflow"></a>实用的 Alfred Workflow</h2><table><thead><tr><th>Alfred Workflow</th><th>介绍</th></tr></thead><tbody><tr><td><a href="https://github.com/willfarrell/alfred-pkgman-workflow" target="_blank" rel="noopener">alfred-pkgman-workflow</a></td><td>快速从各个软件仓库(maven, gradle 等等)中查找需要的软件包</td></tr><tr><td><a href="https://github.com/LinLshare/AlfredHanziSourceWorkflow" target="_blank" rel="noopener">AlfredHanziSourceWorkflow</a></td><td>快速从象形字典、汉语字典、说文解字等站点查询字源</td></tr><tr><td><a href="https://github.com/LinLshare/AlfredGoogleTranslateWorkflow" target="_blank" rel="noopener">AlfredGoogleTranslateWorkflow</a></td><td>快速进行多语言翻译</td></tr><tr><td><a href="https://github.com/bchatard/jetbrains-alfred-workflow" target="_blank" rel="noopener"> jetbrains-alfred-workflow</a></td><td>快速打开 JetBrains 家族构建的项目，包括 Android Studio、IDEA 等的项目</td></tr><tr><td><a href="noogel/Alfred-Workflow">noogel/Alfred-Workflow</a></td><td>开发工程师常用工具箱，包括查询 IP、时间戳转换和 Base64编码之类的工具</td></tr></tbody></table><h2 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h2><ol><li>当 alfred 查询的结果是一个网页链接时，点击<strong>右边的 Shift 键</strong>可以启动快速预览而不用打开网页。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;实用的-Alfred-Workflow&quot;&gt;&lt;a href=&quot;#实用的-Alfred-Workflow&quot; class=&quot;headerlink&quot; title=&quot;实用的 Alfred Workflow&quot;&gt;&lt;/a&gt;实用的 Alfred Workflow&lt;/h2&gt;&lt;tabl
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
+    
+    
+      <category term="Alfred" scheme="https://linlshare.github.io/tags/Alfred/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Data JPA</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/Spring%20Data%20JPA/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/Spring Data JPA/</id>
+    <published>2018-12-04T10:02:06.000Z</published>
+    <updated>2018-12-04T11:17:03.102Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol><li>支持自由替换 Hibernate, EclipseLink, OpenJpa。</li></ol><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="依赖引入"><a href="#依赖引入" class="headerlink" title="依赖引入"></a>依赖引入</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">  repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">  &#125;</span><br><span class="line">  dependencies &#123;</span><br><span class="line">    classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'org.springframework.boot'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'io.spring.dependency-management'</span></span><br><span class="line"></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  compile(<span class="string">"org.springframework.boot:spring-boot-starter-data-jpa"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;用途&quot;&gt;&lt;a href=&quot;#用途&quot; class=&quot;headerlink&quot; title=&quot;用途&quot;&gt;&lt;/a&gt;用途&lt;/h2&gt;&lt;h3 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;headerlink&quot; title=&quot;特性&quot;&gt;&lt;/a&gt;特性&lt;/h3&gt;&lt;ol&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="Spring" scheme="https://linlshare.github.io/tags/Spring/"/>
+    
+      <category term="JPA" scheme="https://linlshare.github.io/tags/JPA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JPA</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</id>
+    <published>2018-12-04T07:51:06.000Z</published>
+    <updated>2018-12-04T11:19:45.453Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p><ol><li>API 本身，定义在 <code>javax.persistence</code> 包下；</li><li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li><li>对象与关联表之间的元数据。</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><table><thead><tr><th>项目</th><th>开发公司</th><th>数据库支持</th><th>备注</th></tr></thead><tbody><tr><td><a href="http://hibernate.org/" target="_blank" rel="noopener">Hibernate</a></td><td>RedHat</td><td>SQL</td><td>JPA 制定的参考。</td></tr><tr><td><a href="https://docs.spring.io/spring-data/jpa/docs/2.1.3.RELEASE/reference/html/" target="_blank" rel="noopener">Spring Data JPA</a></td><td>Pivotal</td><td>SQL</td><td>支持 RESTful API 查询，支持 CRUD</td></tr><tr><td><a href="https://www.eclipse.org/eclipselink/" target="_blank" rel="noopener">EclipseLink</a></td><td>Eclipse Foundation</td><td>SQL 及NoSQL</td><td>基于 TopLink</td></tr><tr><td><a href="https://openjpa.apache.org/" target="_blank" rel="noopener">OpenJPA</a></td><td>Apache</td><td>SQL</td><td>支持缓存。</td></tr></tbody></table><p>* 2001年，澳大利亚墨尔本一位名为Gavin King的27岁的程序员，上街买了一本SQL编程的书，他厌倦了实体bean，认为自己可以开发出一个匹配对象关系映射理论，并且真正好用的Java持久化层框架，因此他需要先学习一下SQL。这一年的11月，Hibernate的第一个版本发布了。</p><p>* Pivotal 和 VMware 都是 EMC 的子公司，2015 年 Dell 以 670 亿美元收购 EMC。 </p><p>* MyBatis 是一套持久化框架，但不是 ORM 的，而且 Java 方法与 SQL 语句的关联。</p><p>* OpenJPA 至今已有 4933 次 commit，更新也很频繁，但其 Github 上的 star 却只有 56，坚持不懈的精神令人肃然起敬。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%8C%81%E4%B9%85%E5%8C%96API" target="_blank" rel="noopener">Java 持久化 API - 维基百科</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JPA-是干嘛的？&quot;&gt;&lt;a href=&quot;#JPA-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;JPA 是干嘛的？&quot;&gt;&lt;/a&gt;JPA 是干嘛的？&lt;/h2&gt;&lt;p&gt;JPA（Java Persistence API，Java 持久化 API），是一组
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="JPA" scheme="https://linlshare.github.io/tags/JPA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JDBC</title>
     <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/"/>
     <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/</id>
     <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:40:19.343Z</updated>
+    <updated>2018-12-04T10:00:15.286Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="JDBC-是干什么的？"><a href="#JDBC-是干什么的？" class="headerlink" title="JDBC 是干什么的？"></a>JDBC 是干什么的？</h2><p>是 Java 语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如<strong>查询和更新</strong>数据库中数据的方法。JDBC 是面向<strong>关系型数据库</strong>的。</p><h3 id="JPA-与-JDBC-的异同？"><a href="#JPA-与-JDBC-的异同？" class="headerlink" title="JPA 与 JDBC 的异同？"></a>JPA 与 JDBC 的异同？</h3><p><strong>（1）相同点</strong></p><ul><li>都是面向关系型数据库的；</li><li>都具备查询保存数据的能力。</li></ul><p><strong>（2）不同点</strong></p><ul><li>JPA 是 Java 持久化 API 的规范，关注将数据库中的表与实体类做映射；</li><li>JDBC 是 Java 数据库访问的接口，关注数据的 CRUD。</li></ul><p>参看 <a href="https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different" target="_blank" rel="noopener">JPA or JDBC, how are they different? - stackoverfow</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">Java 数据库连接 - 维基百科</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="JDBC-是干什么的？"><a href="#JDBC-是干什么的？" class="headerlink" title="JDBC 是干什么的？"></a>JDBC 是干什么的？</h2><p>是 Java 语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如<strong>查询和更新</strong>数据库中数据的方法。JDBC 是面向<strong>关系型数据库</strong>的。</p><h3 id="JPA-与-JDBC-的异同？"><a href="#JPA-与-JDBC-的异同？" class="headerlink" title="JPA 与 JDBC 的异同？"></a>JPA 与 JDBC 的异同？</h3><p><strong>（1）相同点</strong></p><ul><li>都是面向关系型数据库的；</li><li>都具备查询保存数据的能力。</li></ul><p><strong>（2）不同点</strong></p><ul><li>JPA 是 Java 持久化 API 的规范，关注将数据库中的表与实体类做映射；</li><li>JDBC 是 Java 数据库访问的接口，将数据访问与具体的关系型数据库分离，使用驱动完成具体的数据操作。</li></ul><p>参看 <a href="https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different" target="_blank" rel="noopener">JPA or JDBC, how are they different? - stackoverfow</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">Java 数据库连接 - 维基百科</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -75,37 +167,6 @@
       <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
     
       <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JPA</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:51:14.626Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p><ol><li>API 本身，定义在 <code>javax.persistence</code> 包下；</li><li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li><li>对象与关联表之间的元数据。</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><table><thead><tr><th>项目</th><th>开发公司</th><th>数据库支持</th><th>备注</th></tr></thead><tbody><tr><td><a href="http://hibernate.org/" target="_blank" rel="noopener">Hibernate</a></td><td>RedHat</td><td>SQL</td><td>JPA 制定的参考。</td></tr><tr><td><a href="https://docs.spring.io/spring-data/jpa/docs/2.1.3.RELEASE/reference/html/" target="_blank" rel="noopener">Spring Data JPA</a></td><td>Pivotal</td><td>SQL 及NoSQL</td><td>支持 RESTful API 查询</td></tr><tr><td><a href="https://www.eclipse.org/eclipselink/" target="_blank" rel="noopener">EclipseLink</a></td><td>Eclipse Foundation</td><td>SQL 及NoSQL</td><td>基于 TopLink</td></tr><tr><td><a href="https://openjpa.apache.org/" target="_blank" rel="noopener">OpenJPA</a></td><td>Apache</td><td>SQL</td><td>支持缓存。</td></tr></tbody></table><p>* 2001年，澳大利亚墨尔本一位名为Gavin King的27岁的程序员，上街买了一本SQL编程的书，他厌倦了实体bean，认为自己可以开发出一个匹配对象关系映射理论，并且真正好用的Java持久化层框架，因此他需要先学习一下SQL。这一年的11月，Hibernate的第一个版本发布了。</p><p>* Pivotal 和 VMware 都是 EMC 的子公司，2015 年 Dell 以 670 亿美元收购 EMC。 </p><p>* MyBatis 是一套持久化框架，但不是 ORM 的，而且 Java 方法与 SQL 语句的关联。</p><p>* OpenJPA 至今已有 4933 次 commit，更新也很频繁，但其 Github 上的 star 却只有 56，坚持不懈的精神令人肃然起敬。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%8C%81%E4%B9%85%E5%8C%96API" target="_blank" rel="noopener">Java 持久化 API - 维基百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JPA-是干嘛的？&quot;&gt;&lt;a href=&quot;#JPA-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;JPA 是干嘛的？&quot;&gt;&lt;/a&gt;JPA 是干嘛的？&lt;/h2&gt;&lt;p&gt;JPA（Java Persistence API，Java 持久化 API），是一组
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="JPA" scheme="https://linlshare.github.io/tags/JPA/"/>
     
   </entry>
   
@@ -555,68 +616,6 @@
       <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
     
       <category term="NIO" scheme="https://linlshare.github.io/tags/NIO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Netty</title>
-    <link href="https://linlshare.github.io/2018/11/22/it/java/base/Netty/"/>
-    <id>https://linlshare.github.io/2018/11/22/it/java/base/Netty/</id>
-    <published>2018-11-22T03:23:41.000Z</published>
-    <updated>2018-11-30T04:08:10.689Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Netty-是干什么的？"><a href="#Netty-是干什么的？" class="headerlink" title="Netty 是干什么的？"></a>Netty 是干什么的？</h2><p>Netty 是一个 NIO 客户端服务器框架，用于快速开发网络应用。</p><p>支持扩展协议。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>（1）引入依赖</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">"io.netty:netty-all:4.1.+"</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Netty-是干什么的？&quot;&gt;&lt;a href=&quot;#Netty-是干什么的？&quot; class=&quot;headerlink&quot; title=&quot;Netty 是干什么的？&quot;&gt;&lt;/a&gt;Netty 是干什么的？&lt;/h2&gt;&lt;p&gt;Netty 是一个 NIO 客户端服务器框架，用于快速开发网
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="base" scheme="https://linlshare.github.io/categories/it/java/base/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
-    
-      <category term="Netty" scheme="https://linlshare.github.io/tags/Netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务鉴权机制</title>
-    <link href="https://linlshare.github.io/2018/11/21/it/secure/%E6%9C%8D%E5%8A%A1%E9%89%B4%E6%9D%83%E6%9C%BA%E5%88%B6/"/>
-    <id>https://linlshare.github.io/2018/11/21/it/secure/服务鉴权机制/</id>
-    <published>2018-11-21T09:31:26.000Z</published>
-    <updated>2018-11-21T09:56:07.253Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Token-验证机制"><a href="#Token-验证机制" class="headerlink" title="Token 验证机制"></a>Token 验证机制</h2><p>Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请求。一个 Token 可以由以下三部分组成：</p><ul><li>Token 字符串（token），可以是 UUID；</li><li>生成时的时间戳（timestamp）；</li><li>校验因子（sign），由 <code>token + timestamp</code>，通过一定的规则（比如 MD5）生成。</li></ul><p>示例（<code>sg = md5(tk+&quot;*&quot;+tm+&quot;*&quot;+&quot;k2@sz8-iA&quot;</code>）：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"tk"</span>:<span class="string">"116b6451-6028-4490-8869-d32a84082b7c"</span>,</span><br><span class="line">    <span class="attr">"tm"</span>:<span class="string">"1536595200000"</span>,</span><br><span class="line">    <span class="attr">"sg"</span>:<span class="string">"91672a6af6d7d078676e2b26e8396ea1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样，当请求到达客户端时，我们先用先前的规则构造一个 md5 值，看与请求中的 sg 字段值是否相同，再判定 当前的时间戳与 tm 中的时间戳差值是否不超过预定义的过期时长。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Token-验证机制&quot;&gt;&lt;a href=&quot;#Token-验证机制&quot; class=&quot;headerlink&quot; title=&quot;Token 验证机制&quot;&gt;&lt;/a&gt;Token 验证机制&lt;/h2&gt;&lt;p&gt;Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="secure" scheme="https://linlshare.github.io/categories/it/secure/"/>
-    
-    
-      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
-    
-      <category term="Secure" scheme="https://linlshare.github.io/tags/Secure/"/>
     
   </entry>
   
