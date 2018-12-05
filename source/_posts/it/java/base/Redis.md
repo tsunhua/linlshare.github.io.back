@@ -64,6 +64,10 @@ $ redis-cli -h host -p port -a password
 > GET a_key
 ```
 
+> 注意：对有标点符号的 key，要用双引号（“”）包裹，否则会返回 `nil` 。比如使用 Spring Cache + Redis 时，会序列化缓存方法返回值，这是的 KEY 就要用双引号括起来，示例如下，
+>
+> `GET "cache1:\xac\xed\x00\x05t\x00$cb5775e6-1b39-4f63-85c8-13f134a54f32"`
+
 ### List 相关命令
 
 ```shell

@@ -199,3 +199,4 @@ $ mongo
 
 1. [Spring Data MongoDB - Reference Documentation - spring.io](https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#repositories.create-instances.spring)
 2. [Accessing Data with MongoDB - spring.io](https://spring.io/guides/gs/accessing-data-mongodb/)
+3. [Working with Spring Data Repositories - spring.io](https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html)
