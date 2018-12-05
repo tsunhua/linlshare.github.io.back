@@ -5,7 +5,7 @@ tags: [Java,Spring]
 comments: true
 ---
 
-### Spring
+## 概述
 
 轻量级控制反转和面向切面的容器框架。
 
@@ -28,7 +28,7 @@ comments: true
 
 
 
-#### IoC
+### IoC
 
 Inversion of Control，控制反转，其另一个名字是依赖注入（Dependency Injection），就是有Ioc容器在运行期间，动态地将某种依赖关系注入到对象之中。
 
@@ -36,7 +36,7 @@ Inversion of Control，控制反转，其另一个名字是依赖注入（Depend
 
 粘合剂，将对象之间的耦合交给IoC容器进行，从而达到解耦的目的。
 
-#### AOP
+### AOP
 
 面向切面编程，从动态角度研究。
 
@@ -65,11 +65,11 @@ AOP关键概念：
 8. AOP代理（AOP Proxy）：AOP框架创建的对象，用来实现切面契约。
 9. 引入（Introduction）：也被称为内容类型声明。声明额外的方法或者某个类型的字段。
 
-#### 开发环境搭建
+## 开发环境搭建
 
 直接通过IDEA新建一个Spring项目。
 
-#### Ioc注入
+### Ioc注入
 
 1. Spring通过`<null/>`注入null值
 2. 通过`ref="xxBean"` 进行bean注入，通过`value="xxValue"` 进行值注入
@@ -79,7 +79,7 @@ AOP关键概念：
 6. 设置`lazy-init="true"` 进行延迟初始化
 7. bean的作用域有两种，分别是 `singleton` 和 `prototype`。singleton是默认的scope，其实现方式是通过注册表方式注册道单例缓存池。设置为prototype则每次向Spring容器请求获取Bean都返回一个全新的Bean。
 
-#### 基于注解的配置
+### 基于注解的配置
 
 开启方式：在spring的config文件的`<beans>` 下增加
 
@@ -99,5 +99,45 @@ AOP关键概念：
 | @Resource                                | 默认按名称装配，当找不到与名称匹配的bean才会按类型装配            | 属性（属于JSR-250的注解）                         |
 | @Component、@Service、@Controller、@Repository | @Component用于说明一个类是Spring容器管理的类，@Service、@Controller、@Repository是@Component的细化，分别代表服务层、控制层和持久层 | 类                                        |
 
+##  Q&A
 
+### 如何将配置 SpringApplication 的配置分离到单独的配置类
 
+一般情况下，我们使用如下方式启动一个 Spring。
+
+```java
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+       SpringApplication.run(Application.class);
+    }
+}
+```
+
+但是，如果要把配置分离呢？
+
+------------
+（1）编写 Spring 配置类，注意要指定组件扫描位置，因为通常配置类的位置跟 Application 类的位置不一致，而**默认情况下Spring 只扫描配置类所在包及其子包的组件**。
+
+```java
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.example"})
+public class SpringConfig {
+}
+```
+
+（2）修改之前的 Application，移除注解，传入 SpringConfig。
+
+```java
+public class Application {
+    public static void main(String[] args) {
+       SpringApplication.run(SpringConfig.class);
+    }
+}
+```
+
+分离后的好处是，可以将配置统一管理，以及更灵活地在启动 Spring，特别是有必须在 Spring 启动前 Ready 的依赖组件。
+
+## 参考
+
+1. [springboot快速入门及@SpringBootApplication注解分析](https://www.jianshu.com/p/4e1cab2d8431)
