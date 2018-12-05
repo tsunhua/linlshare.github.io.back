@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linlshare.github.io/2018/12/05/it/java/persistence/Spring%20Data%20MongoDB/</loc>
+    
+    <lastmod>2018-12-05T07:27:36.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://linlshare.github.io/2018/01/05/it/java/base/Spring/</loc>
+    
+    <lastmod>2018-12-05T06:43:45.898Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linlshare.github.io/2018/12/04/history/%E6%BE%B3%E9%96%80%E7%B7%A8%E5%B9%B4%E5%8F%B2%20-%20%E4%BA%8C%E5%8D%81%E4%B8%96%E7%B4%80(1900-1949)%20/</loc>
     
     <lastmod>2018-12-04T16:07:05.292Z</lastmod>
@@ -306,13 +320,6 @@
     <loc>https://linlshare.github.io/2018/01/05/it/java/base/Spring%20MVC/</loc>
     
     <lastmod>2018-11-22T09:25:27.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linlshare.github.io/2018/01/05/it/java/base/Spring/</loc>
-    
-    <lastmod>2018-11-22T09:25:16.434Z</lastmod>
     
   </url>
   

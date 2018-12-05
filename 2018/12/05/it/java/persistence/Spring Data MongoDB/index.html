@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Spring Data MongoDB | Share 杂志</title>
+    
+    
+        <meta name="keywords" content="Java,Spring,MongoDB">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="用途快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。 快速开始（0）开始之前确保已有可连接的 MongoDB （1）依赖引入在 build.gradle 中添加如下依赖。 1234567891011121314151617181920212223builds">
+<meta name="keywords" content="Java,Spring,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Data MongoDB">
+<meta property="og:url" content="https://linlshare.github.io/2018/12/05/it/java/persistence/Spring Data MongoDB/index.html">
+<meta property="og:site_name" content="Share 杂志">
+<meta property="og:description" content="用途快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。 快速开始（0）开始之前确保已有可连接的 MongoDB （1）依赖引入在 build.gradle 中添加如下依赖。 1234567891011121314151617181920212223builds">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-05T07:27:36.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Data MongoDB">
+<meta name="twitter:description" content="用途快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。 快速开始（0）开始之前确保已有可连接的 MongoDB （1）依赖引入在 build.gradle 中添加如下依赖。 1234567891011121314151617181920212223builds">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Share 杂志" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128207704-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Share 杂志</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中国文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/culture/中国文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日本文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            history
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /">澳門編年史 - 二十世紀(1900-1949)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            concept
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/26/it/design/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arch
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws/">aws</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            base
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/01/06/it/java/base/MySql/">MySql</a></li>  <li class="file"><a href="/2018/11/09/it/java/base/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Kafka/">Kafka</a></li>  <li class="file"><a href="/2018/11/27/it/java/base/etcd/">etcd</a></li>  <li class="file"><a href="/2018/11/28/it/java/base/Logback/">Logback</a></li>  <li class="file"><a href="/2018/11/29/it/java/base/ZooKeeper/">ZooKeeper</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            exception
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            guava
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            persistence
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/JPA/">JPA</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/Spring Data JPA/">Spring Data JPA</a></li>  <li class="file active"><a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">Spring Data MongoDB</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            schedule
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a></li>  <li class="file"><a href="/2018/12/03/it/java/schedule/Quartz/">Quartz</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            secure
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/secure/服务鉴权机制/">服务鉴权机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH/">SSH</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac/">Mac</a></li>  <li class="file"><a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/">Hexo + Github Page = 个人 WiKi</a></li>  <li class="file"><a href="/2018/11/27/it/tool/Docker/">Docker</a></li>  <li class="file"><a href="/2018/11/28/it/tool/zsh/">zsh</a></li>  <li class="file"><a href="/2018/12/03/it/tool/Groovy/">Groovy</a></li>  <li class="file"><a href="/2018/12/04/it/tool/Alfred/">Alfred</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            person
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            photography
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            weekly
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/thinking/weekly/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a></li>  <li class="file"><a href="/2018/10/28/thinking/weekly/周记 20181028/">周记 20181028</a></li>  <li class="file"><a href="/2018/10/21/thinking/weekly/周记 20181021/">周记 20181021</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/java/persistence/Spring Data MongoDB" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MongoDB/">MongoDB</a>, <a class="tag-link" href="/tags/Spring/">Spring</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">
+            <time datetime="2018-12-05T06:25:40.000Z" itemprop="datePublished">2018-12-05</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Spring Data MongoDB
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用途"><span class="toc-number">1.</span> <span class="toc-text">用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（0）开始之前"><span class="toc-number">2.1.</span> <span class="toc-text">（0）开始之前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）依赖引入"><span class="toc-number">2.2.</span> <span class="toc-text">（1）依赖引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）配置-MongoDB-连接"><span class="toc-number">2.3.</span> <span class="toc-text">（2）配置 MongoDB 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）定义一个简单的实体类"><span class="toc-number">2.4.</span> <span class="toc-text">（3）定义一个简单的实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）定义一个-Repository"><span class="toc-number">2.5.</span> <span class="toc-text">（4）定义一个 Repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）让-Spring-Boot-自动装配-CustomerRepository"><span class="toc-number">2.6.</span> <span class="toc-text">（5）让 Spring Boot 自动装配 CustomerRepository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）使用-MongoDB-命令行查询"><span class="toc-number">2.7.</span> <span class="toc-text">（6）使用 MongoDB 命令行查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深入探讨"><span class="toc-number">3.</span> <span class="toc-text">深入探讨</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的匹配注解列表"><span class="toc-number">3.1.</span> <span class="toc-text">常用的匹配注解列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的查询方法关键字列表"><span class="toc-number">3.2.</span> <span class="toc-text">支持的查询方法关键字列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><p>快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="（0）开始之前"><a href="#（0）开始之前" class="headerlink" title="（0）开始之前"></a>（0）开始之前</h3><p>确保已有可连接的 MongoDB</p>
+<h3 id="（1）依赖引入"><a href="#（1）依赖引入" class="headerlink" title="（1）依赖引入"></a>（1）依赖引入</h3><p>在 <code>build.gradle</code> 中添加如下依赖。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'org.springframework.boot'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'io.spring.dependency-management'</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line">targetCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile(<span class="string">"org.springframework.boot:spring-boot-starter-data-mongodb"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（2）配置-MongoDB-连接"><a href="#（2）配置-MongoDB-连接" class="headerlink" title="（2）配置 MongoDB 连接"></a>（2）配置 MongoDB 连接</h3><p>这里配置了 MongoDB 的连接地址和使用的数据库，还配置了扫描 Repositories 的位置。Repositories 我们后面会讲到是什么。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableMongoRepositories</span>(basePackages = <span class="string">"com.example.dao"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MongoConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> MongoOperations <span class="title">mongoTemplate</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MongoTemplate(mongoDbFactory());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> MongoDbFactory <span class="title">mongoDbFactory</span><span class="params">()</span> <span class="keyword">throws</span> UnknownHostException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SimpleMongoDbFactory(<span class="keyword">new</span> MongoClientURI(<span class="string">"mongodb://localhost:27017/test"</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（3）定义一个简单的实体类"><a href="#（3）定义一个简单的实体类" class="headerlink" title="（3）定义一个简单的实体类"></a>（3）定义一个简单的实体类</h3><p>实体类是一个 POJO，不过会多一些注解。简单介绍下这些注解吧：</p>
+<ol>
+<li><code>@Document</code> ，用于自定义 MongoDB 中 Collection 的名称，<strong>默认情况下 collection 值为空，使用类名的小写形式作为 Collection 的名称</strong>；</li>
+<li><code>@Id</code> ，用于指定 MongoDB 内部使用字段 <code>_id</code> 的值，如果不指定，则使用自动生成的值。</li>
+<li><code>@Field</code> ，用于指定字段存储时的名称，如果不指定，则直接使用字段名。</li>
+<li><code>@Indexed</code>，用于为指定字段添加索引，会调用 MongoDB 的 <code>createIndex</code> 方法。值得注意的是：<strong>必须 <code>@Document</code> 注解，否则不会自动生成索引</strong>。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Document</span>(collection = <span class="string">"Customer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Indexed</span></span><br><span class="line">    <span class="meta">@Field</span>(<span class="string">"first_name"</span>)</span><br><span class="line">    <span class="keyword">public</span> String firstName;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Field</span>(<span class="string">"last_name"</span>)</span><br><span class="line">    <span class="keyword">public</span> String lastName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">        <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（4）定义一个-Repository"><a href="#（4）定义一个-Repository" class="headerlink" title="（4）定义一个 Repository"></a>（4）定义一个 Repository</h3><p><code>MongoRepository</code> 中定义的基本的 CRUD 操作，你可以自定义查询方法，不过要遵守一定的规范，Spring Data MongoDB 会根据方法名和参数去执行数据库操作。这个规范参见下文 <u>支持的查询方法关键字列表</u>。此处只需要了解有 <code>findByXx</code> 的方法名即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CustomerRepository</span> <span class="keyword">extends</span> <span class="title">MongoRepository</span>&lt;<span class="title">Customer</span>, <span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Customer <span class="title">findByFirstName</span><span class="params">(String firstName)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Customer&gt; <span class="title">findByLastName</span><span class="params">(String lastName)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（5）让-Spring-Boot-自动装配-CustomerRepository"><a href="#（5）让-Spring-Boot-自动装配-CustomerRepository" class="headerlink" title="（5）让 Spring Boot 自动装配 CustomerRepository"></a>（5）让 Spring Boot 自动装配 CustomerRepository</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> CustomerRepository repository;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		repository.deleteAll();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// save a couple of customers</span></span><br><span class="line">		repository.save(<span class="keyword">new</span> Customer(<span class="string">"Alice"</span>, <span class="string">"Smith"</span>));</span><br><span class="line">		repository.save(<span class="keyword">new</span> Customer(<span class="string">"Bob"</span>, <span class="string">"Smith"</span>));</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">"-------------------------------"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// fetch an individual customer</span></span><br><span class="line">		System.out.println(repository.findByFirstName(<span class="string">"Alice"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（6）使用-MongoDB-命令行查询"><a href="#（6）使用-MongoDB-命令行查询" class="headerlink" title="（6）使用 MongoDB 命令行查询"></a>（6）使用 MongoDB 命令行查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mongo</span><br><span class="line"><span class="meta">&gt;</span> use test</span><br><span class="line"><span class="meta">&gt;</span> db.Customer.find(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="深入探讨"><a href="#深入探讨" class="headerlink" title="深入探讨"></a>深入探讨</h2><h3 id="常用的匹配注解列表"><a href="#常用的匹配注解列表" class="headerlink" title="常用的匹配注解列表"></a>常用的匹配注解列表</h3><table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Id</code></td>
+<td>用于指定 MongoDB 内部使用字段 <code>_id</code> 的值，如果不指定，则使用自动生成的值。</td>
+</tr>
+<tr>
+<td><code>@Field</code></td>
+<td>用于指定数据库中存储的字段名。</td>
+</tr>
+<tr>
+<td><code>@Document</code></td>
+<td>用于指定该类的实例对应 MongoDB 的某个指定 Collection 下的 Document。</td>
+</tr>
+<tr>
+<td><code>@Indexed</code></td>
+<td>用于为指定字段添加索引。</td>
+</tr>
+<tr>
+<td><code>@CompoundIndex</code></td>
+<td>用于指定复合索引。</td>
+</tr>
+<tr>
+<td><code>@Transient</code></td>
+<td>用于将某些字段排除，不与数据库匹配。</td>
+</tr>
+<tr>
+<td><code>@Version</code></td>
+<td>用于指定字段的版本，默认值为 0，在每次更新字段后自增。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="支持的查询方法关键字列表"><a href="#支持的查询方法关键字列表" class="headerlink" title="支持的查询方法关键字列表"></a>支持的查询方法关键字列表</h3><table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Sample</th>
+<th>Logical result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>After</code></td>
+<td><code>findByBirthdateAfter(Date date)</code></td>
+<td><code>{&quot;birthdate&quot; : {&quot;$gt&quot; : date}}</code></td>
+</tr>
+<tr>
+<td><code>GreaterThan</code></td>
+<td><code>findByAgeGreaterThan(int age)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$gt&quot; : age}}</code></td>
+</tr>
+<tr>
+<td><code>GreaterThanEqual</code></td>
+<td><code>findByAgeGreaterThanEqual(int age)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$gte&quot; : age}}</code></td>
+</tr>
+<tr>
+<td><code>Before</code></td>
+<td><code>findByBirthdateBefore(Date date)</code></td>
+<td><code>{&quot;birthdate&quot; : {&quot;$lt&quot; : date}}</code></td>
+</tr>
+<tr>
+<td><code>LessThan</code></td>
+<td><code>findByAgeLessThan(int age)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$lt&quot; : age}}</code></td>
+</tr>
+<tr>
+<td><code>LessThanEqual</code></td>
+<td><code>findByAgeLessThanEqual(int age)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$lte&quot; : age}}</code></td>
+</tr>
+<tr>
+<td><code>Between</code></td>
+<td><code>findByAgeBetween(int from, int to)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$gt&quot; : from, &quot;$lt&quot; : to}}</code></td>
+</tr>
+<tr>
+<td><code>In</code></td>
+<td><code>findByAgeIn(Collection ages)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$in&quot; : [ages…]}}</code></td>
+</tr>
+<tr>
+<td><code>NotIn</code></td>
+<td><code>findByAgeNotIn(Collection ages)</code></td>
+<td><code>{&quot;age&quot; : {&quot;$nin&quot; : [ages…]}}</code></td>
+</tr>
+<tr>
+<td><code>IsNotNull</code>, <code>NotNull</code></td>
+<td><code>findByFirstnameNotNull()</code></td>
+<td><code>{&quot;firstname&quot; : {&quot;$ne&quot; : null}}</code></td>
+</tr>
+<tr>
+<td><code>IsNull</code>, <code>Null</code></td>
+<td><code>findByFirstnameNull()</code></td>
+<td><code>{&quot;firstname&quot; : null}</code></td>
+</tr>
+<tr>
+<td><code>Like</code>, <code>StartingWith</code>, <code>EndingWith</code></td>
+<td><code>findByFirstnameLike(String name)</code></td>
+<td><code>{&quot;firstname&quot; : name} (name as regex)</code></td>
+</tr>
+<tr>
+<td><code>NotLike</code>, <code>IsNotLike</code></td>
+<td><code>findByFirstnameNotLike(String name)</code></td>
+<td><code>{&quot;firstname&quot; : { &quot;$not&quot; : name }} (name as regex)</code></td>
+</tr>
+<tr>
+<td><code>Containing</code> on String</td>
+<td><code>findByFirstnameContaining(String name)</code></td>
+<td><code>{&quot;firstname&quot; : name} (name as regex)</code></td>
+</tr>
+<tr>
+<td><code>NotContaining</code> on String</td>
+<td><code>findByFirstnameNotContaining(String name)</code></td>
+<td><code>{&quot;firstname&quot; : { &quot;$not&quot; : name}} (name as regex)</code></td>
+</tr>
+<tr>
+<td><code>Containing</code> on Collection</td>
+<td><code>findByAddressesContaining(Address address)</code></td>
+<td><code>{&quot;addresses&quot; : { &quot;$in&quot; : address}}</code></td>
+</tr>
+<tr>
+<td><code>NotContaining</code> on Collection</td>
+<td><code>findByAddressesNotContaining(Address address)</code></td>
+<td><code>{&quot;addresses&quot; : { &quot;$not&quot; : { &quot;$in&quot; : address}}}</code></td>
+</tr>
+<tr>
+<td><code>Regex</code></td>
+<td><code>findByFirstnameRegex(String firstname)</code></td>
+<td><code>{&quot;firstname&quot; : {&quot;$regex&quot; : firstname }}</code></td>
+</tr>
+<tr>
+<td><code>(No keyword)</code></td>
+<td><code>findByFirstname(String name)</code></td>
+<td><code>{&quot;firstname&quot; : name}</code></td>
+</tr>
+<tr>
+<td><code>Not</code></td>
+<td><code>findByFirstnameNot(String name)</code></td>
+<td><code>{&quot;firstname&quot; : {&quot;$ne&quot; : name}}</code></td>
+</tr>
+<tr>
+<td><code>Near</code></td>
+<td><code>findByLocationNear(Point point)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$near&quot; : [x,y]}}</code></td>
+</tr>
+<tr>
+<td><code>Near</code></td>
+<td><code>findByLocationNear(Point point, Distance max)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$near&quot; : [x,y], &quot;$maxDistance&quot; : max}}</code></td>
+</tr>
+<tr>
+<td><code>Near</code></td>
+<td><code>findByLocationNear(Point point, Distance min, Distance max)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$near&quot; : [x,y], &quot;$minDistance&quot; : min, &quot;$maxDistance&quot; : max}}</code></td>
+</tr>
+<tr>
+<td><code>Within</code></td>
+<td><code>findByLocationWithin(Circle circle)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$geoWithin&quot; : {&quot;$center&quot; : [ [x, y], distance]}}}</code></td>
+</tr>
+<tr>
+<td><code>Within</code></td>
+<td><code>findByLocationWithin(Box box)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$geoWithin&quot; : {&quot;$box&quot; : [ [x1, y1], x2, y2]}}}</code></td>
+</tr>
+<tr>
+<td><code>IsTrue</code>, <code>True</code></td>
+<td><code>findByActiveIsTrue()</code></td>
+<td><code>{&quot;active&quot; : true}</code></td>
+</tr>
+<tr>
+<td><code>IsFalse</code>, <code>False</code></td>
+<td><code>findByActiveIsFalse()</code></td>
+<td><code>{&quot;active&quot; : false}</code></td>
+</tr>
+<tr>
+<td><code>Exists</code></td>
+<td><code>findByLocationExists(boolean exists)</code></td>
+<td><code>{&quot;location&quot; : {&quot;$exists&quot; : exists }}</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Tip：将以上的 <code>findBy</code> 替换成 <code>deleteBy</code> 含义就变成了：查找后进行删除操作。</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#repositories.create-instances.spring" target="_blank" rel="noopener">Spring Data MongoDB - Reference Documentation - spring.io</a></li>
+<li><a href="https://spring.io/guides/gs/accessing-data-mongodb/" target="_blank" rel="noopener">Accessing Data with MongoDB - spring.io</a></li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">澳門編年史 - 二十世紀(1900-1949)</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

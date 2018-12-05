@@ -9,19 +9,19 @@
         <meta name="keywords" content="Java,Spring">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Spring轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Depend">
+    <meta name="description" content="概述轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Dependency">
 <meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring">
 <meta property="og:url" content="https://linlshare.github.io/2018/01/05/it/java/base/Spring/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="Spring轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Depend">
+<meta property="og:description" content="概述轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Dependency">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.ibm.com/developerworks/cn/java/wa-spring1/spring_framework.gif">
-<meta property="og:updated_time" content="2018-11-22T09:25:16.434Z">
+<meta property="og:updated_time" content="2018-12-05T06:43:45.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
-<meta name="twitter:description" content="Spring轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Depend">
+<meta name="twitter:description" content="概述轻量级控制反转和面向切面的容器框架。 功能：  使用基本的JavaBean代替EJB（Enterprise JavaBean）  优点：  低侵入性 高服用性 DI有效降低耦合度 AOP提供了通用任务的集中管理 ORM（对象实体映射）和DAO简化对数据库的访问 高开放性，并不强制  核心：  IoCInversion of Control，控制反转，其另一个名字是依赖注入（Dependency">
 <meta name="twitter:image" content="https://www.ibm.com/developerworks/cn/java/wa-spring1/spring_framework.gif">
     
 
@@ -92,7 +92,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -111,10 +111,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -143,7 +143,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -160,7 +160,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -325,7 +325,7 @@ ga('send', 'pageview');
                             &nbsp;
                             persistence
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/JPA/">JPA</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/Spring Data JPA/">Spring Data JPA</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/JPA/">JPA</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/Spring Data JPA/">Spring Data JPA</a></li>  <li class="file"><a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">Spring Data MongoDB</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -624,13 +624,13 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring"><span class="toc-number">1.</span> <span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IoC"><span class="toc-number">1.1.</span> <span class="toc-text">IoC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AOP"><span class="toc-number">1.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开发环境搭建"><span class="toc-number">1.3.</span> <span class="toc-text">开发环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ioc注入"><span class="toc-number">1.4.</span> <span class="toc-text">Ioc注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基于注解的配置"><span class="toc-number">1.5.</span> <span class="toc-text">基于注解的配置</span></a></li></ol></li></ol>
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IoC"><span class="toc-number">1.1.</span> <span class="toc-text">IoC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">1.2.</span> <span class="toc-text">AOP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境搭建"><span class="toc-number">2.</span> <span class="toc-text">开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ioc注入"><span class="toc-number">2.1.</span> <span class="toc-text">Ioc注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于注解的配置"><span class="toc-number">2.2.</span> <span class="toc-text">基于注解的配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">3.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何将配置-SpringApplication-的配置分离到单独的配置类"><span class="toc-number">3.1.</span> <span class="toc-text">如何将配置 SpringApplication 的配置分离到单独的配置类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><p>轻量级控制反转和面向切面的容器框架。</p>
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>轻量级控制反转和面向切面的容器框架。</p>
 <p>功能：</p>
 <ol>
 <li>使用基本的JavaBean代替EJB（Enterprise JavaBean）</li>
@@ -646,10 +646,10 @@ ga('send', 'pageview');
 </ol>
 <p>核心：</p>
 <p><img src="https://www.ibm.com/developerworks/cn/java/wa-spring1/spring_framework.gif" alt=""></p>
-<h4 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h4><p>Inversion of Control，控制反转，其另一个名字是依赖注入（Dependency Injection），就是有Ioc容器在运行期间，动态地将某种依赖关系注入到对象之中。</p>
+<h3 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h3><p>Inversion of Control，控制反转，其另一个名字是依赖注入（Dependency Injection），就是有Ioc容器在运行期间，动态地将某种依赖关系注入到对象之中。</p>
 <p>所以，DI和IoC是从不同角度描述的同一件事情，就是指通过引入IoC容器，利用依赖关系注入的方式，实现对象的解耦。</p>
 <p>粘合剂，将对象之间的耦合交给IoC容器进行，从而达到解耦的目的。</p>
-<h4 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h4><p>面向切面编程，从动态角度研究。</p>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>面向切面编程，从动态角度研究。</p>
 <p>功能：将系统级别处理（日志管理、调试管理、事务管理、缓存等等）分离出来，模块化，而不影响业务逻辑。</p>
 <p>专门用于处理系统中分布于各个模块中的交叉关注点的问题。<br>AOP 代理其实是由AOP框架动态生成的一个对象，该对象可作为目标对象使用。</p>
 <p>AOP使用：</p>
@@ -671,8 +671,8 @@ ga('send', 'pageview');
 <li>AOP代理（AOP Proxy）：AOP框架创建的对象，用来实现切面契约。</li>
 <li>引入（Introduction）：也被称为内容类型声明。声明额外的方法或者某个类型的字段。</li>
 </ol>
-<h4 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h4><p>直接通过IDEA新建一个Spring项目。</p>
-<h4 id="Ioc注入"><a href="#Ioc注入" class="headerlink" title="Ioc注入"></a>Ioc注入</h4><ol>
+<h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><p>直接通过IDEA新建一个Spring项目。</p>
+<h3 id="Ioc注入"><a href="#Ioc注入" class="headerlink" title="Ioc注入"></a>Ioc注入</h3><ol>
 <li>Spring通过<code>&lt;null/&gt;</code>注入null值</li>
 <li>通过<code>ref=&quot;xxBean&quot;</code> 进行bean注入，通过<code>value=&quot;xxValue&quot;</code> 进行值注入</li>
 <li>通过<code>&lt;constructor-arg&gt;</code> 注入构造参数值</li>
@@ -681,7 +681,7 @@ ga('send', 'pageview');
 <li>设置<code>lazy-init=&quot;true&quot;</code> 进行延迟初始化</li>
 <li>bean的作用域有两种，分别是 <code>singleton</code> 和 <code>prototype</code>。singleton是默认的scope，其实现方式是通过注册表方式注册道单例缓存池。设置为prototype则每次向Spring容器请求获取Bean都返回一个全新的Bean。</li>
 </ol>
-<h4 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h4><p>开启方式：在spring的config文件的<code>&lt;beans&gt;</code> 下增加</p>
+<h3 id="基于注解的配置"><a href="#基于注解的配置" class="headerlink" title="基于注解的配置"></a>基于注解的配置</h3><p>开启方式：在spring的config文件的<code>&lt;beans&gt;</code> 下增加</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--设置对指定的包名下的Spring注解生效--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">”com.demo”</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用：</p>
 <table>
@@ -720,6 +720,18 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="如何将配置-SpringApplication-的配置分离到单独的配置类"><a href="#如何将配置-SpringApplication-的配置分离到单独的配置类" class="headerlink" title="如何将配置 SpringApplication 的配置分离到单独的配置类"></a>如何将配置 SpringApplication 的配置分离到单独的配置类</h3><p>一般情况下，我们使用如下方式启动一个 Spring。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       SpringApplication.run(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，如果要把配置分离呢？</p>
+<hr>
+<p>（1）编写 Spring 配置类，注意要指定组件扫描位置，因为通常配置类的位置跟 Application 类的位置不一致，而<strong>默认情况下Spring 只扫描配置类所在包及其子包的组件</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(basePackages = &#123;<span class="string">"com.example"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（2）修改之前的 Application，移除注解，传入 SpringConfig。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       SpringApplication.run(SpringConfig.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分离后的好处是，可以将配置统一管理，以及更灵活地在启动 Spring，特别是有必须在 Spring 启动前 Ready 的依赖组件。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.jianshu.com/p/4e1cab2d8431" target="_blank" rel="noopener">springboot快速入门及@SpringBootApplication注解分析</a></li>
+</ol>
 
             </div>
         
@@ -732,19 +744,19 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
-        <a href="/2018/01/05/it/java/base/Spring MVC/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+        <a href="/2018/01/06/it/java/base/MySql/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Spring MVC
+                    MySql
                 
             </div>
         </a>
     
     
-        <a href="/2017/12/29/it/java/base/Maven/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">Maven</div>
+        <a href="/2018/01/05/it/java/base/Spring MVC/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Spring MVC</div>
         </a>
     
 </nav>
