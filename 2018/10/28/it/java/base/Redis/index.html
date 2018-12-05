@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="安装1$ brew install redis 使用启动 Redis Server1$./redis-server 进入 Redis 命令行（1）本地连接 12345$redis-cliredis 127.0.0.1:6379&amp;gt;redis 127.0.0.1:6379&amp;gt; PINGPONG （2）远程连接 1$ redis-cli -h host -p port -a password">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T09:26:46.508Z">
+<meta property="og:updated_time" content="2018-12-05T14:43:52.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
 <meta name="twitter:description" content="安装1$ brew install redis 使用启动 Redis Server1$./redis-server 进入 Redis 命令行（1）本地连接 12345$redis-cliredis 127.0.0.1:6379&amp;gt;redis 127.0.0.1:6379&amp;gt; PINGPONG （2）远程连接 1$ redis-cli -h host -p port -a password">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -303,18 +303,18 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            exception
+                            cache
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/cache/Guava Cache/">Guava Cache</a></li>  <li class="file"><a href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            guava
+                            exception
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -622,7 +622,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">Catálogo</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-Redis-Server"><span class="toc-number">2.1.</span> <span class="toc-text">启动 Redis Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入-Redis-命令行"><span class="toc-number">2.2.</span> <span class="toc-text">进入 Redis 命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取键相关命令"><span class="toc-number">2.3.</span> <span class="toc-text">取键相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取值相关命令"><span class="toc-number">2.4.</span> <span class="toc-text">取值相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List-相关命令"><span class="toc-number">2.5.</span> <span class="toc-text">List 相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删库跑路相关命令"><span class="toc-number">2.6.</span> <span class="toc-text">删库跑路相关命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
@@ -636,6 +636,10 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> redis-cli -h host -p port -a password</span><br></pre></td></tr></table></figure>
 <h3 id="取键相关命令"><a href="#取键相关命令" class="headerlink" title="取键相关命令"></a>取键相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查找所有 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS *</span><br><span class="line"><span class="meta">#</span> 查找符合给定正则的 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS pattern</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除某个 key</span><br><span class="line"><span class="meta">&gt;</span> DEL a_key</span><br><span class="line"><span class="meta">#</span> 检查某个 key 是否存在</span><br><span class="line"><span class="meta">&gt;</span> EXISTS a_key</span><br><span class="line"><span class="meta">#</span> 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span><br><span class="line"><span class="meta">&gt;</span> TTL a_key</span><br><span class="line"><span class="meta">#</span> 获知某个 key 存储值的类型</span><br><span class="line"><span class="meta">&gt;</span> TYPE a_key</span><br></pre></td></tr></table></figure>
 <h3 id="取值相关命令"><a href="#取值相关命令" class="headerlink" title="取值相关命令"></a>取值相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置指定 key 的值</span><br><span class="line"><span class="meta">&gt;</span> SET a_key a_value</span><br><span class="line"><span class="meta">#</span> 获取指定 key 的字符串值</span><br><span class="line"><span class="meta">&gt;</span> GET a_key</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：对有标点符号的 key，要用双引号（“”）包裹，否则会返回 <code>nil</code> 。比如使用 Spring Cache + Redis 时，会序列化缓存方法返回值，这是的 KEY 就要用双引号括起来，示例如下，</p>
+<p><code>GET &quot;cache1:\xac\xed\x00\x05t\x00$cb5775e6-1b39-4f63-85c8-13f134a54f32&quot;</code></p>
+</blockquote>
 <h3 id="List-相关命令"><a href="#List-相关命令" class="headerlink" title="List 相关命令"></a>List 相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 获知列表长度</span><br><span class="line"><span class="meta">&gt;</span> Llen a_key</span><br><span class="line"><span class="meta">#</span> 获取列表指定范围内的元素。其中 0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span><br><span class="line"><span class="meta">&gt;</span> Lrange a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</span><br><span class="line"><span class="meta">&gt;</span> Ltrim a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除并返回列表的最后一个元素。</span><br><span class="line"><span class="meta">&gt;</span> Lpop a_key</span><br></pre></td></tr></table></figure>
 <h3 id="删库跑路相关命令"><a href="#删库跑路相关命令" class="headerlink" title="删库跑路相关命令"></a>删库跑路相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除所有数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHALL</span><br><span class="line"><span class="meta">#</span> 删除当前数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHDB</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
@@ -654,7 +658,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/10/28/thinking/weekly/周记 20181028/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
                     周记 20181028
@@ -664,7 +668,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">Hexo + Github Page = 个人 WiKi</div>
         </a>
     

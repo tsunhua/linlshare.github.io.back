@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -301,18 +301,18 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            exception
+                            cache
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/cache/Guava Cache/">Guava Cache</a></li>  <li class="file"><a href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            guava
+                            exception
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -561,6 +561,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/android/Android 打包时 Keep 住某些方法或类" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/android/">android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">
+            <time datetime="2018-09-04T09:07:00.000Z" itemprop="datePublished">2018-09-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/android/Android 打包时 Keep 住某些方法或类.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/android/Android 打包时 Keep 住某些方法或类.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/android/Android 打包时 Keep 住某些方法或类.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> $&#123;android_sdk&#125;/tools/proguard/proguard-android.txt</span><br><span class="line"><span class="meta">#</span> Understand the @Keep support annotation.</span><br><span class="line">-keep class android.support.annotation.Keep</span><br><span class="line"></span><br><span class="line">-keep @android.support.annotation.Keep class * &#123;*;&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;fields&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;init&gt;(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// android/support/annotation/Keep.java</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Denotes that the annotated element should not be removed when</span></span><br><span class="line"><span class="comment"> * the code is minified at build time. This is typically used</span></span><br><span class="line"><span class="comment"> * on methods and classes that are accessed only via reflection</span></span><br><span class="line"><span class="comment"> * so a compiler may think that the code is unused.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * Example:</span></span><br><span class="line"><span class="comment"> * &lt;pre&gt;&lt;code&gt;</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Keep</span></span></span><br><span class="line"><span class="comment"> *  public void foo() &#123;</span></span><br><span class="line"><span class="comment"> *      ...</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> * &lt;/code&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Retention</span>(CLASS)</span><br><span class="line"><span class="meta">@Target</span>(&#123;PACKAGE,TYPE,ANNOTATION_TYPE,CONSTRUCTOR,METHOD,FIELD&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Keep &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</p><p>// <a href="https://www.guardsquare.com/en/products/proguard/manual/usage" target="_blank" rel="noopener">https://www.guardsquare.com/en/products/proguard/manual/usage</a></p>
+<h3 id="File-filters"><a href="#File-filters" class="headerlink" title="File filters"></a>File filters</h3><p> Like general <a href="https://www.guardsquare.com/proguard/manual/usage#filters" target="_blank" rel="noopener">filters</a>, a file filter is a comma-separated list of file names that can contain wildcards. Only files with matching file names are read (in the case of input jars), or written (in the case of output jars). The following wildcards are supported:</p>
+<table>
+<p>
+                
+            
+        
+        
+            </p></table></div>   
+            <div class="article-more-link">
+                <a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-language/日語/伊呂波歌" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1497,112 +1601,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-culture/日本文化/日本喪葬法事" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/culture/">culture</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/culture/日本文化/">日本文化</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/日本文化/">日本文化</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/08/19/culture/日本文化/日本喪葬法事/">
-            <time datetime="2018-08-19T03:50:00.000Z" itemprop="datePublished">2018-08-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/culture/日本文化/日本喪葬法事.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/culture/日本文化/日本喪葬法事.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/culture/日本文化/日本喪葬法事.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>日本的喪葬法事真正體現了吾國以前對待逝者「慎終追遠」的思想。日本的法事莊重、肅穆、感恩、哀有度，對逝者有充分的尊重，對與會者是一場心靈的洗禮。以下內容翻譯自 <a href="http://www.hanami-zuki.com/houyou/index.html" target="_blank" rel="noopener">法要に関する基礎知識</a> ，如有不當，懇請指正。</p>
-<table>
-<thead>
-<tr>
-<th>法事種類</th>
-<p>
-                
-            
-        
-        
-            </p></tr></thead></table></div>   
-            <div class="article-more-link">
-                <a href="/2018/08/19/culture/日本文化/日本喪葬法事/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Siguiente  &raquo;</a>
         </nav>
     
 </section>

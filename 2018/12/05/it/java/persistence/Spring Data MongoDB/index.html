@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="用途快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。 快速开始（0）开始之前确保已有可连接的 MongoDB （1）依赖引入在 build.gradle 中添加如下依赖。 1234567891011121314151617181920212223builds">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T07:27:36.459Z">
+<meta property="og:updated_time" content="2018-12-05T10:09:39.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Data MongoDB">
 <meta name="twitter:description" content="用途快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。 快速开始（0）开始之前确保已有可连接的 MongoDB （1）依赖引入在 build.gradle 中添加如下依赖。 1234567891011121314151617181920212223builds">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -303,18 +303,18 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            exception
+                            cache
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/cache/Guava Cache/">Guava Cache</a></li>  <li class="file"><a href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            guava
+                            exception
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/guava/Guava Cache/">Guava Cache</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -622,7 +622,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">Catálogo</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用途"><span class="toc-number">1.</span> <span class="toc-text">用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（0）开始之前"><span class="toc-number">2.1.</span> <span class="toc-text">（0）开始之前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）依赖引入"><span class="toc-number">2.2.</span> <span class="toc-text">（1）依赖引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）配置-MongoDB-连接"><span class="toc-number">2.3.</span> <span class="toc-text">（2）配置 MongoDB 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）定义一个简单的实体类"><span class="toc-number">2.4.</span> <span class="toc-text">（3）定义一个简单的实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）定义一个-Repository"><span class="toc-number">2.5.</span> <span class="toc-text">（4）定义一个 Repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）让-Spring-Boot-自动装配-CustomerRepository"><span class="toc-number">2.6.</span> <span class="toc-text">（5）让 Spring Boot 自动装配 CustomerRepository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）使用-MongoDB-命令行查询"><span class="toc-number">2.7.</span> <span class="toc-text">（6）使用 MongoDB 命令行查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深入探讨"><span class="toc-number">3.</span> <span class="toc-text">深入探讨</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的匹配注解列表"><span class="toc-number">3.1.</span> <span class="toc-text">常用的匹配注解列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的查询方法关键字列表"><span class="toc-number">3.2.</span> <span class="toc-text">支持的查询方法关键字列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
@@ -841,6 +841,7 @@ ga('send', 'pageview');
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#repositories.create-instances.spring" target="_blank" rel="noopener">Spring Data MongoDB - Reference Documentation - spring.io</a></li>
 <li><a href="https://spring.io/guides/gs/accessing-data-mongodb/" target="_blank" rel="noopener">Accessing Data with MongoDB - spring.io</a></li>
+<li><a href="https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html" target="_blank" rel="noopener">Working with Spring Data Repositories - spring.io</a></li>
 </ol>
 
             </div>
@@ -854,9 +855,18 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
+        <a href="/2018/12/05/it/java/cache/Spring Cache/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    Spring Cache
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">澳門編年史 - 二十世紀(1900-1949)</div>
         </a>
     
