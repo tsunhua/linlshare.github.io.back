@@ -214,6 +214,32 @@ public class CustomerRepository {
 > TTL "cache1:cb5775e6-1b39-4f63-85c8-13f134a54f32"
 ```
 
+## 更进一步
+
+### 创建自定义的 KeyGenerator
+
+1. 使上述的 `RedisConfig` 继承 `CachingConfigurerSupport`，这一步很重要，否则创建自定义的 `KeyGenerator` 失败；
+2. 使用 `@Bean` 声明自定义的 `KeyGenerator`。代码如下：
+
+```java
+@Configuration
+public class RedisConfig extends CachingConfigurerSupport {
+  @Bean
+  @Override
+  public KeyGenerator keyGenerator() {
+    return new SimpleKeyGenerator() {
+      @Override
+      public Object generate(Object target, Method method, Object... params) {
+          // 这里使用 [`] 分割参数，更进一步的还可以加入 method 名，或者直接重写一个 KeyGenerator。
+          return super.generate(target, method, StringUtils.arrayToDelimitedString(params, "`"));
+      }
+    };
+  }
+}
+```
+
+这样，就可以覆盖 Spring Cache 默认的 `SimpleKeyGenerator` 了。
+
 ## 参考
 
 1. [Caching Data with Spring - spring.io](https://spring.io/guides/gs/caching/)
@@ -221,3 +247,4 @@ public class CustomerRepository {
 3. [A Guide To Caching in Spring - baeldung.com](https://www.baeldung.com/spring-cache-tutorial)
 4. [Spring Data Redis](https://docs.spring.io/spring-data/redis/docs/2.1.3.RELEASE/reference/html/#redis.repositories.expirations)
 5. [spring使用redis做缓存 - cnblogs.com](https://www.cnblogs.com/morethink/p/7798602.html)
+6. [Spring Cache – Creating a Custom KeyGenerator](https://www.baeldung.com/spring-cache-custom-keygenerator)
