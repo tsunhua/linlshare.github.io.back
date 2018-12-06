@@ -115,7 +115,9 @@ public class AppRunner implements CommandLineRunner {
 在前面的依赖之下再额外新增 Redis 相关的依赖，如下：
 
 ```groovy
-compile "org.springframework.data:spring-data-redis:2.0.3.RELEASE"
+// 本环境中的 spring-data-redis 为 1.8.7.RELEASE 版本
+// 高版本的配置略有不同，请留意
+compile ("org.springframework.data:spring-data-redis") 
 compile "redis.clients:jedis:2.9.0"
 ```
 
@@ -125,7 +127,12 @@ compile "redis.clients:jedis:2.9.0"
 @Configuration
 public class RedisConfig {
   private final static Logger LOGGER = LoggerFactory.getLogger(RedisConfig.class);
+  private final static Map<String, Long> CACHE_EXPIRE_MAP = new HashMap<>();
 
+  static {
+    CACHE_EXPIRE_MAP.put("cache1", 5 * 60L); //second
+  }
+    
   @Bean
   RedisConnectionFactory redisConnectionFactory() {
     JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();
@@ -144,21 +151,25 @@ public class RedisConfig {
     RedisTemplate template = new RedisTemplate();
     template.setConnectionFactory(redisConnectionFactory);
     template.afterPropertiesSet();
+    // 默认为 JdkSerializationRedisSerializer, 配合 @Cacheable 时 KEY 会有序列化值在中间
+    // 使用 StringRedisSerializer 则不会如此
+    template.setKeySerializer(new StringRedisSerializer());
     return template;
+  }
+
+  @Bean
+  public RedisCacheManager cacheManager(RedisTemplate redisTemplate) {
+    RedisCacheManager cm = new RedisCacheManager(redisTemplate);
+    cm.setCacheNames(CACHE_EXPIRE_MAP.keySet());
+    cm.setExpires(CACHE_EXPIRE_MAP);
+    cm.setUsePrefix(true);
+    cm.setCachePrefix(cacheName -> (cacheName + ":").getBytes());
+    return cm;
   }
 }
 ```
 
-#### （4.3）配置 Spring Cache
-
-```properties
-# 这里指定两个缓存，作为缓存 KEY 的前缀，形如 `cache1:xxx`
-spring.cache.cache-names=cache1,cache2
-# 这里指定缓存的存活时间为6分钟
-spring.cache.redis.time-to-live=600000
-```
-
-#### （4.3）序列化实体类
+#### （4.2）序列化实体类
 
 Spring 在将实体类缓存到 Redis 中时进行了序列化操作，如果不对实体类进行序列化将会报错。
 
@@ -177,7 +188,7 @@ public class Customer implements Serializable {
 }
 ```
 
-#### （4.4）在需要缓存的位置使用注解，并指定缓存名
+#### （4.3）在需要缓存的位置使用注解，并指定缓存名
 
 如果在使用 Redis 缓存时，没有指定缓存名，将会报错：`no cache could be resolved for at least one cache should be provided per cache operation`。
 
@@ -192,14 +203,15 @@ public class CustomerRepository {
 }
 ```
 
-#### （4.5）测试一下
+#### （4.4）测试一下
 
 测试代码同（3.3）。除此之外还可以通过 Redis CLI 检验缓存结果：
 
 ```shell
 > KEYS *
-1) "cache1:\xac\xed\x00\x05t\x00$cb5775e6-1b39-4f63-85c8-13f134a54f32"
-> GET "cache1:\xac\xed\x00\x05t\x00$cb5775e6-1b39-4f63-85c8-13f134a54f32"
+1) "cache1:cb5775e6-1b39-4f63-85c8-13f134a54f32"
+> GET "cache1:cb5775e6-1b39-4f63-85c8-13f134a54f32"
+> TTL "cache1:cb5775e6-1b39-4f63-85c8-13f134a54f32"
 ```
 
 ## 参考
