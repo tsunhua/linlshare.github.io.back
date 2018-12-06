@@ -37,6 +37,12 @@ $ git reset --hard <commit id>
 $ git rm -rf <file1> <file2>
 ```
 
+### 添加子模块（submodule）
+
+```shell
+$ git submodule add git://github.com/chneukirchen/rack.git rack
+```
+
 ### 入门
 
 #### Git是什么？
