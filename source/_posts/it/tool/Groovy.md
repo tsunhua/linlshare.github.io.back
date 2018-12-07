@@ -52,3 +52,19 @@ project.custom {
 assert project.custom.foo == "other"
 ```
 
+### Gradle 依赖排除
+
+```groovy
+dependencies {
+	compile('com.zhyea:ar4j:1.0') {
+		//excluding a particular transitive dependency:
+		exclude module: 'cglib' //by artifact name
+		exclude group: 'org.jmock' //by group
+		exclude group: 'org.unwanted', module: 'iAmBuggy' //by both name and group
+	}
+}
+```
+
+## 参考
+
+1. [Gradle 依赖排除](http://www.zhyea.com/2018/02/08/gradle-exclude-dependencies.html)
