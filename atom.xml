@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-06T07:22:57.767Z</updated>
+  <updated>2018-12-07T06:53:04.078Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebMagic</title>
+    <link href="https://linlshare.github.io/2018/12/07/it/robot/WebMagic/"/>
+    <id>https://linlshare.github.io/2018/12/07/it/robot/WebMagic/</id>
+    <published>2018-12-07T02:06:53.000Z</published>
+    <updated>2018-12-07T06:53:04.078Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="WebMagic-是干嘛的？"><a href="#WebMagic-是干嘛的？" class="headerlink" title="WebMagic 是干嘛的？"></a>WebMagic 是干嘛的？</h2><p>WebMagic 是一个 Java 平台上的开源爬虫框架，其设计参考了 Scrapy，实现则参考了 HttpClient 和 Jsoup。其由四大组件组成：</p><ol><li>Downloader，负责下载网页，使用 HttpClient。</li><li>PageProcessor，负责解析网页和链接发现，使用 Jsoup 和 Xsoup。</li><li>Scheduler，负责管理待抓取的 URL 和去重。</li><li>Pipeline，负责结果数据的持久化。</li></ol><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="（1）依赖引入"><a href="#（1）依赖引入" class="headerlink" title="（1）依赖引入"></a>（1）依赖引入</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ext &#123;</span><br><span class="line">  versions = [</span><br><span class="line">    <span class="string">"web_magic"</span>: <span class="string">'0.7.3'</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  <span class="comment">// 这里有自己项目的日志实现</span></span><br><span class="line">  compile project(<span class="string">':base'</span>)</span><br><span class="line"></span><br><span class="line">  compile(<span class="string">"us.codecraft:webmagic-core:$&#123;versions.web_magic&#125;"</span>) &#123;</span><br><span class="line">    exclude <span class="string">group:</span> <span class="string">'org.slf4j'</span>, <span class="string">module:</span> <span class="string">'slf4j-log4j12'</span> <span class="comment">// 移除默认的日志实现</span></span><br><span class="line">  &#125;</span><br><span class="line">  compile(<span class="string">"us.codecraft:webmagic-extension:$&#123;versions.web_magic&#125;"</span>) &#123;</span><br><span class="line">    exclude <span class="string">group:</span> <span class="string">'org.slf4j'</span>, <span class="string">module:</span> <span class="string">'slf4j-log4j12'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="（2）快速开始"><a href="#（2）快速开始" class="headerlink" title="（2）快速开始"></a>（2）快速开始</h3><p>爬取 <a href="https://github.com/code4craft/" target="_blank" rel="noopener">https://github.com/code4craft/</a> 页面上可以发现的所有 Github 仓库信息。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GithubRepoPageProcessor</span> <span class="keyword">implements</span> <span class="title">PageProcessor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Site site = Site.me().setRetryTimes(<span class="number">3</span>).setSleepTime(<span class="number">200</span>).setTimeOut(<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">    String regex = <span class="string">"(https://github\\.com/code4craft/([\\w-_]+)/)"</span>;</span><br><span class="line">    page.addTargetRequests(page.getHtml()</span><br><span class="line">                               .links()</span><br><span class="line">                               .regex(regex)</span><br><span class="line">                               .all());</span><br><span class="line">    <span class="keyword">if</span>(!Pattern.matches(regex,page.getUrl().get()))&#123;</span><br><span class="line">      <span class="comment">//skip this page</span></span><br><span class="line">      page.setSkip(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    page.putField(<span class="string">"author"</span>, page.getUrl().regex(<span class="string">"https://github\\.com/(\\w+)/.*"</span>).toString());</span><br><span class="line">    page.putField(<span class="string">"name"</span>,</span><br><span class="line">                  page.getHtml()</span><br><span class="line">                      .xpath(<span class="string">"//meta[@property='og:title']/@content"</span>)</span><br><span class="line">                      .toString());</span><br><span class="line">    <span class="keyword">if</span> (page.getResultItems().get(<span class="string">"name"</span>) == <span class="keyword">null</span>) &#123;</span><br><span class="line">      page.setSkip(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Site <span class="title">getSite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> site;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Spider.create(<span class="keyword">new</span> GithubRepoPageProcessor())</span><br><span class="line">          .addUrl(<span class="string">"https://github.com/code4craft/"</span>)</span><br><span class="line">          .thread(<span class="number">5</span>)</span><br><span class="line">          .run();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="更进一步"><a href="#更进一步" class="headerlink" title="更进一步"></a>更进一步</h2><h3 id="Pipeline-接口参数分析"><a href="#Pipeline-接口参数分析" class="headerlink" title="Pipeline 接口参数分析"></a>Pipeline 接口参数分析</h3><p>Pipeline 接口会在每个 Page 解析完成之后回调一次。其中的参数如下：</p><p><strong>（1）Task</strong></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"exitWhenComplete"</span>: <span class="literal">true</span>,</span><br><span class="line">    "pageCount": 0, // 抓取的第几页</span><br><span class="line">    "scheduler": &#123;</span><br><span class="line">        "duplicateRemover": &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    "site": &#123;</span><br><span class="line">        "acceptStatCode": [</span><br><span class="line">            <span class="number">200</span></span><br><span class="line">        ],</span><br><span class="line">        "allCookies": &#123;&#125;,</span><br><span class="line">        "cookies": &#123;&#125;,</span><br><span class="line">        "cycleRetryTimes": 0,</span><br><span class="line">        "disableCookieManagement": false,</span><br><span class="line">        "domain": "github.com",</span><br><span class="line">        "headers": &#123;</span><br><span class="line">            ":method": "GET",</span><br><span class="line">            "origin": "https://github.com"</span><br><span class="line">        &#125;,</span><br><span class="line">        "retrySleepTime": 1000,</span><br><span class="line">        "retryTimes": 3,</span><br><span class="line">        "sleepTime": 100,</span><br><span class="line">        "timeOut": 10000,</span><br><span class="line">        "useGzip": true</span><br><span class="line">    &#125;,</span><br><span class="line">    "spawnUrl": true,</span><br><span class="line">    "startTime": 1544165065094,</span><br><span class="line">    "status": "Running",</span><br><span class="line">    "threadAlive": 1,</span><br><span class="line">    "uUID": "github.com"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>（2）ResultItems</strong></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"all"</span>: &#123;</span><br><span class="line">        // 自定义的字段在这里</span><br><span class="line">        "a_key":"a_value"</span><br><span class="line">    &#125;,</span><br><span class="line">    "request": &#123;</span><br><span class="line">        "binaryContent": false,</span><br><span class="line">        "cookies": &#123;&#125;,</span><br><span class="line">        "headers": &#123;&#125;,</span><br><span class="line">        "priority": 0,</span><br><span class="line">        "url": "https://github.com/code4craft?tab=repositories"</span><br><span class="line">    &#125;,</span><br><span class="line">    "skip": false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="Https下无法抓取只支持TLS1-2的站点"><a href="#Https下无法抓取只支持TLS1-2的站点" class="headerlink" title="Https下无法抓取只支持TLS1.2的站点"></a>Https下无法抓取只支持TLS1.2的站点</h3><p>作者 code4craft 针对 <a href="https://github.com/code4craft/webmagic/issues/701" target="_blank" rel="noopener">ISSUE 701</a> 提供了如下的解决方案：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">更新会在0.7.4版本发布。</span><br><span class="line"></span><br><span class="line">临时适配方式，修改HttpClientGenerator中的buildSSLConnectionSocketFactory方法，</span><br><span class="line"></span><br><span class="line">return new SSLConnectionSocketFactory(createIgnoreVerifySSL(), new String[]&#123;&quot;SSLv3&quot;, &quot;TLSv1&quot;, &quot;TLSv1.1&quot;, &quot;TLSv1.2&quot;&#125;,</span><br><span class="line">                    null,</span><br><span class="line">                    new DefaultHostnameVerifier())</span><br><span class="line">重写自己实现的HttpClientDownloader，并设置到Spider中。</span><br></pre></td></tr></table></figure><h3 id="java-net-UnknownHostException"><a href="#java-net-UnknownHostException" class="headerlink" title="java.net.UnknownHostException"></a>java.net.UnknownHostException</h3><p>请检查网络连接。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://webmagic.io/docs/zh/" target="_blank" rel="noopener">WebMagic in Action - webmagic.io</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;WebMagic-是干嘛的？&quot;&gt;&lt;a href=&quot;#WebMagic-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;WebMagic 是干嘛的？&quot;&gt;&lt;/a&gt;WebMagic 是干嘛的？&lt;/h2&gt;&lt;p&gt;WebMagic 是一个 Java 平台上的
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="Robot" scheme="https://linlshare.github.io/tags/Robot/"/>
+    
+      <category term="WebMagic" scheme="https://linlshare.github.io/tags/WebMagic/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Cache</title>
@@ -169,37 +200,6 @@
   </entry>
   
   <entry>
-    <title>MyBatis</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:28:06.360Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JPA</title>
     <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/"/>
     <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</id>
@@ -262,13 +262,44 @@
   </entry>
   
   <entry>
+    <title>MyBatis</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
+    <published>2018-12-04T07:51:06.000Z</published>
+    <updated>2018-12-04T09:28:06.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Groovy</title>
     <link href="https://linlshare.github.io/2018/12/03/it/tool/Groovy/"/>
     <id>https://linlshare.github.io/2018/12/03/it/tool/Groovy/</id>
     <published>2018-12-03T03:09:17.000Z</published>
-    <updated>2018-12-03T04:17:26.523Z</updated>
+    <updated>2018-12-07T04:13:59.020Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Gradle-中的-ext-究竟是什么？"><a href="#Gradle-中的-ext-究竟是什么？" class="headerlink" title="Gradle 中的 ext 究竟是什么？"></a>Gradle 中的 ext 究竟是什么？</h3><p>gradle 中我们使用 <code>ext</code> 定义额外的各种属性，可是 <code>ext</code> 究竟是什么呢？</p><p>参看 <a href="https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html" target="_blank" rel="noopener">ExtraPropertiesExtension - Gradle DSL</a>，发现 <code>ext</code> 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure><p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Gradle-中的-ext-究竟是什么？"><a href="#Gradle-中的-ext-究竟是什么？" class="headerlink" title="Gradle 中的 ext 究竟是什么？"></a>Gradle 中的 ext 究竟是什么？</h3><p>gradle 中我们使用 <code>ext</code> 定义额外的各种属性，可是 <code>ext</code> 究竟是什么呢？</p><p>参看 <a href="https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html" target="_blank" rel="noopener">ExtraPropertiesExtension - Gradle DSL</a>，发现 <code>ext</code> 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure><p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure><h3 id="Gradle-依赖排除"><a href="#Gradle-依赖排除" class="headerlink" title="Gradle 依赖排除"></a>Gradle 依赖排除</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">compile(<span class="string">'com.zhyea:ar4j:1.0'</span>) &#123;</span><br><span class="line"><span class="comment">//excluding a particular transitive dependency:</span></span><br><span class="line">exclude <span class="string">module:</span> <span class="string">'cglib'</span> <span class="comment">//by artifact name</span></span><br><span class="line">exclude <span class="string">group:</span> <span class="string">'org.jmock'</span> <span class="comment">//by group</span></span><br><span class="line">exclude <span class="string">group:</span> <span class="string">'org.unwanted'</span>, <span class="string">module:</span> <span class="string">'iAmBuggy'</span> <span class="comment">//by both name and group</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://www.zhyea.com/2018/02/08/gradle-exclude-dependencies.html" target="_blank" rel="noopener">Gradle 依赖排除</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -285,28 +316,6 @@
     
     
       <category term="Groovy" scheme="https://linlshare.github.io/tags/Groovy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CompletableFuture</title>
-    <link href="https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/"/>
-    <id>https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/</id>
-    <published>2018-12-03T02:49:29.000Z</published>
-    <updated>2018-12-03T02:49:59.457Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="schedule" scheme="https://linlshare.github.io/categories/it/java/schedule/"/>
-    
-    
-      <category term="CompletableFuture" scheme="https://linlshare.github.io/tags/CompletableFuture/"/>
     
   </entry>
   
@@ -336,6 +345,28 @@
     
     
       <category term="Quartz" scheme="https://linlshare.github.io/tags/Quartz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CompletableFuture</title>
+    <link href="https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/"/>
+    <id>https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/</id>
+    <published>2018-12-03T02:49:29.000Z</published>
+    <updated>2018-12-03T02:49:59.457Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="schedule" scheme="https://linlshare.github.io/categories/it/java/schedule/"/>
+    
+    
+      <category term="CompletableFuture" scheme="https://linlshare.github.io/tags/CompletableFuture/"/>
     
   </entry>
   
@@ -567,47 +598,6 @@
       <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
     
       <category term="设计模式" scheme="https://linlshare.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>广州生物岛摄影 20181124</title>
-    <link href="https://linlshare.github.io/2018/11/24/photography/%E5%B9%BF%E5%B7%9E%E7%94%9F%E7%89%A9%E5%B2%9B%E6%91%84%E5%BD%B1%2020181124/"/>
-    <id>https://linlshare.github.io/2018/11/24/photography/广州生物岛摄影 20181124/</id>
-    <published>2018-11-24T14:00:12.000Z</published>
-    <updated>2018-11-24T15:13:54.930Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>地点</td><td>广州生物岛（官洲岛）</td></tr><tr><td>景点</td><td>水墨园、叠翠园、空旷的道路</td></tr><tr><td>时间</td><td>2018年 11月 24日 上午</td></tr><tr><td>气候</td><td>阳光明媚，温度 25°C</td></tr><tr><td>设备</td><td>Sony RX100 Ⅲ</td></tr><tr><td>主题</td><td>冬天在哪里？</td></tr><tr><td>照片数量</td><td>8/99</td></tr></tbody></table><h3 id="路（Road）"><a href="#路（Road）" class="headerlink" title="路（Road）"></a>路（Road）</h3><h4 id="（1）车道-人行道-水墨园"><a href="#（1）车道-人行道-水墨园" class="headerlink" title="（1）车道-人行道-水墨园"></a>（1）车道-人行道-水墨园</h4><p>生物岛的斑马线是黄白交替的，旁边有如红色地毯的自行车道，另外还有环岛的蓝色自行车道。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/1.0 车道-人行道-水墨园.png" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>增强了饱和度</td><td>拍摄时太亮，导致黄色和红色不明显</td></tr></tbody></table><h4 id="（2）竹林小道"><a href="#（2）竹林小道" class="headerlink" title="（2）竹林小道"></a>（2）竹林小道</h4><p>水墨园里有一片竹林，风吹竹曳，可以解暑气。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/1.1 竹林小道.JPG" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>无</td><td>无</td></tr></tbody></table><h4 id="（3）生锈的水栓-活动的机器人"><a href="#（3）生锈的水栓-活动的机器人" class="headerlink" title="（3）生锈的水栓 - 活动的机器人"></a>（3）生锈的水栓 - 活动的机器人</h4><p>路边看到一锈迹斑斑的水栓，看起来好似一活动的机器人正在分析路况。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/1.2 生锈的水栓-活动的机器人.png" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>增强了亮度</td><td>拍摄时逆光了</td></tr></tbody></table><h4 id="（4）清道夫的单车装备"><a href="#（4）清道夫的单车装备" class="headerlink" title="（4）清道夫的单车装备"></a>（4）清道夫的单车装备</h4><p>道路旁边放着一辆上了锁的单车，车篮放着一顶草帽，货架延伸出一个箩筐，放着扫帚之类的清道工具，装备齐全。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/1.3 清道夫的单车装备.JPG" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>无</td><td>无</td></tr></tbody></table><h3 id="水墨园（Shuimo-Park）"><a href="#水墨园（Shuimo-Park）" class="headerlink" title="水墨园（Shuimo Park）"></a>水墨园（Shuimo Park）</h3><h4 id="（1）建设-完工"><a href="#（1）建设-完工" class="headerlink" title="（1）建设-完工"></a>（1）建设-完工</h4><p>水墨园两边的建筑，一边还在雏形还没建好，一边已经完工了。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/2.0 建设-完工.png" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>一分为二，左边使用黑白+黄色色调处理，右边不做处理</td><td>增强建设中和完工的对比</td></tr></tbody></table><h4 id="（2）屏风-人家"><a href="#（2）屏风-人家" class="headerlink" title="（2）屏风 - 人家"></a>（2）屏风 - 人家</h4><p>水墨园里，接近别墅区的地方有一处做了屏风处理，感觉很是相宜。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/2.1 屏风-人家.JPG" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>无</td><td>无</td></tr></tbody></table><h4 id="（3）奇怪的建筑"><a href="#（3）奇怪的建筑" class="headerlink" title="（3）奇怪的建筑"></a>（3）奇怪的建筑</h4><p>水墨园旁边有一处奇怪的建筑，两边伸出像手臂一样的铁疙瘩，主体部分好像损毁的斗兽场，目前还在维护。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/2.3 奇怪的建筑.JPG" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>无</td><td>无</td></tr></tbody></table><h3 id="中国海警（Chinese-Maritime-Police）"><a href="#中国海警（Chinese-Maritime-Police）" class="headerlink" title="中国海警（Chinese Maritime Police）"></a>中国海警（Chinese Maritime Police）</h3><p>在水墨园偶然间听到军队嘹亮的歌声，往岛边一望，原来是中国海警舰艇的身影，穿着白色 T 恤，肩上有红蓝条纹，前额很尖。</p><p><img src="/2018/11/24/photography/广州生物岛摄影 20181124/3.0 中国海警.png" alt=""></p><table><thead><tr><th>PS</th><th>WHY</th></tr></thead><tbody><tr><td>增强了亮度</td><td>拍摄时逆光了</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;地点&lt;/td&gt;
-&lt;td&gt;广州生物岛（官洲岛）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;景点&lt;/td&gt;
-&lt;td&gt;水墨园、
-      
-    
-    </summary>
-    
-      <category term="photography" scheme="https://linlshare.github.io/categories/photography/"/>
-    
-    
-      <category term="摄影" scheme="https://linlshare.github.io/tags/%E6%91%84%E5%BD%B1/"/>
-    
-      <category term="生物岛" scheme="https://linlshare.github.io/tags/%E7%94%9F%E7%89%A9%E5%B2%9B/"/>
     
   </entry>
   

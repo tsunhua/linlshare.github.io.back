@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="Q&amp;amp;AGradle 中的 ext 究竟是什么？gradle 中我们使用 ext 定义额外的各种属性，可是 ext 究竟是什么呢？ 参看 ExtraPropertiesExtension - Gradle DSL，发现 ext 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是： 123456789// 以下的 project 常常被省略project.ext &amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T04:17:26.523Z">
+<meta property="og:updated_time" content="2018-12-07T04:13:59.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Groovy">
 <meta name="twitter:description" content="Q&amp;amp;AGradle 中的 ext 究竟是什么？gradle 中我们使用 ext 定义额外的各种属性，可是 ext 究竟是什么呢？ 参看 ExtraPropertiesExtension - Gradle DSL，发现 ext 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是： 123456789// 以下的 project 常常被省略project.ext &amp;#12">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -352,7 +352,7 @@ ga('send', 'pageview');
                             &nbsp;
                             robot
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -622,8 +622,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">1.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle-中的-ext-究竟是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">Gradle 中的 ext 究竟是什么？</span></a></li></ol></li></ol>
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">1.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle-中的-ext-究竟是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">Gradle 中的 ext 究竟是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradle-依赖排除"><span class="toc-number">1.2.</span> <span class="toc-text">Gradle 依赖排除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
@@ -633,6 +633,10 @@ ga('send', 'pageview');
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure>
 <p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Gradle-依赖排除"><a href="#Gradle-依赖排除" class="headerlink" title="Gradle 依赖排除"></a>Gradle 依赖排除</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">'com.zhyea:ar4j:1.0'</span>) &#123;</span><br><span class="line">		<span class="comment">//excluding a particular transitive dependency:</span></span><br><span class="line">		exclude <span class="string">module:</span> <span class="string">'cglib'</span> <span class="comment">//by artifact name</span></span><br><span class="line">		exclude <span class="string">group:</span> <span class="string">'org.jmock'</span> <span class="comment">//by group</span></span><br><span class="line">		exclude <span class="string">group:</span> <span class="string">'org.unwanted'</span>, <span class="string">module:</span> <span class="string">'iAmBuggy'</span> <span class="comment">//by both name and group</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://www.zhyea.com/2018/02/08/gradle-exclude-dependencies.html" target="_blank" rel="noopener">Gradle 依赖排除</a></li>
+</ol>
 
             </div>
         
@@ -645,19 +649,19 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
     
-        <a href="/2018/12/04/it/java/persistence/JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+        <a href="/2018/12/04/it/java/persistence/MyBatis/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
-                    JDBC
+                    MyBatis
                 
             </div>
         </a>
     
     
-        <a href="/2018/12/03/it/java/schedule/CompletableFuture/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">CompletableFuture</div>
+        <a href="/2018/12/03/it/java/schedule/Quartz/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">Quartz</div>
         </a>
     
 </nav>
