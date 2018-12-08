@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -449,6 +449,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/08/movie/海蒂和爷爷/">海蒂和爷爷</a></li>  <li class="file"><a href="/2018/08/19/movie/海街日记/">海街日记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             person
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
@@ -470,15 +479,6 @@ ga('send', 'pageview');
                             thinking
                         </a>
                          <ul class="unstyled" id="tree"> 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            movie
-                        </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
-                    </li> 
-                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -561,6 +561,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/kotlin/Kotlin函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/kotlin/">kotlin</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Kotlin/">Kotlin</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/16/it/kotlin/Kotlin函数/">
+            <time datetime="2017-12-16T12:07:00.000Z" itemprop="datePublished">2017-12-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/kotlin/Kotlin函数.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/kotlin/Kotlin函数.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/kotlin/Kotlin函数.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">double</span><span class="params">(x: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>描述：以fun为<strong>关键字</strong>，后接<strong>函数名</strong>，函数名后使用括号包裹<strong>函数参数</strong>，最后使用“:”+ 数据类型说明<strong>返回类型</strong>。</p>
+<p>这里的返回类型采用后缀方式表示，意味着有时会被省略，通常是在能通过上下文推断的时候。</p>
+<h3 id="函数用法"><a href="#函数用法" class="headerlink" title="函数用法"></a>函数用法</h3><p>顶层函数直接调用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = double(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2017/12/16/it/kotlin/Kotlin函数/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/tool/Github" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -874,7 +978,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/9/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+        <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
         </nav>
     
 </section>

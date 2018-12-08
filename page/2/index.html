@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -449,6 +449,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/08/movie/海蒂和爷爷/">海蒂和爷爷</a></li>  <li class="file"><a href="/2018/08/19/movie/海街日记/">海街日记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             person
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
@@ -470,15 +479,6 @@ ga('send', 'pageview');
                             thinking
                         </a>
                          <ul class="unstyled" id="tree"> 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            movie
-                        </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/thinking/movie/《海街日记》观后/">《海街日记》观后</a></li>  </ul> 
-                    </li> 
-                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -561,6 +561,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/persistence/JPA" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JPA/">JPA</a>, <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/JPA/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JPA.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JPA.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JPA.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/JPA/">JPA</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p>
+<ol>
+<li>API 本身，定义在 <code>javax.persistence</code> 包下；</li>
+<li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li>
+<li>对象与关联表之间的元数据。</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/java/persistence/JPA/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/tool/Groovy" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -665,6 +769,87 @@ ga('send', 'pageview');
 
 
     
+        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
+            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+            
+        
+        
+            
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/schedule/Quartz" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -756,87 +941,6 @@ ga('send', 'pageview');
             </p></div>   
             <div class="article-more-link">
                 <a href="/2018/12/03/it/java/schedule/Quartz/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
-            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            
             </div>
         
         <footer class="article-footer">
@@ -1444,112 +1548,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/java/base/etcd" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ETCD/">ETCD</a>, <a class="tag-link" href="/tags/IT/">IT</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/27/it/java/base/etcd/">
-            <time datetime="2018-11-27T06:17:35.000Z" itemprop="datePublished">2018-11-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/etcd.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/etcd.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/etcd.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/27/it/java/base/etcd/">etcd</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="etcd-是什么？（What-is-etcd）"><a href="#etcd-是什么？（What-is-etcd）" class="headerlink" title="etcd 是什么？（What is etcd）"></a>etcd 是什么？（What is etcd）</h2><p>etcd 是一个一致的分布式可靠的键值存储技术。可被用来做配置共享和服务发现。</p>
-<ul>
-<li>开发语言：Go</li>
-<li>共识算法：<a href="https://raft.github.io/" target="_blank" rel="noopener">Raft</a></li>
-<li>命名来源：表示分布式的 <code>etc</code> 目录，发音为<code>/ˈɛtsiːdiː/</code>。</li>
-<p>
-                
-            
-        
-        
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/27/it/java/base/etcd/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Siguiente  &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
         </nav>
     
 </section>
