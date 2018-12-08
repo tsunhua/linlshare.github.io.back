@@ -160,6 +160,19 @@ $ mongo
 | `@Transient`     | 用于将某些字段排除，不与数据库匹配。                         |
 | `@Version`       | 用于指定字段的版本，默认值为 0，在每次更新字段后自增。       |
 
+复合索引用例：
+
+```java
+@Document
+@CompoundIndexes({
+    // lastName 升序，age 降序的复合索引，名称为 age_idx。
+    @CompoundIndex(name = "age_idx", def = "{'lastName': 1, 'age': -1}")
+})
+public class Person<T extends Address> {
+    //...
+}
+```
+
 ### 支持的查询方法关键字列表
 
 | Keyword                              | Sample                                                       | Logical result                                               |
