@@ -28,6 +28,8 @@ tags: [Music,Bach]
 2. 《E大调无伴奏小提琴组曲第三号》之回旋曲式的加沃特（Gavotte en rondeaux），BWV 1006
 3. 《平均律钢琴曲集》第二卷第一号，C大调前奏曲及赋格，BWV 870
 
+> 小贴士：旅行者金唱片可以通过访问网站 [goldenrecord.org](http://goldenrecord.org/#discus-aureus) ，在线播放其中的声音和图像，很有意思。
+
 ## 参考
 
 1. [约翰·塞巴斯蒂安·巴赫 - 维基百科](https://zh.wikipedia.org/zh-cn/约翰·塞巴斯蒂安·巴赫)
