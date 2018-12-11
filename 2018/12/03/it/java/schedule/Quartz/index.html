@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="Quartz 是什么？Quartz 是一款 Java 平台上开源的任务调度器。 快速开始（1）引入依赖12compile &quot;org.quartz-scheduler:quartz:2.3.0&quot;compile &quot;org.quartz-scheduler:quartz-jobs:2.3.0&quot; （2）初始化12345// 从工厂中获取 Scheduler 对象Scheduler scheduler =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T04:34:20.428Z">
+<meta property="og:updated_time" content="2018-12-11T09:30:54.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Quartz">
 <meta name="twitter:description" content="Quartz 是什么？Quartz 是一款 Java 平台上开源的任务调度器。 快速开始（1）引入依赖12compile &quot;org.quartz-scheduler:quartz:2.3.0&quot;compile &quot;org.quartz-scheduler:quartz-jobs:2.3.0&quot; （2）初始化12345// 从工厂中获取 Scheduler 对象Scheduler scheduler =">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            CATEGORIES: 'Catégories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -632,7 +632,7 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quartz-是什么？"><span class="toc-number">1.</span> <span class="toc-text">Quartz 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）引入依赖"><span class="toc-number">2.1.</span> <span class="toc-text">（1）引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）初始化"><span class="toc-number">2.2.</span> <span class="toc-text">（2）初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）新建一个-Job"><span class="toc-number">2.3.</span> <span class="toc-text">（3）新建一个 Job</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）调度一个-Job"><span class="toc-number">2.4.</span> <span class="toc-text">（4）调度一个 Job</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quartz-是什么？"><span class="toc-number">1.</span> <span class="toc-text">Quartz 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）引入依赖"><span class="toc-number">2.1.</span> <span class="toc-text">（1）引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）初始化"><span class="toc-number">2.2.</span> <span class="toc-text">（2）初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）新建一个-Job"><span class="toc-number">2.3.</span> <span class="toc-text">（3）新建一个 Job</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）调度一个-Job"><span class="toc-number">2.4.</span> <span class="toc-text">（4）调度一个 Job</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CronTrigger"><span class="toc-number">3.</span> <span class="toc-text">CronTrigger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
@@ -642,8 +642,29 @@ ga('send', 'pageview');
 <h3 id="（2）初始化"><a href="#（2）初始化" class="headerlink" title="（2）初始化"></a>（2）初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从工厂中获取 Scheduler 对象</span></span><br><span class="line">Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动</span></span><br><span class="line">scheduler.start();</span><br></pre></td></tr></table></figure>
 <h3 id="（3）新建一个-Job"><a href="#（3）新建一个-Job" class="headerlink" title="（3）新建一个 Job"></a>（3）新建一个 Job</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJob</span> <span class="keyword">implements</span> <span class="title">Job</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(JobExecutionContext context)</span> <span class="keyword">throws</span> JobExecutionException </span>&#123;</span><br><span class="line">    System.err.println(<span class="string">"Hello World!  TestJob is executing."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="（4）调度一个-Job"><a href="#（4）调度一个-Job" class="headerlink" title="（4）调度一个 Job"></a>（4）调度一个 Job</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加 Job 的携带数据</span></span><br><span class="line">JobDetail job = newJob(TestJob.class).withIdentity(<span class="string">"job1"</span>, <span class="string">"group1"</span>).build();</span><br><span class="line"><span class="comment">// 新建一个触发器</span></span><br><span class="line">Trigger trigger = newTrigger().withIdentity(<span class="string">"trigger1"</span>, <span class="string">"group1"</span>)</span><br><span class="line">    .startNow()</span><br><span class="line">    .withSchedule(simpleSchedule().withIntervalInSeconds(<span class="number">5</span>)</span><br><span class="line">                  .repeatForever())</span><br><span class="line">    .build();</span><br><span class="line"><span class="comment">// 开始调度</span></span><br><span class="line">scheduler.scheduleJob(job, trigger);</span><br></pre></td></tr></table></figure>
+<h2 id="CronTrigger"><a href="#CronTrigger" class="headerlink" title="CronTrigger"></a>CronTrigger</h2><p>Quartz 的 Cron 表达式不同于 Linux 系统上使用的 Cron 表达式。区别如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Linux</span><br><span class="line">minute   hour   day   month   week</span><br><span class="line"><span class="meta">#</span> Quartz</span><br><span class="line">second	minute   hour   day   month   week	year(optional field)</span><br></pre></td></tr></table></figure>
+<p>是的，Quartz 扩充了 second 和 year，这是要特别注意的。</p>
+<p>关于 Quartz Cron 表达式每个字段的取值，整理如下：</p>
+<ul>
+<li>second：[0, 59]。</li>
+<li>minute： [0, 59]。</li>
+<li>hour：[0, 23]。</li>
+<li>day：一个月中的第几天，取值 [1, 31]，注意不同月份有不同的上限值。</li>
+<li>month：[0, 11]，注意这跟 Linux 的有差异。还可取 [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC]</li>
+<li>week：星期几，取值 [1, 7]，其中 1 代表星期日。还可取 [SUN, MON, TUE, WED, THU, FRI, SAT]</li>
+</ul>
+<p>字段中使用的特殊字符跟 Linux 无异，如下：</p>
+<ul>
+<li>星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</li>
+<li>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”</li>
+<li>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”</li>
+<li>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。</li>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/quick-start.html" target="_blank" rel="noopener">quartz-2.2.x/quick-start</a></li>
+<li><a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/tutorial-lesson-06.html" target="_blank" rel="noopener">Lesson 6: CronTrigger - Quartz Tutorials</a></li>
+<li><a href="https://www.cnblogs.com/peida/archive/2013/01/08/2850483.html" target="_blank" rel="noopener">每天一个linux命令（50）：crontab命令</a></li>
 </ol>
 
             </div>
@@ -658,7 +679,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/12/03/it/tool/Groovy/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     Groovy
@@ -668,7 +689,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/12/03/it/java/schedule/CompletableFuture/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">CompletableFuture</div>
         </a>
     
