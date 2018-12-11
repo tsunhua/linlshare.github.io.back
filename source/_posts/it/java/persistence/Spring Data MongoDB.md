@@ -72,7 +72,7 @@ public class MongoConfig {
 
 1. `@Document` ，用于自定义 MongoDB 中 Collection 的名称，**默认情况下 collection 值为空，使用类名的小写形式作为 Collection 的名称**；
 2. `@Id` ，用于指定 MongoDB 内部使用字段 `_id` 的值，如果不指定，则使用自动生成的值。
-3. `@Field` ，用于指定字段存储时的名称，如果不指定，则直接使用字段名。
+3. `@Field` ，用于指定字段存储时的名称，如果不指定，则直接使用字段名。**如果字段名为` id`，那么一定要使用该注解，否则会读取时使用系统的`_id`作为 `id` 的值**。
 4. `@Indexed`，用于为指定字段添加索引，会调用 MongoDB 的 `createIndex` 方法。值得注意的是：**必须 `@Document` 注解，否则不会自动生成索引**。
 
 ```java
@@ -155,7 +155,7 @@ $ mongo
 | `@Id`            | 用于指定 MongoDB 内部使用字段 `_id` 的值，如果不指定，则使用自动生成的值。 |
 | `@Field`         | 用于指定数据库中存储的字段名。                               |
 | `@Document`      | 用于指定该类的实例对应 MongoDB 的某个指定 Collection 下的 Document。 |
-| `@Indexed`       | 用于为指定字段添加索引。                                     |
+| `@Indexed`       | 用于为指定字段添加索引。`@Indexed(unique = true)` 可注解唯一键 |
 | `@CompoundIndex` | 用于指定复合索引。                                           |
 | `@Transient`     | 用于将某些字段排除，不与数据库匹配。                         |
 | `@Version`       | 用于指定字段的版本，默认值为 0，在每次更新字段后自增。       |
