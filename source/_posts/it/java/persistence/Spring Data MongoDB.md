@@ -208,6 +208,16 @@ public class Person<T extends Address> {
 
 > Tip：将以上的 `findBy` 替换成 `deleteBy` 含义就变成了：查找后进行删除操作。
 
+下面是一个使用示例：查询指定状态集合的 JobFlow。
+
+```java
+// 方式一：使用 SqEL(Spring 表达式)
+@Query("{ 'status': { $in: ?0 } }")
+List<JobFlow> findByStatus(String... status);
+// 方式二：使用 In
+List<JobFlow> findByStatusIn(List<String> statusList);
+```
+
 ## 参考
 
 1. [Spring Data MongoDB - Reference Documentation - spring.io](https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#repositories.create-instances.spring)
