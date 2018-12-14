@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-13T13:48:04.361Z</updated>
+  <updated>2018-12-14T01:14:04.072Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日語漢字</title>
+    <link href="https://linlshare.github.io/2018/12/14/language/%E6%97%A5%E8%AA%9E/%E6%97%A5%E8%AA%9E%E6%BC%A2%E5%AD%97/"/>
+    <id>https://linlshare.github.io/2018/12/14/language/日語/日語漢字/</id>
+    <published>2018-12-14T00:48:25.000Z</published>
+    <updated>2018-12-14T01:14:04.072Z</updated>
+    
+    <content type="html"><![CDATA[<p>日語漢字源自中國中古漢字，由於地理、貿易和政治的隔絕，中日獨立發展了漢字，使得日語漢字在音、形及意上與中國漢字有所差異。</p><h2 id="簡化方式不同"><a href="#簡化方式不同" class="headerlink" title="簡化方式不同"></a>簡化方式不同</h2><p>中國大陸以及日本都獨立地進行了漢字簡化運動，繁體字的部件被簡化了。下面來看看哪些部件被簡化了，簡化成什麼樣了？</p><table><thead><tr><th>日語漢字</th><th>中文繁體</th><th>中文簡體</th></tr></thead><tbody><tr><td>売、読</td><td>賣、讀</td><td>卖、读</td></tr><tr><td>済</td><td>齊、濟</td><td>齐、济</td></tr></tbody></table><h2 id="採用了古字形"><a href="#採用了古字形" class="headerlink" title="採用了古字形"></a>採用了古字形</h2><p>有些日語漢字至今沿用了中古漢字的字形，而中文漢字方面已經有流變了。</p><table><thead><tr><th>日語漢字</th><th>中文繁體</th><th>中文簡體</th></tr></thead><tbody><tr><td>帯</td><td>帶</td><td>带</td></tr><tr><td>縄</td><td>繩</td><td>绳</td></tr><tr><td>舎</td><td>舍</td><td>舍</td></tr><tr><td>軽</td><td>輕</td><td>轻</td></tr></tbody></table><h2 id="不用的漢字表示同一個意思"><a href="#不用的漢字表示同一個意思" class="headerlink" title="不用的漢字表示同一個意思"></a>不用的漢字表示同一個意思</h2><p>有些日語漢字採用的漢字在中文漢字中很少使用了，已經用新造的漢字表示了，他們是不同的漢字，而不是同一漢字的不同字形，這點要區分開。</p><table><thead><tr><th>日語漢字</th><th>中文繁體</th><th>中文簡體</th></tr></thead><tbody><tr><td>曇</td><td>陰</td><td>阴</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;日語漢字源自中國中古漢字，由於地理、貿易和政治的隔絕，中日獨立發展了漢字，使得日語漢字在音、形及意上與中國漢字有所差異。&lt;/p&gt;
+&lt;h2 id=&quot;簡化方式不同&quot;&gt;&lt;a href=&quot;#簡化方式不同&quot; class=&quot;headerlink&quot; title=&quot;簡化方式不同&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+      <category term="language" scheme="https://linlshare.github.io/categories/language/"/>
+    
+      <category term="日語" scheme="https://linlshare.github.io/categories/language/%E6%97%A5%E8%AA%9E/"/>
+    
+    
+      <category term="日語" scheme="https://linlshare.github.io/tags/%E6%97%A5%E8%AA%9E/"/>
+    
+  </entry>
   
   <entry>
     <title>Jconsole</title>
@@ -613,35 +641,6 @@
       <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
     
       <category term="ZooKeeper" scheme="https://linlshare.github.io/tags/ZooKeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务发现</title>
-    <link href="https://linlshare.github.io/2018/11/28/it/concept/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/"/>
-    <id>https://linlshare.github.io/2018/11/28/it/concept/服务发现/</id>
-    <published>2018-11-28T14:29:25.000Z</published>
-    <updated>2018-11-28T15:12:30.622Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是服务发现？"><a href="#什么是服务发现？" class="headerlink" title="什么是服务发现？"></a>什么是服务发现？</h2><p>服务发现，Service Discovery，是<strong>一项提供服务发布和查找的服务</strong>，其实质就是<strong>键值存储</strong>，通过键（Key，在当前语境应是服务名）找到值（Value，在当前语境是服务）。DNS 就是一个简单的例子，人们或其他服务使用域名向 DNS 请求 IP 地址，Key 就是域名，Value 就是 IP 地址。</p><p>服务发现是支持大规模 SOA（service-oriented architecture）的核心服务，需具备以下关键特性：</p><ol><li>注册（Registration），新增服务到服务列表；</li><li>目录（Directory），即服务列表；</li><li>查找（Lookup），通过服务名找到服务。</li></ol><p>服务元数据（metadata，包括服务的 IP、端口、提供的服务等等信息）存储是服务发现的关键。</p><p>服务发现还需<strong>提供查询所有服务的部署状态和集中控制所有服务实例的方式</strong>。</p><h2 id="服务发现解决方案"><a href="#服务发现解决方案" class="headerlink" title="服务发现解决方案"></a>服务发现解决方案</h2><table><thead><tr><th>解决方案</th><th>特性</th><th>发起人</th></tr></thead><tbody><tr><td>Redis</td><td>用 Redis 作为服务中介是最简单的，但不适用于分布式系统，不具备下面的解决方案的优点</td><td>无</td></tr><tr><td>ZooKeeper</td><td>提供了包括配置管理、领导人选举和分布式锁在内的完整解决方案</td><td>Apache</td></tr><tr><td>etcd</td><td>与 ZooKeeper 具有相似的架构和功能</td><td>CoreOS</td></tr><tr><td>doozerd</td><td>与 ZooKeeper 具有相似的架构和功能</td><td>Blake Mizerany &amp; Keith Rarick</td></tr><tr><td>Consul</td><td>提供了 DNS 和 HTTP 两种 API</td><td>Hashicorp</td></tr><tr><td>Eureka</td><td>在出现网络分区时， Eureka 选择可用性，而不是一致性，适合 AP( Availability and Partition ) 系统。</td><td>Netflix</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://dockone.io/article/509" target="_blank" rel="noopener">六个问题带你了解服务发现 - dockone.io</a></li><li><a href="https://highops.com/insights/service-discovery-6-questions-to-4-experts/" target="_blank" rel="noopener">Service Discovery: 6 questions to 4 experts - highops.com</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;什么是服务发现？&quot;&gt;&lt;a href=&quot;#什么是服务发现？&quot; class=&quot;headerlink&quot; title=&quot;什么是服务发现？&quot;&gt;&lt;/a&gt;什么是服务发现？&lt;/h2&gt;&lt;p&gt;服务发现，Service Discovery，是&lt;strong&gt;一项提供服务发布和查找的服务
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="concept" scheme="https://linlshare.github.io/categories/it/concept/"/>
-    
-    
-      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
-    
-      <category term="服务发现" scheme="https://linlshare.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/"/>
     
   </entry>
   
