@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-14T01:14:04.072Z</updated>
+  <updated>2018-12-15T03:08:30.221Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSV</title>
+    <link href="https://linlshare.github.io/2018/12/15/it/media/CSV/"/>
+    <id>https://linlshare.github.io/2018/12/15/it/media/CSV/</id>
+    <published>2018-12-15T02:51:47.000Z</published>
+    <updated>2018-12-15T03:08:30.221Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSV-是什么格式？"><a href="#CSV-是什么格式？" class="headerlink" title="CSV 是什么格式？"></a>CSV 是什么格式？</h2><p>CSV，全称 Comma-Separated Value，即逗号分隔值，使用逗号（或者自定义的分隔符）分隔并以纯文本形式存储表格数据。通常使用第一行作为表头。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>（1）打开编辑器，粘贴以下内容。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Brand,Product,Desc</span><br><span class="line">Apple,IPhone,Expensive</span><br><span class="line">Samsung,S9,Nice</span><br></pre></td></tr></table></figure><p>（2） 存储为 <code>.csv</code> 结尾的文件。</p><p>（3）使用 Excel 或者 Number 打开，就会以表格形式呈现内容。</p><h2 id="内容中含有逗号？"><a href="#内容中含有逗号？" class="headerlink" title="内容中含有逗号？"></a>内容中含有逗号？</h2><p>（1）自定义分隔符如下，并保存文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Brand`Product`Desc</span><br><span class="line">Apple`IPhone,Mac`Expensive</span><br><span class="line">Samsung`S8,Galaxy Watch`Nice</span><br></pre></td></tr></table></figure><p>（2）打开 Excel 新建文档，然后点击 <code>文档 --&gt; 导入</code>，选取刚才保存的 <code>csv</code> 文件。在弹出的提示框中选择 <code>分隔符号 --&gt; 下一步 --&gt; 其他</code>， 输入自定义的分隔符号，点击 <code>完成</code> 即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSV-是什么格式？&quot;&gt;&lt;a href=&quot;#CSV-是什么格式？&quot; class=&quot;headerlink&quot; title=&quot;CSV 是什么格式？&quot;&gt;&lt;/a&gt;CSV 是什么格式？&lt;/h2&gt;&lt;p&gt;CSV，全称 Comma-Separated Value，即逗号分隔值，使用
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="media" scheme="https://linlshare.github.io/categories/it/media/"/>
+    
+    
+      <category term="CSV" scheme="https://linlshare.github.io/tags/CSV/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Amazon S3</title>
+    <link href="https://linlshare.github.io/2018/12/14/it/java/aws/Amazon%20S3/"/>
+    <id>https://linlshare.github.io/2018/12/14/it/java/aws/Amazon S3/</id>
+    <published>2018-12-14T04:02:45.000Z</published>
+    <updated>2018-12-14T08:32:15.532Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Amazon-S3-是什么？"><a href="#Amazon-S3-是什么？" class="headerlink" title="Amazon S3 是什么？"></a>Amazon S3 是什么？</h2><p>Amazon S3 是亚马逊推出的一款存储服务，名为 Amazon Simple Storage Service，即亚马逊简单存储服务。</p><p>有些 S3 的概念需要了解一下：</p><ol><li>存储桶（Buckets）：S3 中用于存储对象的容器，相当于文件系统中的目录（Directory）的概念。</li><li>对象（Objects）：S3 中存储的基本实体，由对象数据和元数据组成，元数据是描述对象的一组键值对。在存储中的对象由键和版本 ID 唯一标识。</li><li>键（Keys）：存储桶中对象的唯一标识符。</li><li>区域（Regions）：地理区域。</li></ol><blockquote><p>S3 中的对象映射：存储桶 + 键 + 版本 –&gt; 对象</p></blockquote><h2 id="API-1-0"><a href="#API-1-0" class="headerlink" title="API 1.0"></a>API 1.0</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="身份验证错误"><a href="#身份验证错误" class="headerlink" title="身份验证错误"></a>身份验证错误</h3><p>BasicProfileConfigLoader - Your profile name includes a ‘profile ‘ prefix. This is considered part of the profile name in the Java SDK, so you will need to include this prefix in your profile name when you reference this profile from your Java code.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Amazon-S3-是什么？&quot;&gt;&lt;a href=&quot;#Amazon-S3-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Amazon S3 是什么？&quot;&gt;&lt;/a&gt;Amazon S3 是什么？&lt;/h2&gt;&lt;p&gt;Amazon S3 是亚马逊推出的一款存储服
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="aws" scheme="https://linlshare.github.io/categories/it/java/aws/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="S3" scheme="https://linlshare.github.io/tags/S3/"/>
+    
+      <category term="aws" scheme="https://linlshare.github.io/tags/aws/"/>
+    
+  </entry>
   
   <entry>
     <title>日語漢字</title>
@@ -595,52 +655,6 @@
     
     
       <category term="Quartz" scheme="https://linlshare.github.io/tags/Quartz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CompletableFuture</title>
-    <link href="https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/"/>
-    <id>https://linlshare.github.io/2018/12/03/it/java/schedule/CompletableFuture/</id>
-    <published>2018-12-03T02:49:29.000Z</published>
-    <updated>2018-12-03T02:49:59.457Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="schedule" scheme="https://linlshare.github.io/categories/it/java/schedule/"/>
-    
-    
-      <category term="CompletableFuture" scheme="https://linlshare.github.io/tags/CompletableFuture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ZooKeeper</title>
-    <link href="https://linlshare.github.io/2018/11/29/it/java/base/ZooKeeper/"/>
-    <id>https://linlshare.github.io/2018/11/29/it/java/base/ZooKeeper/</id>
-    <published>2018-11-29T04:10:22.000Z</published>
-    <updated>2018-11-29T04:10:26.666Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="base" scheme="https://linlshare.github.io/categories/it/java/base/"/>
-    
-    
-      <category term="IT" scheme="https://linlshare.github.io/tags/IT/"/>
-    
-      <category term="ZooKeeper" scheme="https://linlshare.github.io/tags/ZooKeeper/"/>
     
   </entry>
   
