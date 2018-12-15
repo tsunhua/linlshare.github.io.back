@@ -7,8 +7,25 @@ comments: true
 
 ## 安装
 
+### （1）Mac HomeBrew
+
 ```shell
 $ brew install redis
+```
+
+### （2）按部就班
+
+```shell
+# 需要前置依赖 make、gcc
+$ sudo apt-get update
+$ sudo apt install make
+$ sudo apt-get install gcc
+
+# 下载、解压和编译 redis
+$ wget http://download.redis.io/releases/redis-5.0.3.tar.gz
+$ tar xzf redis-5.0.3.tar.gz
+$ cd redis-5.0.3
+$ make
 ```
 
 ## 使用
@@ -92,6 +109,19 @@ $ redis-cli -h host -p port -a password
 > FLUSHDB
 ```
 
+## 排错
+
+（1）编译安装时出现：jemalloc/jemalloc.h: No such file or directory
+
+```
+make MALLOC=libc
+```
+
+（2）编译安装时出现：cc adlist.o /bin/sh:1:cc:not found
+
+ 缺少 gcc 环境，安装 gcc 即可。
+
 ## 参考
 
-- [Redis 命令参考](http://www.redis.net.cn/order/)
+1. [Download - redis.io](https://redis.io/download)
+2. [Redis 命令参考 - redis.net](http://www.redis.net.cn/order/)

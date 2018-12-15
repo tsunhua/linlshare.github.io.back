@@ -15,7 +15,13 @@ Mac 用户可以直接使用 Homebrew 安装，命令如下：
 $ sudo brew install mongodb
 ```
 
-也可以自己到 [MongoDB 的下载中心](https://www.mongodb.com/download-center/community) 下载并配置环境变量，如下：
+也可以自己到 [MongoDB 的下载中心](https://www.mongodb.com/download-center/community) 下载对应的系统和版本，如果是 Linux 的话可以使用 `wget` 下载：
+
+```shell
+wget "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.4.tgz"
+```
+
+并配置环境变量，如下：
 
 ```shell
 $ export PATH={MONGODB_DIR}/bin:$PATH

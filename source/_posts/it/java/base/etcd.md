@@ -183,6 +183,12 @@ networks:
 ETCDCTL_API=3 etcdctl get --prefix=true ""
 ```
 
+#### （2）put
+
+```shell
+ETCDCTL_API=3 etcdctl put /testdir/testkey "你好 etcd"
+```
+
 ## etcdctl v2（兼容）
 
 > Tip：可以通过 `etcdctl -h` 查看 v2 版本的命令行帮助页

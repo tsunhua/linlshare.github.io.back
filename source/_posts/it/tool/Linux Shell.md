@@ -119,6 +119,13 @@ IdentityFile ~/env/<username>.id_rsa
 2. 使用 `bg <pid>` 将其放入后台运行；
 3. 再使用 `disown <pid>` ，可以避免 HUP 信号的影响。
 
+使用 `nohup` 命令时默认会将输出保存到文件 `nohup.ou` ，可以通过以下方式修改保存文件
+
+```shell
+> nohup ${my_app} > common.out 2> error.out
+> nohup ${my_app} > all_in.out &
+```
+
 #### ps 进程快照
 
 process status, 列出当前运行的进程的快照。命令参数：
@@ -289,6 +296,8 @@ tar 代表未压缩的 tar 文件，已经压缩的 tar 文件会附加压缩文
 > tar -zxf a_file.tar.gz
 # 解压 .tar 文件到 tmp 文件夹
 > tar -xf b_file.tar tmp/
+# gzip 压缩文件 c_file 和目录 d_dir 到 out.tar.gz
+> tar -czvf out.tar.gz c_file d_dir
 ```
 
 #### awk 文本分析
@@ -427,4 +436,12 @@ chmod  a+w  .bashrc
 # 在当前目录找到以 “~$” 开头的文件，然后执行删除操作
 find . -name "~\$*" -delete
 ```
+
+### wget 下载文件
+
+```shell
+wget "http://mirrors.hust.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz"
+```
+
+
 

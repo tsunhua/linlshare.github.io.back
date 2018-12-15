@@ -22,6 +22,39 @@ tags: [Docker]
 
 [Docker.dmg 下载](https://download.docker.com/mac/stable/Docker.dmg)
 
+### Ubuntu 16+
+
+**（1）测试环境使用一键自动安装脚本**
+
+```shell
+> curl -fsSL get.docker.com -o get-docker.sh
+> sudo sh get-docker.sh --mirror Aliyun
+```
+
+**（2）按部就班安装**
+
+```shell
+# 添加使用 HTTPS 传输的软件包以及 CA 证书
+> sudo apt-get update
+> sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+    
+# 添加软件源的 GPG 密钥
+> curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+# 向 source.list 中添加 Docker 软件源
+> sudo add-apt-repository \
+    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+# 安装 docker-ce
+> sudo apt-get update
+> sudo apt-get install docker-ce
+```
+
 ### 检查安装情况
 
 ```shell
@@ -40,6 +73,19 @@ tags: [Docker]
 
 **检查配置是否生效**：执行 `docker info` 查看 `Registry Mirrors` 字段的值。
 
+## 启动和停止
+
+### Mac
+
+跟启动普通软件的方式一样。
+
+### Ubuntu 16+
+
+```shell
+> sudo systemctl enable docker
+> sudo systemctl start docker
+```
+
 ## 快速开始：启动一个 Nginx 服务器
 
 （1）安装并启动一个 Nginx 服务器，将本地的 8080 端口映射到 Docker 的 80 端口。
@@ -50,7 +96,7 @@ tags: [Docker]
 
 （2）通过 `docker ps` 查看运行中的 docker 容器列表。
 
-（3）通过 `http://localhost:8080` 即可正常访问。
+（3） `curl http://localhost:8080` 。
 
 （4）停止 Nginx 服务器
 
@@ -198,9 +244,17 @@ docker-compose --version
 
 （2）如果 `Cmd` 中不包含 `/bin/sh` 那意味着可能被你重写了。
 
-### Run container but exited immediately
+### permission denied while trying to connect to the Docker daemon socket
 
+（1）默认情况下，`docker` 命令会使用 [Unix socket](https://en.wikipedia.org/wiki/Unix_domain_socket) 与 Docker 引擎通讯。而只有 `root` 用户和 `docker` 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 `root` 用户。因此，更好地做法是将需要使用 `docker` 的用户加入 `docker` 用户组。
 
+```shell
+> sudo usermod -aG docker $USER
+```
+
+接着重启 docker，并新开一个会话连接。
+
+（2）如果还是不行，那么只好使用 `sudo` 运行 docker 命令了。
 
 ## 参考
 

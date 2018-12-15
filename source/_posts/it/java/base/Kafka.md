@@ -20,7 +20,7 @@ Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-
 
 ### 安装
 
-[下载](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.11-2.1.0.tgz)  `kafka_2.11-2.1.0.tgz`，注意 kafka 中已经包含了 zookeeper。执行以下命令解压并切换工作目录：
+[下载](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.11-2.1.0.tgz)  `kafka_2.11-2.1.0.tgz`，也可以使用命令 `wget "http://mirrors.hust.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz"` 下载，注意 kafka 中已经包含了 zookeeper。执行以下命令解压并切换工作目录：
 
 ```shell
 tar -xzf kafka_2.11-2.1.0.tgz
