@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linlshare.github.io/2018/12/15/it/java/base/Package%20&%20Deploy/</loc>
+    
+    <lastmod>2018-12-15T09:34:03.257Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linlshare.github.io/2018/10/28/it/java/base/Redis/</loc>
     
     <lastmod>2018-12-15T08:02:26.912Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://linlshare.github.io/2018/11/22/it/java/base/Kafka/</loc>
     
     <lastmod>2018-12-15T07:21:53.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linlshare.github.io/2018/12/15/it/java/base/Package%20&%20Deploy/</loc>
-    
-    <lastmod>2018-12-15T07:07:16.021Z</lastmod>
     
   </url>
   
