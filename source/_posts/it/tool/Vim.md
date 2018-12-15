@@ -109,6 +109,17 @@ q 结束记录
 3@a
 ```
 
-## 附录
+### 7. 如何进行查找替换？
 
-[Vim 用户使用手册](https://drive.google.com/file/d/1XVwX2IKHfsmtuptZNhpo0DnjMUod65ST/view?usp=sharing)
+`:s`（substitute）命令用来查找和替换字符串。语法如下：
+
+```
+:{作用范围}s/{目标}/{替换}/{替换标志}
+```
+
+例如`:%s/foo/bar/g`会在全局范围(`%`)查找`foo`并替换为`bar`，所有出现都会被替换（`g`）。
+
+## 参考
+
+1. [Vim 用户使用手册](https://drive.google.com/file/d/1XVwX2IKHfsmtuptZNhpo0DnjMUod65ST/view?usp=sharing)
+2. [在 Vim 中优雅地查找和替换 - harttle.land](https://harttle.land/2016/08/08/vim-search-in-file.html)
