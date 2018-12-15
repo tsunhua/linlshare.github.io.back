@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-15T03:08:30.221Z</updated>
+  <updated>2018-12-15T07:07:16.021Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Package &amp; Deploy</title>
+    <link href="https://linlshare.github.io/2018/12/15/it/java/base/Package%20&amp;%20Deploy/"/>
+    <id>https://linlshare.github.io/2018/12/15/it/java/base/Package &amp; Deploy/</id>
+    <published>2018-12-15T06:37:41.000Z</published>
+    <updated>2018-12-15T07:07:16.021Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="开发测试阶段的打包部署"><a href="#开发测试阶段的打包部署" class="headerlink" title="开发测试阶段的打包部署"></a>开发测试阶段的打包部署</h3><ul><li>[ ] 配置登录远程机器的 SSH config</li><li>[ ] 本地使用 Gradle 或者 Maven 打包</li><li>[ ] 使用 scp 安全拷贝 jar 包到远程机器</li><li>[ ] 使用 <code>sudo apt install openjdk-8-jre-headless</code> 安装 JDK 环境</li><li>[ ] 使用 <code>java -jar</code> 完成部署</li></ul><h3 id="分布式打包部署"><a href="#分布式打包部署" class="headerlink" title="分布式打包部署"></a>分布式打包部署</h3><ul><li>[ ] 部署 docker 环境</li><li>[ ] 在 docker 中部署 etcd</li><li>[ ] 部署 kafka</li><li>[ ] 部署应用服务</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;开发测试阶段的打包部署&quot;&gt;&lt;a href=&quot;#开发测试阶段的打包部署&quot; class=&quot;headerlink&quot; title=&quot;开发测试阶段的打包部署&quot;&gt;&lt;/a&gt;开发测试阶段的打包部署&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;[ ] 配置登录远程机器的 SSH config&lt;/li
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="base" scheme="https://linlshare.github.io/categories/it/java/base/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="JavaEE" scheme="https://linlshare.github.io/tags/JavaEE/"/>
+    
+      <category term="Package" scheme="https://linlshare.github.io/tags/Package/"/>
+    
+      <category term="Deploy" scheme="https://linlshare.github.io/tags/Deploy/"/>
+    
+  </entry>
   
   <entry>
     <title>CSV</title>
@@ -541,37 +577,6 @@
   </entry>
   
   <entry>
-    <title>MyBatis</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:28:06.360Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JPA</title>
     <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/"/>
     <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</id>
@@ -603,6 +608,37 @@
   </entry>
   
   <entry>
+    <title>MyBatis</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
+    <published>2018-12-04T07:51:06.000Z</published>
+    <updated>2018-12-04T09:28:06.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Groovy</title>
     <link href="https://linlshare.github.io/2018/12/03/it/tool/Groovy/"/>
     <id>https://linlshare.github.io/2018/12/03/it/tool/Groovy/</id>
@@ -626,35 +662,6 @@
     
     
       <category term="Groovy" scheme="https://linlshare.github.io/tags/Groovy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quartz</title>
-    <link href="https://linlshare.github.io/2018/12/03/it/java/schedule/Quartz/"/>
-    <id>https://linlshare.github.io/2018/12/03/it/java/schedule/Quartz/</id>
-    <published>2018-12-03T02:49:29.000Z</published>
-    <updated>2018-12-11T09:30:54.955Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Quartz-是什么？"><a href="#Quartz-是什么？" class="headerlink" title="Quartz 是什么？"></a>Quartz 是什么？</h2><p><a href="https://github.com/quartz-scheduler/quartz" target="_blank" rel="noopener">Quartz</a> 是一款 Java 平台上开源的任务调度器。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="（1）引入依赖"><a href="#（1）引入依赖" class="headerlink" title="（1）引入依赖"></a>（1）引入依赖</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">"org.quartz-scheduler:quartz:2.3.0"</span></span><br><span class="line">compile <span class="string">"org.quartz-scheduler:quartz-jobs:2.3.0"</span></span><br></pre></td></tr></table></figure><h3 id="（2）初始化"><a href="#（2）初始化" class="headerlink" title="（2）初始化"></a>（2）初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从工厂中获取 Scheduler 对象</span></span><br><span class="line">Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动</span></span><br><span class="line">scheduler.start();</span><br></pre></td></tr></table></figure><h3 id="（3）新建一个-Job"><a href="#（3）新建一个-Job" class="headerlink" title="（3）新建一个 Job"></a>（3）新建一个 Job</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJob</span> <span class="keyword">implements</span> <span class="title">Job</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(JobExecutionContext context)</span> <span class="keyword">throws</span> JobExecutionException </span>&#123;</span><br><span class="line">    System.err.println(<span class="string">"Hello World!  TestJob is executing."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="（4）调度一个-Job"><a href="#（4）调度一个-Job" class="headerlink" title="（4）调度一个 Job"></a>（4）调度一个 Job</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加 Job 的携带数据</span></span><br><span class="line">JobDetail job = newJob(TestJob.class).withIdentity(<span class="string">"job1"</span>, <span class="string">"group1"</span>).build();</span><br><span class="line"><span class="comment">// 新建一个触发器</span></span><br><span class="line">Trigger trigger = newTrigger().withIdentity(<span class="string">"trigger1"</span>, <span class="string">"group1"</span>)</span><br><span class="line">    .startNow()</span><br><span class="line">    .withSchedule(simpleSchedule().withIntervalInSeconds(<span class="number">5</span>)</span><br><span class="line">                  .repeatForever())</span><br><span class="line">    .build();</span><br><span class="line"><span class="comment">// 开始调度</span></span><br><span class="line">scheduler.scheduleJob(job, trigger);</span><br></pre></td></tr></table></figure><h2 id="CronTrigger"><a href="#CronTrigger" class="headerlink" title="CronTrigger"></a>CronTrigger</h2><p>Quartz 的 Cron 表达式不同于 Linux 系统上使用的 Cron 表达式。区别如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Linux</span><br><span class="line">minute   hour   day   month   week</span><br><span class="line"><span class="meta">#</span> Quartz</span><br><span class="line">secondminute   hour   day   month   weekyear(optional field)</span><br></pre></td></tr></table></figure><p>是的，Quartz 扩充了 second 和 year，这是要特别注意的。</p><p>关于 Quartz Cron 表达式每个字段的取值，整理如下：</p><ul><li>second：[0, 59]。</li><li>minute： [0, 59]。</li><li>hour：[0, 23]。</li><li>day：一个月中的第几天，取值 [1, 31]，注意不同月份有不同的上限值。</li><li>month：[0, 11]，注意这跟 Linux 的有差异。还可取 [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC]</li><li>week：星期几，取值 [1, 7]，其中 1 代表星期日。还可取 [SUN, MON, TUE, WED, THU, FRI, SAT]</li></ul><p>字段中使用的特殊字符跟 Linux 无异，如下：</p><ul><li>星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。</li><li>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”</li><li>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”</li><li>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/quick-start.html" target="_blank" rel="noopener">quartz-2.2.x/quick-start</a></li><li><a href="http://www.quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/tutorial-lesson-06.html" target="_blank" rel="noopener">Lesson 6: CronTrigger - Quartz Tutorials</a></li><li><a href="https://www.cnblogs.com/peida/archive/2013/01/08/2850483.html" target="_blank" rel="noopener">每天一个linux命令（50）：crontab命令</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Quartz-是什么？&quot;&gt;&lt;a href=&quot;#Quartz-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Quartz 是什么？&quot;&gt;&lt;/a&gt;Quartz 是什么？&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/quartz
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="schedule" scheme="https://linlshare.github.io/categories/it/java/schedule/"/>
-    
-    
-      <category term="Quartz" scheme="https://linlshare.github.io/tags/Quartz/"/>
     
   </entry>
   
