@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="安装（1）Mac HomeBrew1$ brew install redis （2）按部就班12345678910# 需要前置依赖 make、gcc$ sudo apt-get update$ sudo apt install make$ sudo apt-get install gcc# 下载、解压和编译 redis$ wget http://download.redis.io/releases">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T08:02:26.912Z">
+<meta property="og:updated_time" content="2018-12-17T03:35:02.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
 <meta name="twitter:description" content="安装（1）Mac HomeBrew1$ brew install redis （2）按部就班12345678910# 需要前置依赖 make、gcc$ sudo apt-get update$ sudo apt install make$ sudo apt-get install gcc# 下载、解压和编译 redis$ wget http://download.redis.io/releases">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            CATEGORIES: 'Catégories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -648,7 +648,7 @@ ga('send', 'pageview');
         
             <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="（1）Mac-HomeBrew"><a href="#（1）Mac-HomeBrew" class="headerlink" title="（1）Mac HomeBrew"></a>（1）Mac HomeBrew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install redis</span><br></pre></td></tr></table></figure>
 <h3 id="（2）按部就班"><a href="#（2）按部就班" class="headerlink" title="（2）按部就班"></a>（2）按部就班</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 需要前置依赖 make、gcc</span><br><span class="line"><span class="meta">$</span> sudo apt-get update</span><br><span class="line"><span class="meta">$</span> sudo apt install make</span><br><span class="line"><span class="meta">$</span> sudo apt-get install gcc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 下载、解压和编译 redis</span><br><span class="line"><span class="meta">$</span> wget http://download.redis.io/releases/redis-5.0.3.tar.gz</span><br><span class="line"><span class="meta">$</span> tar xzf redis-5.0.3.tar.gz</span><br><span class="line"><span class="meta">$</span> cd redis-5.0.3</span><br><span class="line"><span class="meta">$</span> make</span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="启动-Redis-Server"><a href="#启动-Redis-Server" class="headerlink" title="启动 Redis Server"></a>启动 Redis Server</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>./redis-server</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="启动-Redis-Server"><a href="#启动-Redis-Server" class="headerlink" title="启动 Redis Server"></a>启动 Redis Server</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>./src/redis-server</span><br></pre></td></tr></table></figure>
 <h3 id="进入-Redis-命令行"><a href="#进入-Redis-命令行" class="headerlink" title="进入 Redis 命令行"></a>进入 Redis 命令行</h3><p>（1）本地连接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>redis-cli</span><br><span class="line">redis 127.0.0.1:6379&gt;</span><br><span class="line">redis 127.0.0.1:6379&gt; PING</span><br><span class="line"></span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
 <p>（2）远程连接</p>
@@ -682,7 +682,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/10/28/thinking/weekly/周记 20181028/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     周记 20181028
@@ -692,7 +692,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">Hexo + Github Page = 个人 WiKi</div>
         </a>
     
