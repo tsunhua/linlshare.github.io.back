@@ -33,7 +33,7 @@ $ make
 ### 启动 Redis Server
 
 ```shell
-$./redis-server
+$./src/redis-server
 ```
 
 ### 进入 Redis 命令行
