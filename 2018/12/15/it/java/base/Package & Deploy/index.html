@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="开发测试阶段的打包部署 [ ] 配置登录远程机器的 SSH config [ ] 本地使用 Gradle 或者 Maven 打包 [ ] 使用 scp 安全拷贝 jar 包到远程机器 [ ] 使用 sudo apt install openjdk-8-jre-headless 安装 JDK 环境 [ ] 使用 java -jar 完成部署  分布式打包部署 [ ] 部署 docker 环境 [ ]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T09:34:03.257Z">
+<meta property="og:updated_time" content="2018-12-17T03:27:51.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Package &amp; Deploy">
 <meta name="twitter:description" content="开发测试阶段的打包部署 [ ] 配置登录远程机器的 SSH config [ ] 本地使用 Gradle 或者 Maven 打包 [ ] 使用 scp 安全拷贝 jar 包到远程机器 [ ] 使用 sudo apt install openjdk-8-jre-headless 安装 JDK 环境 [ ] 使用 java -jar 完成部署  分布式打包部署 [ ] 部署 docker 环境 [ ]">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -665,6 +665,8 @@ ga('send', 'pageview');
 <p>（1）把第三方的 jar 包收集放到一个 class path 目录，然后就可以正常启动了。不过这种方法很笨，因为现在的依赖都是通过 gradle 或者 maven 引入，手动去找这些 jar 包并放到服务器上的 class path 目录，这很费劲，不过好处是打出的包很小，上传很快。</p>
 <p>（2）使用 <a href="https://imperceptiblethoughts.com/shadow/" target="_blank" rel="noopener">shadow</a> 将所有依赖合并成一个 jar 包，这很神奇。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">  repositories &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">      url <span class="string">"https://plugins.gradle.org/m2/"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  dependencies &#123;</span><br><span class="line">    classpath <span class="string">"com.github.jengelman.gradle.plugins:shadow:4.0.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">"com.github.johnrengelman.shadow"</span></span><br><span class="line"></span><br><span class="line">shadowJar &#123;</span><br><span class="line">  manifest &#123;</span><br><span class="line">    attributes <span class="string">'Main-Class'</span>: <span class="string">'com.example.Main'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>改完 gradle 脚本之后打包命令不再是  <code>./gradlew assemble</code>  而是用 <code>./gradlew shadowJar</code>。</p>
+
             </div>
         
         <footer class="article-footer">
@@ -678,7 +680,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/12/15/it/media/CSV/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">CSV</div>
         </a>
     
