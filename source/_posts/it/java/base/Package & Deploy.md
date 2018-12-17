@@ -64,3 +64,6 @@ shadowJar {
   }
 }
 ```
+
+改完 gradle 脚本之后打包命令不再是  `./gradlew assemble`  而是用 `./gradlew shadowJar`。
+
