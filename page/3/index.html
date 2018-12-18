@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -351,6 +351,15 @@ ga('send', 'pageview');
                             media
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/15/it/media/CSV/">CSV</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            node
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/node/Node.js/">Node.js</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -579,6 +588,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/tool/Groovy" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Groovy/">Groovy</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/03/it/tool/Groovy/">
+            <time datetime="2018-12-03T03:09:17.000Z" itemprop="datePublished">2018-12-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Groovy.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Groovy.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Groovy.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/03/it/tool/Groovy/">Groovy</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Gradle-中的-ext-究竟是什么？"><a href="#Gradle-中的-ext-究竟是什么？" class="headerlink" title="Gradle 中的 ext 究竟是什么？"></a>Gradle 中的 ext 究竟是什么？</h3><p>gradle 中我们使用 <code>ext</code> 定义额外的各种属性，可是 <code>ext</code> 究竟是什么呢？</p>
+<p>参看 <a href="https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html" target="_blank" rel="noopener">ExtraPropertiesExtension - Gradle DSL</a>，发现 <code>ext</code> 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure>
+<p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/03/it/tool/Groovy/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1462,112 +1575,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/design/设计模式" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/design/">design</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/设计模式/">设计模式</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/26/it/design/设计模式/">
-            <time datetime="2018-11-26T07:45:40.000Z" itemprop="datePublished">2018-11-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/design/设计模式.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/design/设计模式.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/design/设计模式.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/26/it/design/设计模式/">设计模式</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><h4 id="（1）适用场景"><a href="#（1）适用场景" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>当解决问题的方法有多种方式，需要可替换时。</p>
-<h4 id="（2）核心"><a href="#（2）核心" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合，封装成一个个算法，即是策略。</p>
-<h4 id="（3）类图"><a href="#（3）类图" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern_strtegy.jpg" alt=""></p>
-<h3 id="抽象工厂模式（Abstract-Factory-Pattern）"><a href="#抽象工厂模式（Abstract-Factory-Pattern）" class="headerlink" title="抽象工厂模式（Abstract Factory Pattern）"></a>抽象工厂模式（Abstract Factory Pattern）</h3><h4 id="（1）适用场景-1"><a href="#（1）适用场景-1" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><ol>
-<li>产品有<strong>不同的提供商</strong>，不同的提供商提供不同品牌和风味的产品；</li>
-<p>
-                
-            
-        
-        
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/26/it/design/设计模式/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Préc</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Siguiente  &raquo;</a>
         </nav>
     
 </section>

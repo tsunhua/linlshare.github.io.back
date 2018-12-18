@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -353,6 +353,15 @@ ga('send', 'pageview');
                             media
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/15/it/media/CSV/">CSV</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            node
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/node/Node.js/">Node.js</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -640,7 +649,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">Catálogo</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用-Spring-Cache-管理缓存？"><span class="toc-number">1.</span> <span class="toc-text">为什么要使用 Spring Cache 管理缓存？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）依赖引入"><span class="toc-number">2.1.</span> <span class="toc-text">（1）依赖引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）启用缓存"><span class="toc-number">2.2.</span> <span class="toc-text">（2）启用缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）ConcurrentHashMap-缓存"><span class="toc-number">2.3.</span> <span class="toc-text">（3）ConcurrentHashMap 缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（3-1）一个简单的实体类"><span class="toc-number">2.3.1.</span> <span class="toc-text">（3.1）一个简单的实体类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3-2）一个-Repository"><span class="toc-number">2.3.2.</span> <span class="toc-text">（3.2）一个 Repository</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3-3）测试一下"><span class="toc-number">2.3.3.</span> <span class="toc-text">（3.3）测试一下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）配合-Redis-缓存"><span class="toc-number">2.4.</span> <span class="toc-text">（4）配合 Redis 缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（4-1）添加-Redis-依赖"><span class="toc-number">2.4.1.</span> <span class="toc-text">（4.1）添加 Redis 依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4-2）配置-Redis"><span class="toc-number">2.4.2.</span> <span class="toc-text">（4.2）配置 Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4-2）序列化实体类"><span class="toc-number">2.4.3.</span> <span class="toc-text">（4.2）序列化实体类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4-3）在需要缓存的位置使用注解，并指定缓存名"><span class="toc-number">2.4.4.</span> <span class="toc-text">（4.3）在需要缓存的位置使用注解，并指定缓存名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4-4）测试一下"><span class="toc-number">2.4.5.</span> <span class="toc-text">（4.4）测试一下</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更进一步"><span class="toc-number">3.</span> <span class="toc-text">更进一步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自定义的-KeyGenerator"><span class="toc-number">3.1.</span> <span class="toc-text">创建自定义的 KeyGenerator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
@@ -696,7 +705,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/12/07/it/robot/WebMagic/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
                     WebMagic
@@ -706,7 +715,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">Spring Data MongoDB</div>
         </a>
     

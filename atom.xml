@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-17T03:27:51.321Z</updated>
+  <updated>2018-12-18T02:10:42.400Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node.js</title>
+    <link href="https://linlshare.github.io/2018/12/18/it/node/Node.js/"/>
+    <id>https://linlshare.github.io/2018/12/18/it/node/Node.js/</id>
+    <published>2018-12-18T01:47:20.000Z</published>
+    <updated>2018-12-18T02:10:42.400Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用-nvm-安装（可以自由切换-node-版本）"><a href="#使用-nvm-安装（可以自由切换-node-版本）" class="headerlink" title="使用 nvm 安装（可以自由切换 node 版本）"></a>使用 nvm 安装（可以自由切换 node 版本）</h3><p>（1）下载并执行安装脚本</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> curl </span><br><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br><span class="line"><span class="meta">#</span> 或者 wget</span><br><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure><p>（2）下载并使用指定版本的 node.js</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 列出仓库中所有的 node 版本</span><br><span class="line"><span class="meta">$</span> nvm ls-remote</span><br><span class="line"><span class="meta">#</span> 安装指定版本</span><br><span class="line"><span class="meta">$</span> nvm install 8.11.1</span><br><span class="line"><span class="meta">#</span> 使用已安装的某个版本</span><br><span class="line"><span class="meta">$</span> nvm use 8.11.1</span><br><span class="line"><span class="meta">#</span> 查看当前使用的 node 版本</span><br><span class="line"><span class="meta">$</span> nvm -v</span><br></pre></td></tr></table></figure><p>（3）卸载指定版本的 node.js</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 如果要卸载的版本是当前使用的版本，那么需要先停用它</span><br><span class="line"><span class="meta">$</span> nvm deactivate</span><br><span class="line"><span class="meta">$</span> nvm uninstall 8.11.1</span><br></pre></td></tr></table></figure><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="usr-bin-env-node-No-such-file-or-directory"><a href="#usr-bin-env-node-No-such-file-or-directory" class="headerlink" title="/usr/bin/env: node: No such file or directory"></a>/usr/bin/env: node: No such file or directory</h3><p>（1）背景：执行 <code>npm start</code> 命令时出现上述错误。</p><p>（2）原因：<code>npm</code> 执行时默认使用 <code>/usr/bin/node</code>  去执行，而通过 <code>sudo apt install nodejs</code> 安装的位置是在 <code>/usr/bin/nodejs</code> 。</p><p>（3）解决方案：</p><ul><li><p>方案一：使用<code>nvm</code> 安装 node，并统一管理 node.js 版本，这是最佳方案；</p></li><li><p>方案二：创建 node 执行文件到 <code>/usr/bin/node</code> 的软连接，如 <code>ln -s /usr/local/NODEJS_HOME/bin/node /usr/bin/node</code></p></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04" target="_blank" rel="noopener">How To Install Node.js on Ubuntu 18.04 - digitalocean.com</a></li><li><a href="creationix/nvm - github.com">creationix/nvm - github.com</a></li><li><a href="https://cloud.tencent.com/developer/article/1028166" target="_blank" rel="noopener">【node错误】/usr/bin/env: node: No such file or directory - tencent.com</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h3 id=&quot;使用-nvm-安装（可以自由切换-node-版本）&quot;&gt;&lt;a href=&quot;#使用-nvm-安装（可以自由切换-node-版本）&quot; c
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="node" scheme="https://linlshare.github.io/categories/it/node/"/>
+    
+    
+      <category term="Node.js" scheme="https://linlshare.github.io/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>Package &amp; Deploy</title>
@@ -546,6 +573,37 @@
   </entry>
   
   <entry>
+    <title>MyBatis</title>
+    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
+    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
+    <published>2018-12-04T07:51:06.000Z</published>
+    <updated>2018-12-04T09:28:06.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JDBC</title>
     <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/"/>
     <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/</id>
@@ -604,64 +662,6 @@
       <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
     
       <category term="JPA" scheme="https://linlshare.github.io/tags/JPA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBatis</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:28:06.360Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Groovy</title>
-    <link href="https://linlshare.github.io/2018/12/03/it/tool/Groovy/"/>
-    <id>https://linlshare.github.io/2018/12/03/it/tool/Groovy/</id>
-    <published>2018-12-03T03:09:17.000Z</published>
-    <updated>2018-12-07T04:13:59.020Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Gradle-中的-ext-究竟是什么？"><a href="#Gradle-中的-ext-究竟是什么？" class="headerlink" title="Gradle 中的 ext 究竟是什么？"></a>Gradle 中的 ext 究竟是什么？</h3><p>gradle 中我们使用 <code>ext</code> 定义额外的各种属性，可是 <code>ext</code> 究竟是什么呢？</p><p>参看 <a href="https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html" target="_blank" rel="noopener">ExtraPropertiesExtension - Gradle DSL</a>，发现 <code>ext</code> 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是：</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure><p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure><h3 id="Gradle-依赖排除"><a href="#Gradle-依赖排除" class="headerlink" title="Gradle 依赖排除"></a>Gradle 依赖排除</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">compile(<span class="string">'com.zhyea:ar4j:1.0'</span>) &#123;</span><br><span class="line"><span class="comment">//excluding a particular transitive dependency:</span></span><br><span class="line">exclude <span class="string">module:</span> <span class="string">'cglib'</span> <span class="comment">//by artifact name</span></span><br><span class="line">exclude <span class="string">group:</span> <span class="string">'org.jmock'</span> <span class="comment">//by group</span></span><br><span class="line">exclude <span class="string">group:</span> <span class="string">'org.unwanted'</span>, <span class="string">module:</span> <span class="string">'iAmBuggy'</span> <span class="comment">//by both name and group</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://www.zhyea.com/2018/02/08/gradle-exclude-dependencies.html" target="_blank" rel="noopener">Gradle 依赖排除</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Q-amp-A&quot;&gt;&lt;a href=&quot;#Q-amp-A&quot; class=&quot;headerlink&quot; title=&quot;Q&amp;amp;A&quot;&gt;&lt;/a&gt;Q&amp;amp;A&lt;/h2&gt;&lt;h3 id=&quot;Gradle-中的-ext-究竟是什么？&quot;&gt;&lt;a href=&quot;#Gradle-中的-ext
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
-    
-    
-      <category term="Groovy" scheme="https://linlshare.github.io/tags/Groovy/"/>
     
   </entry>
   
