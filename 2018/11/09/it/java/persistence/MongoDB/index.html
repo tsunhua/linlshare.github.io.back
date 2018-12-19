@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="MongoDB 是一款开源的面向文档的数据库（document database）， NoSQL 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。 安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载对应的系统和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T07:51:33.568Z">
+<meta property="og:updated_time" content="2018-12-19T09:50:58.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB">
 <meta name="twitter:description" content="MongoDB 是一款开源的面向文档的数据库（document database）， NoSQL 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。 安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载对应的系统和">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            CATEGORIES: 'Catégories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -489,7 +489,7 @@ ga('send', 'pageview');
                             &nbsp;
                             music
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/09/music/Bach/">Bach</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/09/music/Bach/">Bach</a></li>  <li class="file"><a href="/2018/12/19/music/Beatles/">Beatles</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -675,7 +675,7 @@ ga('send', 'pageview');
 <h2 id="终端连接"><a href="#终端连接" class="headerlink" title="终端连接"></a>终端连接</h2><p>（1）本地连接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mongo</span><br></pre></td></tr></table></figure>
 <p>（2）远程连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mongo</span><br><span class="line"><span class="meta">&gt;</span> mongodb://admin:123456@localhost/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>  mongo 172.2.0.3:27017</span><br></pre></td></tr></table></figure>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="BSON"><a href="#BSON" class="headerlink" title="BSON"></a>BSON</h3><p>MongoDB 的文件存储格式为 BSON，所谓 BSON，即是 Binary JSON，为 JSON 文档对象的二进制编码格式，其扩展了 JSON 的数据类型，支持浮点数和整数的区分，支持日期类型，支持直接存储 JS 的正则表达式，支持 32 位和 64 位数字的区分，支持直接存储 JS 函数等等。看起来 BSON 对于 JS 还是挺友好的呵。</p>
 <blockquote>
 <p>注意：从 Shell 终端中输入的数值都会被存储为 64 位浮点类型。</p>
@@ -722,7 +722,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/11/09/it/java/aws/aws/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Plus récent</strong>
             <div class="article-nav-title">
                 
                     aws
@@ -732,7 +732,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/07/it/java/base/Gradle/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Plus ancien</strong>
             <div class="article-nav-title">Gradle</div>
         </a>
     
