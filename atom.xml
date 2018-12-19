@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-18T02:10:42.400Z</updated>
+  <updated>2018-12-19T02:54:28.656Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Port</title>
+    <link href="https://linlshare.github.io/2018/12/19/it/net/Port/"/>
+    <id>https://linlshare.github.io/2018/12/19/it/net/Port/</id>
+    <published>2018-12-19T02:33:02.000Z</published>
+    <updated>2018-12-19T02:54:28.656Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="端口的概念"><a href="#端口的概念" class="headerlink" title="端口的概念"></a>端口的概念</h2><p>端口有两种含义需要仔细区分：</p><ol><li>物理端口，指用于连接其他网络设备的接口，比如 RJ-45端口；</li><li>协议端口，指 TCP/IP 协议中的定义的逻辑端口，用于标识，比如 80 端口。</li></ol><h2 id="协议端口"><a href="#协议端口" class="headerlink" title="协议端口"></a>协议端口</h2><p>TCP/IP 协议中的协议端口用于解决远程主机进程定位的问题。<code>IP + Port</code> 才能真正定位想要访问的远程服务。</p><p>其工作流程如下：</p><ol><li>进程请求主机系统分配端口；</li><li>主机系统分配端口；</li><li>主机收到数据包，根据数据包报文首部的端口号，发送到相应的端口队列；</li><li>进程取用端口队列中的数据包。</li></ol><blockquote><p>端口其实就是队，操作系统为各个进程分配了不同的队，数据包按照目的端口被推入相应的队中，等待被进程取用，在极特殊的情况下，这个队也是有可能溢出的，不过操作系统允许各进程指定和调整自己的队的大小。  — <a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3" target="_blank" rel="noopener">端口 - 百度百科</a></p></blockquote><p>一些常见的端口号：</p><table><thead><tr><th>应用程序</th><th>FTP</th><th>TELNET</th><th>SMTP</th><th>DNS</th><th>TFTP</th><th>HTTP</th><th>HTTPS</th><th>SNMP</th></tr></thead><tbody><tr><td>熟知端口号</td><td><strong>21</strong></td><td>23</td><td>25</td><td>53</td><td>69</td><td><strong>80</strong></td><td><strong>443</strong></td><td>161</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://jerryc8080.gitbooks.io/understand-tcp-and-udp/chapter1.html" target="_blank" rel="noopener">理解 TCP 和 UDP - gitbook.com</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;端口的概念&quot;&gt;&lt;a href=&quot;#端口的概念&quot; class=&quot;headerlink&quot; title=&quot;端口的概念&quot;&gt;&lt;/a&gt;端口的概念&lt;/h2&gt;&lt;p&gt;端口有两种含义需要仔细区分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;物理端口，指用于连接其他网络设备的接口，比如 RJ-45端口
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="net" scheme="https://linlshare.github.io/categories/it/net/"/>
+    
+    
+      <category term="Port" scheme="https://linlshare.github.io/tags/Port/"/>
+    
+      <category term="端口" scheme="https://linlshare.github.io/tags/%E7%AB%AF%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RESTful API</title>
+    <link href="https://linlshare.github.io/2018/12/18/it/design/RESTful%20API/"/>
+    <id>https://linlshare.github.io/2018/12/18/it/design/RESTful API/</id>
+    <published>2018-12-18T03:24:29.000Z</published>
+    <updated>2018-12-18T03:29:50.083Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol><li>API 版本号放入到 URL 中；</li><li>更新信息时仅返回被更新的字段。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南 - ruanyifeng.com</a></li><li><a href="https://blog.philipphauer.de/restful-api-design-best-practices/" target="_blank" rel="noopener">RESTful API Design. Best Practices in a Nutshell. - philipphauer.de</a></li><li><a href="https://leancloud.cn/docs/rest_api.html" target="_blank" rel="noopener">REST API 使用详解 - leancloud.cn</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;API 版本号放入到 URL 中；&lt;/li&gt;
+&lt;li&gt;更新信息时仅返回被更新的字段。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;参考
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="design" scheme="https://linlshare.github.io/categories/it/design/"/>
+    
+    
+      <category term="RESTful" scheme="https://linlshare.github.io/tags/RESTful/"/>
+    
+      <category term="API" scheme="https://linlshare.github.io/tags/API/"/>
+    
+  </entry>
   
   <entry>
     <title>Node.js</title>
@@ -573,37 +637,6 @@
   </entry>
   
   <entry>
-    <title>MyBatis</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/MyBatis/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T09:28:06.360Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol><li>支持声明式数据缓存；</li><li>提供基于 HashMap 的默认缓存实现；</li><li>提供 API 供其他缓存实现。</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure><p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p><h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol><li>与 Spring Framework 集成</li><li>与 Google Guice 集成</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li><li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;MyBatis-是干嘛的？&quot;&gt;&lt;a href=&quot;#MyBatis-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 是干嘛的？&quot;&gt;&lt;/a&gt;MyBatis 是干嘛的？&lt;/h2&gt;&lt;p&gt;MyBatis 是一个 SQL 映射框架，它通过 X
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="MyBatis" scheme="https://linlshare.github.io/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JDBC</title>
     <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/"/>
     <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JDBC/</id>
@@ -631,37 +664,6 @@
       <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
     
       <category term="JDBC" scheme="https://linlshare.github.io/tags/JDBC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JPA</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/java/persistence/JPA/</id>
-    <published>2018-12-04T07:51:06.000Z</published>
-    <updated>2018-12-04T11:19:45.453Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p><ol><li>API 本身，定义在 <code>javax.persistence</code> 包下；</li><li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li><li>对象与关联表之间的元数据。</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><table><thead><tr><th>项目</th><th>开发公司</th><th>数据库支持</th><th>备注</th></tr></thead><tbody><tr><td><a href="http://hibernate.org/" target="_blank" rel="noopener">Hibernate</a></td><td>RedHat</td><td>SQL</td><td>JPA 制定的参考。</td></tr><tr><td><a href="https://docs.spring.io/spring-data/jpa/docs/2.1.3.RELEASE/reference/html/" target="_blank" rel="noopener">Spring Data JPA</a></td><td>Pivotal</td><td>SQL</td><td>支持 RESTful API 查询，支持 CRUD</td></tr><tr><td><a href="https://www.eclipse.org/eclipselink/" target="_blank" rel="noopener">EclipseLink</a></td><td>Eclipse Foundation</td><td>SQL 及NoSQL</td><td>基于 TopLink</td></tr><tr><td><a href="https://openjpa.apache.org/" target="_blank" rel="noopener">OpenJPA</a></td><td>Apache</td><td>SQL</td><td>支持缓存。</td></tr></tbody></table><p>* 2001年，澳大利亚墨尔本一位名为Gavin King的27岁的程序员，上街买了一本SQL编程的书，他厌倦了实体bean，认为自己可以开发出一个匹配对象关系映射理论，并且真正好用的Java持久化层框架，因此他需要先学习一下SQL。这一年的11月，Hibernate的第一个版本发布了。</p><p>* Pivotal 和 VMware 都是 EMC 的子公司，2015 年 Dell 以 670 亿美元收购 EMC。 </p><p>* MyBatis 是一套持久化框架，但不是 ORM 的，而且 Java 方法与 SQL 语句的关联。</p><p>* OpenJPA 至今已有 4933 次 commit，更新也很频繁，但其 Github 上的 star 却只有 56，坚持不懈的精神令人肃然起敬。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%8C%81%E4%B9%85%E5%8C%96API" target="_blank" rel="noopener">Java 持久化 API - 维基百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JPA-是干嘛的？&quot;&gt;&lt;a href=&quot;#JPA-是干嘛的？&quot; class=&quot;headerlink&quot; title=&quot;JPA 是干嘛的？&quot;&gt;&lt;/a&gt;JPA 是干嘛的？&lt;/h2&gt;&lt;p&gt;JPA（Java Persistence API，Java 持久化 API），是一组
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="JPA" scheme="https://linlshare.github.io/tags/JPA/"/>
     
   </entry>
   
