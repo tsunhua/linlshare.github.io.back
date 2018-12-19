@@ -45,8 +45,7 @@ $ mongo
 （2）远程连接
 
 ```shell
-$ mongo
-> mongodb://admin:123456@localhost/
+$  mongo 172.2.0.3:27017
 ```
 
 ## 基本概念

@@ -443,5 +443,38 @@ find . -name "~\$*" -delete
 wget "http://mirrors.hust.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz"
 ```
 
+### 查看系统信息
+
+```shell
+# 查看内核/操作系统/CPU信息
+uname -a 
+# 查看操作系统版本
+head -n 1 /etc/issue 
+# 查看CPU信息
+cat /proc/cpuinfo 
+# 查看计算机名
+hostname 
+# 查看环境变量
+env 
+# 查看内存使用量和交换区使用量
+free -m 
+# 查看各分区使用情况
+df -h 
+# 查看指定目录的大小
+du -sh <目录名> 
+# 查看内存总量
+grep MemTotal /proc/meminfo 
+# 查看空闲内存量
+grep MemFree /proc/meminfo 
+# 查看系统运行时间、用户数、负载
+uptime 
+# 查看系统负载
+cat /proc/loadavg 
+# 查看所有磁盘分区
+fdisk -l 
+```
+
+
+
 
 

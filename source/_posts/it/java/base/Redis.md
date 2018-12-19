@@ -111,15 +111,39 @@ $ redis-cli -h host -p port -a password
 
 ## 排错
 
-（1）编译安装时出现：jemalloc/jemalloc.h: No such file or directory
+### 编译安装时出现：jemalloc/jemalloc.h: No such file or directory
 
 ```
 make MALLOC=libc
 ```
 
-（2）编译安装时出现：cc adlist.o /bin/sh:1:cc:not found
+### 编译安装时出现：cc adlist.o /bin/sh:1:cc:not found
 
  缺少 gcc 环境，安装 gcc 即可。
+
+### 服务器连接 Redis 失败
+
+（1）背景
+
+服务器部署 Redis ，代码部署在另一主机，调用 Redis 时发生以下异常：
+
+```
+Caused by: redis.clients.jedis.exceptions.JedisDataException: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 
+1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent.
+2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server.
+3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 
+4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+```
+
+（2）原因
+
+查看 `redis.conf` 发现 `bind 127.0.0.1` ，意味着只有部署 Redis 的机器 可以正常访问 Redis。
+
+还有 Redis 运行在保护模式下。
+
+（3）解决方案
+
+方案一：配置 bind 地址为内网的 IP 地址，修改 `protected-mode no` ，然后重启 Redis。
 
 ## 参考
 
