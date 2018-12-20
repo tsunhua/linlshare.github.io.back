@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -377,7 +377,7 @@ ga('send', 'pageview');
                             &nbsp;
                             robot
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  <li class="file"><a href="/2018/12/20/it/robot/Proxy/">Proxy</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -597,6 +597,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/robot/Proxy" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/robot/">robot</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Charles/">Charles</a>, <a class="tag-link" href="/tags/Proxy/">Proxy</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/20/it/robot/Proxy/">
+            <time datetime="2018-12-20T08:33:35.000Z" itemprop="datePublished">2018-12-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/robot/Proxy.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/robot/Proxy.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/robot/Proxy.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/20/it/robot/Proxy/">Proxy</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="代理（Proxy）"><a href="#代理（Proxy）" class="headerlink" title="代理（Proxy）"></a>代理（Proxy）</h2><p>代理是一种提供客户端与服务器进行非直接链接的服务。提供代理服务的服务器称之为<strong>代理服务器</strong>（Proxy Server）。而持有资源实体的服务器称之为<strong>源服务器</strong>。</p>
+<h2 id="代理服务器分类"><a href="#代理服务器分类" class="headerlink" title="代理服务器分类"></a>代理服务器分类</h2><h3 id="按代理协议"><a href="#按代理协议" class="headerlink" title="按代理协议"></a>按代理协议</h3><ul>
+<li>HTTP 代理：应用层协议代理，支持访问未加密站点</li>
+<li>SOCKS 4/5 代理：会话层协议代理，SOCKS 5 支持所有底层使用 TCP 和 UDP 的网络应用代理，SOCKS 4 仅支持 TCP 代理。另外 SOCKS 5 还支持 IPv6。</li>
+<li>TLS / SSL 代理：应用层协议代理，支持访问加密站点</li>
+<p>
+                
+            
+        
+        
+            </p></ul></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/20/it/robot/Proxy/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-music/Beatles" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1533,112 +1637,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-history/澳門博彩業簡史" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/history/">history</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/History/">History</a>, <a class="tag-link" href="/tags/博彩業/">博彩業</a>, <a class="tag-link" href="/tags/澳門/">澳門</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/12/history/澳門博彩業簡史/">
-            <time datetime="2018-12-12T14:41:13.000Z" itemprop="datePublished">2018-12-12</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/history/澳門博彩業簡史.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/history/澳門博彩業簡史.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/history/澳門博彩業簡史.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/12/history/澳門博彩業簡史/">澳門博彩業簡史</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="簡史"><a href="#簡史" class="headerlink" title="簡史"></a>簡史</h2><ol>
-<li>16 世紀開埠，內地工人移民澳門工作，并開設賭檔，監管不利，賭風盛行；</li>
-<li>1842年，香港被割，影響了澳門的貿易港地位，為增加多元收入，<strong>1847 年澳葡政府決定博彩業合法化</strong>，博彩業迅猛發展；</li>
-<li>1851年 ~ 1863年，澳葡政府對博彩場所實行發牌制度，賭檔曾一度多達二百餘家，其時盧九的宜安公司集賭場、妓院、酒館、鴉片煙窟於一體；</li>
-<li>1930年，豪興公司獲得所有博彩遊戲的專營權；</li>
-<p>
-                
-            
-        
-        
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/12/12/history/澳門博彩業簡史/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Suiv &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
         </nav>
     
 </section>

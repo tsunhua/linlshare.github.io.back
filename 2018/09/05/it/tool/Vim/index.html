@@ -9,18 +9,18 @@
         <meta name="keywords" content="编辑器,Vim">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="1. Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 2. 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtl">
+    <meta name="description" content="Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtle 把光标移">
 <meta name="keywords" content="编辑器,Vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim">
 <meta property="og:url" content="https://linlshare.github.io/2018/09/05/it/tool/Vim/index.html">
 <meta property="og:site_name" content="Share 杂志">
-<meta property="og:description" content="1. Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 2. 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtl">
+<meta property="og:description" content="Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtle 把光标移">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T03:56:15.093Z">
+<meta property="og:updated_time" content="2018-12-20T10:11:33.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim">
-<meta name="twitter:description" content="1. Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 2. 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtl">
+<meta name="twitter:description" content="Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtle 把光标移">
     
 
     
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,9 +109,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -379,7 +379,7 @@ ga('send', 'pageview');
                             &nbsp;
                             robot
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Xpath/">Xpath</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  <li class="file"><a href="/2018/12/20/it/robot/Proxy/">Proxy</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -659,26 +659,26 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Vim-剪贴板如何与系统剪贴板交互？"><span class="toc-number">1.</span> <span class="toc-text">1. Vim 剪贴板如何与系统剪贴板交互？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-如何连接两行文字？"><span class="toc-number">2.</span> <span class="toc-text">2. 如何连接两行文字？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-如何进行列块选择？"><span class="toc-number">3.</span> <span class="toc-text">3. 如何进行列块选择？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何快速查找和替换？"><span class="toc-number">4.</span> <span class="toc-text">4. 如何快速查找和替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-如何进行重做？"><span class="toc-number">5.</span> <span class="toc-text">5. 如何进行重做？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-如何记录和回放我的可重复性操作？"><span class="toc-number">6.</span> <span class="toc-text">6. 如何记录和回放我的可重复性操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-如何进行查找替换？"><span class="toc-number">7.</span> <span class="toc-text">7. 如何进行查找替换？</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-剪贴板如何与系统剪贴板交互？"><span class="toc-number">1.</span> <span class="toc-text">Vim 剪贴板如何与系统剪贴板交互？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何连接两行文字？"><span class="toc-number">2.</span> <span class="toc-text">如何连接两行文字？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行列块选择？"><span class="toc-number">3.</span> <span class="toc-text">如何进行列块选择？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何快速查找和替换？"><span class="toc-number">4.</span> <span class="toc-text">如何快速查找和替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行重做？"><span class="toc-number">5.</span> <span class="toc-text">如何进行重做？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何记录和回放我的可重复性操作？"><span class="toc-number">6.</span> <span class="toc-text">如何记录和回放我的可重复性操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行查找替换？"><span class="toc-number">7.</span> <span class="toc-text">如何进行查找替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除指定行"><span class="toc-number">8.</span> <span class="toc-text">删除指定行</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
                 </li></div>
             
         
         
-            <h3 id="1-Vim-剪贴板如何与系统剪贴板交互？"><a href="#1-Vim-剪贴板如何与系统剪贴板交互？" class="headerlink" title="1. Vim 剪贴板如何与系统剪贴板交互？"></a>1. Vim 剪贴板如何与系统剪贴板交互？</h3><p><code>“+y</code> 把选中内容拷贝到”+号剪贴板，即系统剪贴板。</p>
+            <h3 id="Vim-剪贴板如何与系统剪贴板交互？"><a href="#Vim-剪贴板如何与系统剪贴板交互？" class="headerlink" title="Vim 剪贴板如何与系统剪贴板交互？"></a>Vim 剪贴板如何与系统剪贴板交互？</h3><p><code>“+y</code> 把选中内容拷贝到”+号剪贴板，即系统剪贴板。</p>
 <p><code>“+p</code> 把系统剪贴板的内容粘贴到vim。</p>
 <p>Vim 中的剪贴板历史可以使用 <code>:reg</code> 进行罗列，并配合以上操作进行粘贴。</p>
-<h3 id="2-如何连接两行文字？"><a href="#2-如何连接两行文字？" class="headerlink" title="2. 如何连接两行文字？"></a>2. 如何连接两行文字？</h3><p>在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个<br>功能。<br>以下面两行为例:</p>
+<h3 id="如何连接两行文字？"><a href="#如何连接两行文字？" class="headerlink" title="如何连接两行文字？"></a>如何连接两行文字？</h3><p>在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个<br>功能。<br>以下面两行为例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A young intelligent</span><br><span class="line">turtle</span><br></pre></td></tr></table></figure>
 <p>把光标移到第一行，然后按 “J”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A young intelligent turtle</span><br></pre></td></tr></table></figure>
-<h3 id="3-如何进行列块选择？"><a href="#3-如何进行列块选择？" class="headerlink" title="3. 如何进行列块选择？"></a>3. 如何进行列块选择？</h3><p>使用 <code>Ctrl + v</code> 进入列块选择模式。</p>
-<h3 id="4-如何快速查找和替换？"><a href="#4-如何快速查找和替换？" class="headerlink" title="4. 如何快速查找和替换？"></a>4. 如何快速查找和替换？</h3><p>快速进行查找可以在命令模式下，使用 <code>/{regex}</code>，Vim 中的正则有点特殊（详细规则可以阅读文末附件，最明显的就是括号也需要转义），举个例子，有文字材料如下：</p>
+<h3 id="如何进行列块选择？"><a href="#如何进行列块选择？" class="headerlink" title="如何进行列块选择？"></a>如何进行列块选择？</h3><p>使用 <code>Ctrl + v</code> 进入列块选择模式。</p>
+<h3 id="如何快速查找和替换？"><a href="#如何快速查找和替换？" class="headerlink" title="如何快速查找和替换？"></a>如何快速查找和替换？</h3><p>快速进行查找可以在命令模式下，使用 <code>/{regex}</code>，Vim 中的正则有点特殊（详细规则可以阅读文末附件，最明显的就是括号也需要转义），举个例子，有文字材料如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NullPointerException</span><br><span class="line">...</span><br><span class="line">java.lang.ClassNotFoundException</span><br></pre></td></tr></table></figure>
 <p>要求查找到所有 Exception，那么可以使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\.\a*Exception</span><br></pre></td></tr></table></figure>
 <p>再配合 <code>n</code> 继续查找。</p>
-<h3 id="5-如何进行重做？"><a href="#5-如何进行重做？" class="headerlink" title="5. 如何进行重做？"></a>5. 如何进行重做？</h3><p>使用 <code>Ctrl + r</code> 进行重做。</p>
-<h3 id="6-如何记录和回放我的可重复性操作？"><a href="#6-如何记录和回放我的可重复性操作？" class="headerlink" title="6. 如何记录和回放我的可重复性操作？"></a>6. 如何记录和回放我的可重复性操作？</h3><p>要点：使用 q{register} 和 @{register}</p>
+<h3 id="如何进行重做？"><a href="#如何进行重做？" class="headerlink" title="如何进行重做？"></a>如何进行重做？</h3><p>使用 <code>Ctrl + r</code> 进行重做。</p>
+<h3 id="如何记录和回放我的可重复性操作？"><a href="#如何记录和回放我的可重复性操作？" class="headerlink" title="如何记录和回放我的可重复性操作？"></a>如何记录和回放我的可重复性操作？</h3><p>要点：使用 q{register} 和 @{register}</p>
 <p>“.” 命令重复前一个修改操作。但如果你需要作一些更复杂的操作它就不行了。这时，记<br>录命令就变得很有效。这需要三个步骤:</p>
 <ol>
 <li><p>“q{register}” 命令启动一次击键记录，结果保存到 {register} 指定的寄存器中。<br>寄存器名可以用 a 到 z 中任一个字母表示。</p>
@@ -695,9 +695,10 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">qa 启动记录，并使用寄存器 a</span><br><span class="line">^ 移到行首</span><br><span class="line">i#include &quot; 在行首输入 #include &quot;</span><br><span class="line">$ 移到行末</span><br><span class="line">a&quot; 在行末加上双引号 (&quot;)</span><br><span class="line">j 移到下一行</span><br><span class="line">q 结束记录</span><br></pre></td></tr></table></figure>
 <p>现在，你已经完成一次复杂的修改了。你可以通过重复三次 “@a” 完成余下的修改。<br>“@a” 命令可以通过计数前缀修饰，使操作重复指定的次数。在本例中，你可以输入:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3@a</span><br></pre></td></tr></table></figure>
-<h3 id="7-如何进行查找替换？"><a href="#7-如何进行查找替换？" class="headerlink" title="7. 如何进行查找替换？"></a>7. 如何进行查找替换？</h3><p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：</p>
+<h3 id="如何进行查找替换？"><a href="#如何进行查找替换？" class="headerlink" title="如何进行查找替换？"></a>如何进行查找替换？</h3><p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:&#123;作用范围&#125;s/&#123;目标&#125;/&#123;替换&#125;/&#123;替换标志&#125;</span><br></pre></td></tr></table></figure>
 <p>例如<code>:%s/foo/bar/g</code>会在全局范围(<code>%</code>)查找<code>foo</code>并替换为<code>bar</code>，所有出现都会被替换（<code>g</code>）。</p>
+<h3 id="删除指定行"><a href="#删除指定行" class="headerlink" title="删除指定行"></a>删除指定行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除1到10行</span><br><span class="line">:1,10d</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://drive.google.com/file/d/1XVwX2IKHfsmtuptZNhpo0DnjMUod65ST/view?usp=sharing" target="_blank" rel="noopener">Vim 用户使用手册</a></li>
 <li><a href="https://harttle.land/2016/08/08/vim-search-in-file.html" target="_blank" rel="noopener">在 Vim 中优雅地查找和替换 - harttle.land</a></li>
@@ -715,7 +716,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/09/07/it/tool/IDEA/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     IDEA
@@ -725,7 +726,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">《日語自遊行の最和味》第一課 秋葉原</div>
         </a>
     
