@@ -91,6 +91,12 @@ listeners=PLAINTEXT://localhost:9092
 
 #### （4）重启 Zookeeper 和 Kafka
 
+### ConcurrentModificationException: KafkaConsumer is not safe for multi-threaded access
+
+一个线程只能有一个 Consumer，如果多个线程共用一个 Consumer，那么就会出现这个错误。
+
+解决方案就是去解决线程问题，确保只有一个线程调用一个 Consumer。
+
 ## 参考
 
 1. [Quickstart - kafka.apache.org](https://kafka.apache.org/quickstart)

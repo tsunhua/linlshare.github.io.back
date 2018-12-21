@@ -32,9 +32,155 @@ tags: [Music,Beatles]
 - 《Abbey Road》（1969年9月26日）
 - 《Let It Be》（1970年5月8日）
 
+### 《Abbey Road》
+
+#### Come Together
+
+```
+[Intro: John Lennon]
+Shoot me, shoot me, shoot me, shoot me
+
+[Verse 1: John Lennon]
+Here come old flat-top, he come groovin' up slowly
+He got ju-ju eyeballs, he one holy roller
+He got hair down to his knee
+Got to be a joker, he just do what he please
+
+[Interlude: John Lennon]
+Shoot me, shoot me, shoot me, shoot me
+
+[Verse 2: John Lennon]
+He wear no shoeshine, he got toe-jam football
+He got monkey finger, he shoot Coca-Cola
+He say, "I know you, you know me"
+One thing I can tell you is you got to be free
+
+[Chorus: John Lennon]
+Come together, right now
+Over me
+
+[Verse 3: John Lennon]
+He bag production, he got walrus gumboot
+He got Ono sideboard, he one spinal cracker
+He got feet down below his knee
+Hold you in his armchair, you can feel his disease
+
+[Chorus: John Lennon]
+Come together, right now
+Over me
+
+[Interlude: John Lennon]
+Shoot me, shoot me
+Right!
+
+[Guitar Solo]
+
+[Verse 4: John Lennon]
+He roller-coaster, he got early warnin'
+He got muddy water, he one mojo filter
+He say, "One and one and one is three"
+Got to be good-lookin' 'cause he's so hard to see
+
+[Chorus: John Lennon]
+Come together, right now
+Over me
+
+[Interlude: John Lennon]
+Shoot me, shoot me, shoot me, shoot me
+Ugh!
+
+[Outro: John Lennon]
+Come together, yeah
+Come together, yeah
+Come together, yeah
+Come together, yeah
+Come together, yeah
+Come together, yeah
+Come together, yeah
+Come together, yeah
+[Fade-out]
+Come together, yeah
+Come together...
+```
+
+#### Something
+
+```
+[Verse 1]
+Something in the way she moves
+Attracts me like no other lover
+Something in the way she woos me
+I don't want to leave her now
+You know I believe and how
+
+[Verse 2]
+Somewhere in her smile she knows
+That I don't need no other lover
+Something in her style that shows me
+I don't want to leave her now
+You know I believe and how
+
+[Bridge]
+You're asking me will my love grow
+I don't know, I don't know
+You stick around and it may show
+I don't know, I don't know
+
+[Solo]
+
+[Verse 3]
+Something in the way she knows
+And all I have to do is think of her
+Something in the things she shows me
+I don't want to leave her now
+You know I believe and how
+```
+#### Here Comes the Sun
+
+```
+[Intro]
+Here comes the sun (doo doo doo doo)
+Here comes the sun, and I say
+It's all right
+
+[Verse 1]
+Little darling, it's been a long cold lonely winter
+Little darling, it feels like years since it's been here
+Here comes the sun
+Here comes the sun, and I say
+It's all right
+
+[Verse 2]
+Little darling, the smiles returning to the faces
+Little darling, it seems like years since it's been here
+Here comes the sun
+Here comes the sun, and I say
+It's all right
+
+[Bridge]
+Sun, sun, sun, here it comes
+Sun, sun, sun, here it comes
+Sun, sun, sun, here it comes
+Sun, sun, sun, here it comes
+Sun, sun, sun, here it comes
+
+[Verse 3]
+Little darling, I feel that ice is slowly melting
+Little darling, it seems like years since it's been clear
+Here comes the sun
+Here comes the sun, and I say
+It's all right
+
+[Outro]
+Here comes the sun
+Here comes the sun
+It's all right
+It's all right
+```
+
 ### 《Let It Be》
 
-### Across the Universe
+#### Across the Universe
 
 ```
 [Verse 1: John Lennon]

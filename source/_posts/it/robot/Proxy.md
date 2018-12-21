@@ -25,6 +25,8 @@ tags: [Proxy,Charles]
 
 - 高度匿名代理（Elite proxy或High Anonymity Proxy）
 
+  高匿代理其实就是修改请求头，将 `HTTP_VIA` 与 `HTTP_X_FORWARDED_FOR` 属性删除，服务器由此误认为客户端没有使用代理。
+
   ```json
   REMOTE_ADDR = Proxy IP
   HTTP_VIA = not determined
