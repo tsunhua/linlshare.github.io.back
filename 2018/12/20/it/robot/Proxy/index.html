@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Share 杂志">
 <meta property="og:description" content="代理（Proxy）代理是一种提供客户端与服务器进行非直接链接的服务。提供代理服务的服务器称之为代理服务器（Proxy Server）。而持有资源实体的服务器称之为源服务器。 代理服务器分类按代理协议 HTTP 代理：应用层协议代理，支持访问未加密站点 SOCKS 4/5 代理：会话层协议代理，SOCKS 5 支持所有底层使用 TCP 和 UDP 的网络应用代理，SOCKS 4 仅支持 TCP 代理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-20T10:00:02.633Z">
+<meta property="og:updated_time" content="2018-12-21T02:22:12.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Proxy">
 <meta name="twitter:description" content="代理（Proxy）代理是一种提供客户端与服务器进行非直接链接的服务。提供代理服务的服务器称之为代理服务器（Proxy Server）。而持有资源实体的服务器称之为源服务器。 代理服务器分类按代理协议 HTTP 代理：应用层协议代理，支持访问未加密站点 SOCKS 4/5 代理：会话层协议代理，SOCKS 5 支持所有底层使用 TCP 和 UDP 的网络应用代理，SOCKS 4 仅支持 TCP 代理">
@@ -676,6 +676,7 @@ ga('send', 'pageview');
 <h3 id="按匿名程度"><a href="#按匿名程度" class="headerlink" title="按匿名程度"></a>按匿名程度</h3><p>以下四种代理的区别是由于代理服务器配置的 <code>REMOTE_ADDR</code>、<code>HTTP_VIA</code> 和 <code>HTTP_X_FORWARDED_FOR</code> 值不同导致。当没有使用代理时仅  <code>REMOTE_ADDR</code> 是有值的。</p>
 <ul>
 <li><p>高度匿名代理（Elite proxy或High Anonymity Proxy）</p>
+<p>高匿代理其实就是修改请求头，将 <code>HTTP_VIA</code> 与 <code>HTTP_X_FORWARDED_FOR</code> 属性删除，服务器由此误认为客户端没有使用代理。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REMOTE_ADDR = Proxy IP</span><br><span class="line">HTTP_VIA = not determined</span><br><span class="line">HTTP_X_FORWARDED_FOR = not determined</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>匿名代理（Anonymous Proxy）</p>
