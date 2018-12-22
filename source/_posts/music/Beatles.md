@@ -32,6 +32,100 @@ tags: [Music,Beatles]
 - 《Abbey Road》（1969年9月26日）
 - 《Let It Be》（1970年5月8日）
 
+### 《Rubber Soul》
+
+#### In My Life
+
+```
+[Verse 1]
+There are places I'll remember
+All my life though some have changed
+Some forever not for better
+Some have gone and some remain
+All these places had their moments
+With lovers and friends I still can recall
+Some are dead and some are living
+In my life I've loved them all
+
+[Verse 2]
+But of all these friends and lovers
+There is no one compares with you
+And these memories lose their meaning
+When I think of love as something new
+Though I know I'll never lose affection
+For people and things that went before
+I know I'll often stop and think about them
+In my life I love you more
+
+[Piano Solo]
+
+[Verse 3]
+Though I know I'll never lose affection
+For people and things that went before
+I know I'll often stop and think about them
+In my life I love you more
+
+In my life I love you more
+```
+
+### 《Revolver》
+
+#### Yellow Submarine
+
+```
+[Verse 1]
+In the town where I was born
+Lived a man who sailed to sea
+And he told us of his life
+In the land of submarines
+
+[Verse 2]
+So we sailed up to the sun
+Till we found the sea of green
+And we lived beneath the waves
+In our yellow submarine
+
+[Chorus]
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+
+[Verse 3]
+And our friends are all aboard
+Many more of them live next door
+And the band begins to play
+
+[Chorus]
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+
+[Bridge]
+Full speed ahead, Mr. Parker, full speed ahead
+Full speed over here, sir
+Action station, action station
+Aye, aye, sir, fire
+Heaven, heaven
+
+[Verse 4]
+As we live a life of ease
+Everyone of us has all we need (has all we need)
+Sky of blue (sky of blue) and sea of green (and sea of green)
+In our (In our) yellow submarine (yellow submarine, ha-ha!)
+
+[Chorus]
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+We all live in a yellow submarine
+Yellow submarine, yellow submarine
+```
+
 ### 《Abbey Road》
 
 #### Come Together
