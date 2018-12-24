@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Share 杂志
-subtitle: 
-description: 杂而志之，理而顺之，沉之淀之。
+title: 覽月維基
+subtitle:
+description: 明明如月，何時可掇？如切如磋，如琢如磨，衣帶漸寬而終不悔
 author: Lshare
 language: zh-Hans
 timezone:
@@ -49,11 +49,11 @@ post_asset_folder: true
 relative_link: false
 future: true
 
-#highlight: 
+#highlight:
 enable: true
 line_number: true
 auto_detect: false
-tab_replace: 
+tab_replace:
 
 # Category & Tag
 default_category: uncategorized
@@ -83,4 +83,3 @@ deploy:
   type: git
   repository: https://github.com/linlshare/linlshare.github.io.git
   branch: master
-  
