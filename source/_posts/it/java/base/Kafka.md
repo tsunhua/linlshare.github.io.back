@@ -58,6 +58,18 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
 
+### 查看 Topic 列表
+
+```shell
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+```
+
+### 查看指定 Topic 的信息
+
+```shell
+bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
+```
+
 ## 排错
 
 ### KeeperException：NoNode for /config/topics/xxx
@@ -96,6 +108,14 @@ listeners=PLAINTEXT://localhost:9092
 一个线程只能有一个 Consumer，如果多个线程共用一个 Consumer，那么就会出现这个错误。
 
 解决方案就是去解决线程问题，确保只有一个线程调用一个 Consumer。
+
+### Kafka 消息不按顺序消费
+
+背景：查看消息日志发现原本按顺序发送的消息 `1,2,3` 被消费的时候变成 `1,3,2` 了。
+
+原因：Kafka 不保证全局的消息有序性，但保证同一个 Partition 消息的有序性。
+
+解决方案：发消息时设置同一个 Key 或者直接指定同一个 Partition 即可。
 
 ## 参考
 
