@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2018-12-21T02:22:12.836Z</updated>
+  <updated>2018-12-24T10:35:15.644Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>复合任务及其状态</title>
+    <link href="https://linlshare.github.io/2018/12/24/it/concept/%E5%A4%8D%E5%90%88%E4%BB%BB%E5%8A%A1%E5%8F%8A%E5%85%B6%E7%8A%B6%E6%80%81/"/>
+    <id>https://linlshare.github.io/2018/12/24/it/concept/复合任务及其状态/</id>
+    <published>2018-12-24T09:49:56.000Z</published>
+    <updated>2018-12-24T10:35:15.644Z</updated>
+    
+    <content type="html"><![CDATA[<p>在代码设计字段时我们经常会碰到需要加状态字段的场景。状态即此刻的情况、形态。从一个状态到另个状态是质变，而质变是由量变累积而成，譬如年老的状态，是时间累积、内分泌系统渐衰，而从年轻到年老的质变。代码中的状态字段亦复如是。</p><p><strong>原子任务</strong>的状态转移是单一操作的，该任务只有 TODO 和 DONE 两种状态，该任务无法被部分完成，只能整体完成或没完成。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span></span>&#123;</span><br><span class="line">    <span class="comment">// 状态可取值：["TODO","DONE"]</span></span><br><span class="line">    <span class="keyword">private</span> String status;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然而现实世界中的任务都是复合任务，据我发现有以下几种复合方式：</p><ol><li>多个平行原子任务复合，且称之为<strong>平行复合任务</strong>；</li><li>多个链状原子任务复合，且称之为<strong>链状复合任务</strong>；</li><li>多个树状原子任务复合，且称之为<strong>树状复合任务</strong>；</li></ol><p>上面复合方式还可以嵌套，产生更复杂的复合方式，即多重复合。</p><p>这时，我们面临一个挑战，我们该如何定义这些复合任务的状态呢？</p><p>我们说是量的积累导致了状态的质变，那么可不可以从过程量入手呢？</p><p>答案是明确的，我认为这应该是绝妙而又充满哲学意味的手段。现以最简单的平行复合任务为例，试编码如下：</p><p>（1）首先我们需要一个计数器，用来统计总数和已完成的任务数量。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> total;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> done;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTotal</span><span class="params">(<span class="keyword">int</span> total)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.total = total;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseTotal</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.total ++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseDone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.done ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">totallyDone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> total == done;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>（2）再者，我们在复合任务内部刷新状态，每当一个子任务完成时检查并刷新内部状态。这样，状态的刷新就内聚了，外部量变，内部质变。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CompoundTask</span></span>&#123;</span><br><span class="line">    <span class="comment">// 状态可取值：["TODO", "DONE", "PARTIALLY_DONE"]</span></span><br><span class="line">    <span class="keyword">private</span> String status = <span class="string">"TODO"</span>;</span><br><span class="line">    <span class="keyword">private</span> Counter counter = <span class="keyword">new</span> Counter();</span><br><span class="line">    <span class="keyword">private</span> List&lt;Task&gt; tasks = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTask</span><span class="params">(Task task)</span></span>&#123;</span><br><span class="line">        tasks.add(task);</span><br><span class="line">        counter.increaseTotal();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseTaskDone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        counter.increaseDone();</span><br><span class="line">        refreshStatus();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refreshStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(counter.totallyDone())&#123;</span><br><span class="line">            status = <span class="string">"DONE"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">status = <span class="string">"PARTIALLY_DONE"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>以上是基础实现，旨在探求一种通用的描述复合任务状态的解决方案。多重复合任务可以通过同类归并压平成一个计数器，不同类的任务建议使用不同的计数器。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在代码设计字段时我们经常会碰到需要加状态字段的场景。状态即此刻的情况、形态。从一个状态到另个状态是质变，而质变是由量变累积而成，譬如年老的状态，是时间累积、内分泌系统渐衰，而从年轻到年老的质变。代码中的状态字段亦复如是。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;原子任务&lt;/stron
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="concept" scheme="https://linlshare.github.io/categories/it/concept/"/>
+    
+    
+      <category term="复合任务" scheme="https://linlshare.github.io/tags/%E5%A4%8D%E5%90%88%E4%BB%BB%E5%8A%A1/"/>
+    
+      <category term="状态" scheme="https://linlshare.github.io/tags/%E7%8A%B6%E6%80%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Proxy</title>
@@ -642,33 +672,6 @@
       <category term="History" scheme="https://linlshare.github.io/tags/History/"/>
     
       <category term="澳門" scheme="https://linlshare.github.io/tags/%E6%BE%B3%E9%96%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alfred</title>
-    <link href="https://linlshare.github.io/2018/12/04/it/tool/Alfred/"/>
-    <id>https://linlshare.github.io/2018/12/04/it/tool/Alfred/</id>
-    <published>2018-12-04T12:17:22.000Z</published>
-    <updated>2018-12-04T12:27:08.247Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="实用的-Alfred-Workflow"><a href="#实用的-Alfred-Workflow" class="headerlink" title="实用的 Alfred Workflow"></a>实用的 Alfred Workflow</h2><table><thead><tr><th>Alfred Workflow</th><th>介绍</th></tr></thead><tbody><tr><td><a href="https://github.com/willfarrell/alfred-pkgman-workflow" target="_blank" rel="noopener">alfred-pkgman-workflow</a></td><td>快速从各个软件仓库(maven, gradle 等等)中查找需要的软件包</td></tr><tr><td><a href="https://github.com/LinLshare/AlfredHanziSourceWorkflow" target="_blank" rel="noopener">AlfredHanziSourceWorkflow</a></td><td>快速从象形字典、汉语字典、说文解字等站点查询字源</td></tr><tr><td><a href="https://github.com/LinLshare/AlfredGoogleTranslateWorkflow" target="_blank" rel="noopener">AlfredGoogleTranslateWorkflow</a></td><td>快速进行多语言翻译</td></tr><tr><td><a href="https://github.com/bchatard/jetbrains-alfred-workflow" target="_blank" rel="noopener"> jetbrains-alfred-workflow</a></td><td>快速打开 JetBrains 家族构建的项目，包括 Android Studio、IDEA 等的项目</td></tr><tr><td><a href="noogel/Alfred-Workflow">noogel/Alfred-Workflow</a></td><td>开发工程师常用工具箱，包括查询 IP、时间戳转换和 Base64编码之类的工具</td></tr></tbody></table><h2 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h2><ol><li>当 alfred 查询的结果是一个网页链接时，点击<strong>右边的 Shift 键</strong>可以启动快速预览而不用打开网页。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;实用的-Alfred-Workflow&quot;&gt;&lt;a href=&quot;#实用的-Alfred-Workflow&quot; class=&quot;headerlink&quot; title=&quot;实用的 Alfred Workflow&quot;&gt;&lt;/a&gt;实用的 Alfred Workflow&lt;/h2&gt;&lt;tabl
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
-    
-    
-      <category term="Alfred" scheme="https://linlshare.github.io/tags/Alfred/"/>
     
   </entry>
   

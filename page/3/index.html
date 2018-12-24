@@ -251,7 +251,7 @@ ga('send', 'pageview');
                             &nbsp;
                             concept
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  <li class="file"><a href="/2018/12/24/it/concept/复合任务及其状态/">复合任务及其状态</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -597,6 +597,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/tool/Alfred" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Alfred/">Alfred</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/tool/Alfred/">
+            <time datetime="2018-12-04T12:17:22.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Alfred.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Alfred.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Alfred.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/tool/Alfred/">Alfred</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="实用的-Alfred-Workflow"><a href="#实用的-Alfred-Workflow" class="headerlink" title="实用的 Alfred Workflow"></a>实用的 Alfred Workflow</h2><table>
+<thead>
+<tr>
+<th>Alfred Workflow</th>
+<th>介绍</th>
+<p>
+                
+            
+        
+        
+            </p></tr></thead></table></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/tool/Alfred/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/persistence/Spring Data JPA" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -681,110 +785,6 @@ ga('send', 'pageview');
 </ol>
 <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="依赖引入"><a href="#依赖引入" class="headerlink" title="依赖引入"></a>依赖引入</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">  repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">  &#125;</span><br><span class="line">  dependencies &#123;</span><br><span class="line">    classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'org.springframework.boot'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'io.spring.dependency-management'</span></span><br><span class="line"></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">  compile(<span class="string">"org.springframework.boot:spring-boot-starter-data-jpa"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/persistence/MyBatis" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MyBatis/">MyBatis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/04/it/java/persistence/MyBatis/">
-            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/MyBatis.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/MyBatis.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/MyBatis.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol>
-<li>支持声明式数据缓存；</li>
-<li>提供基于 HashMap 的默认缓存实现；</li>
-<li>提供 API 供其他缓存实现。</li>
-<p>
-                
-            
-        
-        
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/12/04/it/java/persistence/MyBatis/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -889,6 +889,110 @@ ga('send', 'pageview');
             </p></ol></div>   
             <div class="article-more-link">
                 <a href="/2018/12/04/it/java/persistence/JPA/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-it/java/persistence/MyBatis" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MyBatis/">MyBatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/MyBatis/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/MyBatis.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/MyBatis.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/MyBatis.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol>
+<li>支持声明式数据缓存；</li>
+<li>提供基于 HashMap 的默认缓存实现；</li>
+<li>提供 API 供其他缓存实现。</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/java/persistence/MyBatis/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1467,110 +1571,6 @@ ga('send', 'pageview');
             </p></ol></div>   
             <div class="article-more-link">
                 <a href="/2018/11/28/it/concept/服务发现/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/concept/分布式与集群" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/concept/">concept</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/分布式/">分布式</a>, <a class="tag-link" href="/tags/集群/">集群</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/28/it/concept/分布式与集群/">
-            <time datetime="2018-11-28T14:09:37.000Z" itemprop="datePublished">2018-11-28</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/concept/分布式与集群.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/concept/分布式与集群.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/concept/分布式与集群.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="分布式与集群的区别（Distributed-vs-Cluster）"><a href="#分布式与集群的区别（Distributed-vs-Cluster）" class="headerlink" title="分布式与集群的区别（Distributed vs Cluster）"></a>分布式与集群的区别（Distributed vs Cluster）</h2><blockquote>
-<p>分布式：一个业务分拆多个子业务，部署在不同的服务器上。</p>
-<p>集群：同一个业务，部署在多个服务器上。</p>
-<p>— <a href="https://www.zhihu.com/question/20004877/answer/26076092" target="_blank" rel="noopener">分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎</a></p>
-</blockquote>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/28/it/concept/分布式与集群/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
