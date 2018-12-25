@@ -119,6 +119,59 @@ q 结束记录
 
 例如`:%s/foo/bar/g`会在全局范围(`%`)查找`foo`并替换为`bar`，所有出现都会被替换（`g`）。
 
+#### Vim 中正则的 magic
+
+```shell
+# 设置magic 
+:set magic 
+# 取消magic 
+:set nomagic 
+# 查看帮助
+:h magic
+```
+
+帮助文档如下：
+
+```
+3. Magic                                                        */magic*
+
+Some characters in the pattern are taken literally.  They match with the same
+character in the text.  When preceded with a backslash however, these
+characters get a special meaning.
+
+Other characters have a special meaning without a backslash.  They need to be
+preceded with a backslash to match literally.
+
+If a character is taken literally or not depends on the 'magic' option and the
+items mentioned next.
+                                                        */\m* */\M*
+Use of "\m" makes the pattern after it be interpreted as if 'magic' is set,
+ignoring the actual value of the 'magic' option.
+Use of "\M" makes the pattern after it be interpreted as if 'nomagic' is used.
+                                                        */\v* */\V*
+Use of "\v" means that in the pattern after it all ASCII characters except
+'0'-'9', 'a'-'z', 'A'-'Z' and '_' have a special meaning.  "very magic"
+
+Use of "\V" means that in the pattern after it only the backslash and the
+terminating character (/ or ?) has a special meaning.  "very nomagic"
+Examples:
+after:    \v       \m       \M       \V         matches ~
+                'magic' 'nomagic'
+          $        $        $        \$         matches end-of-line
+          .        .        \.       \.         matches any character
+          *        *        \*       \*         any number of the previous atom
+          ~        ~        \~       \~         latest substitute string
+          ()       \(\)     \(\)     \(\)       grouping into an atom
+          |        \|       \|       \|         separating alternatives
+          \a       \a       \a       \a         alphabetic character
+          \\       \\       \\       \\         literal backslash
+          \.       \.       .        .          literal dot
+          \{       {        {        {          literal '{'
+          a        a        a        a          literal 'a'
+
+{only Vim supports \m, \M, \v and \V}
+```
+
 ### 删除指定行
 
 ```shell
