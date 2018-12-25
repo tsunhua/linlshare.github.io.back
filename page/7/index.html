@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -503,6 +503,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            philosophy
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/25/philosophy/金剛般若波羅蜜經/">金剛般若波羅蜜經</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             photography
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a></li>  </ul> 
@@ -597,6 +606,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/tool/Git" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/版本控制/">版本控制</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/10/17/it/tool/Git/">
+            <time datetime="2018-10-17T03:44:00.000Z" itemprop="datePublished">2018-10-17</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Git.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Git.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Git.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/10/17/it/tool/Git/">Git</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="提交当前分支的更改到远程的同名分支"><a href="#提交当前分支的更改到远程的同名分支" class="headerlink" title="提交当前分支的更改到远程的同名分支"></a>提交当前分支的更改到远程的同名分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin HEAD</span><br></pre></td></tr></table></figure>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push origin :dev-sth</span><br><span class="line"><span class="meta">#</span> 相当于</span><br><span class="line"><span class="meta">$</span> git push origin --delete dev-sth</span><br></pre></td></tr></table></figure>
+<h3 id="撤销-git-commit-但未-git-push-的修改"><a href="#撤销-git-commit-但未-git-push-的修改" class="headerlink" title="撤销 git commit 但未 git push 的修改"></a>撤销 git commit 但未 git push 的修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>找到想要撤销的 commit id</span><br><span class="line"><span class="meta">$</span> git log</span><br><span class="line"><span class="meta">#</span>撤销，但不对代码修改进行撤销，还可以再次 commit</span><br><span class="line"><span class="meta">$</span> git reset &lt;commit id&gt; </span><br><span class="line"><span class="meta">#</span>撤销并忽略该次 commit 的代码修改</span><br><span class="line"><span class="meta">$</span> git reset --hard &lt;commit id&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="移除远程分支上的脏文件（clean-remote-files）"><a href="#移除远程分支上的脏文件（clean-remote-files）" class="headerlink" title="移除远程分支上的脏文件（clean remote files）"></a>移除远程分支上的脏文件（clean remote files）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git rm -rf &lt;file1&gt; &lt;file2&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="添加子模块（submodule）"><a href="#添加子模块（submodule）" class="headerlink" title="添加子模块（submodule）"></a>添加子模块（submodule）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git submodule add git://github.com/chneukirchen/rack.git rack</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/10/17/it/tool/Git/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-language/日語/日语一周七天的记忆方法" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1526,112 +1639,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-language/閩南語/閩南語俚語小記" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/language/">language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/language/閩南語/">閩南語</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/閩南語/">閩南語</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/09/10/language/閩南語/閩南語俚語小記/">
-            <time datetime="2018-09-10T11:25:00.000Z" itemprop="datePublished">2018-09-10</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/language/閩南語/閩南語俚語小記.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/language/閩南語/閩南語俚語小記.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/language/閩南語/閩南語俚語小記.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><table>
-<thead>
-<tr>
-<th>序號</th>
-<th>俚語</th>
-<p>
-                
-            
-        
-        
-            </p></tr></thead></table></p></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/10/language/閩南語/閩南語俚語小記/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Siguiente  &raquo;</a>
         </nav>
     
 </section>

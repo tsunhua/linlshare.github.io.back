@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="覽月維基">
 <meta property="og:description" content="Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtle 把光标移">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-20T10:11:33.861Z">
+<meta property="og:updated_time" content="2018-12-25T15:01:40.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim">
 <meta name="twitter:description" content="Vim 剪贴板如何与系统剪贴板交互？“+y 把选中内容拷贝到”+号剪贴板，即系统剪贴板。 “+p 把系统剪贴板的内容粘贴到vim。 Vim 中的剪贴板历史可以使用 :reg 进行罗列，并配合以上操作进行粘贴。 如何连接两行文字？在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个功能。以下面两行为例: 12A young intelligentturtle 把光标移">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -141,7 +141,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -505,6 +505,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            philosophy
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/25/philosophy/金剛般若波羅蜜經/">金剛般若波羅蜜經</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             photography
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a></li>  </ul> 
@@ -658,8 +667,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-剪贴板如何与系统剪贴板交互？"><span class="toc-number">1.</span> <span class="toc-text">Vim 剪贴板如何与系统剪贴板交互？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何连接两行文字？"><span class="toc-number">2.</span> <span class="toc-text">如何连接两行文字？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行列块选择？"><span class="toc-number">3.</span> <span class="toc-text">如何进行列块选择？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何快速查找和替换？"><span class="toc-number">4.</span> <span class="toc-text">如何快速查找和替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行重做？"><span class="toc-number">5.</span> <span class="toc-text">如何进行重做？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何记录和回放我的可重复性操作？"><span class="toc-number">6.</span> <span class="toc-text">如何记录和回放我的可重复性操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行查找替换？"><span class="toc-number">7.</span> <span class="toc-text">如何进行查找替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除指定行"><span class="toc-number">8.</span> <span class="toc-text">删除指定行</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-剪贴板如何与系统剪贴板交互？"><span class="toc-number">1.</span> <span class="toc-text">Vim 剪贴板如何与系统剪贴板交互？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何连接两行文字？"><span class="toc-number">2.</span> <span class="toc-text">如何连接两行文字？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行列块选择？"><span class="toc-number">3.</span> <span class="toc-text">如何进行列块选择？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何快速查找和替换？"><span class="toc-number">4.</span> <span class="toc-text">如何快速查找和替换？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行重做？"><span class="toc-number">5.</span> <span class="toc-text">如何进行重做？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何记录和回放我的可重复性操作？"><span class="toc-number">6.</span> <span class="toc-text">如何记录和回放我的可重复性操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何进行查找替换？"><span class="toc-number">7.</span> <span class="toc-text">如何进行查找替换？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vim-中正则的-magic"><span class="toc-number">7.1.</span> <span class="toc-text">Vim 中正则的 magic</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除指定行"><span class="toc-number">8.</span> <span class="toc-text">删除指定行</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number"></span> <span class="toc-text">参考</span></a>
                 </li></div>
             
         
@@ -698,6 +707,9 @@ ga('send', 'pageview');
 <h3 id="如何进行查找替换？"><a href="#如何进行查找替换？" class="headerlink" title="如何进行查找替换？"></a>如何进行查找替换？</h3><p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:&#123;作用范围&#125;s/&#123;目标&#125;/&#123;替换&#125;/&#123;替换标志&#125;</span><br></pre></td></tr></table></figure>
 <p>例如<code>:%s/foo/bar/g</code>会在全局范围(<code>%</code>)查找<code>foo</code>并替换为<code>bar</code>，所有出现都会被替换（<code>g</code>）。</p>
+<h4 id="Vim-中正则的-magic"><a href="#Vim-中正则的-magic" class="headerlink" title="Vim 中正则的 magic"></a>Vim 中正则的 magic</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置magic </span><br><span class="line">:set magic </span><br><span class="line"><span class="meta">#</span> 取消magic </span><br><span class="line">:set nomagic </span><br><span class="line"><span class="meta">#</span> 查看帮助</span><br><span class="line">:h magic</span><br></pre></td></tr></table></figure>
+<p>帮助文档如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">3. Magic                                                        */magic*</span><br><span class="line"></span><br><span class="line">Some characters in the pattern are taken literally.  They match with the same</span><br><span class="line">character in the text.  When preceded with a backslash however, these</span><br><span class="line">characters get a special meaning.</span><br><span class="line"></span><br><span class="line">Other characters have a special meaning without a backslash.  They need to be</span><br><span class="line">preceded with a backslash to match literally.</span><br><span class="line"></span><br><span class="line">If a character is taken literally or not depends on the &apos;magic&apos; option and the</span><br><span class="line">items mentioned next.</span><br><span class="line">                                                        */\m* */\M*</span><br><span class="line">Use of &quot;\m&quot; makes the pattern after it be interpreted as if &apos;magic&apos; is set,</span><br><span class="line">ignoring the actual value of the &apos;magic&apos; option.</span><br><span class="line">Use of &quot;\M&quot; makes the pattern after it be interpreted as if &apos;nomagic&apos; is used.</span><br><span class="line">                                                        */\v* */\V*</span><br><span class="line">Use of &quot;\v&quot; means that in the pattern after it all ASCII characters except</span><br><span class="line">&apos;0&apos;-&apos;9&apos;, &apos;a&apos;-&apos;z&apos;, &apos;A&apos;-&apos;Z&apos; and &apos;_&apos; have a special meaning.  &quot;very magic&quot;</span><br><span class="line"></span><br><span class="line">Use of &quot;\V&quot; means that in the pattern after it only the backslash and the</span><br><span class="line">terminating character (/ or ?) has a special meaning.  &quot;very nomagic&quot;</span><br><span class="line">Examples:</span><br><span class="line">after:    \v       \m       \M       \V         matches ~</span><br><span class="line">                &apos;magic&apos; &apos;nomagic&apos;</span><br><span class="line">          $        $        $        \$         matches end-of-line</span><br><span class="line">          .        .        \.       \.         matches any character</span><br><span class="line">          *        *        \*       \*         any number of the previous atom</span><br><span class="line">          ~        ~        \~       \~         latest substitute string</span><br><span class="line">          ()       \(\)     \(\)     \(\)       grouping into an atom</span><br><span class="line">          |        \|       \|       \|         separating alternatives</span><br><span class="line">          \a       \a       \a       \a         alphabetic character</span><br><span class="line">          \\       \\       \\       \\         literal backslash</span><br><span class="line">          \.       \.       .        .          literal dot</span><br><span class="line">          \&#123;       &#123;        &#123;        &#123;          literal &apos;&#123;&apos;</span><br><span class="line">          a        a        a        a          literal &apos;a&apos;</span><br><span class="line"></span><br><span class="line">&#123;only Vim supports \m, \M, \v and \V&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="删除指定行"><a href="#删除指定行" class="headerlink" title="删除指定行"></a>删除指定行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除1到10行</span><br><span class="line">:1,10d</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://drive.google.com/file/d/1XVwX2IKHfsmtuptZNhpo0DnjMUod65ST/view?usp=sharing" target="_blank" rel="noopener">Vim 用户使用手册</a></li>
@@ -716,7 +728,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/09/07/it/tool/IDEA/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
                     IDEA
@@ -726,7 +738,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">《日語自遊行の最和味》第一課 秋葉原</div>
         </a>
     
