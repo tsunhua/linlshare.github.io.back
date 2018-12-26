@@ -133,6 +133,10 @@ MongoDB 的文件存储格式为 BSON，所谓 BSON，即是 Binary JSON，为 J
 
 # 列出所有文档，并美化
 > db.a_collection.find().pretty()
+
+# 查询记录条数
+> db.a_collection.find().count()
+
 # MongoDB AND 且过滤器
 > db.a_collection.find({
     "a_key": "a_value",

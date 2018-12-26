@@ -218,6 +218,70 @@ List<JobFlow> findByStatus(String... status);
 List<JobFlow> findByStatusIn(List<String> statusList);
 ```
 
+### save 的原理
+
+```java
+// SimpleMongoRepository.java
+public <S extends T> S save(S entity) {
+
+    Assert.notNull(entity, "Entity must not be null!");
+
+    if (entityInformation.isNew(entity)) {
+        mongoOperations.insert(entity, entityInformation.getCollectionName());
+    } else {
+        mongoOperations.save(entity, entityInformation.getCollectionName());
+    }
+
+    return entity;
+}
+
+public <S extends T> List<S> save(Iterable<S> entities) {
+
+    Assert.notNull(entities, "The given Iterable of entities not be null!");
+
+    List<S> result = convertIterableToList(entities);
+    boolean allNew = true;
+
+    for (S entity : entities) {
+        if (allNew && !entityInformation.isNew(entity)) {
+            allNew = false;
+        }
+    }
+
+    if (allNew) {
+        mongoOperations.insertAll(result);
+    } else {
+
+        for (S entity : result) {
+            save(entity);
+        }
+    }
+
+    return result;
+}
+```
+
+
+
+```java
+// AbstractEntityInformation.java
+public boolean isNew(T entity) {
+
+    ID id = getId(entity);
+    Class<ID> idType = getIdType();
+
+    if (!idType.isPrimitive()) {
+        return id == null;
+    }
+
+    if (id instanceof Number) {
+        return ((Number) id).longValue() == 0L;
+    }
+
+    throw new IllegalArgumentException(String.format("Unsupported primitive id type %s!", idType));
+}
+```
+
 ## 参考
 
 1. [Spring Data MongoDB - Reference Documentation - spring.io](https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#repositories.create-instances.spring)
