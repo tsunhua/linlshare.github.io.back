@@ -251,7 +251,7 @@ ga('send', 'pageview');
                             &nbsp;
                             concept
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  <li class="file"><a href="/2018/12/24/it/concept/复合任务及其状态/">复合任务及其状态</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  <li class="file"><a href="/2018/12/24/it/concept/复合任务及其状态/">复合任务及其状态</a></li>  <li class="file"><a href="/2018/12/27/it/concept/WebHook/">WebHook</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -606,6 +606,110 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/persistence/Spring Data MongoDB" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MongoDB/">MongoDB</a>, <a class="tag-link" href="/tags/Spring/">Spring</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">
+            <time datetime="2018-12-05T06:25:40.000Z" itemprop="datePublished">2018-12-05</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/Spring Data MongoDB.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">Spring Data MongoDB</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><p>快速集成 MongoDB，不用写一行 MongoDB 的 CRUD 语句。而是使用 Spring Data 独有的方法命名方式定义数据库操作，并且可以方便地替换各种数据库，比如 MySQL。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="（0）开始之前"><a href="#（0）开始之前" class="headerlink" title="（0）开始之前"></a>（0）开始之前</h3><p>确保已有可连接的 MongoDB</p>
+<h3 id="（1）依赖引入"><a href="#（1）依赖引入" class="headerlink" title="（1）依赖引入"></a>（1）依赖引入</h3><p>在 <code>build.gradle</code> 中添加如下依赖。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'org.springframework.boot'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'io.spring.dependency-management'</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line">targetCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile(<span class="string">"org.springframework.boot:spring-boot-starter-data-mongodb"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（2）配置-MongoDB-连接"><a href="#（2）配置-MongoDB-连接" class="headerlink" title="（2）配置 MongoDB 连接"></a>（2）配置 MongoDB 连接</h3><p>这里配置了 MongoDB 的连接地址和使用的数据库，还配置了扫描 Repositories 的位置。Repositories 我们后面会讲到是什么。</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-history/澳門編年史 - 二十世紀(1900-1949) " class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -911,6 +1015,110 @@ ga('send', 'pageview');
 
 
     
+        <article id="post-it/java/persistence/JPA" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JPA/">JPA</a>, <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/JPA/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JPA.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JPA.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JPA.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/JPA/">JPA</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p>
+<ol>
+<li>API 本身，定义在 <code>javax.persistence</code> 包下；</li>
+<li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li>
+<li>对象与关联表之间的元数据。</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/java/persistence/JPA/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/persistence/JDBC" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1119,110 +1327,6 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/java/persistence/JPA" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JPA/">JPA</a>, <a class="tag-link" href="/tags/Java/">Java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/04/it/java/persistence/JPA/">
-            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JPA.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JPA.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JPA.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/04/it/java/persistence/JPA/">JPA</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="JPA-是干嘛的？"><a href="#JPA-是干嘛的？" class="headerlink" title="JPA 是干嘛的？"></a>JPA 是干嘛的？</h2><p>JPA（Java Persistence API，Java 持久化 API），是一组 ORM（Object Relational Mapping，对象关系映射）规范。所谓持久化，包含三层意思：</p>
-<ol>
-<li>API 本身，定义在 <code>javax.persistence</code> 包下；</li>
-<li>JPQL（Java Persistence Query Language，Java 持久化查询语言）；</li>
-<li>对象与关联表之间的元数据。</li>
-<p>
-                
-            
-        
-        
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/12/04/it/java/persistence/JPA/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-it/tool/Groovy" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1314,87 +1418,6 @@ ga('send', 'pageview');
             </p></div>   
             <div class="article-more-link">
                 <a href="/2018/12/03/it/tool/Groovy/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
-            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            
             </div>
         
         <footer class="article-footer">
@@ -1512,7 +1535,7 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/java/base/ZooKeeper" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1522,20 +1545,20 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/ZooKeeper/">ZooKeeper</a>
+        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/11/29/it/java/base/ZooKeeper/">
-            <time datetime="2018-11-29T04:10:22.000Z" itemprop="datePublished">2018-11-29</time>
+        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
+            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
         </a>
     </div>
 
@@ -1546,13 +1569,13 @@ ga('send', 'pageview');
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/ZooKeeper.md"> Source </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/ZooKeeper.md"> Edit </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/ZooKeeper.md"> History </a>
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
                             </div>
                         
                     </div>
@@ -1560,7 +1583,7 @@ ga('send', 'pageview');
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/29/it/java/base/ZooKeeper/">ZooKeeper</a>
+            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
         </h1>
     
 
