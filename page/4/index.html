@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,10 +107,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -476,6 +476,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            literature
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/30/literature/埃德蒙·斯宾塞/">埃德蒙·斯宾塞</a></li>  <li class="file"><a href="/2018/12/30/literature/乔叟/">乔叟</a></li>  <li class="file"><a href="/2018/12/30/literature/荷马/">荷马</a></li>  <li class="file"><a href="/2018/12/30/literature/蒲柏/">蒲柏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             movie
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/08/movie/海蒂和爷爷/">海蒂和爷爷</a></li>  <li class="file"><a href="/2018/08/19/movie/海街日记/">海街日记</a></li>  </ul> 
@@ -606,6 +615,318 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/persistence/JDBC" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JDBC/">JDBC</a>, <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/JDBC/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JDBC.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JDBC.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JDBC.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="JDBC-是干什么的？"><a href="#JDBC-是干什么的？" class="headerlink" title="JDBC 是干什么的？"></a>JDBC 是干什么的？</h2><p>是 Java 语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如<strong>查询和更新</strong>数据库中数据的方法。JDBC 是面向<strong>关系型数据库</strong>的。</p>
+<h3 id="JPA-与-JDBC-的异同？"><a href="#JPA-与-JDBC-的异同？" class="headerlink" title="JPA 与 JDBC 的异同？"></a>JPA 与 JDBC 的异同？</h3><p><strong>（1）相同点</strong></p>
+<ul>
+<li>都是面向关系型数据库的；</li>
+<li>都具备查询保存数据的能力。</li>
+<p>
+                
+            
+        
+        
+            </p></ul></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/java/persistence/JDBC/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-it/java/persistence/MyBatis" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MyBatis/">MyBatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/MyBatis/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/MyBatis.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/MyBatis.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/MyBatis.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol>
+<li>支持声明式数据缓存；</li>
+<li>提供基于 HashMap 的默认缓存实现；</li>
+<li>提供 API 供其他缓存实现。</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/04/it/java/persistence/MyBatis/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-it/tool/Groovy" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Groovy/">Groovy</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/03/it/tool/Groovy/">
+            <time datetime="2018-12-03T03:09:17.000Z" itemprop="datePublished">2018-12-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Groovy.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Groovy.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Groovy.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/03/it/tool/Groovy/">Groovy</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Gradle-中的-ext-究竟是什么？"><a href="#Gradle-中的-ext-究竟是什么？" class="headerlink" title="Gradle 中的 ext 究竟是什么？"></a>Gradle 中的 ext 究竟是什么？</h3><p>gradle 中我们使用 <code>ext</code> 定义额外的各种属性，可是 <code>ext</code> 究竟是什么呢？</p>
+<p>参看 <a href="https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html" target="_blank" rel="noopener">ExtraPropertiesExtension - Gradle DSL</a>，发现 <code>ext</code> 不是 Groovy 固有的定义，而是领域特定的语言（DSL）。使用方式是：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下的 project 常常被省略</span></span><br><span class="line">project.ext &#123; foo = <span class="string">"bar"</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.ext.get(<span class="string">"foo"</span>) == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project.ext[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> project.foo == <span class="string">"bar"</span></span><br><span class="line"><span class="keyword">assert</span> project[<span class="string">"foo"</span>] == <span class="string">"bar"</span></span><br></pre></td></tr></table></figure>
+<p><code>ext</code> 实质上是一个内置的简单对象，但可以动态添加新属性，这个对象叫 <code>ExtraPropertiesExtension</code>，它内置在所有 <code>ExtensionAware</code> 中，<code>ExtenstionAware</code> 的已知子类有 <code>Project</code>、<code>Settings</code>、<code>Task</code> 、<code>SourceSet</code>，所以在这些类中可以直接使用所谓的 <code>namespace method</code> 动态新增新属性。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Extensions are just plain objects, there is no interface/type</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyExtension</span> &#123;</span></span><br><span class="line">  String foo</span><br><span class="line"></span><br><span class="line">  MyExtension(String foo) &#123;</span><br><span class="line">    <span class="keyword">this</span>.foo = foo</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add new extensions via the extension container</span></span><br><span class="line">project.extensions.create(<span class="string">'custom'</span>, MyExtension, <span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">//                       («name»,   «type»,       «constructor args», …)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// extensions appear as properties on the target object by the given name</span></span><br><span class="line"><span class="keyword">assert</span> project.custom <span class="keyword">instanceof</span> MyExtension</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// also via a namespace method</span></span><br><span class="line">project.custom &#123;</span><br><span class="line">  <span class="keyword">assert</span> foo == <span class="string">"bar"</span></span><br><span class="line">  foo = <span class="string">"other"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">assert</span> project.custom.foo == <span class="string">"other"</span></span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/03/it/tool/Groovy/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/schedule/Quartz" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -696,7 +1017,88 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/12/03/it/java/schedule/Quartz/#more">자세히 보기</a>
+                <a href="/2018/12/03/it/java/schedule/Quartz/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
+            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+            
+        
+        
+            
             </div>
         
         <footer class="article-footer">
@@ -881,7 +1283,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2018/11/28/it/concept/服务发现/#more">자세히 보기</a>
+                <a href="/2018/11/28/it/concept/服务发现/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -985,7 +1387,7 @@ ga('send', 'pageview');
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/2018/11/28/it/concept/分布式与集群/#more">자세히 보기</a>
+                <a href="/2018/11/28/it/concept/分布式与集群/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1089,7 +1491,7 @@ ga('send', 'pageview');
         
             </p></ol></div>   
             <div class="article-more-link">
-                <a href="/2018/11/28/it/java/base/Logback/#more">자세히 보기</a>
+                <a href="/2018/11/28/it/java/base/Logback/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1200,424 +1602,8 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/tool/Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/27/it/tool/Docker/">
-            <time datetime="2018-11-27T09:47:54.000Z" itemprop="datePublished">2018-11-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Docker.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Docker.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Docker.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/27/it/tool/Docker/">Docker</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="Docker-是什么？"><a href="#Docker-是什么？" class="headerlink" title="Docker 是什么？"></a>Docker 是什么？</h2><p><a href="https://github.com/moby/moby" target="_blank" rel="noopener">Docker</a> 是一种虚拟化的容器，<strong>隔离了文件系统、网络互联和进程</strong>等等，但比之传统的虚拟化技术，精简了内核和硬件的虚拟，容器内的应用进程直接运行在宿主内核。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p><strong>（1）Homebrew 安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> brew cask install docker</span><br></pre></td></tr></table></figure>
-<p><strong>（2）下载安装</strong></p>
-<p><a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">Docker.dmg 下载</a></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/27/it/tool/Docker/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/base/etcd" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ETCD/">ETCD</a>, <a class="tag-link" href="/tags/IT/">IT</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/27/it/java/base/etcd/">
-            <time datetime="2018-11-27T06:17:35.000Z" itemprop="datePublished">2018-11-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/etcd.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/etcd.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/etcd.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/27/it/java/base/etcd/">etcd</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="etcd-是什么？（What-is-etcd）"><a href="#etcd-是什么？（What-is-etcd）" class="headerlink" title="etcd 是什么？（What is etcd）"></a>etcd 是什么？（What is etcd）</h2><p>etcd 是一个一致的分布式可靠的键值存储技术。可被用来做配置共享和服务发现。</p>
-<ul>
-<li>开发语言：Go</li>
-<li>共识算法：<a href="https://raft.github.io/" target="_blank" rel="noopener">Raft</a></li>
-<li>命名来源：表示分布式的 <code>etc</code> 目录，发音为<code>/ˈɛtsiːdiː/</code>。</li>
-<p>
-                
-            
-        
-        
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/27/it/java/base/etcd/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/design/设计模式" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/design/">design</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IT/">IT</a>, <a class="tag-link" href="/tags/设计模式/">设计模式</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/26/it/design/设计模式/">
-            <time datetime="2018-11-26T07:45:40.000Z" itemprop="datePublished">2018-11-26</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/design/设计模式.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/design/设计模式.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/design/设计模式.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/26/it/design/设计模式/">设计模式</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><h4 id="（1）适用场景"><a href="#（1）适用场景" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>当解决问题的方法有多种方式，需要可替换时。</p>
-<h4 id="（2）核心"><a href="#（2）核心" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合，封装成一个个算法，即是策略。</p>
-<h4 id="（3）类图"><a href="#（3）类图" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern_strtegy.jpg" alt=""></p>
-<h3 id="抽象工厂模式（Abstract-Factory-Pattern）"><a href="#抽象工厂模式（Abstract-Factory-Pattern）" class="headerlink" title="抽象工厂模式（Abstract Factory Pattern）"></a>抽象工厂模式（Abstract Factory Pattern）</h3><h4 id="（1）适用场景-1"><a href="#（1）适用场景-1" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><ol>
-<li>产品有<strong>不同的提供商</strong>，不同的提供商提供不同品牌和风味的产品；</li>
-<p>
-                
-            
-        
-        
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/26/it/design/设计模式/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-photography/广州生物岛摄影 20181124" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/photography/">photography</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/摄影/">摄影</a>, <a class="tag-link" href="/tags/生物岛/">生物岛</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/24/photography/广州生物岛摄影 20181124/">
-            <time datetime="2018-11-24T14:00:12.000Z" itemprop="datePublished">2018-11-24</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/photography/广州生物岛摄影 20181124.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/photography/广州生物岛摄影 20181124.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/photography/广州生物岛摄影 20181124.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><table>
-<thead>
-<tr>
-<th>KEY</th>
-<th>VALUE</th>
-<p>
-                
-            
-        
-        
-            </p></tr></thead></table></p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/24/photography/广州生物岛摄影 20181124/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">Siguiente  &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
         </nav>
     
 </section>
