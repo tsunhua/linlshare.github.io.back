@@ -178,6 +178,14 @@ db.a_collection.getIndexes()
 6. mongodb-driver-async：新的异步 API，充分利用 Netty 或者 Java7 的 AsynchronousSocketChannel 已达到快而非阻塞的 IO。
 7. mongo-java-driver（uber-jar）：包含 bson,  mongodb-driver-core 和 mongodb-driver。
 
+### 引入依赖
+
+```groovy
+dependencies {
+    compile 'org.mongodb:mongodb-driver-sync:3.9.1'
+}
+```
+
 ## Q&A
 
 ### 一个服务中该使用一个还是多个 MongoClient？

@@ -325,6 +325,32 @@ Jai Guru Deva
 Jai Guru Deva
 ```
 
+### A Hard Day's Night
+
+```
+It's been a hard day's night, and I been working like a dog
+It's been a hard day's night, I should be sleeping like a log
+But when I get home to you I'll find the things that you do
+Will make me feel alright
+You know I work all day to get you money to buy you things
+And it's worth it just to hear you say you're going to give me everything
+So why on earth should I moan, 'cause when I get you alone
+You know I feel ok
+When I'm home everything seems to be right
+When I'm home feeling you holding me tight, tight
+Owww!
+So why on earth should I moan, 'cause when I get you alone
+You know I feel ok
+When I'm home everything seems to be right
+When I'm home feeling you holding me tight, tight, yeah
+It's been a hard day's night, and I been working like a dog
+It's been a hard day's night, I should be sleeping like a log
+But when I get home to you I'll find the things that you do
+Will make me feel alright
+You know I feel alright
+You know I feel alright...
+```
+
 ## 参考
 
 1. [披头士乐队 - 维基百科](https://zh.wikipedia.org/wiki/%E6%8A%AB%E9%A0%AD%E5%9B%9B%E6%A8%82%E9%9A%8A)
