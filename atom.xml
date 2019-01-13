@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-01-12T13:47:55.198Z</updated>
+  <updated>2019-01-13T11:32:13.405Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>薑絲黃酒炒花蛤</title>
+    <link href="https://linlshare.github.io/2019/01/13/recipe/%E8%96%91%E7%B5%B2%E9%BB%83%E9%85%92%E7%82%92%E8%8A%B1%E8%9B%A4/"/>
+    <id>https://linlshare.github.io/2019/01/13/recipe/薑絲黃酒炒花蛤/</id>
+    <published>2019-01-13T10:59:07.000Z</published>
+    <updated>2019-01-13T11:32:13.405Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="食材準備"><a href="#食材準備" class="headerlink" title="食材準備"></a>食材準備</h2><table><thead><tr><th>材料</th><th>參考量</th><th>參考單價</th><th>參考價格</th></tr></thead><tbody><tr><td>花蛤（花甲、蜆）</td><td>半斤多一點</td><td>11元/斤</td><td>6元</td></tr><tr><td>黃酒（紹酒）</td><td>半勺（約40ML）</td><td>約25元/瓶（2.5L）</td><td>0.4元</td></tr><tr><td>薑絲</td><td>一小塊</td><td>？</td><td>？</td></tr><tr><td>食用油</td><td>半勺</td><td>？</td><td>？</td></tr></tbody></table><h2 id="烹飪過程"><a href="#烹飪過程" class="headerlink" title="烹飪過程"></a>烹飪過程</h2><ol><li>先將花蛤泡水洗淨，約10分鐘；</li><li>先將薑絲切成小細條狀；</li><li>鍋底下油，油起泡后下薑絲，煎至金黃；</li><li>下花蛤，蓋上蓋子，至花蛤開口即可，約3分鐘；</li><li>連同乳白色的湯一起出鍋；</li><li>可加少量芹菜配色。</li></ol><blockquote><p>提示：</p><ol><li>花蛤生活在灘塗中，含沙較多，建議購買用水沖過一點時間的以避免洗花蛤的麻煩；</li><li>花甲本身含水較多，所以整個過程無需加水；</li></ol></blockquote><h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p><img src="/2019/01/13/recipe/薑絲黃酒炒花蛤/薑絲黃酒炒花蛤-結果.png" alt=""></p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol><li><a href="https://www.youtube.com/watch?v=23oCDoDJ5Kk" target="_blank" rel="noopener">名廚家常菜｜薑絲黃酒炒花蛤 - YouTube.com（看完需1分19秒）</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;食材準備&quot;&gt;&lt;a href=&quot;#食材準備&quot; class=&quot;headerlink&quot; title=&quot;食材準備&quot;&gt;&lt;/a&gt;食材準備&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;材料&lt;/th&gt;
+&lt;th&gt;參考量&lt;/th&gt;
+&lt;th&gt;參考單價&lt;/th&gt;
+&lt;th&gt;參
+      
+    
+    </summary>
+    
+      <category term="recipe" scheme="https://linlshare.github.io/categories/recipe/"/>
+    
+    
+      <category term="Recipe" scheme="https://linlshare.github.io/tags/Recipe/"/>
+    
+  </entry>
   
   <entry>
     <title>甲骨文中人的形象</title>
@@ -645,39 +676,6 @@
     
     
       <category term="CSV" scheme="https://linlshare.github.io/tags/CSV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Amazon S3</title>
-    <link href="https://linlshare.github.io/2018/12/14/it/java/aws/Amazon%20S3/"/>
-    <id>https://linlshare.github.io/2018/12/14/it/java/aws/Amazon S3/</id>
-    <published>2018-12-14T04:02:45.000Z</published>
-    <updated>2018-12-14T08:32:15.532Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Amazon-S3-是什么？"><a href="#Amazon-S3-是什么？" class="headerlink" title="Amazon S3 是什么？"></a>Amazon S3 是什么？</h2><p>Amazon S3 是亚马逊推出的一款存储服务，名为 Amazon Simple Storage Service，即亚马逊简单存储服务。</p><p>有些 S3 的概念需要了解一下：</p><ol><li>存储桶（Buckets）：S3 中用于存储对象的容器，相当于文件系统中的目录（Directory）的概念。</li><li>对象（Objects）：S3 中存储的基本实体，由对象数据和元数据组成，元数据是描述对象的一组键值对。在存储中的对象由键和版本 ID 唯一标识。</li><li>键（Keys）：存储桶中对象的唯一标识符。</li><li>区域（Regions）：地理区域。</li></ol><blockquote><p>S3 中的对象映射：存储桶 + 键 + 版本 –&gt; 对象</p></blockquote><h2 id="API-1-0"><a href="#API-1-0" class="headerlink" title="API 1.0"></a>API 1.0</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="身份验证错误"><a href="#身份验证错误" class="headerlink" title="身份验证错误"></a>身份验证错误</h3><p>BasicProfileConfigLoader - Your profile name includes a ‘profile ‘ prefix. This is considered part of the profile name in the Java SDK, so you will need to include this prefix in your profile name when you reference this profile from your Java code.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Amazon-S3-是什么？&quot;&gt;&lt;a href=&quot;#Amazon-S3-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Amazon S3 是什么？&quot;&gt;&lt;/a&gt;Amazon S3 是什么？&lt;/h2&gt;&lt;p&gt;Amazon S3 是亚马逊推出的一款存储服
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
-    
-      <category term="aws" scheme="https://linlshare.github.io/categories/it/java/aws/"/>
-    
-    
-      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
-    
-      <category term="S3" scheme="https://linlshare.github.io/tags/S3/"/>
-    
-      <category term="aws" scheme="https://linlshare.github.io/tags/aws/"/>
     
   </entry>
   

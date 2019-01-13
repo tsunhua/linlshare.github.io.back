@@ -173,11 +173,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                119
+                120
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                126
+                127
                 <span>tags</span>
             </div>
         </div>
@@ -587,6 +587,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            recipe
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             thinking
                         </a>
                          <ul class="unstyled" id="tree"> 
@@ -672,6 +681,170 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/concept/WebHook" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/concept/">concept</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/WebHook/">WebHook</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/27/it/concept/WebHook/">
+            <time datetime="2018-12-27T01:58:14.000Z" itemprop="datePublished">2018-12-27</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/concept/WebHook.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/concept/WebHook.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/concept/WebHook.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/27/it/concept/WebHook/">WebHook</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="什么是-WebHook？"><a href="#什么是-WebHook？" class="headerlink" title="什么是 WebHook？"></a>什么是 WebHook？</h3><p>WebHook，网络钩子，就是一个 HTTP 回调，一个简单的基于 HTTP POST 的事件通知。</p>
+<p>WebHook 这个词是由杰夫·林德赛（Jeff Lindsay）于 2007 年首次提出，创意来自编程术语 “Hook”。</p>
+<h3 id="WebHook-能干嘛？"><a href="#WebHook-能干嘛？" class="headerlink" title="WebHook 能干嘛？"></a>WebHook 能干嘛？</h3><ol>
+<li>推送（Push）：实时接收数据；不需要轮询，当事件发生时 Web 应用会推送通知。</li>
+<li>管道（Pipeline）：接收并传递数据；当接收到通知时，对方可以编程将数据通过各种方式传递出去。</li>
+<li>插件（Plugin）：处理数据并响应；将整个互联网变成一个可编程平台。</li>
+</ol>
+<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><p>其工作流程就是一个发布-订阅模型，或者说是 Web 上的观察者模式。试画简要的时序图如下：</p>
+<p><img src="/2018/12/27/it/concept/WebHook/WebHook-时序.jpg" alt=""></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>目前 WebHook 的实现没有统一的标准。但 <a href="https://webhooks.pbworks.com/w/page/13385128/RESTful%20WebHooks" target="_blank" rel="noopener">webhooks.pbworks.com</a> 提供了一种基于 RESTful 的 WebHooks 实现标准。包括发现、订阅、发布等一系列的规范。</p>
+<p>实现 WebHook 时需要关注：</p>
+<ol>
+<li>事件（Events），该 Web 应用可提供多少种事件用于订阅；</li>
+<li>载荷（Payload），各种事件的通知实体是怎样的，有哪些字段；</li>
+</ol>
+<p>更细微的还需要关注：</p>
+<ol>
+<li>在通知中说明收到通知的原因——是由于哪个事件触发的，Github 中是使用请求头 <code>X-GitHub-Event</code> 说明；</li>
+<li>唯一标识每个通知，Github 是使用请求头 <code>X-GitHub-Delivery</code> 说明；</li>
+<li>如有需要，进行签名校验保证请求和响应内容未被修改，Github 中是使用请求头 <code>X-Hub-Signature</code> 说明。</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/27/it/concept/WebHook/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-philosophy/金剛般若波羅蜜經" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -2025,135 +2198,6 @@ ga('send', 'pageview');
 <h2 id="内容中含有逗号？"><a href="#内容中含有逗号？" class="headerlink" title="内容中含有逗号？"></a>内容中含有逗号？</h2><p>（1）自定义分隔符如下，并保存文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Brand`Product`Desc</span><br><span class="line">Apple`IPhone,Mac`Expensive</span><br><span class="line">Samsung`S8,Galaxy Watch`Nice</span><br></pre></td></tr></table></figure>
 <p>（2）打开 Excel 新建文档，然后点击 <code>文档 --&gt; 导入</code>，选取刚才保存的 <code>csv</code> 文件。在弹出的提示框中选择 <code>分隔符号 --&gt; 下一步 --&gt; 其他</code>， 输入自定义的分隔符号，点击 <code>完成</code> 即可。</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/aws/Amazon S3" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/aws/">aws</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/S3/">S3</a>, <a class="tag-link" href="/tags/aws/">aws</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/14/it/java/aws/Amazon S3/">
-            <time datetime="2018-12-14T04:02:45.000Z" itemprop="datePublished">2018-12-14</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/aws/Amazon S3.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/aws/Amazon S3.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/aws/Amazon S3.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/14/it/java/aws/Amazon S3/">Amazon S3</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h2 id="Amazon-S3-是什么？"><a href="#Amazon-S3-是什么？" class="headerlink" title="Amazon S3 是什么？"></a>Amazon S3 是什么？</h2><p>Amazon S3 是亚马逊推出的一款存储服务，名为 Amazon Simple Storage Service，即亚马逊简单存储服务。</p>
-<p>有些 S3 的概念需要了解一下：</p>
-<ol>
-<li>存储桶（Buckets）：S3 中用于存储对象的容器，相当于文件系统中的目录（Directory）的概念。</li>
-<li>对象（Objects）：S3 中存储的基本实体，由对象数据和元数据组成，元数据是描述对象的一组键值对。在存储中的对象由键和版本 ID 唯一标识。</li>
-<li>键（Keys）：存储桶中对象的唯一标识符。</li>
-<li>区域（Regions）：地理区域。</li>
-</ol>
-<blockquote>
-<p>S3 中的对象映射：存储桶 + 键 + 版本 –&gt; 对象</p>
-</blockquote>
-<h2 id="API-1-0"><a href="#API-1-0" class="headerlink" title="API 1.0"></a>API 1.0</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="身份验证错误"><a href="#身份验证错误" class="headerlink" title="身份验证错误"></a>身份验证错误</h3><p>BasicProfileConfigLoader - Your profile name includes a ‘profile ‘ prefix. This is considered part of the profile name in the Java SDK, so you will need to include this prefix in your profile name when you reference this profile from your Java code.</p>
 
             </div>
         

@@ -173,11 +173,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                119
+                120
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                126
+                127
                 <span>tags</span>
             </div>
         </div>
@@ -587,6 +587,15 @@ ga('send', 'pageview');
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            recipe
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             thinking
                         </a>
                          <ul class="unstyled" id="tree"> 
@@ -672,6 +681,170 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/code/开发一个第三方库的一般性和团队特定规则" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/code/">code</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CodeStyle/">CodeStyle</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">
+            <time datetime="2018-08-13T02:19:00.000Z" itemprop="datePublished">2018-08-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/code/开发一个第三方库的一般性和团队特定规则.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/code/开发一个第三方库的一般性和团队特定规则.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/code/开发一个第三方库的一般性和团队特定规则.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>在于将可以重复使用的轮子共用，避免重复造轮子，从而提高生产力。</p>
+<h3 id="一般性规则"><a href="#一般性规则" class="headerlink" title="一般性规则"></a>一般性规则</h3><ol>
+<li><p>避免重复造轮子</p>
+<p>如果已有思路类似的轮子，请完善之而不是另起炉灶，除非对方的代码已经不堪维护。</p>
+</li>
+<li><p>谨慎设计 API</p>
+<p>规范化类和方法的命名，注意多参函数参数的位置，过时的 API 使用 <code>@Deprecated</code> 注解。</p>
+</li>
+<li><p>避免引入其他库</p>
+<p>当需要依赖第三方库时使用 <code>compileOnly</code> 而不是 <code>implementation</code> ，以避免将第三方库（特别是 support 包）打入其中，将其他第三方库的选择权交给集成者。</p>
+</li>
+<li><p>尽量用注解代替枚举</p>
+<p>注解 <code>@IntDef</code> 、<code>@StringDef</code> 、 <code>@Interface</code> 和 <code>@Retention</code> 了解一下。</p>
+</li>
+<li><p>资源文件加上特殊前缀</p>
+<p>第三方库的资源文件会跟集成者的相合并，因此需要在命名上独一无二。假定该库为 <code>xxx-yyy</code> ，那么所有资源文件建议加上前缀 <code>xxx_yyy_</code> 。</p>
+</li>
+<li><p>提供可插拔依赖的方案</p>
+<p>假定该库依赖于一个图片加载库，但不知集成者使用 <code>Picasso</code> 还是 <code>Glide</code> 或者其它图片加载库，这时可以使用 <code>compileOnly</code> 把它们都依赖进来（但不会打进最终的 aar 包），然后在代码中使用 <code>Class.forName()</code> (要捕获异常) 依次检测是否有对应的依赖，有则用之。</p>
+</li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/exception/从序列化到 GSON 排错记录" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1880,170 +2053,6 @@ ga('send', 'pageview');
         
         
             <h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/base/Maven" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Maven/">Maven</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/29/it/java/base/Maven/">
-            <time datetime="2017-12-29T11:34:00.000Z" itemprop="datePublished">2017-12-29</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/Maven.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/Maven.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/Maven.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/29/it/java/base/Maven/">Maven</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><p>项目管理工具</p>
-<ul>
-<li>构建项目（Builds）</li>
-<li>依赖管理（Dependencies）</li>
-<li>配置管理（SCMs）</li>
-<li>发布管理（Release）</li>
-<li>文档编制（Documentation）</li>
-<li>报告（Reporting）</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>微内核（只解析XML，其他由Maven插件处理）</li>
-<li>约定优于配置</li>
-<li>定义项目模型</li>
-</ul>
-<p>安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install maven</span><br><span class="line">mvn -version</span><br></pre></td></tr></table></figure>
-<p>创建Maven项目</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=org.flyne.demo -DartifactId=maven-demo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</span><br><span class="line"><span class="meta">#</span> 这是一个goal</span><br></pre></td></tr></table></figure>
-<p>项目结构</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2017/12/29/it/java/base/Maven/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
