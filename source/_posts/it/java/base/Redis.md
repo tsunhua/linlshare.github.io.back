@@ -28,7 +28,7 @@ $ cd redis-5.0.3
 $ make
 ```
 
-## 使用
+## 命令行使用
 
 ### 启动 Redis Server
 
@@ -70,6 +70,9 @@ $ redis-cli -h host -p port -a password
 > TTL a_key
 # 获知某个 key 存储值的类型
 > TYPE a_key
+
+# 获取Size，可能会把失效的也计算在内
+> DBSIZE
 ```
 
 ### 取值相关命令
@@ -107,6 +110,24 @@ $ redis-cli -h host -p port -a password
 > FLUSHALL
 # 删除当前数据库的所有key
 > FLUSHDB
+```
+
+## Jedis 使用
+
+### 快速开始
+
+（1）引入依赖
+
+```groovy
+compile "redis.clients:jedis:3.0.0"
+```
+
+（2）简单使用
+
+```java
+Jedis jedis = new Jedis("localhost");
+jedis.set("foo", "bar");
+String value = jedis.get("foo");
 ```
 
 ## 排错
