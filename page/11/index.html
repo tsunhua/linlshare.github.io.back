@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -691,21 +691,42 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h4 id="序列化、反序列化和持久化"><a href="#序列化、反序列化和持久化" class="headerlink" title="序列化、反序列化和持久化"></a>序列化、反序列化和持久化</h4><p>序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。</p>
-<p>序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。</p>
-<h4 id="第一种：对象输入输出流"><a href="#第一种：对象输入输出流" class="headerlink" title="第一种：对象输入输出流"></a>第一种：对象输入输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dog</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 序列化</span></span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line">Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">dog.name = <span class="string">"aDog"</span>;</span><br><span class="line">oos.writeObject(dog);</span><br><span class="line">oos.close();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line">Dog dog = (Dog) ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
-<h4 id="第二种：JSON-字符串"><a href="#第二种：JSON-字符串" class="headerlink" title="第二种：JSON 字符串"></a>第二种：JSON 字符串</h4><p>以广为使用的 GSON 库为例，GSON 是一个很常用的序列化和反序列化对象的 JSON 库。其最简单的使用方式是：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cat</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 序列化对象</span></span><br><span class="line">Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">cat.name = <span class="string">"aCat"</span>;</span><br><span class="line">String catStr = gson.toJson(cat);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化对象</span></span><br><span class="line">Cat cat = gson.fromJson(catStr, Cat.Class);</span><br></pre></td></tr></table></figure>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/#more">Read More</a>
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h4 id="序列化、反序列化和持久化"><a href="#序列化、反序列化和持久化" class="headerlink" title="序列化、反序列化和持久化"></a>序列化、反序列化和持久化</h4><p>序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。</p>
+<p>序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。</p>
+<h4 id="第一种：对象输入输出流"><a href="#第一种：对象输入输出流" class="headerlink" title="第一种：对象输入输出流"></a>第一种：对象输入输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dog</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 序列化</span></span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line">Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">dog.name = <span class="string">"aDog"</span>;</span><br><span class="line">oos.writeObject(dog);</span><br><span class="line">oos.close();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line">Dog dog = (Dog) ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
+<h4 id="第二种：JSON-字符串"><a href="#第二种：JSON-字符串" class="headerlink" title="第二种：JSON 字符串"></a>第二种：JSON 字符串</h4><p>以广为使用的 GSON 库为例，GSON 是一个很常用的序列化和反序列化对象的 JSON 库。其最简单的使用方式是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cat</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 序列化对象</span></span><br><span class="line">Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">cat.name = <span class="string">"aCat"</span>;</span><br><span class="line">String catStr = gson.toJson(cat);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化对象</span></span><br><span class="line">Cat cat = gson.fromJson(catStr, Cat.Class);</span><br></pre></td></tr></table></figure>
+<h4 id="第三种：Parcel"><a href="#第三种：Parcel" class="headerlink" title="第三种：Parcel"></a>第三种：Parcel</h4><p>Android 中的 Parcel，官方的文档中表明是为了提高 IPC 效率而生的，不建议进行持久化，因为一旦类的成员变量发生改变，旧的数据将不再可读。Parcel 对象存在于一段多进程共享的内存中，没有进行文件的读写操作，高效是显而易见的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hawk</span></span><br><span class="line"><span class="keyword">import</span> android.os.Parcel;</span><br><span class="line"><span class="keyword">import</span> android.os.Parcelable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hawk</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="title">Hawk</span><span class="params">(Parcel in)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 反序列化</span></span><br><span class="line">    name = in.readString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Creator&lt;Hawk&gt; CREATOR = <span class="keyword">new</span> Creator&lt;Hawk&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Hawk <span class="title">createFromParcel</span><span class="params">(Parcel in)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Hawk(in);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Hawk[] newArray(<span class="keyword">int</span> size) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Hawk[size];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 序列化</span></span><br><span class="line">    dest.writeString(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Github 上提供了<a href="https://gist.github.com/jacklt/6711967" target="_blank" rel="noopener">一种方式</a>将 Parcelable 对象字节化和反字节化，以便进行持久化，摘取如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParcelableUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] marshall(Parcelable parceable) &#123;</span><br><span class="line">        Parcel parcel = Parcel.obtain();</span><br><span class="line">        parceable.writeToParcel(parcel, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = parcel.marshall();</span><br><span class="line">        parcel.recycle(); <span class="comment">// not sure if needed or a good idea</span></span><br><span class="line">        <span class="keyword">return</span> bytes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Parcelable&gt; <span class="function">T <span class="title">unmarshall</span><span class="params">(<span class="keyword">byte</span>[] bytes, Parcelable.Creator&lt;T&gt; creator)</span> </span>&#123;</span><br><span class="line">        Parcel parcel = unmarshall(bytes);</span><br><span class="line">        <span class="keyword">return</span> creator.createFromParcel(parcel);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Parcel <span class="title">unmarshall</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">        Parcel parcel = Parcel.obtain();</span><br><span class="line">        parcel.unmarshall(bytes, <span class="number">0</span>, bytes.length);</span><br><span class="line">        parcel.setDataPosition(<span class="number">0</span>); <span class="comment">// this is extremely important!</span></span><br><span class="line">        <span class="keyword">return</span> parcel;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象是千奇百怪的，导致我们序列化和反序列化的时候可能会出现一些不可思议的错误信息。下面就我遇到的一些情况为例，书写排错的血泪史。</p>
+<h3 id="1-AssertionError：Impossible"><a href="#1-AssertionError：Impossible" class="headerlink" title="1. AssertionError：Impossible"></a>1. AssertionError：Impossible</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>在对某广告 SDK 的 Ad 对象进行序列化时出现该错误，瞬间惊呆了，序列化一个实现了简单的对象怎么不可能了？</p>
+
             </div>
         
         <footer class="article-footer">
@@ -795,6 +816,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p><ol>
@@ -802,6 +868,21 @@ ga('send', 'pageview');
 <p>起 初 　 神 創 造 天 地 。</p>
 </li>
 <li><p>And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.</p>
+<p>地 是 空 虛 混 沌 ． 淵 面 黑 暗 ． 　 神 的 靈 運 行 在 水 面 上 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void</span><br><span class="line">-&gt; a large empty space</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>And God said, Let there be light: and there was light.</p>
+<p>神 說 、 要 有 光 、 就 有 了 光 。</p>
+</li>
+<li><p>And God saw the light, that it was good: and God divided the light from the darkness.</p>
+<p>神 看 光 是 好 的 、 就 把 光 暗 分 開 了 。</p>
+</li>
+<li><p>And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.</p>
+<p> 神 稱 光 為 晝 、 稱 暗 為 夜 ． 有 晚 上 、 有 早 晨 、 這 是 頭 一 日 。</p>
+</li>
+<li><p>And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.</p>
+<p>神 說 、 諸 水 之 間 要 有 空 氣 、 將 水 分 為 上 下 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">firmament</span><br><span class="line">-&gt; the sky or heaven</span><br><span class="line">midst</span><br><span class="line">-&gt; middle</span><br></pre></td></tr></table></figure>
 <p>
                 
             
@@ -899,6 +980,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h3 id="SET-命令"><a href="#SET-命令" class="headerlink" title="SET 命令"></a>SET 命令</h3><p>用途：</p>
@@ -906,12 +1032,27 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> set [+-abCdefhHklmnpPtuvx]</span><br></pre></td></tr></table></figure>
 <p>注：</p>
 <pre><code>1. [-] 表示设置参数
+2. [+] 表示取消设置参数
+</code></pre><p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> tmp="nice day"</span><br><span class="line"><span class="meta">&gt;</span> $tmp</span><br><span class="line">nice day</span><br><span class="line"><span class="meta">&gt;</span> set | grep tmp</span><br><span class="line">tmp="nice day"</span><br><span class="line"><span class="meta">&gt;</span> unset tmp</span><br><span class="line"><span class="meta">&gt;</span> $tmp</span><br></pre></td></tr></table></figure>
+<h3 id="SSH-命令"><a href="#SSH-命令" class="headerlink" title="SSH 命令"></a>SSH 命令</h3><p>用途：</p>
+<p>连接远程计算机。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> ssh  -p &lt;port&gt; &lt;user&gt;@&lt;hostname&gt; &lt;remote cmd&gt;</span><br></pre></td></tr></table></figure>
+<p>注：</p>
+<ol>
+<li>[-p] 指定端口号，默认为 22</li>
+<li>[remote cmd] 远程执行命令并显示到本地继续工作</li>
+</ol>
+<p>配置 [.ssh] 在 [~/.ssh/config] 中，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host &lt;myhost&gt;</span><br><span class="line">User &lt;username&gt;</span><br><span class="line">HostName &lt;ip&gt;</span><br><span class="line">IdentityFile ~/env/&lt;username&gt;.id_rsa</span><br></pre></td></tr></table></figure>
+<p>可快速进行ssh连接，<code>ssh myhost</code> 。</p>
+<h3 id="进程管理命令"><a href="#进程管理命令" class="headerlink" title="进程管理命令"></a>进程管理命令</h3><h4 id="前后台切换命令-bg、fg"><a href="#前后台切换命令-bg、fg" class="headerlink" title="前后台切换命令 bg、fg"></a>前后台切换命令 bg、fg</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> fg &lt;task id&gt;</span><br><span class="line"><span class="meta">&gt;</span> bg &lt;task id&gt;</span><br></pre></td></tr></table></figure>
 <p>
                 
             
         
         
-            </p></code></pre></div>   
+            </p></div>   
             <div class="article-more-link">
                 <a href="/2018/08/06/it/tool/Linux Shell/#more">Read More</a>
             </div>
@@ -1003,6 +1144,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><p><img src="/2018/05/29/person/陆奇的故事/luqi.jpeg" alt="luqi"></p>
@@ -1010,12 +1196,27 @@ ga('send', 'pageview');
 <li>1987年，毕业毕业于复旦大学，获计算机科学学士、硕士学位。</li>
 <li>1992年，就读于卡耐基梅隆大学，获计算机科学博士学位。</li>
 <li>1998年8月，陆奇加入雅虎公司，2007年晋升为雅虎执行副总裁。</li>
+<li>2008年8月，陆奇离开雅虎，并于次年1月正式加盟微软任网络服务集团总裁，2013年出任微软集团全球执行副总裁，2016年9月宣布从微软离职。</li>
+<li>2017年1月17日加入百度，担任百度集团总裁兼首席运营官、百度董事及董事会副主席 ，主要负责百度的产品、技术、销售及市场运营，兼任百度智能驾驶事业群组总经理。</li>
+<li>2018年5月17日，百度发布内部全员邮件，宣布集团总裁兼首席运营官陆奇由于个人和家庭原因，无法继续全职在北京工作，将从7月起不再担任上述职务，但仍将继续担任集团公司副董事长。</li>
+</ul>
+<h2 id="陆奇选择百度的标准"><a href="#陆奇选择百度的标准" class="headerlink" title="陆奇选择百度的标准"></a>陆奇选择百度的标准</h2><ol>
+<li>能够承载陆奇的只有巨头或拥有巨头前景的公司，而且要有全球化雄心；</li>
+<li>陆奇需要一个COO/总裁级别的职位来匹配他的地位和抱负，并且足够放权让他施展；</li>
+<li>最好还是一家技术驱动，工程师驱动的公司。</li>
+</ol>
+<h2 id="陆奇出入，百度股价情况"><a href="#陆奇出入，百度股价情况" class="headerlink" title="陆奇出入，百度股价情况"></a>陆奇出入，百度股价情况</h2><p>自陆奇进入百度工作至今，百度股价累计涨幅接近60%。百度2018年第一季度财报显示，本季度百度营收为209亿元人民币（约合33.3亿美元），同比增长31%，其中移动营收占比78%；净利润为人民币67亿元（约合11亿美元），与上年同期相比增长277%。</p>
+<p>本周三（5月16日）时，百度股价还大涨了4.47%，创下历史新高，市值达985亿美元，眼见即将破千亿美元大关。</p>
+<p>然而随着陆奇突然离职，百度下重注的All-in AI战略顿时蒙上了许多阴影。受此消息影响，百度股价暴跌9.54%，收报253.01美元，市值882亿美元，一夜蒸发94亿美元。</p>
+<p>5月19日，同期腾讯市值为4917.99亿美元，阿里市值为5010.48亿美元。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>但可能在今年年内某一天，这个“副董事长”的title就会宣布卸去。而陆奇肯定也不好因此归隐退休，<strong>他才57岁，而且依然为高强度工作而4点起床锻炼身体</strong>，更主要的是他满怀一腔雄心和抱负，看好中国科技的高速发展进程，也对带领中国公司成为国际化巨头深怀期待。  — 量子位</p>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></blockquote></div>   
             <div class="article-more-link">
                 <a href="/2018/05/29/person/陆奇的故事/#more">Read More</a>
             </div>
@@ -1107,21 +1308,22 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h3 id="1-去除启动黑屏"><a href="#1-去除启动黑屏" class="headerlink" title="1. 去除启动黑屏"></a>1. 去除启动黑屏</h3><p>1.1 在<code>style.xml</code>中定义两种主题：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.Splash"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/bg_splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>1.2 在<code>AndroidManifest.xml</code>中设置MainActivity的主题为<code>AppTheme.Splash</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"xxx.MainActivity"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme.Splash"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>1.3 在<code>MainActivity</code>的<code>onCreate</code>调用super的方法之前设置回原先的主题</p>
-<p>
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/01/20/it/android/APP启动优化/#more">Read More</a>
+            <h3 id="1-去除启动黑屏"><a href="#1-去除启动黑屏" class="headerlink" title="1. 去除启动黑屏"></a>1. 去除启动黑屏</h3><p>1.1 在<code>style.xml</code>中定义两种主题：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.Splash"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/bg_splash<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.2 在<code>AndroidManifest.xml</code>中设置MainActivity的主题为<code>AppTheme.Splash</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"xxx.MainActivity"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme.Splash"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.3 在<code>MainActivity</code>的<code>onCreate</code>调用super的方法之前设置回原先的主题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">  setTheme(R.style.AppTheme);</span><br><span class="line">  <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-分析启动卡顿"><a href="#2-分析启动卡顿" class="headerlink" title="2. 分析启动卡顿"></a>2. 分析启动卡顿</h4>
             </div>
         
         <footer class="article-footer">
@@ -1211,21 +1413,54 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><ol>
-<li>推出时间：从Maven仓库的时间看是2016.7.28</li>
-<li>目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序</li>
-<li>思想：约定优于配置（convention over configuration）</li>
-<li>框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）</li>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/01/07/it/java/base/Spring Boot/#more">Read More</a>
+            <h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><ol>
+<li>推出时间：从Maven仓库的时间看是2016.7.28</li>
+<li>目的：摆脱大量的XML配置文件以及复杂的Bean依赖关系，快速、敏捷地开发新一代基于Spring框架的应用程序</li>
+<li>思想：约定优于配置（convention over configuration）</li>
+<li>框架功能：集成大量常用第三库配置（Jackson、JDBC、Mongo、Redis、Mail等）</li>
+</ol>
+<h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><h3 id="创建定时任务"><a href="#创建定时任务" class="headerlink" title="创建定时任务"></a>创建定时任务</h3><ol>
+<li><p>在Spring Boot 的主类加入 <code>@EnableScheduling</code> 注解，启用定时任务的配置；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableScheduling</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>@Scheduled(fixedRate = 1000)</code> 注解实现类需要定时执行的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScheduledTasks</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SimpleDateFormat dateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Scheduled</span>(fixedRate = <span class="number">1000</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Current: "</span> + dateFormat.format(<span class="keyword">new</span> Date()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1315,21 +1550,34 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>mac下安装mysql</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
-<h4 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">mysql.server stop</span><br></pre></td></tr></table></figure>
-<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password "new_password"</span><br></pre></td></tr></table></figure>
-<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/01/06/it/java/persistence/MySql/#more">Read More</a>
+            <h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>mac下安装mysql</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+<h4 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">mysql.server stop</span><br></pre></td></tr></table></figure>
+<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password "new_password"</span><br></pre></td></tr></table></figure>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><ol>
+<li>默认的端口号为 3306</li>
+<li>Mac下简单易用的MySql管理工具：Sequel Pro</li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1419,6 +1667,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>轻量级控制反转和面向切面的容器框架。</p>
@@ -1426,6 +1719,21 @@ ga('send', 'pageview');
 <ol>
 <li>使用基本的JavaBean代替EJB（Enterprise JavaBean）</li>
 </ol>
+<p>优点：</p>
+<ol>
+<li>低侵入性</li>
+<li>高服用性</li>
+<li>DI有效降低耦合度</li>
+<li>AOP提供了通用任务的集中管理</li>
+<li>ORM（对象实体映射）和DAO简化对数据库的访问</li>
+<li>高开放性，并不强制</li>
+</ol>
+<p>核心：</p>
+<p><img src="https://www.ibm.com/developerworks/cn/java/wa-spring1/spring_framework.gif" alt=""></p>
+<h3 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h3><p>Inversion of Control，控制反转，其另一个名字是依赖注入（Dependency Injection），就是有Ioc容器在运行期间，动态地将某种依赖关系注入到对象之中。</p>
+<p>所以，DI和IoC是从不同角度描述的同一件事情，就是指通过引入IoC容器，利用依赖关系注入的方式，实现对象的解耦。</p>
+<p>粘合剂，将对象之间的耦合交给IoC容器进行，从而达到解耦的目的。</p>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>面向切面编程，从动态角度研究。</p>
 <p>
                 
             
@@ -1604,6 +1912,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><p>项目管理工具</p>
@@ -1611,12 +1964,27 @@ ga('send', 'pageview');
 <li>构建项目（Builds）</li>
 <li>依赖管理（Dependencies）</li>
 <li>配置管理（SCMs）</li>
+<li>发布管理（Release）</li>
+<li>文档编制（Documentation）</li>
+<li>报告（Reporting）</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>微内核（只解析XML，其他由Maven插件处理）</li>
+<li>约定优于配置</li>
+<li>定义项目模型</li>
+</ul>
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install maven</span><br><span class="line">mvn -version</span><br></pre></td></tr></table></figure>
+<p>创建Maven项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=org.flyne.demo -DartifactId=maven-demo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</span><br><span class="line"><span class="meta">#</span> 这是一个goal</span><br></pre></td></tr></table></figure>
+<p>项目结构</p>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></div>   
             <div class="article-more-link">
                 <a href="/2017/12/29/it/java/base/Maven/#more">Read More</a>
             </div>
@@ -1633,7 +2001,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/10/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
         </nav>
     
 </section>

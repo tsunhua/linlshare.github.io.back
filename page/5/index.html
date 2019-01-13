@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -691,6 +691,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="什么是服务发现？"><a href="#什么是服务发现？" class="headerlink" title="什么是服务发现？"></a>什么是服务发现？</h2><p>服务发现，Service Discovery，是<strong>一项提供服务发布和查找的服务</strong>，其实质就是<strong>键值存储</strong>，通过键（Key，在当前语境应是服务名）找到值（Value，在当前语境是服务）。DNS 就是一个简单的例子，人们或其他服务使用域名向 DNS 请求 IP 地址，Key 就是域名，Value 就是 IP 地址。</p>
@@ -698,12 +743,27 @@ ga('send', 'pageview');
 <ol>
 <li>注册（Registration），新增服务到服务列表；</li>
 <li>目录（Directory），即服务列表；</li>
+<li>查找（Lookup），通过服务名找到服务。</li>
+</ol>
+<p>服务元数据（metadata，包括服务的 IP、端口、提供的服务等等信息）存储是服务发现的关键。</p>
+<p>服务发现还需<strong>提供查询所有服务的部署状态和集中控制所有服务实例的方式</strong>。</p>
+<h2 id="服务发现解决方案"><a href="#服务发现解决方案" class="headerlink" title="服务发现解决方案"></a>服务发现解决方案</h2><table>
+<thead>
+<tr>
+<th>解决方案</th>
+<th>特性</th>
+<th>发起人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
 <p>
                 
             
         
         
-            </p></ol></div>   
+            </p></tr></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/11/28/it/concept/服务发现/#more">Read More</a>
             </div>
@@ -795,21 +855,18 @@ ga('send', 'pageview');
                     
                     
                 
-                
                     
-                    <p></p><h2 id="分布式与集群的区别（Distributed-vs-Cluster）"><a href="#分布式与集群的区别（Distributed-vs-Cluster）" class="headerlink" title="分布式与集群的区别（Distributed vs Cluster）"></a>分布式与集群的区别（Distributed vs Cluster）</h2><blockquote>
-<p>分布式：一个业务分拆多个子业务，部署在不同的服务器上。</p>
-<p>集群：同一个业务，部署在多个服务器上。</p>
-<p>— <a href="https://www.zhihu.com/question/20004877/answer/26076092" target="_blank" rel="noopener">分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎</a></p>
-</blockquote>
-<p>
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/28/it/concept/分布式与集群/#more">Read More</a>
+            <h2 id="分布式与集群的区别（Distributed-vs-Cluster）"><a href="#分布式与集群的区别（Distributed-vs-Cluster）" class="headerlink" title="分布式与集群的区别（Distributed vs Cluster）"></a>分布式与集群的区别（Distributed vs Cluster）</h2><blockquote>
+<p>分布式：一个业务分拆多个子业务，部署在不同的服务器上。</p>
+<p>集群：同一个业务，部署在多个服务器上。</p>
+<p>— <a href="https://www.zhihu.com/question/20004877/answer/26076092" target="_blank" rel="noopener">分布式与集群的区别是什么？ - 知乎用户的回答 - 知乎</a></p>
+</blockquote>
+
             </div>
         
         <footer class="article-footer">
@@ -899,21 +956,74 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h2 id="Logback-是什么？"><a href="#Logback-是什么？" class="headerlink" title="Logback 是什么？"></a>Logback 是什么？</h2><p>Logback 是一个 Java 平台上的日志框架，是 log4j 的加强版本，目前分为以下模块：</p>
-<ol>
-<li>logback-core，放置为下面两个模块服务的基础代码；</li>
-<li>logback-classic，log4j 的加强版本，实现了 SLF4J API，以便于切换其他日志框架；</li>
-<li>logback-access，与 Servlet 容器集成，提供 HTTP 访问日志功能。</li>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/28/it/java/base/Logback/#more">Read More</a>
+            <h2 id="Logback-是什么？"><a href="#Logback-是什么？" class="headerlink" title="Logback 是什么？"></a>Logback 是什么？</h2><p>Logback 是一个 Java 平台上的日志框架，是 log4j 的加强版本，目前分为以下模块：</p>
+<ol>
+<li>logback-core，放置为下面两个模块服务的基础代码；</li>
+<li>logback-classic，log4j 的加强版本，实现了 SLF4J API，以便于切换其他日志框架；</li>
+<li>logback-access，与 Servlet 容器集成，提供 HTTP 访问日志功能。</li>
+</ol>
+<blockquote>
+<p>SLF4J：The Simple Logging Facade for Java（简单日志门面抽象框架），提供的是日志的 Facade API，需要配合 Log4j、Logback 或 java.util.logging 使用。</p>
+</blockquote>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>（1）引入依赖</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">"org.slf4j:slf4j-api:1.7.+"</span></span><br><span class="line">compile <span class="string">"ch.qos.logback:logback-core:1.2.+"</span></span><br><span class="line">compile <span class="string">"ch.qos.logback:logback-classic:1.2.+"</span></span><br></pre></td></tr></table></figure>
+<p>（2）编写 <code>logback.xml</code> 并放置到 <code>resources</code> 文件夹中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;appender name=<span class="string">"STDOUT"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">    &lt;encoder&gt;</span><br><span class="line">      &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/pattern&gt;</span><br><span class="line">    &lt;/encoder&gt;</span><br><span class="line">  &lt;/appender&gt;</span><br><span class="line">  &lt;root level=<span class="string">"DEBUG"</span>&gt;          </span><br><span class="line">    &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">  &lt;/root&gt;  </span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>（3）在代码中使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Logger LOGGER = LoggerFactory.getLogger(Main.class);</span><br><span class="line">LOGGER.debug(<span class="string">"Hello, Logback"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://logback.qos.ch/" target="_blank" rel="noopener">Logback Project - logback.qos.ch</a></li>
+<li><a href="https://segmentfault.com/a/1190000004693427" target="_blank" rel="noopener">LogBack 入门实践</a></li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1100,6 +1210,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="Docker-是什么？"><a href="#Docker-是什么？" class="headerlink" title="Docker 是什么？"></a>Docker 是什么？</h2><p><a href="https://github.com/moby/moby" target="_blank" rel="noopener">Docker</a> 是一种虚拟化的容器，<strong>隔离了文件系统、网络互联和进程</strong>等等，但比之传统的虚拟化技术，精简了内核和硬件的虚拟，容器内的应用进程直接运行在宿主内核。</p>
@@ -1107,6 +1262,21 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> brew cask install docker</span><br></pre></td></tr></table></figure>
 <p><strong>（2）下载安装</strong></p>
 <p><a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">Docker.dmg 下载</a></p>
+<h3 id="Ubuntu-16"><a href="#Ubuntu-16" class="headerlink" title="Ubuntu 16+"></a>Ubuntu 16+</h3><p><strong>（1）测试环境使用一键自动安装脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line"><span class="meta">&gt;</span> sudo sh get-docker.sh --mirror Aliyun</span><br></pre></td></tr></table></figure>
+<p><strong>（2）按部就班安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加使用 HTTPS 传输的软件包以及 CA 证书</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span> 添加软件源的 GPG 密钥</span><br><span class="line"><span class="meta">&gt;</span> curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 向 source.list 中添加 Docker 软件源</span><br><span class="line"><span class="meta">&gt;</span> sudo add-apt-repository \</span><br><span class="line">    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \</span><br><span class="line">    $(lsb_release -cs) \</span><br><span class="line">    stable"</span><br><span class="line"><span class="meta">#</span> 安装 docker-ce</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
+<h3 id="检查安装情况"><a href="#检查安装情况" class="headerlink" title="检查安装情况"></a>检查安装情况</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> docker --version</span><br><span class="line"><span class="meta">&gt;</span> docker-compose --version</span><br><span class="line"><span class="meta">&gt;</span> docker-machine --version</span><br></pre></td></tr></table></figure>
+<h3 id="使用镜像加速器"><a href="#使用镜像加速器" class="headerlink" title="使用镜像加速器"></a>使用镜像加速器</h3><p>鉴于国内的网络情况，拉取镜像会很慢，这时候需要配置镜像加速器，使用国内的镜像服务器。</p>
+<p><strong>国内的镜像服务器地址</strong>：    <a href="https://registry.docker-cn.com。" target="_blank" rel="noopener">https://registry.docker-cn.com。</a></p>
+<p><strong>配置方式</strong>：对于使用 Docker 客户端的用户，依次点击 <code>Docker 图标 --&gt; Settings/ Perferences --&gt; Daemon --&gt; Registry mirrors</code>，输入加速器地址，然后点击 Apply &amp; Restart 即可。</p>
+<p><strong>检查配置是否生效</strong>：执行 <code>docker info</code> 查看 <code>Registry Mirrors</code> 字段的值。</p>
+<h2 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h2><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>跟启动普通软件的方式一样。</p>
+<h3 id="Ubuntu-16-1"><a href="#Ubuntu-16-1" class="headerlink" title="Ubuntu 16+"></a>Ubuntu 16+</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<h2 id="快速开始：启动一个-Nginx-服务器"><a href="#快速开始：启动一个-Nginx-服务器" class="headerlink" title="快速开始：启动一个 Nginx 服务器"></a>快速开始：启动一个 Nginx 服务器</h2><p>（1）安装并启动一个 Nginx 服务器，将本地的 8080 端口映射到 Docker 的 80 端口。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> docker run -d -p 8080:80 --name webserver nginx</span><br></pre></td></tr></table></figure>
+<p>（2）通过 <code>docker ps</code> 查看运行中的 docker 容器列表。</p>
+<p>（3） <code>curl http://localhost:8080</code> 。</p>
 <p>
                 
             
@@ -1204,6 +1374,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="etcd-是什么？（What-is-etcd）"><a href="#etcd-是什么？（What-is-etcd）" class="headerlink" title="etcd 是什么？（What is etcd）"></a>etcd 是什么？（What is etcd）</h2><p>etcd 是一个一致的分布式可靠的键值存储技术。可被用来做配置共享和服务发现。</p>
@@ -1211,12 +1426,27 @@ ga('send', 'pageview');
 <li>开发语言：Go</li>
 <li>共识算法：<a href="https://raft.github.io/" target="_blank" rel="noopener">Raft</a></li>
 <li>命名来源：表示分布式的 <code>etc</code> 目录，发音为<code>/ˈɛtsiːdiː/</code>。</li>
+<li>使用的端口：2.0 后，使用 2379 作为外部客户端通信，使用 2380 作为内部服务间通信。</li>
+<li>发起团队：CoreOS</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Mac-安装"><a href="#Mac-安装" class="headerlink" title="Mac 安装"></a>Mac 安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">brew install etcd</span><br><span class="line"><span class="meta">#</span> 验证安装</span><br><span class="line">etcd -version</span><br><span class="line">etcdctl -version</span><br></pre></td></tr></table></figure>
+<h3 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h3><p>参考 <a href="https://coreos.com/etcd/docs/latest/v2/docker_guide.html" target="_blank" rel="noopener">Running etcd under Docker - CoreOS</a> 及 <a href="docker_practice/etcd/install">docker_practice/etcd/install</a> ：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用 host IP</span><br><span class="line">export ETCD_NODE1=127.0.0.1</span><br><span class="line"><span class="meta">#</span> 安装 etcd</span><br><span class="line">docker run --name etcd \</span><br><span class="line">    -p 2379:2379 \</span><br><span class="line">    -p 2380:2380 \</span><br><span class="line">    --volume=etcd-data:/etcd-data \</span><br><span class="line">    quay.io/coreos/etcd:latest \</span><br><span class="line">    /usr/local/bin/etcd \</span><br><span class="line">    --data-dir=/etcd-data --name node1 \</span><br><span class="line">    --initial-advertise-peer-urls http://$&#123;ETCD_NODE1&#125;:2380 --listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">    --advertise-client-urls http://$&#123;ETCD_NODE1&#125;:2379 --listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">    --initial-cluster node1=http://$&#123;ETCD_NODE1&#125;:2380</span><br><span class="line"><span class="meta">#</span> 进入etcd 命令行交互</span><br><span class="line">docker exec -it etcd /bin/sh</span><br><span class="line"><span class="meta">#</span> 验证安装</span><br><span class="line">etcd -version</span><br><span class="line">etcdctl -version</span><br><span class="line"><span class="meta">#</span> 验证是否启动</span><br><span class="line">curl http://127.0.0.1:2379/version</span><br></pre></td></tr></table></figure>
+<h3 id="Docker-Compose-快速部署"><a href="#Docker-Compose-快速部署" class="headerlink" title="Docker Compose 快速部署"></a>Docker Compose 快速部署</h3><p>参考 Docker Compose 的使用说明，编辑 <code>docker-compose.yml</code> 文件如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.6"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  node1:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">quay.io/coreos/etcd</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - node1-data:</span><span class="string">/etcd-data</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2380</span>      </span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="attr">      cluster_net:</span></span><br><span class="line"><span class="attr">        ipv4_address:</span> <span class="number">172.16</span><span class="number">.238</span><span class="number">.100</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">ETCDCTL_API=3</span></span><br><span class="line"><span class="attr">    command:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/usr/local/bin/etcd</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--data-dir=/etcd-data</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--name</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node1</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-advertise-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.100:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--advertise-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.100:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-state</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">new</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-token</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">docker-etcd</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  node2:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">quay.io/coreos/etcd</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - node2-data:</span><span class="string">/etcd-data</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="attr">      cluster_net:</span></span><br><span class="line"><span class="attr">        ipv4_address:</span> <span class="number">172.16</span><span class="number">.238</span><span class="number">.101</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">ETCDCTL_API=3</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2380</span></span><br><span class="line"><span class="attr">    command:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/usr/local/bin/etcd</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--data-dir=/etcd-data</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--name</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node2</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-advertise-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.101:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--advertise-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.101:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-state</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">new</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-token</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">docker-etcd</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  node3:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">quay.io/coreos/etcd</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="attr">      - node3-data:</span><span class="string">/etcd-data</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="attr">      cluster_net:</span></span><br><span class="line"><span class="attr">        ipv4_address:</span> <span class="number">172.16</span><span class="number">.238</span><span class="number">.102</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">ETCDCTL_API=3</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">2380</span></span><br><span class="line"><span class="attr">    command:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/usr/local/bin/etcd</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--data-dir=/etcd-data</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--name</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node3</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-advertise-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.102:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-peer-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--advertise-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//172.16.238.102:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--listen-client-urls</span></span><br><span class="line"><span class="attr">      - http:</span><span class="string">//0.0.0.0:2379</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">node1=http://172.16.238.100:2380,node2=http://172.16.238.101:2380,node3=http://172.16.238.102:2380</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-state</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">new</span></span><br><span class="line"><span class="bullet">      -</span> <span class="bullet">--initial-cluster-token</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">docker-etcd</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="attr">  node1-data:</span></span><br><span class="line"><span class="attr">  node2-data:</span></span><br><span class="line"><span class="attr">  node3-data:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">  cluster_net:</span></span><br><span class="line"><span class="attr">    driver:</span> <span class="string">bridge</span></span><br><span class="line"><span class="attr">    ipam:</span></span><br><span class="line"><span class="attr">      driver:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">      config:</span></span><br><span class="line"><span class="bullet">      -</span></span><br><span class="line"><span class="attr">        subnet:</span> <span class="number">172.16</span><span class="number">.238</span><span class="number">.0</span><span class="string">/24</span></span><br></pre></td></tr></table></figure>
+<h2 id="etcdctl-v3（主流）"><a href="#etcdctl-v3（主流）" class="headerlink" title="etcdctl v3（主流）"></a>etcdctl v3（主流）</h2><blockquote>
+<p>Tip：可以通过 <code>ETCDCTL_API=3 etcdctl -h</code> 查看 v3 版本的命令行帮助页</p>
+</blockquote>
+<h4 id="（1）查看所有键值对"><a href="#（1）查看所有键值对" class="headerlink" title="（1）查看所有键值对"></a>（1）查看所有键值对</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 指定版本为 v3 且 key 前缀为空，也就是所有 key 了</span><br><span class="line">ETCDCTL_API=3 etcdctl get --prefix=true ""</span><br></pre></td></tr></table></figure>
+<h4 id="（2）put"><a href="#（2）put" class="headerlink" title="（2）put"></a>（2）put</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ETCDCTL_API=3 etcdctl put /testdir/testkey "你好 etcd"</span><br></pre></td></tr></table></figure>
+<h2 id="etcdctl-v2（兼容）"><a href="#etcdctl-v2（兼容）" class="headerlink" title="etcdctl v2（兼容）"></a>etcdctl v2（兼容）</h2><blockquote>
+<p>Tip：可以通过 <code>etcdctl -h</code> 查看 v2 版本的命令行帮助页</p>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></blockquote></div>   
             <div class="article-more-link">
                 <a href="/2018/11/27/it/java/base/etcd/#more">Read More</a>
             </div>
@@ -1308,21 +1538,66 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><h4 id="（1）适用场景"><a href="#（1）适用场景" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>当解决问题的方法有多种方式，需要可替换时。</p>
-<h4 id="（2）核心"><a href="#（2）核心" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合，封装成一个个算法，即是策略。</p>
-<h4 id="（3）类图"><a href="#（3）类图" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern_strtegy.jpg" alt=""></p>
-<h3 id="抽象工厂模式（Abstract-Factory-Pattern）"><a href="#抽象工厂模式（Abstract-Factory-Pattern）" class="headerlink" title="抽象工厂模式（Abstract Factory Pattern）"></a>抽象工厂模式（Abstract Factory Pattern）</h3><h4 id="（1）适用场景-1"><a href="#（1）适用场景-1" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><ol>
-<li>产品有<strong>不同的提供商</strong>，不同的提供商提供不同品牌和风味的产品；</li>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></ol></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/26/it/design/设计模式/#more">Read More</a>
+            <h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><h4 id="（1）适用场景"><a href="#（1）适用场景" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>当解决问题的方法有多种方式，需要可替换时。</p>
+<h4 id="（2）核心"><a href="#（2）核心" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合，封装成一个个算法，即是策略。</p>
+<h4 id="（3）类图"><a href="#（3）类图" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern_strtegy.jpg" alt=""></p>
+<h3 id="抽象工厂模式（Abstract-Factory-Pattern）"><a href="#抽象工厂模式（Abstract-Factory-Pattern）" class="headerlink" title="抽象工厂模式（Abstract Factory Pattern）"></a>抽象工厂模式（Abstract Factory Pattern）</h3><h4 id="（1）适用场景-1"><a href="#（1）适用场景-1" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><ol>
+<li>产品有<strong>不同的提供商</strong>，不同的提供商提供不同品牌和风味的产品；</li>
+<li>同一提供商有<strong>不同的流水线</strong>，不同的流水线生产不同的产品。</li>
+</ol>
+<h4 id="（2）核心-1"><a href="#（2）核心-1" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>从创建开始就对产品进行了区分，生而不同。</p>
+<h4 id="（3）类图-1"><a href="#（3）类图-1" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern-abstract factory.jpg" alt=""></p>
+<h3 id="适配器模式（Adapter-Pattern）"><a href="#适配器模式（Adapter-Pattern）" class="headerlink" title="适配器模式（Adapter Pattern）"></a>适配器模式（Adapter Pattern）</h3><h4 id="（1）适用场景-2"><a href="#（1）适用场景-2" class="headerlink" title="（1）适用场景"></a>（1）适用场景</h4><p>将外部服务融合进内部而外部接口与现有服务不兼容（表现在命名、返回值、入参等不同），需要进行适配才能使用时。</p>
+<h4 id="（2）核心-2"><a href="#（2）核心-2" class="headerlink" title="（2）核心"></a>（2）核心</h4><p>使用组合或者多继承，包装旧接口到包装类（或称为适配器）中。使用组合的称之为对象适配器，使用多继承的称之为类适配器。</p>
+<h4 id="（3）类图-2"><a href="#（3）类图-2" class="headerlink" title="（3）类图"></a>（3）类图</h4><p><img src="/2018/11/26/it/design/设计模式/design_pattern-adapter-object.jpg" alt="对象适配器"></p>
+<p><img src="/2018/11/26/it/design/设计模式/design_pattern-adapter-class.jpg" alt="类适配器"></p>
+<h3 id="参考（Reference）"><a href="#参考（Reference）" class="headerlink" title="参考（Reference）"></a>参考（Reference）</h3><ol>
+<li><a href="https://design-patterns.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">图说设计模式</a></li>
+<li>Head First 设计模式</li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1412,6 +1687,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p><table>
@@ -1419,12 +1739,27 @@ ga('send', 'pageview');
 <tr>
 <th>KEY</th>
 <th>VALUE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地点</td>
+<td>广州生物岛（官洲岛）</td>
+</tr>
+<tr>
+<td>景点</td>
+<td>水墨园、叠翠园、空旷的道路</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>2018年 11月 24日 上午</td>
+</tr>
 <p>
                 
             
         
         
-            </p></tr></thead></table></p></div>   
+            </p></tbody></table></p></div>   
             <div class="article-more-link">
                 <a href="/2018/11/24/photography/广州生物岛摄影 20181124/#more">Read More</a>
             </div>
@@ -1516,21 +1851,34 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h2 id="Guava-Cache-是做什么的？"><a href="#Guava-Cache-是做什么的？" class="headerlink" title="Guava Cache 是做什么的？"></a>Guava Cache 是做什么的？</h2><p>内存缓存，类似于 ConcurrentMap，支持自动缓存、缓存回收和缓存移除回调。</p>
-<h2 id="两种加载方式"><a href="#两种加载方式" class="headerlink" title="两种加载方式"></a>两种加载方式</h2><h3 id="使用CacheLoader"><a href="#使用CacheLoader" class="headerlink" title="使用CacheLoader"></a>使用CacheLoader</h3><p>当有默认的加载或计算方式使用该方式。示例如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LoadingCache&lt;Key, Value&gt; cache = CacheBuilder.newBuilder()</span><br><span class="line">    .maximumSize(<span class="number">1000</span>)</span><br><span class="line">    .expireAfterWrite(<span class="number">10</span>, TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(MY_LISTENER)</span><br><span class="line">    .build(</span><br><span class="line">    <span class="keyword">new</span> CacheLoader&lt;Key, Value&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Value <span class="title">load</span><span class="params">(Key key)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> createExpensiveValue(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   cache.get(key);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e)&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="使用-Callable"><a href="#使用-Callable" class="headerlink" title="使用 Callable"></a>使用 Callable</h3><p>当没有默认加载运算，或者想要覆盖默认的加载运算，同时保留 “获取缓存 – 如果没有 – 则计算”（get-if-absent-compute）的原子语义时使用该方式。示例如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Cache&lt;Key, Value&gt; cache =  CacheBuilder.newBuilder()</span><br><span class="line">    .expireAfterWrite(<span class="number">1</span>,TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(<span class="keyword">this</span>)</span><br><span class="line">    .build();</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// 1. get</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  cache.get(key, <span class="keyword">new</span> Callable&lt;Value&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> AnyException </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> doThingsTheHardWay(key);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. getIfPresent</span></span><br><span class="line">cache.getIfPresent(key);</span><br></pre></td></tr></table></figure>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/23/it/java/cache/Guava Cache/#more">Read More</a>
+            <h2 id="Guava-Cache-是做什么的？"><a href="#Guava-Cache-是做什么的？" class="headerlink" title="Guava Cache 是做什么的？"></a>Guava Cache 是做什么的？</h2><p>内存缓存，类似于 ConcurrentMap，支持自动缓存、缓存回收和缓存移除回调。</p>
+<h2 id="两种加载方式"><a href="#两种加载方式" class="headerlink" title="两种加载方式"></a>两种加载方式</h2><h3 id="使用CacheLoader"><a href="#使用CacheLoader" class="headerlink" title="使用CacheLoader"></a>使用CacheLoader</h3><p>当有默认的加载或计算方式使用该方式。示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LoadingCache&lt;Key, Value&gt; cache = CacheBuilder.newBuilder()</span><br><span class="line">    .maximumSize(<span class="number">1000</span>)</span><br><span class="line">    .expireAfterWrite(<span class="number">10</span>, TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(MY_LISTENER)</span><br><span class="line">    .build(</span><br><span class="line">    <span class="keyword">new</span> CacheLoader&lt;Key, Value&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Value <span class="title">load</span><span class="params">(Key key)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> createExpensiveValue(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   cache.get(key);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e)&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Callable"><a href="#使用-Callable" class="headerlink" title="使用 Callable"></a>使用 Callable</h3><p>当没有默认加载运算，或者想要覆盖默认的加载运算，同时保留 “获取缓存 – 如果没有 – 则计算”（get-if-absent-compute）的原子语义时使用该方式。示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Cache&lt;Key, Value&gt; cache =  CacheBuilder.newBuilder()</span><br><span class="line">    .expireAfterWrite(<span class="number">1</span>,TimeUnit.MINUTES)</span><br><span class="line">    .removalListener(<span class="keyword">this</span>)</span><br><span class="line">    .build();</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// 1. get</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  cache.get(key, <span class="keyword">new</span> Callable&lt;Value&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Value <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> AnyException </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> doThingsTheHardWay(key);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> OtherException(e.getCause());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. getIfPresent</span></span><br><span class="line">cache.getIfPresent(key);</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://github.com/google/guava/wiki/CachesExplained" target="_blank" rel="noopener">CachesExplained - guava</a></li>
+<li><a href="http://ifeve.com/google-guava-cachesexplained/" target="_blank" rel="noopener">[Google Guava] 3-缓存 - 并发编程网</a></li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1620,6 +1968,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：</p>
@@ -1627,12 +2020,27 @@ ga('send', 'pageview');
 <li>Topic（话题）</li>
 <li>Producer（生产者）</li>
 <li>Consumer（消费者）</li>
+<li>Broker（经纪人）</li>
+</ul>
+<p>在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Topic 中读取消息。作为一个分布式系统，Kafka 运行在集群中，集群中的每个节点称之为 Broker。</p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.11-2.1.0.tgz" target="_blank" rel="noopener">下载</a>  <code>kafka_2.11-2.1.0.tgz</code>，也可以使用命令 <code>wget &quot;http://mirrors.hust.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz&quot;</code> 下载，注意 kafka 中已经包含了 zookeeper。执行以下命令解压并切换工作目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf kafka_2.11-2.1.0.tgz</span><br><span class="line">cd kafka_2.11-2.1.0</span><br></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动 zookeeper，默认监听端口 2181</span><br><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br><span class="line"><span class="meta">#</span> 启动 kafka，默认监听端口 9092</span><br><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure>
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 停止 zookeeper</span><br><span class="line">bin/zookeeper-server-stop.sh config/zookeeper.properties</span><br><span class="line"><span class="meta">#</span> 停止 kafka</span><br><span class="line">ps aux | grep kafka | grep -v grep | awk '&#123;print $2&#125;'</span><br><span class="line">kill [pid]</span><br></pre></td></tr></table></figure>
+<h3 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test</span><br></pre></td></tr></table></figure>
+<h3 id="接收消息"><a href="#接收消息" class="headerlink" title="接收消息"></a>接收消息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning</span><br></pre></td></tr></table></figure>
+<h3 id="查看-Topic-列表"><a href="#查看-Topic-列表" class="headerlink" title="查看 Topic 列表"></a>查看 Topic 列表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
+<h3 id="查看指定-Topic-的信息"><a href="#查看指定-Topic-的信息" class="headerlink" title="查看指定 Topic 的信息"></a>查看指定 Topic 的信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic</span><br></pre></td></tr></table></figure>
+<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="KeeperException：NoNode-for-config-topics-xxx"><a href="#KeeperException：NoNode-for-config-topics-xxx" class="headerlink" title="KeeperException：NoNode for /config/topics/xxx"></a>KeeperException：NoNode for /config/topics/xxx</h3><h4 id="（1）背景"><a href="#（1）背景" class="headerlink" title="（1）背景"></a>（1）背景</h4><p>在本机先后启动 Zookeeper 和 Kafka，然后发送 PING 主题。但消费失败，错误日志如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:48:06,120] INFO Got user-level KeeperException when processing sessionid:0x1000a6787410000 type:setData cxid:0xcb zxid:0xc4 txntype:-1 reqpath:n/a Error Path:/config/topics/PONG Error:KeeperErrorCode = NoNode for /config/topics/PING (org.apache.zookeeper.server.PrepRequestProcessor)</span><br></pre></td></tr></table></figure>
+<h4 id="（2）查看-Zookeeper-终端日志"><a href="#（2）查看-Zookeeper-终端日志" class="headerlink" title="（2）查看 Zookeeper 终端日志"></a>（2）查看 Zookeeper 终端日志</h4><p>发现 host.name 不是 localhost 而是内网地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:21:18,687] INFO Server environment:host.name=192.168.1.2 (org.apache.zookeeper.server.ZooKeeperServer)</span><br></pre></td></tr></table></figure>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></div>   
             <div class="article-more-link">
                 <a href="/2018/11/22/it/java/base/Kafka/#more">Read More</a>
             </div>
@@ -1649,7 +2057,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
         </nav>
     
 </section>

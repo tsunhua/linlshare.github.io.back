@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -691,6 +691,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="概念（NIO-vs-BIO）"><a href="#概念（NIO-vs-BIO）" class="headerlink" title="概念（NIO vs BIO）"></a>概念（NIO vs BIO）</h2><p>NIO, Non-blocking I/O, 非阻塞式 I/O 模型。也可以解释为 New I/O, 区别于旧的阻塞式 I/O 模型（BIO）。</p>
@@ -698,12 +743,27 @@ ga('send', 'pageview');
 <table>
 <thead>
 <tr>
+<th>类别</th>
+<th>I/O 方式</th>
+<th>最低可用的 JDK 版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIO</td>
+<td>流式</td>
+<td>JDK 1.0</td>
+</tr>
+<tr>
+<td>NIO</td>
+<td>块式</td>
+<td>JDK 1.4</td>
 <p>
                 
             
         
         
-            </p></tr></thead></table></div>   
+            </p></tr></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/11/22/it/java/base/NIO/#more">Read More</a>
             </div>
@@ -892,21 +952,34 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h2 id="Token-验证机制"><a href="#Token-验证机制" class="headerlink" title="Token 验证机制"></a>Token 验证机制</h2><p>Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请求。一个 Token 可以由以下三部分组成：</p>
-<ul>
-<li>Token 字符串（token），可以是 UUID；</li>
-<li>生成时的时间戳（timestamp）；</li>
-<li>校验因子（sign），由 <code>token + timestamp</code>，通过一定的规则（比如 MD5）生成。</li>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/21/it/secure/服务鉴权机制/#more">Read More</a>
+            <h2 id="Token-验证机制"><a href="#Token-验证机制" class="headerlink" title="Token 验证机制"></a>Token 验证机制</h2><p>Token 是一个字符串，由服务端生成，用于保证请求的有效性，过滤掉非法的请求。一个 Token 可以由以下三部分组成：</p>
+<ul>
+<li>Token 字符串（token），可以是 UUID；</li>
+<li>生成时的时间戳（timestamp）；</li>
+<li>校验因子（sign），由 <code>token + timestamp</code>，通过一定的规则（比如 MD5）生成。</li>
+</ul>
+<p>示例（<code>sg = md5(tk+&quot;*&quot;+tm+&quot;*&quot;+&quot;k2@sz8-iA&quot;</code>）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"tk"</span>:<span class="string">"116b6451-6028-4490-8869-d32a84082b7c"</span>,</span><br><span class="line">    <span class="attr">"tm"</span>:<span class="string">"1536595200000"</span>,</span><br><span class="line">    <span class="attr">"sg"</span>:<span class="string">"91672a6af6d7d078676e2b26e8396ea1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，当请求到达客户端时，我们先用先前的规则构造一个 md5 值，看与请求中的 sg 字段值是否相同，再判定 当前的时间戳与 tm 中的时间戳差值是否不超过预定义的过期时长。</p>
+
             </div>
         
         <footer class="article-footer">
@@ -996,6 +1069,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>FSM, Finite State Machine 有限状态机，是一种数学计算模型，在任意给定的时刻只会存在在给定的有限状态中的一个。FSM 会在特定的外部输入条件下发生从一个状态到另一状态的改变，这个过程叫状态转移（transition）。</p>
@@ -1003,12 +1121,27 @@ ga('send', 'pageview');
 <ul>
 <li>状态表（a list of its states）</li>
 <li>初始状态（Initial state）</li>
+<li>每个转移的条件（the conditions for each transition）</li>
+</ul>
+<p>另外，在自动机理论中，FSM 也叫做 DFA（Deterministic Finite Automaton, 确定性有限自动机），与 NFA（Nondeterministic Finite Automaton, 非确定性有限自动机）相对。DFA 的特点是：</p>
+<ul>
+<li>每个状态转移由当前状态和输入唯一确定；</li>
+<li>每次状态转移都要读取输入。</li>
+</ul>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><h3 id="状态转移表（State-Transition-Table）"><a href="#状态转移表（State-Transition-Table）" class="headerlink" title="状态转移表（State Transition Table）"></a>状态转移表（State Transition Table）</h3><table>
+<thead>
+<tr>
+<th>当前状态→ <br>条件↓</th>
+<th>状态A</th>
+<th>状态B</th>
+<th>状态C</th>
+</tr>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></thead></table></div>   
             <div class="article-more-link">
                 <a href="/2018/11/21/it/code/FSM/#more">Read More</a>
             </div>
@@ -1100,21 +1233,70 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><p>NAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。</p>
-<p>常见的 NAS 硬件有：</p>
-<ul>
-<li>群晖 / 威联通</li>
-<li>惠普 ProLiant MicroServer</li>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/21/it/concept/NAS/#more">Read More</a>
+            <p>NAS, Network Attached Storage, 网络附属存储, 简单来说就是连接在网络上, 可以存储资料的装置。可以用来做私有网盘，同步各种设备的照片、视频、音频和文件。</p>
+<p>常见的 NAS 硬件有：</p>
+<ul>
+<li>群晖 / 威联通</li>
+<li>惠普 ProLiant MicroServer</li>
+<li>Acer Altos C100 F3</li>
+</ul>
+<p>常见的 NAS 软件有：</p>
+<ul>
+<li>Nextcloud</li>
+<li>Owncloud</li>
+<li>Seefile</li>
+<li>群晖 / 威联通系列软件</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/21359049" target="_blank" rel="noopener">搭建家庭 NAS 服务器有什么好方案？ - 知乎</a></li>
+</ul>
+
             </div>
         
         <footer class="article-footer">
@@ -1289,6 +1471,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="何为-Xpath（Introduction）"><a href="#何为-Xpath（Introduction）" class="headerlink" title="何为 Xpath（Introduction）"></a>何为 Xpath（Introduction）</h2><p><a href="https://zh.wikipedia.org/zh-hans/XPath" target="_blank" rel="noopener">维基百科</a>：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p>
@@ -1296,12 +1523,27 @@ ga('send', 'pageview');
 <ul>
 <li>元素（element）</li>
 <li>属性（attribute）</li>
+<li>文本（text）</li>
+<li>命名空间（namespace）</li>
+<li>处理指令（processing-instruction）</li>
+<li>注释（comment）</li>
+<li>文档节点（document node, also called root element）</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>&lt;bookstore&gt;</code> 为根节点，或者称为文档节点；</li>
+<li><code>&lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;</code> 为元素节点；</li>
+<li><code>lang=&quot;en&quot;</code> 为属性节点；</li>
+<li><code>Harry Potter</code> 为文本节点。</li>
+</ul>
 <p>
                 
             
         
         
-            </p></ul></div>   
+            </p></div>   
             <div class="article-more-link">
                 <a href="/2018/11/20/it/robot/Xpath/#more">Read More</a>
             </div>
@@ -1393,6 +1635,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="安装-Selenium"><a href="#安装-Selenium" class="headerlink" title="安装 Selenium"></a>安装 Selenium</h2><p><strong>（1）Java 编程环境下</strong></p>
@@ -1400,12 +1687,27 @@ ga('send', 'pageview');
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.seleniumhq.selenium:selenium-java:RELEASE'</span></span><br></pre></td></tr></table></figure>
 <p> 针对 Maven</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.seleniumhq.selenium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>selenium-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>（2）Python 编程环境下</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium</span><br></pre></td></tr></table></figure>
+<h2 id="安装和配置-Driver"><a href="#安装和配置-Driver" class="headerlink" title="安装和配置 Driver"></a>安装和配置 Driver</h2><h3 id="下载-Driver"><a href="#下载-Driver" class="headerlink" title="下载 Driver"></a>下载 Driver</h3><p>不同的操作系统和浏览器有不同的 Driver 需根据需求选取：</p>
+<ul>
+<li>Chrome <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">driver</a></li>
+<li>Edge <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/" target="_blank" rel="noopener">driver</a></li>
+<li>Firefox <a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">driver</a></li>
+<li>Safari <a href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/" target="_blank" rel="noopener">driver</a></li>
+</ul>
+<h3 id="配置-Driver（以-Mac-Linux-为例）"><a href="#配置-Driver（以-Mac-Linux-为例）" class="headerlink" title="配置 Driver（以 Mac/Linux 为例）"></a>配置 Driver（以 Mac/Linux 为例）</h3><p>（1）将下载的 driver zip 压缩包解压</p>
+<p>（2）将文件复制到系统的 bin 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp path/to/driver /usr/local/bin</span><br></pre></td></tr></table></figure>
+<p>（3）赋予 driver 可执行权限（以chromdriver为例）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x /usr/local/bin/chromdriver</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>
                 
             
         
         
-            </p></div>   
+            </p></blockquote></div>   
             <div class="article-more-link">
                 <a href="/2018/11/20/it/robot/Selenium/#more">Read More</a>
             </div>
@@ -1497,21 +1799,30 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><p>又翻起了《瓦尔登湖》，一本自高中就伴随着我的书，王义国的译本。记得当时是在家附近的一所书店里买的，店里有卖各种盗版教辅书。书的纸质很粗糙，也不知是因为用了再生纸还是本身就是盗版的。不过，如今纸张愈加泛黄了，与书里节俭和自然的精神倒是挺配的。</p>
-<p>每次拾起这本书都觉内心似泛着粼粼微波的湖面般平静，不管对现实有多大的不满足，对世界有什么欲求，都在此刻停止了，只觉得此刻的宁静是一种享受，很少有人能享受这份宁静，而我在这里找到了。</p>
-<p>梭罗绝对是一个生活的冒险家，他认为当生活的必需品（食物、栖息处、衣服和燃料）满足之后，就应该开始生活的冒险，就像植物一样，根扎好了就要向上开花结果；而不是继续去追求奢侈品，或者说非必需品，那是一种被物役的表现，智者不为。</p>
-<p>对待劳作，梭罗说：<code>劳作的人日复一日，都没有闲情逸致获得一种真正的人格</code>。劳作不息人就如机器，失去了人格。故而要好好对待自己的时间，合理平衡工作和生活，健全自己的人格才是。</p>
-<p>对于生活，梭罗说：<code>芸芸众生过的生活是既安静又绝望</code>，又说：<code>老的行为是让老年人来做的，而新的行为则是让年轻人来做</code>。这是说不要只听老人言而不动脑，不要老是在旧的生活方式中打转，要敢于尝试新的东西，不要害怕失败，不要听天由命。</p>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/18/thinking/weekly/周记 20181118/#more">Read More</a>
+            <p>又翻起了《瓦尔登湖》，一本自高中就伴随着我的书，王义国的译本。记得当时是在家附近的一所书店里买的，店里有卖各种盗版教辅书。书的纸质很粗糙，也不知是因为用了再生纸还是本身就是盗版的。不过，如今纸张愈加泛黄了，与书里节俭和自然的精神倒是挺配的。</p>
+<p>每次拾起这本书都觉内心似泛着粼粼微波的湖面般平静，不管对现实有多大的不满足，对世界有什么欲求，都在此刻停止了，只觉得此刻的宁静是一种享受，很少有人能享受这份宁静，而我在这里找到了。</p>
+<p>梭罗绝对是一个生活的冒险家，他认为当生活的必需品（食物、栖息处、衣服和燃料）满足之后，就应该开始生活的冒险，就像植物一样，根扎好了就要向上开花结果；而不是继续去追求奢侈品，或者说非必需品，那是一种被物役的表现，智者不为。</p>
+<p>对待劳作，梭罗说：<code>劳作的人日复一日，都没有闲情逸致获得一种真正的人格</code>。劳作不息人就如机器，失去了人格。故而要好好对待自己的时间，合理平衡工作和生活，健全自己的人格才是。</p>
+<p>对于生活，梭罗说：<code>芸芸众生过的生活是既安静又绝望</code>，又说：<code>老的行为是让老年人来做的，而新的行为则是让年轻人来做</code>。这是说不要只听老人言而不动脑，不要老是在旧的生活方式中打转，要敢于尝试新的东西，不要害怕失败，不要听天由命。</p>
+<p>论及衣服，梭罗认为舒适保暖的衣服才是恰当的，像国王和王后一套衣服只穿一次的不过是挂新衣服的衣架罢了，并不知道一套合身衣服的舒适之处。同时，他也指出<code>文明国家是以衣取人的</code>。</p>
+<p>说到房屋，梭罗比喻成是人类最外层的衣服，其最初的目的还是保暖。文明所创造出的现代房屋对大多数人来说是不必要的，因为<code>文明创造出了宫殿，但要创造出贵族和国王来却并不这么容易</code>。他认为我们的家具应该像印第安人和阿拉伯人一样简单，应该把家里乱七八糟的家具扔掉，以减少清晨清扫的工作，从而不被家具或者说现代房屋所奴役。</p>
+<p>以上是我重温第一章节俭部分记录或划线的。《瓦尔登湖》是一本值得终身阅读的书，当时读不懂，只觉得读起来心情很平静，现在又多了一些体悟，说不定以后还会有更多的感受。</p>
+
             </div>
         
         <footer class="article-footer">
@@ -1611,7 +1922,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/5/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
         </nav>
     
 </section>

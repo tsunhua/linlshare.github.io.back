@@ -88,7 +88,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -139,7 +139,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -156,7 +156,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -691,6 +691,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p><table>
@@ -698,12 +743,27 @@ ga('send', 'pageview');
 <tr>
 <th>序號</th>
 <th>俚語</th>
+<th>拼音</th>
+<th>含義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>爱 媠 毋惊 流 鼻水</td>
+<td>Ài-suí m̄ kiann lâu phīnn-tsuí.</td>
+<td>(女孩子)爱漂亮、就算天冷也不怕穿得少。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>嚴官府出厚賊；嚴爸母出阿里不達</td>
+<td>Giâm kuann-hú tshut kāu tsha̍t; giâm pē-bú tshut a-lí-put-ta̍t.</td>
 <p>
                 
             
         
         
-            </p></tr></thead></table></p></div>   
+            </p></tr></tbody></table></p></div>   
             <div class="article-more-link">
                 <a href="/2018/09/10/language/閩南語/閩南語俚語小記/#more">Read More</a>
             </div>
@@ -795,6 +855,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>MVP 模式下使用 RxJava 处理网络访问的回调，当数据返回时 Presenter 调用绑定的 View 的方法。</p>
@@ -802,6 +907,21 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasePresenter</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">MvpView</span>&gt; <span class="keyword">implements</span> <span class="title">Presenter</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> T mMvpView;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attachView</span><span class="params">(T mvpView)</span> </span>&#123;</span><br><span class="line">    mMvpView = mvpView;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mMvpView = <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewAttached</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> T <span class="title">getMvpView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mMvpView;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>定义 MvpView 如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MvpView</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举一个具体的实现，有记录页为 RecordActivity，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecordRecordActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">RecordMvpView</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Inject</span></span><br><span class="line">  	  RecordPresenter presenter;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">          <span class="comment">//...</span></span><br><span class="line">          presenter.attachView(<span class="keyword">this</span>);</span><br><span class="line">          <span class="comment">//...</span></span><br><span class="line">          onRefresh();</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">()</span></span>&#123;</span><br><span class="line">          presenter.queryReocrd();</span><br><span class="line">	  &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        presenter.detachView();</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showRecord</span><span class="params">(List&lt;RecordResponse&gt; data)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RecordMvpView 定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RecordMvpView</span> <span class="keyword">extends</span> <span class="title">MvpView</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">showRecord</span><span class="params">(List&lt;RecordResponse&gt; data)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RecordPresenter 的定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RecordPresenter</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&lt;<span class="title">RecordMvpView</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> DataManager dataManager;</span><br><span class="line">  <span class="keyword">private</span> Disposable disposable;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Inject</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">RecordPresenter</span><span class="params">(DataManager dataManager)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dataManager = dataManager;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryRecord</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    RxUtil.dispose(disposable);</span><br><span class="line">    dataManager.queryRecord(page, count)</span><br><span class="line">               .subscribeOn(Schedulers.io())</span><br><span class="line">               .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">               .subscribe(<span class="keyword">new</span> SingleObserver&lt;List&lt;RecordResponse&gt;&gt;() &#123;</span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">                   disposable = d;</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(List&lt;RecordResponse&gt; resp)</span> </span>&#123;</span><br><span class="line">                   getMvpView().showRecord(resp);</span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                 <span class="meta">@Override</span></span><br><span class="line">                 <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">                   Timber.e(e);</span><br><span class="line">                   getMvpView().showRecord(<span class="keyword">null</span>);</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上实现具有一个重大问题，当 Activity 处于 destroy 状态时调用 onRefresh 方法去加载数据，会导致 Presenter 中处理数据返回后调用 getMvpView 方法返回 null，从而导致 NPE。抑或，在 create 状态请求的数据在未返回前 Activity 就进入了 destroy 状态从而导致 NPE。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="（1）最简单的也是最复杂的解决方案"><a href="#（1）最简单的也是最复杂的解决方案" class="headerlink" title="（1）最简单的也是最复杂的解决方案"></a>（1）最简单的也是最复杂的解决方案</h3><p>在调用 getMvpView 前进行判空，即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isViewAttached())&#123;</span><br><span class="line">  getMvpView().showRecord(resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是很简单？是的，看起来简单，其实是最复杂的，应该它需要在每个回调的地方小心翼翼地包上这层判断，工作量大还容易出错，代码也不好看。更关键的是，<strong>它到底是执行了，并没有在 View 销毁后立即停止订阅</strong>。</p>
+<h3 id="（2）使用第三方库-RxLifecycle-或-AutoDispose"><a href="#（2）使用第三方库-RxLifecycle-或-AutoDispose" class="headerlink" title="（2）使用第三方库 RxLifecycle 或 AutoDispose"></a>（2）使用第三方库 RxLifecycle 或 AutoDispose</h3><p>这两个都是较出名的用于解决 RxJava 与Android 生命周期问题的第三方库。可以自行 Github 一下。</p>
+<p><strong>RxLifecycle</strong></p>
+<p>This library allows one to automatically complete sequences based on a second lifecycle stream.</p>
+<p>This capability is useful in Android, where incomplete subscriptions can cause memory leaks.</p>
+<p>该库允许在接收到第二个生命周期流时自动结束订阅。</p>
 <p>
                 
             
@@ -899,6 +1019,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="對話"><a href="#對話" class="headerlink" title="對話"></a>對話</h2><table>
@@ -906,12 +1071,27 @@ ga('send', 'pageview');
 <tr>
 <th>人</th>
 <th>語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>桜</td>
+<td>今日　は　いい　お天気　ですね。</td>
+</tr>
+<tr>
+<td>健</td>
+<td>そろそろ　梅雨明け　ですが。</td>
+</tr>
+<tr>
+<td>桜</td>
+<td>ええ、そろそろ　ですね。</td>
+</tr>
 <p>
                 
             
         
         
-            </p></tr></thead></table></div>   
+            </p></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/#more">Read More</a>
             </div>
@@ -1003,6 +1183,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="閩語拼音方案種種"><a href="#閩語拼音方案種種" class="headerlink" title="閩語拼音方案種種"></a>閩語拼音方案種種</h2><table>
@@ -1010,12 +1235,27 @@ ga('send', 'pageview');
 <tr>
 <th>名稱</th>
 <th>簡稱</th>
+<th>特征</th>
+<th>發佈情況</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>白话字</td>
+<td>POL</td>
+<td>白话字是历史最为悠久的拉丁化方案，因此广泛流通于全球各地的闽南语流通地区。</td>
+<td>17世紀文獻中，如英國人與鄭氏王朝通商的商館紀錄中，便存在以羅馬字母拼寫閩南語語音的「白話字」雛型。1850年，教會正式推行白話文。</td>
+</tr>
+<tr>
+<td>臺灣語言音標方案</td>
+<td>TLPA</td>
+<td>內含臺灣閩南語音標系統、臺灣客家語音標系統、臺灣原住民語音標系統等三套系統。</td>
 <p>
                 
             
         
         
-            </p></tr></thead></table></div>   
+            </p></tr></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/09/08/language/閩南語/閩南語拼音方案/#more">Read More</a>
             </div>
@@ -1196,6 +1436,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h3 id="Vim-剪贴板如何与系统剪贴板交互？"><a href="#Vim-剪贴板如何与系统剪贴板交互？" class="headerlink" title="Vim 剪贴板如何与系统剪贴板交互？"></a>Vim 剪贴板如何与系统剪贴板交互？</h3><p><code>“+y</code> 把选中内容拷贝到”+号剪贴板，即系统剪贴板。</p>
@@ -1203,12 +1488,27 @@ ga('send', 'pageview');
 <p>Vim 中的剪贴板历史可以使用 <code>:reg</code> 进行罗列，并配合以上操作进行粘贴。</p>
 <h3 id="如何连接两行文字？"><a href="#如何连接两行文字？" class="headerlink" title="如何连接两行文字？"></a>如何连接两行文字？</h3><p>在 Vim 中你可以把两行连起来这意味着删除两行间的换行符。”J” 命令用于完成这个<br>功能。<br>以下面两行为例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A young intelligent</span><br><span class="line">turtle</span><br></pre></td></tr></table></figure>
+<p>把光标移到第一行，然后按 “J”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A young intelligent turtle</span><br></pre></td></tr></table></figure>
+<h3 id="如何进行列块选择？"><a href="#如何进行列块选择？" class="headerlink" title="如何进行列块选择？"></a>如何进行列块选择？</h3><p>使用 <code>Ctrl + v</code> 进入列块选择模式。</p>
+<h3 id="如何快速查找和替换？"><a href="#如何快速查找和替换？" class="headerlink" title="如何快速查找和替换？"></a>如何快速查找和替换？</h3><p>快速进行查找可以在命令模式下，使用 <code>/{regex}</code>，Vim 中的正则有点特殊（详细规则可以阅读文末附件，最明显的就是括号也需要转义），举个例子，有文字材料如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java.lang.NullPointerException</span><br><span class="line">...</span><br><span class="line">java.lang.ClassNotFoundException</span><br></pre></td></tr></table></figure>
+<p>要求查找到所有 Exception，那么可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\.\a*Exception</span><br></pre></td></tr></table></figure>
+<p>再配合 <code>n</code> 继续查找。</p>
+<h3 id="如何进行重做？"><a href="#如何进行重做？" class="headerlink" title="如何进行重做？"></a>如何进行重做？</h3><p>使用 <code>Ctrl + r</code> 进行重做。</p>
+<h3 id="如何记录和回放我的可重复性操作？"><a href="#如何记录和回放我的可重复性操作？" class="headerlink" title="如何记录和回放我的可重复性操作？"></a>如何记录和回放我的可重复性操作？</h3><p>要点：使用 q{register} 和 @{register}</p>
+<p>“.” 命令重复前一个修改操作。但如果你需要作一些更复杂的操作它就不行了。这时，记<br>录命令就变得很有效。这需要三个步骤:</p>
+<ol>
+<li><p>“q{register}” 命令启动一次击键记录，结果保存到 {register} 指定的寄存器中。<br>寄存器名可以用 a 到 z 中任一个字母表示。</p>
+</li>
+<li><p>输入你的命令。</p>
 <p>
                 
             
         
         
-            </p></div>   
+            </p></li></ol></div>   
             <div class="article-more-link">
                 <a href="/2018/09/05/it/tool/Vim/#more">Read More</a>
             </div>
@@ -1300,21 +1600,62 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
                 
                     
-                    <p></p><h2 id="對話"><a href="#對話" class="headerlink" title="對話"></a>對話</h2><p>桜：<strong>秋葉原　は　日本最大　の　電気街です。 でも、今　は　「オタク」で　有名です。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秋葉原是日本最大的電器街。但是，現在卻以[御宅族]出名。</span><br></pre></td></tr></table></figure>
-<p>健：<strong>そです　よね。 秋葉原　は　若い人　の　新しい　観光名所　です　よね。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">說的正是啊。秋葉原是年輕人的新觀光勝地哦。</span><br></pre></td></tr></table></figure>
-<p>桜：<strong>香港　でわ　「電車男」で　有名　です。</strong></p>
-<p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
                 
             
         
         
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/#more">Read More</a>
+            <h2 id="對話"><a href="#對話" class="headerlink" title="對話"></a>對話</h2><p>桜：<strong>秋葉原　は　日本最大　の　電気街です。 でも、今　は　「オタク」で　有名です。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秋葉原是日本最大的電器街。但是，現在卻以[御宅族]出名。</span><br></pre></td></tr></table></figure>
+<p>健：<strong>そです　よね。 秋葉原　は　若い人　の　新しい　観光名所　です　よね。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">說的正是啊。秋葉原是年輕人的新觀光勝地哦。</span><br></pre></td></tr></table></figure>
+<p>桜：<strong>香港　でわ　「電車男」で　有名　です。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在香港，(御宅族)以[電車男]聞名。</span><br></pre></td></tr></table></figure>
+<p>健：<strong>若い　観光客　は　お寺　や　神社　へ　行きません　ね。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">年輕一輩的遊客是不會到寺廟呀、神社呀這些地方去的。</span><br></pre></td></tr></table></figure>
+<p>桜：<strong>アキバグッズ　を　買い、　コスペレ　を　見、 メイドカフェ　へ　行く…。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(他們)買秋葉原紀念品，看 cosplay，去俏女僕咖啡店。</span><br></pre></td></tr></table></figure>
+<p>健：<strong>本当　ですよね。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你說的一點都沒錯啊。</span><br></pre></td></tr></table></figure>
+<h2 id="附錄"><a href="#附錄" class="headerlink" title="附錄"></a>附錄</h2><ol>
+<li><a href="http://rthk9.rthk.hk/elearning/gogojapan3/lesson.htm" target="_blank" rel="noopener">日語自遊行の最和味</a></li>
+<li><a href="https://drive.google.com/open?id=1-co3YdA5a4UIhfXfDpBJcU5LGb-va-wF" target="_blank" rel="noopener">《日語自遊行の最和味》第一課 秋葉原.pdf</a></li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -1404,6 +1745,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="歷史"><a href="#歷史" class="headerlink" title="歷史"></a>歷史</h2><ul>
@@ -1411,12 +1797,27 @@ ga('send', 'pageview');
 <li>公元 8 世紀，正值中國唐朝（618~907），《萬葉集》依據漢字草書，造出萬葉假名，表漢字之音，為女性所用。明治時代，日本政府根據萬葉假名確定出現今使用的平假名。</li>
 <li>平安時代（794~1185）初，也就是公元 8 世紀末，為了訓讀漢字，發明了片假名。初始時，一音可以對應多個片假名。到明治時代，日本政府確定了一音一片的對應規則。</li>
 </ul>
+<h3 id="「訓讀」與「音讀」"><a href="#「訓讀」與「音讀」" class="headerlink" title="「訓讀」與「音讀」"></a>「訓讀」與「音讀」</h3><ul>
+<li><p>「訓讀」：借用漢字的形意，而用日本原有語音。如：秋(あき)</p>
+</li>
+<li><p>「音讀」：模仿漢字之音。如：新年 (しんねん )</p>
+</li>
+</ul>
+<p>結論：</p>
+<ul>
+<li>當時傳入日本的是中古漢語（魏晋南北朝、隋、唐、宋），音韻體系跟如今的普通話、閩南語、吳語、粵語、客家話都有差別。中古漢語的音韻可以通過研究《切韻》和《廣韻》略知一二。</li>
+<li>平假名先於片假名。平假名的研究重點在於表音；片假名的研究重點在於表意。</li>
+</ul>
+<h2 id="選用同一漢字作為參照的平假名和片假名"><a href="#選用同一漢字作為參照的平假名和片假名" class="headerlink" title="選用同一漢字作為參照的平假名和片假名"></a>選用同一漢字作為參照的平假名和片假名</h2><table>
+<thead>
+<tr>
+<th>序號</th>
 <p>
                 
             
         
         
-            </p></div>   
+            </p></tr></thead></table></div>   
             <div class="article-more-link">
                 <a href="/2018/09/04/language/日語/日語五十音考/#more">Read More</a>
             </div>
@@ -1508,6 +1909,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> $&#123;android_sdk&#125;/tools/proguard/proguard-android.txt</span><br><span class="line"><span class="meta">#</span> Understand the @Keep support annotation.</span><br><span class="line">-keep class android.support.annotation.Keep</span><br><span class="line"></span><br><span class="line">-keep @android.support.annotation.Keep class * &#123;*;&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;fields&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    @android.support.annotation.Keep &lt;init&gt;(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1515,12 +1961,27 @@ ga('send', 'pageview');
 </p><p>// <a href="https://www.guardsquare.com/en/products/proguard/manual/usage" target="_blank" rel="noopener">https://www.guardsquare.com/en/products/proguard/manual/usage</a></p>
 <h3 id="File-filters"><a href="#File-filters" class="headerlink" title="File filters"></a>File filters</h3><p> Like general <a href="https://www.guardsquare.com/proguard/manual/usage#filters" target="_blank" rel="noopener">filters</a>, a file filter is a comma-separated list of file names that can contain wildcards. Only files with matching file names are read (in the case of input jars), or written (in the case of output jars). The following wildcards are supported:</p>
 <table>
+<thead>
+<tr>
+<th><strong>?</strong></th>
+<th>matches any single character in a file name.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>*</strong></td>
+<td>matches any part of a filename not containing the directory separator.</td>
+</tr>
+<tr>
+<td><strong><em>\</em></strong></td>
+<td>matches any part of a filename, possibly containing any number of directory separators.</td>
+</tr>
 <p>
                 
             
         
         
-            </p></table></div>   
+            </p></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/#more">Read More</a>
             </div>
@@ -1612,6 +2073,51 @@ ga('send', 'pageview');
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
                 
                     
                     <p></p><h2 id="いろは歌"><a href="#いろは歌" class="headerlink" title="いろは歌"></a>いろは歌</h2><p><a href="https://drive.google.com/file/d/1myzdNm-yMqI1eJNjtlAgYDLRX4nmgJvZ/view?usp=sharing" target="_blank" rel="noopener">朗讀 📣</a></p>
@@ -1619,12 +2125,27 @@ ga('send', 'pageview');
 <thead>
 <tr>
 <th>漢字與假名</th>
+<th>發音</th>
+<th>漢譯</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>色は匂へど</td>
+<td>Iro wa nioedo</td>
+<td>（花的）颜色与芳香</td>
+</tr>
+<tr>
+<td>散りぬるを</td>
+<td>Chirinuru o</td>
+<td>（最终）会消散，</td>
+</tr>
 <p>
                 
             
         
         
-            </p></tr></thead></table></div>   
+            </p></tbody></table></div>   
             <div class="article-more-link">
                 <a href="/2018/09/03/language/日語/伊呂波歌/#more">Read More</a>
             </div>
@@ -1641,7 +2162,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/8/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Suiv &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
         </nav>
     
 </section>
