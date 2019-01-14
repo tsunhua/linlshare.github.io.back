@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-01-13T16:42:25.368Z</updated>
+  <updated>2019-01-14T11:33:31.204Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSONPath</title>
+    <link href="https://linlshare.github.io/2019/01/14/it/robot/JSONPath/"/>
+    <id>https://linlshare.github.io/2019/01/14/it/robot/JSONPath/</id>
+    <published>2019-01-14T11:16:57.000Z</published>
+    <updated>2019-01-14T11:33:31.204Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>JSONPath，XPath for JSON，是仿造 XPath 进行 JSON 定位的一套语法。</p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><table><thead><tr><th><strong>XPath</strong></th><th><strong>JSONPath</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td>/</td><td>$</td><td>根对象或元素</td></tr><tr><td>.</td><td>@</td><td>当前对象或元素</td></tr><tr><td>/</td><td>. or []</td><td>子操作</td></tr><tr><td>..</td><td>n/a</td><td>父操作</td></tr><tr><td>//</td><td>..</td><td>向下遍历，创意来自 E4X</td></tr><tr><td>*</td><td>*</td><td>通配</td></tr><tr><td>@</td><td>n/a</td><td>获取属性，但 JSON 结构没有任何属性</td></tr><tr><td>[]</td><td>[]</td><td>下标操作。XPath 用来迭代元素集合和断言，在 Javascript 和 JSON 中则是数组操作</td></tr><tr><td>\</td><td></td><td>[,]</td><td>连结操作。在 XPath 中为将节点集合并。 JSONPath 允许选择名称和索引作为集合。</td></tr><tr><td>n/a</td><td><code>[start:end:step]</code></td><td>数组切片操作。创意来自 ES4</td></tr><tr><td>[]</td><td>?()</td><td>执行一个过滤脚本表达式</td></tr><tr><td>n/a</td><td>()</td><td>脚本表达式</td></tr><tr><td>()</td><td>n/a</td><td>XPath 中的分组操作</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://goessner.net/articles/JsonPath/" target="_blank" rel="noopener">JsonPath - goessner.net</a>（详细介绍了 JSONPath 语法）</li><li><a href="https://jsonpath.curiousconcept.com/" target="_blank" rel="noopener">JSONPATH Expression Tester - jsonpath.curiousconcept.com</a>（绝好的测试 JSONPath 语法的在线工具）</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;JSONPath，XPath for JSON，是仿造 XPath 进行 JSON 定位的一套语法。&lt;/p&gt;
+&lt;h2 id=&quot;基本语法&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="JSONPath" scheme="https://linlshare.github.io/tags/JSONPath/"/>
+    
+  </entry>
   
   <entry>
     <title>瘦肉粥</title>
@@ -658,33 +686,6 @@
       <category term="RESTful" scheme="https://linlshare.github.io/tags/RESTful/"/>
     
       <category term="API" scheme="https://linlshare.github.io/tags/API/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node.js</title>
-    <link href="https://linlshare.github.io/2018/12/18/it/node/Node.js/"/>
-    <id>https://linlshare.github.io/2018/12/18/it/node/Node.js/</id>
-    <published>2018-12-18T01:47:20.000Z</published>
-    <updated>2019-01-13T11:37:46.464Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用-nvm-安装（可以自由切换-node-版本）"><a href="#使用-nvm-安装（可以自由切换-node-版本）" class="headerlink" title="使用 nvm 安装（可以自由切换 node 版本）"></a>使用 nvm 安装（可以自由切换 node 版本）</h3><p>（1）下载并执行安装脚本</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> curl </span><br><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br><span class="line"><span class="meta">#</span> 或者 wget</span><br><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure><p>（2）下载并使用指定版本的 node.js</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 列出仓库中所有的 node 版本</span><br><span class="line"><span class="meta">$</span> nvm ls-remote</span><br><span class="line"><span class="meta">#</span> 安装指定版本</span><br><span class="line"><span class="meta">$</span> nvm install 8.11.1</span><br><span class="line"><span class="meta">#</span> 使用已安装的某个版本</span><br><span class="line"><span class="meta">$</span> nvm use 8.11.1</span><br><span class="line"><span class="meta">#</span> 查看当前使用的 node 版本</span><br><span class="line"><span class="meta">$</span> nvm -v</span><br></pre></td></tr></table></figure><p>（3）卸载指定版本的 node.js</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 如果要卸载的版本是当前使用的版本，那么需要先停用它</span><br><span class="line"><span class="meta">$</span> nvm deactivate</span><br><span class="line"><span class="meta">$</span> nvm uninstall 8.11.1</span><br></pre></td></tr></table></figure><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="usr-bin-env-node-No-such-file-or-directory"><a href="#usr-bin-env-node-No-such-file-or-directory" class="headerlink" title="/usr/bin/env: node: No such file or directory"></a>/usr/bin/env: node: No such file or directory</h3><p>（1）背景：执行 <code>npm start</code> 命令时出现上述错误。</p><p>（2）原因：<code>npm</code> 执行时默认使用 <code>/usr/bin/node</code>  去执行，而通过 <code>sudo apt install nodejs</code> 安装的位置是在 <code>/usr/bin/nodejs</code> 。</p><p>（3）解决方案：</p><ul><li><p>方案一：使用<code>nvm</code> 安装 node，并统一管理 node.js 版本，这是最佳方案；</p></li><li><p>方案二：创建 node 执行文件到 <code>/usr/bin/node</code> 的软连接，如 <code>ln -s /usr/local/NODEJS_HOME/bin/node /usr/bin/node</code></p></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04" target="_blank" rel="noopener">How To Install Node.js on Ubuntu 18.04 - digitalocean.com</a></li><li><a href="creationix/nvm - github.com">creationix/nvm - github.com</a></li><li><a href="https://cloud.tencent.com/developer/article/1028166" target="_blank" rel="noopener">【node错误】/usr/bin/env: node: No such file or directory - tencent.com</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h3 id=&quot;使用-nvm-安装（可以自由切换-node-版本）&quot;&gt;&lt;a href=&quot;#使用-nvm-安装（可以自由切换-node-版本）&quot; c
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="node" scheme="https://linlshare.github.io/categories/it/node/"/>
-    
-    
-      <category term="Node.js" scheme="https://linlshare.github.io/tags/Node-js/"/>
     
   </entry>
   
