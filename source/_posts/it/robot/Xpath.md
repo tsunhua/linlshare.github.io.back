@@ -1,11 +1,11 @@
 ---
-title: Xpath
+title: XPath
 date: 2018-11-20 19:38:55
-tags: [Java,Robot,Xpath]
+tags: [Java,Robot,XPath]
 comments: true
 ---
 
-## 何为 Xpath（Introduction）
+## 何为 XPath（Introduction）
 
 [维基百科](https://zh.wikipedia.org/zh-hans/XPath)：XPath 即为 XML 路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。 XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。
 
