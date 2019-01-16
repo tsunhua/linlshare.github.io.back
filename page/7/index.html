@@ -98,7 +98,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -117,10 +117,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -149,7 +149,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
     </div>
 
                 </td>
@@ -169,16 +169,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SUIVRE</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 122
-                <span>Entradas</span>
+                <span>Articles</span>
             </div>
             <div class="article-info-block">
                 128
-                <span>Etiquetas</span>
+                <span>Tags</span>
             </div>
         </div>
         
@@ -213,7 +213,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>Catégories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -513,9 +513,9 @@ ga('send', 'pageview');
                             &nbsp;
                             字源
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/12/language/漢語言/字源/甲骨文中人的形象/">甲骨文中人的形象</a></li>  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  </ul> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  <li class="file"><a href="/2019/01/16/language/漢語言/漢字雜談/">漢字雜談</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -1938,18 +1938,18 @@ ga('send', 'pageview');
 <p>（2）远程连接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> redis-cli -h host -p port -a password</span><br></pre></td></tr></table></figure>
 <h3 id="取键相关命令"><a href="#取键相关命令" class="headerlink" title="取键相关命令"></a>取键相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查找所有 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS *</span><br><span class="line"><span class="meta">#</span> 查找符合给定正则的 key</span><br><span class="line"><span class="meta">&gt;</span> KEYS pattern</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除某个 key</span><br><span class="line"><span class="meta">&gt;</span> DEL a_key</span><br><span class="line"><span class="meta">#</span> 检查某个 key 是否存在</span><br><span class="line"><span class="meta">&gt;</span> EXISTS a_key</span><br><span class="line"><span class="meta">#</span> 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span><br><span class="line"><span class="meta">&gt;</span> TTL a_key</span><br><span class="line"><span class="meta">#</span> 获知某个 key 存储值的类型</span><br><span class="line"><span class="meta">&gt;</span> TYPE a_key</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 获取Size，可能会把失效的也计算在内</span><br><span class="line"><span class="meta">&gt;</span> DBSIZE</span><br></pre></td></tr></table></figure>
-<h3 id="取值相关命令"><a href="#取值相关命令" class="headerlink" title="取值相关命令"></a>取值相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置指定 key 的值</span><br><span class="line"><span class="meta">&gt;</span> SET a_key a_value</span><br><span class="line"><span class="meta">#</span> 获取指定 key 的字符串值</span><br><span class="line"><span class="meta">&gt;</span> GET a_key</span><br></pre></td></tr></table></figure>
+<h3 id="字符串取值相关命令"><a href="#字符串取值相关命令" class="headerlink" title="字符串取值相关命令"></a>字符串取值相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置指定 key 的值</span><br><span class="line"><span class="meta">&gt;</span> SET a_key a_value</span><br><span class="line"><span class="meta">#</span> 获取指定 key 的字符串值</span><br><span class="line"><span class="meta">&gt;</span> GET a_key</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：对有标点符号的 key，要用双引号（“”）包裹，否则会返回 <code>nil</code> 。比如使用 Spring Cache + Redis 时，会序列化缓存方法返回值，这是的 KEY 就要用双引号括起来，示例如下，</p>
 <p><code>GET &quot;cache1:\xac\xed\x00\x05t\x00$cb5775e6-1b39-4f63-85c8-13f134a54f32&quot;</code></p>
 </blockquote>
 <h3 id="List-相关命令"><a href="#List-相关命令" class="headerlink" title="List 相关命令"></a>List 相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 获知列表长度</span><br><span class="line"><span class="meta">&gt;</span> Llen a_key</span><br><span class="line"><span class="meta">#</span> 获取列表指定范围内的元素。其中 0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span><br><span class="line"><span class="meta">&gt;</span> Lrange a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</span><br><span class="line"><span class="meta">&gt;</span> Ltrim a_key start end</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 移除并返回列表的最后一个元素。</span><br><span class="line"><span class="meta">&gt;</span> Lpop a_key</span><br></pre></td></tr></table></figure>
+<h3 id="Set-相关命令"><a href="#Set-相关命令" class="headerlink" title="Set 相关命令"></a>Set 相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 返回集合中的所有成员</span><br><span class="line"><span class="meta">&gt;</span> smembers a_key</span><br><span class="line"><span class="meta">#</span> 添加成员到集合中</span><br><span class="line"><span class="meta">&gt;</span> sadd a_key a_member</span><br><span class="line"><span class="meta">#</span> 获取集合中的成员数</span><br><span class="line"><span class="meta">&gt;</span> scard a_key</span><br><span class="line"><span class="meta">#</span> 移除集合中的一个或多个成员</span><br><span class="line"><span class="meta">&gt;</span> srem a_key a_member b_member</span><br></pre></td></tr></table></figure>
 <h3 id="删库跑路相关命令"><a href="#删库跑路相关命令" class="headerlink" title="删库跑路相关命令"></a>删库跑路相关命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除所有数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHALL</span><br><span class="line"><span class="meta">#</span> 删除当前数据库的所有key</span><br><span class="line"><span class="meta">&gt;</span> FLUSHDB</span><br></pre></td></tr></table></figure>
 <h2 id="Jedis-使用"><a href="#Jedis-使用" class="headerlink" title="Jedis 使用"></a>Jedis 使用</h2><h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>（1）引入依赖</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">"redis.clients:jedis:3.0.0"</span></span><br></pre></td></tr></table></figure>
 <p>（2）简单使用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">jedis.set(<span class="string">"foo"</span>, <span class="string">"bar"</span>);</span><br><span class="line">String value = jedis.get(<span class="string">"foo"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="编译安装时出现：jemalloc-jemalloc-h-No-such-file-or-directory"><a href="#编译安装时出现：jemalloc-jemalloc-h-No-such-file-or-directory" class="headerlink" title="编译安装时出现：jemalloc/jemalloc.h: No such file or directory"></a>编译安装时出现：jemalloc/jemalloc.h: No such file or directory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make MALLOC=libc</span><br></pre></td></tr></table></figure>
 <p>
                 
             
@@ -1972,7 +1972,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">Siguiente  &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Préc</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">Suiv &raquo;</a>
         </nav>
     
 </section>
