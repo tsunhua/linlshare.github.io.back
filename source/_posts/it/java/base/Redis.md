@@ -1,8 +1,8 @@
 ---
 title: Redis
 date: 2018-10-28 23:02:00
+updated: 2019-01-15 15:30:40
 tags: [Java,Redis]
-comments: true
 ---
 
 ## 安装
@@ -75,7 +75,7 @@ $ redis-cli -h host -p port -a password
 > DBSIZE
 ```
 
-### 取值相关命令
+### 字符串取值相关命令
 
 ```shell
 # 设置指定 key 的值
@@ -102,6 +102,19 @@ $ redis-cli -h host -p port -a password
 # 移除并返回列表的最后一个元素。
 > Lpop a_key
 ```
+
+### Set 相关命令
+
+````shell
+# 返回集合中的所有成员
+> smembers a_key
+# 添加成员到集合中
+> sadd a_key a_member
+# 获取集合中的成员数
+> scard a_key
+# 移除集合中的一个或多个成员
+> srem a_key a_member b_member
+````
 
 ### 删库跑路相关命令
 
