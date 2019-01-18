@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-01-17T01:03:15.163Z</updated>
+  <updated>2019-01-17T15:16:00.927Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS Lambda 服务</title>
+    <link href="https://linlshare.github.io/2019/01/17/it/serverless/AWS%20Lambda%20%E6%9C%8D%E5%8A%A1/"/>
+    <id>https://linlshare.github.io/2019/01/17/it/serverless/AWS Lambda 服务/</id>
+    <published>2019-01-17T14:40:52.000Z</published>
+    <updated>2019-01-17T15:16:00.927Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Lambda 是 AWS 提供的一个无服务器架构的服务，用户只需要专注于写代码而不用关心部署，通常需要关心外部事件源，可以与 API Gateway, SNS, S3, DynamoDB 等等配合使用。</p><h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>简单粗暴地说，一个 Lambda 就是一个 Docker 服务或者 Firecracker 服务，Firecracker 是 AWS 开源的一个类似 Docker 的服务，AWS 计划将所有的 Lambda 实现改为 Firecracker。因此，当 Lambda 第一次被调用时通常会比较慢，因为服务需要先进行冷启动，但接下来的调用就会快很多了。</p><h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><ol><li>默认支持 6 种编程语言（.Net, Python, Node.js, Java, Go, Ruby）；</li><li>支持自定义运行时（仓库 <a href="mthenw/awesome-layers">mthenw/awesome-layers</a> 中罗列了一些开源的运行时）；</li><li>支持Lambda 之间的共享库（类似 Docker 的 Layer 概念），方便各个 Lambda 之间共用公共代码；</li><li>支持版本控制；</li><li>支持红蓝发布，即将请求按比例发送到不同版本的 Lambda 函数中。</li></ol><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ol><li>非预留账户并发 1000（注意：不是单个函数，而是单个 AWS 账户），提升需提 case；</li><li>单个函数内存占用 128M ~ 3008M；</li><li>单个函数最长运行时间是 15分钟；</li><li>单个函数最多只能包含 5 个函数层（即共享库）；</li><li>单个函数部署包压缩状态下不得超过 50 MB，解压状态不得超过 250 MB；</li><li>单个区域（Region）Lambda 函数的总大小不得超过 75 GB。</li></ol><h2 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h2><ol><li>计费方式：需按使用量计费，具体为函数的<strong>请求数量</strong>、<strong>持续时间</strong>和<strong>内存量</strong>。</li><li>免费套餐：每个月 100万请求，及 400000GB-秒。</li><li>免费之后：每 100 万个请求 0.20 USD，每 GB-秒 0.00001667 USD。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/welcome.html" target="_blank" rel="noopener">AWS Lambda - aws</a>（AWS Lambda 的官方开发人员指南）</li><li><a href="https://aws.amazon.com/cn/lambda/pricing/" target="_blank" rel="noopener">AWS Lambda 定价 - aws</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Lambda 是 AWS 提供的一个无服务器架构的服务，用户只需要专注于写代码而不用关心部署，通常需要关心外部事件源，可以与 API Gat
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="serverless" scheme="https://linlshare.github.io/categories/it/serverless/"/>
+    
+    
+      <category term="Lambda" scheme="https://linlshare.github.io/tags/Lambda/"/>
+    
+      <category term="AWS" scheme="https://linlshare.github.io/tags/AWS/"/>
+    
+  </entry>
   
   <entry>
     <title>漢字雜談</title>
@@ -656,39 +685,6 @@
       <category term="Port" scheme="https://linlshare.github.io/tags/Port/"/>
     
       <category term="端口" scheme="https://linlshare.github.io/tags/%E7%AB%AF%E5%8F%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RESTful API</title>
-    <link href="https://linlshare.github.io/2018/12/18/it/design/RESTful%20API/"/>
-    <id>https://linlshare.github.io/2018/12/18/it/design/RESTful API/</id>
-    <published>2018-12-18T03:24:29.000Z</published>
-    <updated>2019-01-13T11:37:46.375Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol><li>API 版本号放入到 URL 中；</li><li>更新信息时仅返回被更新的字段。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南 - ruanyifeng.com</a></li><li><a href="https://blog.philipphauer.de/restful-api-design-best-practices/" target="_blank" rel="noopener">RESTful API Design. Best Practices in a Nutshell. - philipphauer.de</a></li><li><a href="https://leancloud.cn/docs/rest_api.html" target="_blank" rel="noopener">REST API 使用详解 - leancloud.cn</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;API 版本号放入到 URL 中；&lt;/li&gt;
-&lt;li&gt;更新信息时仅返回被更新的字段。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;参考
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="design" scheme="https://linlshare.github.io/categories/it/design/"/>
-    
-    
-      <category term="RESTful" scheme="https://linlshare.github.io/tags/RESTful/"/>
-    
-      <category term="API" scheme="https://linlshare.github.io/tags/API/"/>
     
   </entry>
   
