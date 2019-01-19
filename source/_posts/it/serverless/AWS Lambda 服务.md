@@ -15,7 +15,7 @@ Lambda 是 AWS 提供的一个无服务器架构的服务，用户只需要专�
 ## 支持
 
 1. 默认支持 6 种编程语言（.Net, Python, Node.js, Java, Go, Ruby）；
-2. 支持自定义运行时（仓库 [mthenw/awesome-layers](mthenw/awesome-layers) 中罗列了一些开源的运行时）；
+2. 支持自定义运行时（仓库 [mthenw/awesome-layers](https://github.com/mthenw/awesome-layers) 中罗列了一些开源的运行时）；
 3. 支持Lambda 之间的共享库（类似 Docker 的 Layer 概念），方便各个 Lambda 之间共用公共代码；
 4. 支持版本控制；
 5. 支持红蓝发布，即将请求按比例发送到不同版本的 Lambda 函数中。

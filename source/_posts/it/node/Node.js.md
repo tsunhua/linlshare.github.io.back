@@ -38,6 +38,12 @@ $ nvm deactivate
 $ nvm uninstall 8.11.1
 ```
 
+## 异步编程
+
+- callback
+- promise
+- async/await
+
 ## 排错
 
 ### /usr/bin/env: node: No such file or directory

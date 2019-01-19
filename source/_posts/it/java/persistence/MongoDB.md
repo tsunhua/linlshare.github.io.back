@@ -186,6 +186,41 @@ dependencies {
 }
 ```
 
+### 在 v3.9.1 使用 Mongo URI
+
+```java
+public class Mongo {
+
+  private MongoDatabase mongoDatabase;
+
+  private Mongo() {
+    String mongoUri = ConfigManager.getInstance().getString(DistributedConfig.MONGODB_URI);
+    ConnectionString connectionString = new ConnectionString(mongoUri);
+    CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+                                                     fromProviders(PojoCodecProvider.builder()
+                                                                                    .automatic(true)
+                                                                                    .build()));
+    MongoClientSettings settings = MongoClientSettings.builder()
+                                                      .applyConnectionString(connectionString)
+                                                      .codecRegistry(pojoCodecRegistry)
+                                                      .build();
+    MongoClient mongoClient = MongoClients.create(settings);
+    String database = connectionString.getDatabase();
+    if (Strings.isNullOrEmpty(database)) {
+      database = "my_db";
+    }
+    mongoDatabase = mongoClient.getDatabase(database);
+  }
+
+  public <T> MongoCollection<T> getCollection(Class<T> documentClass) {
+    return mongoDatabase.getCollection(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE,
+                                                                 documentClass.getSimpleName()),
+                                       documentClass);
+  }
+
+}
+```
+
 ### 事务支持
 
 MongoDB 的事务支持始于 MongoDB 4.0，对应 Java Driver 版本为 3.8.0，对应 Python 版本为 3.7.0，详情阅读 [Transactions and MongoDB Drivers - mongodb.com](https://docs.mongodb.com/manual/core/transactions/#transactions-and-mongodb-drivers).
