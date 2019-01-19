@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-01-17T15:16:00.927Z</updated>
+  <updated>2019-01-19T05:31:41.821Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -17,13 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DynamoDB</title>
+    <link href="https://linlshare.github.io/2019/01/19/it/java/aws/DynamoDB/"/>
+    <id>https://linlshare.github.io/2019/01/19/it/java/aws/DynamoDB/</id>
+    <published>2019-01-19T03:14:51.000Z</published>
+    <updated>2019-01-19T05:31:41.821Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置本地开发环境"><a href="#配置本地开发环境" class="headerlink" title="配置本地开发环境"></a>配置本地开发环境</h2><h3 id="下载-DynamoDB-本地版本"><a href="#下载-DynamoDB-本地版本" class="headerlink" title="下载 DynamoDB 本地版本"></a>下载 DynamoDB 本地版本</h3><p>从 <a href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html" target="_blank" rel="noopener">计算机上的 DynamoDB（可下载版本）- aws</a> 下载，并放置到合适的位置。</p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> aws configure --profile local                                                                                    AWS Access Key ID [None]: fake-ak</span><br><span class="line">AWS Secret Access Key [None]: fake-sk</span><br><span class="line">Default region name [None]:</span><br><span class="line">Default output format [None]:</span><br></pre></td></tr></table></figure><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb</span><br></pre></td></tr></table></figure><h2 id="CLI-操作"><a href="#CLI-操作" class="headerlink" title="CLI 操作"></a>CLI 操作</h2><blockquote><p>注意：如果是本地版本需要添加 <code>--endpoint-url http://localhost:8000</code></p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 列出所有表格</span><br><span class="line">aws dynamodb list-tables </span><br><span class="line"><span class="meta">#</span> 创建表格</span><br><span class="line">aws dynamodb create-table \</span><br><span class="line">    --table-name Music \</span><br><span class="line">    --attribute-definitions \</span><br><span class="line">        AttributeName=Artist,AttributeType=S \</span><br><span class="line">        AttributeName=SongTitle,AttributeType=S \</span><br><span class="line">    --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \</span><br><span class="line">    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1</span><br><span class="line"><span class="meta">#</span> 添加Item</span><br><span class="line">aws dynamodb put-item \</span><br><span class="line">--table-name Music  \</span><br><span class="line">--item \</span><br><span class="line">    '&#123;"Artist": &#123;"S": "No One You Know"&#125;, "SongTitle": &#123;"S": "Call Me Today"&#125;, "AlbumTitle": &#123;"S": "Somewhat Famous"&#125;&#125;' \</span><br><span class="line">--return-consumed-capacity TOTAL  </span><br><span class="line"></span><br><span class="line">aws dynamodb put-item \</span><br><span class="line">    --table-name Music \</span><br><span class="line">    --item '&#123; \</span><br><span class="line">        "Artist": &#123;"S": "Acme Band"&#125;, \</span><br><span class="line">        "SongTitle": &#123;"S": "Happy Day"&#125;, \</span><br><span class="line">        "AlbumTitle": &#123;"S": "Songs About Life"&#125; &#125;' \</span><br><span class="line">    --return-consumed-capacity TOTAL</span><br></pre></td></tr></table></figure><h2 id="Java-操作"><a href="#Java-操作" class="headerlink" title="Java 操作"></a>Java 操作</h2><h3 id="BatchLoad"><a href="#BatchLoad" class="headerlink" title="BatchLoad"></a>BatchLoad</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">List&lt;KeyPair&gt; keyPairList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (Proxy proxy : proxyList) &#123;</span><br><span class="line">    KeyPair keyPair = <span class="keyword">new</span> KeyPair();</span><br><span class="line">    keyPair.setHashKey(proxy.getHost());</span><br><span class="line">    keyPair.setRangeKey(proxy.getPort());</span><br><span class="line">    keyPairList.add(keyPair);</span><br><span class="line">&#125;</span><br><span class="line">Map&lt;Class&lt;?&gt;, List&lt;KeyPair&gt;&gt; keyPairForTable = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">keyPairForTable.put(Proxy.class, keyPairList);</span><br><span class="line">Map&lt;String, List&lt;Object&gt;&gt; stringListMap = dynamoDBMapper.batchLoad(keyPairForTable);</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html" target="_blank" rel="noopener">计算机上的 DynamoDB（可下载版本）- aws</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;配置本地开发环境&quot;&gt;&lt;a href=&quot;#配置本地开发环境&quot; class=&quot;headerlink&quot; title=&quot;配置本地开发环境&quot;&gt;&lt;/a&gt;配置本地开发环境&lt;/h2&gt;&lt;h3 id=&quot;下载-DynamoDB-本地版本&quot;&gt;&lt;a href=&quot;#下载-DynamoDB-本
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="aws" scheme="https://linlshare.github.io/categories/it/java/aws/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="aws" scheme="https://linlshare.github.io/tags/aws/"/>
+    
+      <category term="DynamoDB" scheme="https://linlshare.github.io/tags/DynamoDB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AWS Lambda 服务</title>
     <link href="https://linlshare.github.io/2019/01/17/it/serverless/AWS%20Lambda%20%E6%9C%8D%E5%8A%A1/"/>
     <id>https://linlshare.github.io/2019/01/17/it/serverless/AWS Lambda 服务/</id>
     <published>2019-01-17T14:40:52.000Z</published>
-    <updated>2019-01-17T15:16:00.927Z</updated>
+    <updated>2019-01-18T12:58:15.087Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Lambda 是 AWS 提供的一个无服务器架构的服务，用户只需要专注于写代码而不用关心部署，通常需要关心外部事件源，可以与 API Gateway, SNS, S3, DynamoDB 等等配合使用。</p><h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>简单粗暴地说，一个 Lambda 就是一个 Docker 服务或者 Firecracker 服务，Firecracker 是 AWS 开源的一个类似 Docker 的服务，AWS 计划将所有的 Lambda 实现改为 Firecracker。因此，当 Lambda 第一次被调用时通常会比较慢，因为服务需要先进行冷启动，但接下来的调用就会快很多了。</p><h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><ol><li>默认支持 6 种编程语言（.Net, Python, Node.js, Java, Go, Ruby）；</li><li>支持自定义运行时（仓库 <a href="mthenw/awesome-layers">mthenw/awesome-layers</a> 中罗列了一些开源的运行时）；</li><li>支持Lambda 之间的共享库（类似 Docker 的 Layer 概念），方便各个 Lambda 之间共用公共代码；</li><li>支持版本控制；</li><li>支持红蓝发布，即将请求按比例发送到不同版本的 Lambda 函数中。</li></ol><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ol><li>非预留账户并发 1000（注意：不是单个函数，而是单个 AWS 账户），提升需提 case；</li><li>单个函数内存占用 128M ~ 3008M；</li><li>单个函数最长运行时间是 15分钟；</li><li>单个函数最多只能包含 5 个函数层（即共享库）；</li><li>单个函数部署包压缩状态下不得超过 50 MB，解压状态不得超过 250 MB；</li><li>单个区域（Region）Lambda 函数的总大小不得超过 75 GB。</li></ol><h2 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h2><ol><li>计费方式：需按使用量计费，具体为函数的<strong>请求数量</strong>、<strong>持续时间</strong>和<strong>内存量</strong>。</li><li>免费套餐：每个月 100万请求，及 400000GB-秒。</li><li>免费之后：每 100 万个请求 0.20 USD，每 GB-秒 0.00001667 USD。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/welcome.html" target="_blank" rel="noopener">AWS Lambda - aws</a>（AWS Lambda 的官方开发人员指南）</li><li><a href="https://aws.amazon.com/cn/lambda/pricing/" target="_blank" rel="noopener">AWS Lambda 定价 - aws</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Lambda 是 AWS 提供的一个无服务器架构的服务，用户只需要专注于写代码而不用关心部署，通常需要关心外部事件源，可以与 API Gateway, SNS, S3, DynamoDB 等等配合使用。</p><h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>简单粗暴地说，一个 Lambda 就是一个 Docker 服务或者 Firecracker 服务，Firecracker 是 AWS 开源的一个类似 Docker 的服务，AWS 计划将所有的 Lambda 实现改为 Firecracker。因此，当 Lambda 第一次被调用时通常会比较慢，因为服务需要先进行冷启动，但接下来的调用就会快很多了。</p><h2 id="支持"><a href="#支持" class="headerlink" title="支持"></a>支持</h2><ol><li>默认支持 6 种编程语言（.Net, Python, Node.js, Java, Go, Ruby）；</li><li>支持自定义运行时（仓库 <a href="https://github.com/mthenw/awesome-layers" target="_blank" rel="noopener">mthenw/awesome-layers</a> 中罗列了一些开源的运行时）；</li><li>支持Lambda 之间的共享库（类似 Docker 的 Layer 概念），方便各个 Lambda 之间共用公共代码；</li><li>支持版本控制；</li><li>支持红蓝发布，即将请求按比例发送到不同版本的 Lambda 函数中。</li></ol><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ol><li>非预留账户并发 1000（注意：不是单个函数，而是单个 AWS 账户），提升需提 case；</li><li>单个函数内存占用 128M ~ 3008M；</li><li>单个函数最长运行时间是 15分钟；</li><li>单个函数最多只能包含 5 个函数层（即共享库）；</li><li>单个函数部署包压缩状态下不得超过 50 MB，解压状态不得超过 250 MB；</li><li>单个区域（Region）Lambda 函数的总大小不得超过 75 GB。</li></ol><h2 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h2><ol><li>计费方式：需按使用量计费，具体为函数的<strong>请求数量</strong>、<strong>持续时间</strong>和<strong>内存量</strong>。</li><li>免费套餐：每个月 100万请求，及 400000GB-秒。</li><li>免费之后：每 100 万个请求 0.20 USD，每 GB-秒 0.00001667 USD。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/welcome.html" target="_blank" rel="noopener">AWS Lambda - aws</a>（AWS Lambda 的官方开发人员指南）</li><li><a href="https://aws.amazon.com/cn/lambda/pricing/" target="_blank" rel="noopener">AWS Lambda 定价 - aws</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -654,37 +687,6 @@
       <category term="Music" scheme="https://linlshare.github.io/tags/Music/"/>
     
       <category term="Beatles" scheme="https://linlshare.github.io/tags/Beatles/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Port</title>
-    <link href="https://linlshare.github.io/2018/12/19/it/net/Port/"/>
-    <id>https://linlshare.github.io/2018/12/19/it/net/Port/</id>
-    <published>2018-12-19T02:33:02.000Z</published>
-    <updated>2019-01-13T11:37:46.463Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="端口的概念"><a href="#端口的概念" class="headerlink" title="端口的概念"></a>端口的概念</h2><p>端口有两种含义需要仔细区分：</p><ol><li>物理端口，指用于连接其他网络设备的接口，比如 RJ-45端口；</li><li>协议端口，指 TCP/IP 协议中的定义的逻辑端口，用于标识，比如 80 端口。</li></ol><h2 id="协议端口"><a href="#协议端口" class="headerlink" title="协议端口"></a>协议端口</h2><p>TCP/IP 协议中的协议端口用于解决远程主机进程定位的问题。<code>IP + Port</code> 才能真正定位想要访问的远程服务。</p><p>其工作流程如下：</p><ol><li>进程请求主机系统分配端口；</li><li>主机系统分配端口；</li><li>主机收到数据包，根据数据包报文首部的端口号，发送到相应的端口队列；</li><li>进程取用端口队列中的数据包。</li></ol><blockquote><p>端口其实就是队，操作系统为各个进程分配了不同的队，数据包按照目的端口被推入相应的队中，等待被进程取用，在极特殊的情况下，这个队也是有可能溢出的，不过操作系统允许各进程指定和调整自己的队的大小。  — <a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3" target="_blank" rel="noopener">端口 - 百度百科</a></p></blockquote><p>一些常见的端口号：</p><table><thead><tr><th>应用程序</th><th>FTP</th><th>TELNET</th><th>SMTP</th><th>DNS</th><th>TFTP</th><th>HTTP</th><th>HTTPS</th><th>SNMP</th></tr></thead><tbody><tr><td>熟知端口号</td><td><strong>21</strong></td><td>23</td><td>25</td><td>53</td><td>69</td><td><strong>80</strong></td><td><strong>443</strong></td><td>161</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://jerryc8080.gitbooks.io/understand-tcp-and-udp/chapter1.html" target="_blank" rel="noopener">理解 TCP 和 UDP - gitbook.com</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;端口的概念&quot;&gt;&lt;a href=&quot;#端口的概念&quot; class=&quot;headerlink&quot; title=&quot;端口的概念&quot;&gt;&lt;/a&gt;端口的概念&lt;/h2&gt;&lt;p&gt;端口有两种含义需要仔细区分：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;物理端口，指用于连接其他网络设备的接口，比如 RJ-45端口
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="net" scheme="https://linlshare.github.io/categories/it/net/"/>
-    
-    
-      <category term="Port" scheme="https://linlshare.github.io/tags/Port/"/>
-    
-      <category term="端口" scheme="https://linlshare.github.io/tags/%E7%AB%AF%E5%8F%A3/"/>
     
   </entry>
   
