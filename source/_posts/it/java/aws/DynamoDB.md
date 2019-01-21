@@ -93,6 +93,28 @@ Map<String, List<Object>> stringListMap = dynamoDBMapper.batchLoad(keyPairForTab
 
 ## 排错
 
+### Scan 过滤 Boolean 类型字段时返回为空
+
+```java
+Map<String, AttributeValue> eav = new HashMap<>();
+Map<String, String> ean = new HashMap<>();
+StringBuilder filterExpressionBuilder = new StringBuilder();
+eav.put(":valid", new AttributeValue().withBOOL(proxy.getLocked()));
+ean.put("#valid","valid");
+filterExpressionBuilder.append("#valid = :valid");
+DynamoDBScanExpression scanExpression = new DynamoDBScanExpression().withConsistentRead(false)
+    .withExpressionAttributeValues(eav)
+    .withExpressionAttributeNames(ean)
+    .withFilterExpression(filterExpressionBuilder.toString());
+PaginatedScanList<Proxy> result = dynamoDBMapper.scan(Proxy.class, scanExpression);
+```
+
+DynamoDB 存储 Boolean 类型时其实是使用 Number 类型存储，进行过滤时不能使用布尔值进行过滤，而是要使用 “0” （false）和 “1”（true），更改如下：
+
+```java
+eav.put(":valid", new AttributeValue().withN(proxy.getLocked() ? "1" : "0"));
+```
+
 ### DynamoDBMappingException
 
 调用 DynamoDB 的 batchSave 接口发生以下错误：
@@ -110,7 +132,52 @@ com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMappingException: not sup
 
 原来在注解为 `@DynamoDBTable` 的实体类中使用了自定义类型的字段，DynamoDB 并不支持。
 
-解决方案：在该自定义类型的字段上添加注解  `@DynamoDBTypeConvertedJson` 即可，原理是使用 Jackson 将该字段的值 json 化再存储。
+解决方案：在该自定义类型的字段上添加注解  `@DynamoDBTypeConvertedJson` 即可，原理是使用 Jackson 将该字段的值 json 化再存储。如果不想要 `Jackson` ，可以自定义转化器，如下：
+
+```java
+// CustomTypeConverter.java
+public class CustomTypeConverter<T> implements DynamoDBTypeConverter<String, T> {
+
+  private Class<T> clazz;
+
+  public CustomTypeConverter(Class<T> clazz) {
+    this.clazz = clazz;
+  }
+
+  @Override
+  public String convert(T object) {
+    return Json.toJson(object);
+  }
+
+  @Override
+  public T unconvert(String json) {
+    return Json.fromJson(json, clazz);
+  }
+}
+// JobTreeConverter.java
+public class JobTreeConverter extends CustomTypeConverter<JobTree> {
+  public JobTreeConverter(Class<JobTree> clazz) {
+    super(clazz);
+  }
+}
+
+// JobGroup.java
+@DynamoDBTable(tableName = "job-group")
+public class JobGroup implements Serializable {
+  @DynamoDBHashKey(attributeName = "id")
+  @SerializedName("id")
+  private String id;
+
+  @SerializedName("name")
+  private String name;
+
+  @DynamoDBTypeConverted(converter = JobTreeConverter.class)
+  @DynamoDBAttribute(attributeName = "default_job_tree")
+  @SerializedName("default_job_tree")
+  private JobTree defaultJobTree;
+  //...
+}
+```
 
 ## 参考
 
