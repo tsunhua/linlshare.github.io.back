@@ -289,19 +289,43 @@ etcdctl member list
 ETCDCTL_API=3 etcdctl member list
 ```
 
-## HTTP 访问
-
-### （1）查看版本
+## REST API （v2）
 
 ```shell
+# 查看版本
 curl http://127.0.0.1:2379/version
+# get
+curl http://127.0.0.1:2379/v2/keys/testdir/testkey
 ```
 
-### （2）get
+## REST API （v3alpha）
 
 ```shell
-curl http://127.0.0.1:2379/v3/keys/testdir/testkey
+HOST=http://ecp-etcd-7fbedb40ccf7b594.elb.us-east-1.amazonaws.com:2379
+declare -A KV=(["config/http_server_port"]=8080 ["config/db_type"]="dynamo" ["config/aws_region"]="us-east-1" ["config/kafka_brokers"]="172.19.0.9:9092")
+
+# show version
+curl $HOST/version
+
+# put key value
+for k in ${!KV[@]}
+do
+	key=$(echo -n $k | base64)
+	value=$(echo -n ${KV[$k]} | base64)
+	## delete key before
+	curl -L $HOST/v3alpha/kv/deleterange -X POST -d "{\"key\": \"${key}\"}"
+	## put new key and value
+	curl -L $HOST/v3alpha/kv/put -X POST -d "{\"key\":\"${key}\", \"value\": \"${value}\"}"
+done
+
+# show all keys
+curl -L $HOST/v3alpha/kv/range -X POST -d '{"key": "AA==", "range_end": "AA=="}'
+#curl -X POST -d '{"key": "L2FwcA==", "range_end": "L2I="}' $HOST/v3alpha/kv/range
 ```
+
+已知问题：
+
+1. 当 put 的 value 中包含字符 “-” 时会抛出 `{\"error\":\"invalid character '\\\\n' in string literal\",\"code\":3}`。
 
 ## 参考（Reference）
 

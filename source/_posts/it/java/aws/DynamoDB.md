@@ -91,6 +91,27 @@ keyPairForTable.put(Proxy.class, keyPairList);
 Map<String, List<Object>> stringListMap = dynamoDBMapper.batchLoad(keyPairForTable);
 ```
 
+## 排错
+
+### DynamoDBMappingException
+
+调用 DynamoDB 的 batchSave 接口发生以下错误：
+
+```
+com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMappingException: not supported; requires @DynamoDBTyped or @DynamoDBTypeConverted
+	at com.amazonaws.services.dynamodbv2.datamodeling.StandardModelFactories$Rules$NotSupported.set(StandardModelFactories.java:664)
+	at com.amazonaws.services.dynamodbv2.datamodeling.StandardModelFactories$Rules$NotSupported.set(StandardModelFactories.java:650)
+	at com.amazonaws.services.dynamodbv2.datamodeling.StandardModelFactories$AbstractRule.convert(StandardModelFactories.java:709)
+	at com.amazonaws.services.dynamodbv2.datamodeling.StandardModelFactories$AbstractRule.convert(StandardModelFactories.java:691)
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperFieldModel.convert(DynamoDBMapperFieldModel.java:138)
+	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.batchWrite(DynamoDBMapper.java:1107)
+	at com.amazonaws.services.dynamodbv2.datamodeling.AbstractDynamoDBMapper.batchSave(AbstractDynamoDBMapper.java:173)
+```
+
+原来在注解为 `@DynamoDBTable` 的实体类中使用了自定义类型的字段，DynamoDB 并不支持。
+
+解决方案：在该自定义类型的字段上添加注解  `@DynamoDBTypeConvertedJson` 即可，原理是使用 Jackson 将该字段的值 json 化再存储。
+
 ## 参考
 
 1. [计算机上的 DynamoDB（可下载版本）- aws](https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html)

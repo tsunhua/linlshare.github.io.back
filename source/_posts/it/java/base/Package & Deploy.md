@@ -9,7 +9,7 @@ tags: [Java,JavaEE,Package,Deploy]
 - [ ] 配置登录远程机器的 SSH config
 - [ ] 本地使用 Gradle 或者 Maven 打包
 - [ ] 使用 scp 安全拷贝 jar 包到远程机器
-- [ ] 使用 `sudo apt install openjdk-8-jre-headless` 安装 JDK 环境
+- [ ] 使用 `sudo apt install openjdk-8-jre-headless` （Ubuntu） 或者 `sudo yum install java-1.8.0-openjdk` （CentOS）安装 JDK 环境
 - [ ] 使用 `java -jar` 完成部署
 
 ## 分布式打包部署
