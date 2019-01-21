@@ -183,3 +183,4 @@ public class JobGroup implements Serializable {
 
 1. [计算机上的 DynamoDB（可下载版本）- aws](https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html)
 2. [Instroduction - Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
+3. [DynamoDB API 文档 -aws](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html)
