@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linlshare.github.io/2018/11/09/it/java/persistence/MongoDB/</loc>
+    
+    <lastmod>2019-01-22T07:12:27.392Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linlshare.github.io/2019/01/19/it/java/aws/DynamoDB/</loc>
     
     <lastmod>2019-01-21T12:53:02.198Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://linlshare.github.io/2018/11/09/it/java/aws/aws/</loc>
     
     <lastmod>2019-01-19T05:22:52.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linlshare.github.io/2018/11/09/it/java/persistence/MongoDB/</loc>
-    
-    <lastmod>2019-01-18T16:04:31.117Z</lastmod>
     
   </url>
   
