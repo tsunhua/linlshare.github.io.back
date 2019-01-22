@@ -186,7 +186,26 @@ dependencies {
 }
 ```
 
-### 在 v3.9.1 使用 Mongo URI
+### 在 v3.6.4 使用 MongoURI
+```java
+String mongoUri = ConfigManager.getInstance().getString(DistributedConfig.MONGODB_URI);
+ConnectionString connectionString = new ConnectionString(mongoUri);
+CodecRegistry pojoCodecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                                                 fromProviders(PojoCodecProvider.builder()
+                                                               .automatic(true)
+                                                               .build()));
+MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoUri,
+                                                             MongoClientOptions.builder()
+                                                             .codecRegistry(
+                                                                 pojoCodecRegistry)));
+String database = connectionString.getDatabase();
+if (Strings.isNullOrEmpty(database)) {
+    database = "my_db";
+}
+MongoDatabase mongoDatabase = mongoClient.getDatabase(database);
+```
+
+### 在  v3.9.1 使用 MongoURI
 
 ```java
 public class Mongo {
@@ -209,7 +228,7 @@ public class Mongo {
     if (Strings.isNullOrEmpty(database)) {
       database = "my_db";
     }
-    mongoDatabase = mongoClient.getDatabase(database);
+   MongoDatabase mongoDatabase = mongoClient.getDatabase(database);
   }
 
   public <T> MongoCollection<T> getCollection(Class<T> documentClass) {
@@ -286,8 +305,6 @@ void updateEmployeeInfoWithRetry() {
 }
 ```
 
-
-
 ## Q&A
 
 ### 一个服务中该使用一个还是多个 MongoClient？
@@ -295,6 +312,10 @@ void updateEmployeeInfoWithRetry() {
 通常一个服务应使用一个全局的 MongoClient，并且 MongoClient 中已经实现了一个连接池，最大值默认为 1000000 的连接限制，这相当于没有限制。
 
 参考：[为什么 MongoDB 连接数被用满了？ - mongoing.com](http://www.mongoing.com/archives/3145)
+
+### Invalid BSON field name id
+
+更新文档时出现该错误，原因是使用了 `updateOne` 但是没有 `$set` 字段，改为使用 `replaceOne` 就不用这么麻烦了。
 
 ## 参考
 
