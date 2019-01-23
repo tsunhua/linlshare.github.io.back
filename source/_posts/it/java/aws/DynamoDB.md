@@ -76,6 +76,19 @@ aws dynamodb scan \
 
 ## Java 操作
 
+### 使用 DynamoDBMapper
+
+```java
+AmazonDynamoDB amazonDynamoDB = builder.build();
+final String prefix = "project-" + AppConfig.getVariant() + "-";
+final DynamoDBMapperConfig.TableNameOverride tableNameOverride =
+    DynamoDBMapperConfig.TableNameOverride.withTableNamePrefix(prefix);
+DynamoDBMapperConfig dynamoDBMapperConfig = DynamoDBMapperConfig.builder()
+    .withTableNameOverride(tableNameOverride)
+    .build();
+DynamoDBMapper DynamoDBMapper(amazonDynamoDB, dynamoDBMapperConfig);
+```
+
 ### 批量加载（Batch Load）
 
 ```java
@@ -92,6 +105,66 @@ Map<String, List<Object>> stringListMap = dynamoDBMapper.batchLoad(keyPairForTab
 ```
 
 ## 排错
+
+### 查询数据时使用 limit 字段但是没有返回预期的数据
+
+原因是 limit 限制的是去查询集合而非结果集合，查看注释可知：
+
+```java
+/**
+     * Sets the limit of items to scan and returns a pointer to this object for
+     * method-chaining. Please note that this is <b>not</b> the same as the
+     * number of items to return from the scan operation -- the operation will
+     * cease and return as soon as this many items are scanned, even if no
+     * matching results are found.
+     *
+     * @see DynamoDBScanExpression#getLimit()
+     */
+public DynamoDBScanExpression withLimit(Integer limit) {
+    this.limit = limit;
+    return this;
+}
+```
+
+那么怎么做到对结果集合的 limit 呢？采用其带 `page` 的接口分页查询，如下：
+
+```java
+// page query
+do {
+    QueryResultPage<Proxy> proxyQueryResultPage =
+        dynamoDBMapper.queryPage(Proxy.class, queryExpression);
+    proxies.addAll(proxyQueryResultPage.getResults());
+    queryExpression.setExclusiveStartKey(proxyQueryResultPage.getLastEvaluatedKey());
+} while (queryExpression.getExclusiveStartKey() != null && proxies.size() < limit);
+```
+
+### 设置 `SaveBehavior.UPDATE_SKIP_NULL_ATTRIBUTES` 但在调用 `batchSave` 方法时并没有跳过为 null 的字段
+
+在创建 DynamoDBMapperConfig 时设置 UPDATE_SKIP_NULL_ATTRIBUTES，如下：
+
+```java
+DynamoDBMapperConfig dynamoDBMapperConfig = DynamoDBMapperConfig.builder()
+    .withTableNameOverride(tableNameOverride)
+    // 设置 UPDATE_SKIP_NULL_ATTRIBUTES
+    .withSaveBehavior(DynamoDBMapperConfig.SaveBehavior.UPDATE_SKIP_NULL_ATTRIBUTES)
+    .build();
+```
+
+* 关于 SaveBehavior 参考 [Using the SaveBehavior Configuration for the DynamoDBMapper](https://aws.amazon.com/cn/blogs/developer/using-the-savebehavior-configuration-for-the-dynamodbmapper/)
+
+查看 `SaveBehavior` 源码，发现:
+
+```java
+/**
+* UPDATE_SKIP_NULL_ATTRIBUTES is similar to UPDATE, except that it
+* ignores any null value attribute(s) and will NOT remove them from
+* that item in DynamoDB. It also guarantees to send only one single
+* updateItem request, no matter the object is key-only or not.
+*/
+UPDATE_SKIP_NULL_ATTRIBUTES,
+```
+
+也就是说 **不支持** 批量的操作！
 
 ### Scan 过滤 Boolean 类型字段时返回为空
 
