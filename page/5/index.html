@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                124
+                125
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -598,7 +598,7 @@ ga('send', 'pageview');
                             &nbsp;
                             recipe
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -690,6 +690,151 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/persistence/MyBatis" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MyBatis/">MyBatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/MyBatis/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/MyBatis.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/MyBatis.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/MyBatis.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="MyBatis-是干嘛的？"><a href="#MyBatis-是干嘛的？" class="headerlink" title="MyBatis 是干嘛的？"></a>MyBatis 是干嘛的？</h2><p>MyBatis 是一个 SQL 映射框架，它通过 XML 描述符或者注解将对象与<strong>关系型数据库</strong>的存储过程或 SQL 语句关联起来。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ol>
+<li>支持声明式数据缓存；</li>
+<li>提供基于 HashMap 的默认缓存实现；</li>
+<li>提供 API 供其他缓存实现。</li>
+</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'org.mybatis:mybatis:3.4.6'</span></span><br></pre></td></tr></table></figure>
+<p>如使用其他依赖引入方式，参看 <a href="https://search.maven.org/artifact/org.mybatis/mybatis/3.4.6/jar" target="_blank" rel="noopener">mybatis - maven.org</a>。</p>
+<h3 id="集成使用"><a href="#集成使用" class="headerlink" title="集成使用"></a>集成使用</h3><ol>
+<li>与 Spring Framework 集成</li>
+<li>与 Google Guice 集成</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zh.wikipedia.org/zh-cn/MyBatis" target="_blank" rel="noopener">MyBatis - 维基百科</a></li>
+<li><a href="http://www.mybatis.org/mybatis-3/zh/" target="_blank" rel="noopener">mybatis-3 - mybatis.org</a></li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/persistence/JDBC" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1780,170 +1925,6 @@ ga('send', 'pageview');
 <p>（2）注释掉 <code>url-quote-magic</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#if [[ $ZSH_VERSION != 5.1.1 ]]; then</span><br><span class="line">#  for d in $fpath; do</span><br><span class="line">#       if [[ -e &quot;$d/url-quote-magic&quot; ]]; then</span><br><span class="line">#               if is-at-least 5.1; then</span><br><span class="line">#                       autoload -Uz bracketed-paste-magic</span><br><span class="line">#                       zle -N bracketed-paste bracketed-paste-magic</span><br><span class="line">#               fi</span><br><span class="line">#               autoload -Uz url-quote-magic</span><br><span class="line">#               zle -N self-insert url-quote-magic</span><br><span class="line">#      break</span><br><span class="line">#       fi</span><br><span class="line">#  done</span><br><span class="line">#fi</span><br></pre></td></tr></table></figure>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/tool/Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/11/27/it/tool/Docker/">
-            <time datetime="2018-11-27T09:47:54.000Z" itemprop="datePublished">2018-11-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Docker.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Docker.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Docker.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/27/it/tool/Docker/">Docker</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="Docker-是什么？"><a href="#Docker-是什么？" class="headerlink" title="Docker 是什么？"></a>Docker 是什么？</h2><p><a href="https://github.com/moby/moby" target="_blank" rel="noopener">Docker</a> 是一种虚拟化的容器，<strong>隔离了文件系统、网络互联和进程</strong>等等，但比之传统的虚拟化技术，精简了内核和硬件的虚拟，容器内的应用进程直接运行在宿主内核。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p><strong>（1）Homebrew 安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> brew cask install docker</span><br></pre></td></tr></table></figure>
-<p><strong>（2）下载安装</strong></p>
-<p><a href="https://download.docker.com/mac/stable/Docker.dmg" target="_blank" rel="noopener">Docker.dmg 下载</a></p>
-<h3 id="Ubuntu-16"><a href="#Ubuntu-16" class="headerlink" title="Ubuntu 16+"></a>Ubuntu 16+</h3><p><strong>（1）测试环境使用一键自动安装脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line"><span class="meta">&gt;</span> sudo sh get-docker.sh --mirror Aliyun</span><br></pre></td></tr></table></figure>
-<p><strong>（2）按部就班安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 添加使用 HTTPS 传输的软件包以及 CA 证书</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span> 添加软件源的 GPG 密钥</span><br><span class="line"><span class="meta">&gt;</span> curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 向 source.list 中添加 Docker 软件源</span><br><span class="line"><span class="meta">&gt;</span> sudo add-apt-repository \</span><br><span class="line">    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \</span><br><span class="line">    $(lsb_release -cs) \</span><br><span class="line">    stable"</span><br><span class="line"><span class="meta">#</span> 安装 docker-ce</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get update</span><br><span class="line"><span class="meta">&gt;</span> sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
-<h3 id="检查安装情况"><a href="#检查安装情况" class="headerlink" title="检查安装情况"></a>检查安装情况</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> docker --version</span><br><span class="line"><span class="meta">&gt;</span> docker-compose --version</span><br><span class="line"><span class="meta">&gt;</span> docker-machine --version</span><br></pre></td></tr></table></figure>
-<h3 id="使用镜像加速器"><a href="#使用镜像加速器" class="headerlink" title="使用镜像加速器"></a>使用镜像加速器</h3><p>鉴于国内的网络情况，拉取镜像会很慢，这时候需要配置镜像加速器，使用国内的镜像服务器。</p>
-<p><strong>国内的镜像服务器地址</strong>：    <a href="https://registry.docker-cn.com。" target="_blank" rel="noopener">https://registry.docker-cn.com。</a></p>
-<p><strong>配置方式</strong>：对于使用 Docker 客户端的用户，依次点击 <code>Docker 图标 --&gt; Settings/ Perferences --&gt; Daemon --&gt; Registry mirrors</code>，输入加速器地址，然后点击 Apply &amp; Restart 即可。</p>
-<p><strong>检查配置是否生效</strong>：执行 <code>docker info</code> 查看 <code>Registry Mirrors</code> 字段的值。</p>
-<h2 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h2><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>跟启动普通软件的方式一样。</p>
-<h3 id="Ubuntu-16-1"><a href="#Ubuntu-16-1" class="headerlink" title="Ubuntu 16+"></a>Ubuntu 16+</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> sudo systemctl enable docker</span><br><span class="line"><span class="meta">&gt;</span> sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<h2 id="快速开始：启动一个-Nginx-服务器"><a href="#快速开始：启动一个-Nginx-服务器" class="headerlink" title="快速开始：启动一个 Nginx 服务器"></a>快速开始：启动一个 Nginx 服务器</h2><p>（1）安装并启动一个 Nginx 服务器，将本地的 8080 端口映射到 Docker 的 80 端口。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> docker run -d -p 8080:80 --name webserver nginx</span><br></pre></td></tr></table></figure>
-<p>（2）通过 <code>docker ps</code> 查看运行中的 docker 容器列表。</p>
-<p>（3） <code>curl http://localhost:8080</code> 。</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/11/27/it/tool/Docker/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

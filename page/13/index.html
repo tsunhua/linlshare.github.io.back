@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                124
+                125
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -598,7 +598,7 @@ ga('send', 'pageview');
                             &nbsp;
                             recipe
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -690,6 +690,155 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/kotlin/Kotlin的特性" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/kotlin/">kotlin</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Kotlin/">Kotlin</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/12/17/it/kotlin/Kotlin的特性/">
+            <time datetime="2017-12-17T12:07:00.000Z" itemprop="datePublished">2017-12-17</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/kotlin/Kotlin的特性.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/kotlin/Kotlin的特性.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/kotlin/Kotlin的特性.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <ol>
+<li>time</li>
+<li>streams</li>
+<li>try-with-resources</li>
+<li>函数扩展，给types、classes或者interfaces新增方法</li>
+<li>null safe</li>
+<li>不需要new，后缀声明类型</li>
+<li>自动转换有getters和setters综合属性的类型，例如自动替换getDay()为day，看起来像个field，但实际上是property-getter和setter的概念的融合</li>
+<li>函数表达式lambdas，it：单个参数的隐式名称</li>
+<li>Higher-order函数，一个参数式函数或者返回时函数的函数</li>
+<li><p>扩展函数表达式 = 扩展函数 + 函数表达式 + 高阶函数</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> SQLiteDatabase.<span class="title">inTransaction</span><span class="params">(func: (<span class="type">SQLiteDatabase</span>)</span></span> -&gt; <span class="built_in">Unit</span>) &#123;</span><br><span class="line">  beginTransaction()</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    func(<span class="keyword">this</span>)</span><br><span class="line">    setTransactionSuccessful()</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    endTransaction()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">db.inTransaction &#123;</span><br><span class="line">  it.db.delete(<span class="string">"users"</span>, <span class="string">"first_name = ?"</span>, arrayOf(<span class="string">"Jake"</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>in-line函数</p>
+</li>
+<li>Anko 定义UI</li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/kotlin/Kotlin函数" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
