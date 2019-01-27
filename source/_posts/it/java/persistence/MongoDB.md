@@ -317,6 +317,10 @@ void updateEmployeeInfoWithRetry() {
 
 更新文档时出现该错误，原因是使用了 `updateOne` 但是没有 `$set` 字段，改为使用 `replaceOne` 就不用这么麻烦了。
 
+### readString can only be called when CurrentBSONType is STRING, not when CurrentBSONType is OBJECT_ID
+
+给名为 `id` 的字段添加注解 `@BsonProperty("id")` 即可。
+
 ## 参考
 
 1. [MongoDB Driver Quick Start - mongoDB](https://mongodb.github.io/mongo-java-driver/3.9/driver/getting-started/quick-start/)
