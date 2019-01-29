@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-01-27T11:49:53.337Z</updated>
+  <updated>2019-01-29T12:45:31.454Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu</title>
+    <link href="https://linlshare.github.io/2019/01/29/it/tool/Ubuntu/"/>
+    <id>https://linlshare.github.io/2019/01/29/it/tool/Ubuntu/</id>
+    <published>2019-01-29T12:39:32.000Z</published>
+    <updated>2019-01-29T12:45:31.454Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="fix-broken-package"><a href="#fix-broken-package" class="headerlink" title="fix broken package"></a>fix broken package</h3><p>参考：<a href="http://www.iasptk.com/ubuntu-fix-broken-package-best-solution/" target="_blank" rel="noopener">Ubuntu fix broken package (best solution)</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> step 1</span><br><span class="line">sudo apt-get update --fix-missing</span><br><span class="line">sudo dpkg --configure -a</span><br><span class="line">sudo apt-get install -f</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> step 2</span><br><span class="line">sudo vim /var/lib/dpkg/status</span><br><span class="line">Locate the corrupt package, and remove the whole block of information about it and save the file.</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;排错&quot;&gt;&lt;a href=&quot;#排错&quot; class=&quot;headerlink&quot; title=&quot;排错&quot;&gt;&lt;/a&gt;排错&lt;/h2&gt;&lt;h3 id=&quot;fix-broken-package&quot;&gt;&lt;a href=&quot;#fix-broken-package&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://linlshare.github.io/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>瓦尔登湖</title>
@@ -645,36 +672,6 @@
       <category term="Philosophy" scheme="https://linlshare.github.io/tags/Philosophy/"/>
     
       <category term="佛經" scheme="https://linlshare.github.io/tags/%E4%BD%9B%E7%B6%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复合任务及其状态</title>
-    <link href="https://linlshare.github.io/2018/12/24/it/concept/%E5%A4%8D%E5%90%88%E4%BB%BB%E5%8A%A1%E5%8F%8A%E5%85%B6%E7%8A%B6%E6%80%81/"/>
-    <id>https://linlshare.github.io/2018/12/24/it/concept/复合任务及其状态/</id>
-    <published>2018-12-24T09:49:56.000Z</published>
-    <updated>2019-01-13T11:37:46.373Z</updated>
-    
-    <content type="html"><![CDATA[<p>在代码设计字段时我们经常会碰到需要加状态字段的场景。状态即此刻的情况、形态。从一个状态到另个状态是质变，而质变是由量变累积而成，譬如年老的状态，是时间累积、内分泌系统渐衰，而从年轻到年老的质变。代码中的状态字段亦复如是。</p><p><strong>原子任务</strong>的状态转移是单一操作的，该任务只有 TODO 和 DONE 两种状态，该任务无法被部分完成，只能整体完成或没完成。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span></span>&#123;</span><br><span class="line">    <span class="comment">// 状态可取值：["TODO","DONE"]</span></span><br><span class="line">    <span class="keyword">private</span> String status;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然而现实世界中的任务大多是复合任务，据我所知有以下几种简单复合方式：</p><ol><li>多个平行原子任务复合，且称之为<strong>平行复合任务</strong>；</li><li>多个链状原子任务复合，且称之为<strong>链状复合任务</strong>；</li><li>多个树状原子任务复合，且称之为<strong>树状复合任务</strong>；</li></ol><p>上面复合方式还可以嵌套，产生更复杂的复合方式，即<strong>多重复合</strong>。</p><p>这时，我们面临一个挑战，我们该如何定义这些复合任务的状态呢？</p><p>我们说是量的积累导致了状态的质变，那么可不可以从过程量入手呢？</p><p>答案是明确的，我认为这应该是绝妙而又充满哲学意味的手段。现以最简单的平行复合任务为例，试编码如下：</p><p>（1）首先我们需要一个计数器，用来统计总数和已完成的任务数量。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> total;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> done;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTotal</span><span class="params">(<span class="keyword">int</span> total)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.total = total;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseTotal</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.total ++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseDone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.done ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">totallyDone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> total == done;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>（2）再者，我们在复合任务内部刷新状态，每当一个子任务完成时检查并刷新内部状态。这样，<strong>状态的刷新就内聚了，外部量变，内部质变</strong>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CompoundTask</span></span>&#123;</span><br><span class="line">    <span class="comment">// 状态可取值：["TODO", "DONE", "PARTIALLY_DONE"]</span></span><br><span class="line">    <span class="keyword">private</span> String status = <span class="string">"TODO"</span>;</span><br><span class="line">    <span class="keyword">private</span> Counter counter = <span class="keyword">new</span> Counter();</span><br><span class="line">    <span class="keyword">private</span> List&lt;Task&gt; tasks = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTask</span><span class="params">(Task task)</span></span>&#123;</span><br><span class="line">        tasks.add(task);</span><br><span class="line">        counter.increaseTotal();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increaseTaskDone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        counter.increaseDone();</span><br><span class="line">        refreshStatus();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refreshStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(counter.totallyDone())&#123;</span><br><span class="line">            status = <span class="string">"DONE"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">status = <span class="string">"PARTIALLY_DONE"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>以上是基础实现，旨在探求一种通用的描述复合任务状态的解决方案。多重复合任务可以通过同类归并压平成一个计数器，不同类的任务建议使用不同的计数器。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在代码设计字段时我们经常会碰到需要加状态字段的场景。状态即此刻的情况、形态。从一个状态到另个状态是质变，而质变是由量变累积而成，譬如年老的状态，是时间累积、内分泌系统渐衰，而从年轻到年老的质变。代码中的状态字段亦复如是。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;原子任务&lt;/stron
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="concept" scheme="https://linlshare.github.io/categories/it/concept/"/>
-    
-    
-      <category term="复合任务" scheme="https://linlshare.github.io/tags/%E5%A4%8D%E5%90%88%E4%BB%BB%E5%8A%A1/"/>
-    
-      <category term="状态" scheme="https://linlshare.github.io/tags/%E7%8A%B6%E6%80%81/"/>
     
   </entry>
   
