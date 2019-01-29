@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://linlshare.github.io/2019/01/19/it/java/aws/DynamoDB/</loc>
+    
+    <lastmod>2019-01-28T04:01:37.025Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://linlshare.github.io/2019/01/27/reading/%E7%93%A6%E5%B0%94%E7%99%BB%E6%B9%96/</loc>
     
     <lastmod>2019-01-27T11:49:53.337Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://linlshare.github.io/2018/11/09/it/java/persistence/MongoDB/</loc>
     
     <lastmod>2019-01-26T08:19:41.849Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://linlshare.github.io/2019/01/19/it/java/aws/DynamoDB/</loc>
-    
-    <lastmod>2019-01-23T14:16:34.950Z</lastmod>
     
   </url>
   
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://linlshare.github.io/2018/10/28/thinking/weekly/%E5%91%A8%E8%AE%B0%2020181028/</loc>
+    <loc>https://linlshare.github.io/2018/10/21/thinking/weekly/%E5%91%A8%E8%AE%B0%2020181021/</loc>
     
     <lastmod>2019-01-13T11:37:46.788Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://linlshare.github.io/2018/10/21/thinking/weekly/%E5%91%A8%E8%AE%B0%2020181021/</loc>
+    <loc>https://linlshare.github.io/2018/10/28/thinking/weekly/%E5%91%A8%E8%AE%B0%2020181028/</loc>
     
     <lastmod>2019-01-13T11:37:46.788Z</lastmod>
     
