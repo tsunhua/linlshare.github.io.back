@@ -106,6 +106,14 @@ Map<String, List<Object>> stringListMap = dynamoDBMapper.batchLoad(keyPairForTab
 
 ## 排错
 
+### DynamoDBMappingException: [class name] :no mapping for HASH key
+
+确保对主键设置了以下的注解：
+
+```java
+@DynamoDBHashKey
+```
+
 ### 查询数据时使用 limit 字段但是没有返回预期的数据
 
 原因是 limit 限制的是去查询集合而非结果集合，查看注释可知：
