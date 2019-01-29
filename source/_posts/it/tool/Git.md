@@ -4,56 +4,17 @@ date: 2018-10-17 11:44:00
 tags: [Git,版本控制]
 comments: true
 ---
+## 入门
 
-
-### 提交当前分支的更改到远程的同名分支
-
-```shell
-$ git push origin HEAD
-```
-
-### 删除远程分支
-
-```shell
-$ git push origin :dev-sth
-# 相当于
-$ git push origin --delete dev-sth
-```
-
-### 撤销 git commit 但未 git push 的修改
-
-```shell
-#找到想要撤销的 commit id
-$ git log
-#撤销，但不对代码修改进行撤销，还可以再次 commit
-$ git reset <commit id> 
-#撤销并忽略该次 commit 的代码修改
-$ git reset --hard <commit id>
-```
-
-### 移除远程分支上的脏文件（clean remote files）
-
-```shell
-$ git rm -rf <file1> <file2>
-```
-
-### 添加子模块（submodule）
-
-```shell
-$ git submodule add git://github.com/chneukirchen/rack.git rack
-```
-
-### 入门
-
-#### Git是什么？
+### Git是什么？
 
 Git中译为混账，是Linus先生花了一个星期写的分布式版本控制系统（VCS，Version Control System），用于Linux内核的协同开发。所谓版本控制系统，个人理解就是可以保存文本文件的历史版本信息，并且可以回溯到某个历史版本的文本文件管理系统。它的设计就是为了方便软件开发的版本迭代和协同开发。
 
 比如，你打开电脑的记事本，一个不小心把昨天写的备忘全给删除了，而且还习惯性地按了Ctrl+S，你懵了。一般情况下是找不回来了。除非有版本备份，现在有些云笔记类软件就提供了这样的功能。其实质就是版本控制，它可以让你回溯到某个历史版本，像是吃了后悔药一般美妙。
 
-#### Git怎么玩？
+### Git怎么玩？
 
-##### 配置Git环境
+#### 配置Git环境
 
 玩什么都有第一步，已经司空见惯了呃。没错就是配置环境。Git的环境配置还不算复杂：
 
@@ -67,7 +28,7 @@ Git中译为混账，是Linus先生花了一个星期写的分布式版本控制
     $ git config --global user.email "email@example.com"
     ```
 
-##### 建个仓库放点东西
+#### 建个仓库放点东西
 
 1. 建库简单：在磁盘上新建个文件夹作为工作区，然后右击打开Git Bash，执行`git init`，你会发现多了个`.git`文件夹。
 2. 放东西有点复杂
@@ -77,7 +38,7 @@ Git中译为混账，是Linus先生花了一个星期写的分布式版本控制
 
 历尽千辛万苦终于把文件交给Git来管理了。
 
-##### 时光机穿梭
+#### 时光机穿梭
 
 假定你在上个步骤中放入的文件是：yuren.txt。里面的内容是（标记为v1）：
 
@@ -152,3 +113,49 @@ v2版本的信息似乎丢失了。怎么办？
     1ba454f HEAD@{1}: commit: update yuren.txt
     ce58ee1 HEAD@{2}: commit (initial): add yuren.text
     ```
+
+## 进阶
+
+### 本地记住密码
+
+```shell
+# Set git to use the credential memory cache
+git config --global credential.helper cache
+```
+
+### 提交当前分支的更改到远程的同名分支
+
+```shell
+$ git push origin HEAD
+```
+
+### 删除远程分支
+
+```shell
+$ git push origin :dev-sth
+# 相当于
+$ git push origin --delete dev-sth
+```
+
+### 撤销 git commit 但未 git push 的修改
+
+```shell
+#找到想要撤销的 commit id
+$ git log
+#撤销，但不对代码修改进行撤销，还可以再次 commit
+$ git reset <commit id> 
+#撤销并忽略该次 commit 的代码修改
+$ git reset --hard <commit id>
+```
+
+### 移除远程分支上的脏文件（clean remote files）
+
+```shell
+$ git rm -rf <file1> <file2>
+```
+
+### 添加子模块（submodule）
+
+```shell
+$ git submodule add git://github.com/chneukirchen/rack.git rack
+```

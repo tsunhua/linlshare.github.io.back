@@ -16,6 +16,16 @@ etcd 是一个一致的分布式可靠的键值存储技术。可被用来做配
 
 ## 安装
 
+### Linux 安装
+
+```shell
+curl -L https://github.com/coreos/etcd/releases/download/v3.3.1/etcd-v3.3.1-linux-amd64.tar.gz -o etcd-v3.3.1-linux-amd64.tar.gz
+tar xzvf etcd-v3.3.1-linux-amd64.tar.gz
+cd etcd-v3.3.1-linux-amd64
+sudo cp etcd /usr/local/bin/
+sudo cp etcdctl /usr/local/bin/
+```
+
 ### Mac 安装
 
 ```shell
