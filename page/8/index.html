@@ -173,11 +173,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                127
+                128
                 <span>Entradas</span>
             </div>
             <div class="article-info-block">
-                133
+                134
                 <span>Etiquetas</span>
             </div>
         </div>
@@ -266,6 +266,15 @@ ga('send', 'pageview');
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
                     </li> 
                      </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            health
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/31/health/养生自律清单/">养生自律清单</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -699,6 +708,123 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/base/Gradle" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/base/">base</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Gradle/">Gradle</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/11/07/it/java/base/Gradle/">
+            <time datetime="2018-11-07T11:44:00.000Z" itemprop="datePublished">2018-11-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/base/Gradle.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/base/Gradle.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/base/Gradle.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/11/07/it/java/base/Gradle/">Gradle</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h3 id="使用初始化配置"><a href="#使用初始化配置" class="headerlink" title="使用初始化配置"></a>使用初始化配置</h3><p>（1）场景</p>
+<p>当需要所有的 gradle 项目都进行同样的配置时。</p>
+<p>（2）过程</p>
+<ol>
+<li>在 <code>USER_HOME/.gradle</code> 目录创建名为 <code>init.gradle</code>的文本文件；</li>
+<li>在 <code>init.gradle</code> 编写初始化脚本。</li>
+</ol>
+<p>（3）案例：配置自建的 Maven 私有服务器</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// init.gradle</span></span><br><span class="line">allprojects &#123;</span><br><span class="line"> </span><br><span class="line">  ext.RepoConfigurator = &#123;</span><br><span class="line">    maven &#123;</span><br><span class="line">      url <span class="string">'http://maven-xx-inc.com/repository/maven-public/'</span></span><br><span class="line">    &#125;</span><br><span class="line">    maven &#123;</span><br><span class="line">      url <span class="string">'http://nexus.mobisummer-inc.com/nexus/content/groups/public'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  buildscript.repositories RepoConfigurator</span><br><span class="line">  repositories RepoConfigurator</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-thinking/weekly/周记 20181104" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1839,170 +1965,6 @@ ga('send', 'pageview');
             </p></div>   
             <div class="article-more-link">
                 <a href="/2018/10/17/it/tool/Git/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-language/日語/日语一周七天的记忆方法" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/language/">language</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/language/日語/">日語</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/日语/">日语</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">
-            <time datetime="2018-09-29T15:46:00.000Z" itemprop="datePublished">2018-09-29</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/language/日語/日语一周七天的记忆方法.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/language/日語/日语一周七天的记忆方法.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/language/日語/日语一周七天的记忆方法.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="速记"><a href="#速记" class="headerlink" title="速记"></a>速记</h2><table>
-<thead>
-<tr>
-<th>汉语</th>
-<th>日语</th>
-<th>英语</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>星期日</td>
-<td>日曜日</td>
-<td>Sunday</td>
-<td>Sun Day（太阳之日）</td>
-</tr>
-<tr>
-<td>星期一</td>
-<td>月曜日</td>
-<td>MonDay</td>
-<p>
-                
-            
-        
-        
-            </p></tr></tbody></table></div>   
-            <div class="article-more-link">
-                <a href="/2018/09/29/language/日語/日语一周七天的记忆方法/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
