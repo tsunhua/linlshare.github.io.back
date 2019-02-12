@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                128
+                129
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -616,7 +616,7 @@ ga('send', 'pageview');
                             &nbsp;
                             recipe
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  <li class="file"><a href="/2019/02/08/recipe/为什么带饭/">为什么带饭</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -708,6 +708,170 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/persistence/MongoDB" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/MongoDB/">MongoDB</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/11/09/it/java/persistence/MongoDB/">
+            <time datetime="2018-11-09T03:45:03.000Z" itemprop="datePublished">2018-11-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/MongoDB.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/MongoDB.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/MongoDB.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/11/09/it/java/persistence/MongoDB/">MongoDB</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>MongoDB 是一款开源的面向文档的数据库（document database）， <a href="https://zh.wikipedia.org/zh-cn/NoSQL" target="_blank" rel="noopener">NoSQL</a> 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Mac 用户可以直接使用 Homebrew 安装，命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo brew install mongodb</span><br></pre></td></tr></table></figure>
+<p>也可以自己到 <a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">MongoDB 的下载中心</a> 下载对应的系统和版本，如果是 Linux 的话可以使用 <code>wget</code> 下载：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.4.tgz"</span><br></pre></td></tr></table></figure>
+<p>并配置环境变量，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export PATH=&#123;MONGODB_DIR&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> &#123;mongo_db_file_path&#125; 为指定的数据库文件存放位置，不支持~符号。如果使用默认位置 /data/db ，也需要先手动创建。</span><br><span class="line"><span class="meta">$</span> mongod --dbpath=&#123;mongo_db_file_path&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="终端连接"><a href="#终端连接" class="headerlink" title="终端连接"></a>终端连接</h2><p>（1）本地连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mongo</span><br></pre></td></tr></table></figure>
+<p>（2）远程连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>  mongo 172.2.0.3:27017</span><br></pre></td></tr></table></figure>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="BSON"><a href="#BSON" class="headerlink" title="BSON"></a>BSON</h3><p>MongoDB 的文件存储格式为 BSON，所谓 BSON，即是 Binary JSON，为 JSON 文档对象的二进制编码格式，其扩展了 JSON 的数据类型，支持浮点数和整数的区分，支持日期类型，支持直接存储 JS 的正则表达式，支持 32 位和 64 位数字的区分，支持直接存储 JS 函数等等。看起来 BSON 对于 JS 还是挺友好的呵。</p>
+<blockquote>
+<p>注意：从 Shell 终端中输入的数值都会被存储为 64 位浮点类型。</p>
+</blockquote>
+<h3 id="文档（Document）"><a href="#文档（Document）" class="headerlink" title="文档（Document）"></a>文档（Document）</h3><p>一个文档就相当于关系型数据库中的<strong>行</strong>的概念，由多个键值有序组成，格式为 BSON。示例如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"_id"</span> : ObjectId(<span class="string">"5c05e74a65a27abc9a619f8a"</span>), <span class="attr">"a_key"</span> : <span class="string">"a_value"</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>_id</code> 是系统自动生成的键，当然也可以在创建时自定义值。</p>
+<h3 id="集合（Collection）"><a href="#集合（Collection）" class="headerlink" title="集合（Collection）"></a>集合（Collection）</h3><p>一个集合就相当于关系型数据库中的<strong>表</strong>的概念，由多个文档组成。集合中的默认索引为 <code>_id</code> ，可以新建其他键的索引来优化查询，MongoDB 支持单字段索引（Single Field Index）、复合索引（Compound Index）以及多键索引（Multikey Index）等等，可以根据需求进行选用。</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/11/09/it/java/persistence/MongoDB/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/base/Gradle" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1801,170 +1965,6 @@ ga('send', 'pageview');
             <p>恍恍惚，又一周过去了。想下，周一以来工作上一直在不断地修补后台好友邀请服务的 bug，还有就是开发聊天和推送服务，顺便补了下 Spring 的知识。学习上似乎晚上会看下《枕草子》，不过速度有点慢了，后面还有好几千页呢。情感上，因为早晚听巴赫作品集的关系，基本稳定，不会有太大波动，就是有时候夜里难以入睡，解决方案是看 Kindle，看着看着不知不觉就睡过去了。最大的收获是发现了一款叫 “方片” 的产品（包含移动端和 Chrome 插件），相见恨晚，它快速简便地收集资料（文字、图片和链接），多端同步，还可以同步到印象笔记中，这样的软件即使付费使用我也愿意。哦，对了，我还重新认识了 Afred 这款 Mac 上的效率佳软，其剪贴板历史功能、查字典和文件查找快捷命令令我折服。</p>
 <p>另一个我：工作上能意识到不足，然后补充相关的知识，这点很不错。但是要 output 啊，没见你输出什么笔记之类的，还有要有计划地学习，不能逮到什么学习什么，看到不足的可以先收集起来，然后下一周努力补上。学习上也是，那么厚的书，你有考虑到后果吗？你有安排什么时候会读完吗？不过说来你有在进行细致的读书补遗，这点很 nice，坚持补遗，才能有接近作者生活体验的读书体验。还有巴赫作品集实在是你这种单身狗的救星了，平和而又有变化的旋律可以稳定人的情绪，特别是那平均律，足以令你陶然其中。最后，效率软件要用起来，不能再依赖慢吞吞的触摸板点来点去了。</p>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/tool/Git" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/tool/">tool</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/版本控制/">版本控制</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/10/17/it/tool/Git/">
-            <time datetime="2018-10-17T03:44:00.000Z" itemprop="datePublished">2018-10-17</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/tool/Git.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/tool/Git.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/tool/Git.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/17/it/tool/Git/">Git</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h3><p>Git中译为混账，是Linus先生花了一个星期写的分布式版本控制系统（VCS，Version Control System），用于Linux内核的协同开发。所谓版本控制系统，个人理解就是可以保存文本文件的历史版本信息，并且可以回溯到某个历史版本的文本文件管理系统。它的设计就是为了方便软件开发的版本迭代和协同开发。</p>
-<p>比如，你打开电脑的记事本，一个不小心把昨天写的备忘全给删除了，而且还习惯性地按了Ctrl+S，你懵了。一般情况下是找不回来了。除非有版本备份，现在有些云笔记类软件就提供了这样的功能。其实质就是版本控制，它可以让你回溯到某个历史版本，像是吃了后悔药一般美妙。</p>
-<h3 id="Git怎么玩？"><a href="#Git怎么玩？" class="headerlink" title="Git怎么玩？"></a>Git怎么玩？</h3><h4 id="配置Git环境"><a href="#配置Git环境" class="headerlink" title="配置Git环境"></a>配置Git环境</h4><p>玩什么都有第一步，已经司空见惯了呃。没错就是配置环境。Git的环境配置还不算复杂：</p>
-<ol>
-<li><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">下载Git</a>并安装Git（注意：不懂英文的按默认配置就好）;</li>
-<li><p>向全世界宣称你的存在</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//注意：--global表示你电脑里的所以Git仓库都采用相同的配置</span><br><span class="line">//如果有不用用户的Git仓库，就去掉吧。</span><br><span class="line"><span class="meta">$</span> git config --global user.name "Your Name"</span><br><span class="line"><span class="meta">$</span> git config --global user.email "email@example.com"</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="建个仓库放点东西"><a href="#建个仓库放点东西" class="headerlink" title="建个仓库放点东西"></a>建个仓库放点东西</h4><ol>
-<li>建库简单：在磁盘上新建个文件夹作为工作区，然后右击打开Git Bash，执行<code>git init</code>，你会发现多了个<code>.git</code>文件夹。</li>
-<li>放东西有点复杂<ul>
-<li>第一步：在工作区新建一个文件，命名为yuren.txt。注意：文本文件的编码是UTF-8 without BOM（使用Notepad++可以查看和修改）</li>
-<li>第二步：<code>git add .</code>添加文件到暂存区</li>
-<li>第三步：<code>git commit -m &quot;add yuren.txt&quot;</code>添加文件到本地仓库</li>
-</ul>
-</li>
-</ol>
-<p>历尽千辛万苦终于把文件交给Git来管理了。</p>
-<h4 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h4><p>假定你在上个步骤中放入的文件是：yuren.txt。里面的内容是（标记为v1）：</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/2018/10/17/it/tool/Git/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

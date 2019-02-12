@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                128
+                129
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -616,7 +616,7 @@ ga('send', 'pageview');
                             &nbsp;
                             recipe
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  <li class="file"><a href="/2019/02/08/recipe/为什么带饭/">为什么带饭</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -708,6 +708,135 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/aws/Amazon S3" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/aws/">aws</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/S3/">S3</a>, <a class="tag-link" href="/tags/aws/">aws</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/14/it/java/aws/Amazon S3/">
+            <time datetime="2018-12-14T04:02:45.000Z" itemprop="datePublished">2018-12-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/aws/Amazon S3.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/aws/Amazon S3.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/aws/Amazon S3.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/14/it/java/aws/Amazon S3/">Amazon S3</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="Amazon-S3-是什么？"><a href="#Amazon-S3-是什么？" class="headerlink" title="Amazon S3 是什么？"></a>Amazon S3 是什么？</h2><p>Amazon S3 是亚马逊推出的一款存储服务，名为 Amazon Simple Storage Service，即亚马逊简单存储服务。</p>
+<p>有些 S3 的概念需要了解一下：</p>
+<ol>
+<li>存储桶（Buckets）：S3 中用于存储对象的容器，相当于文件系统中的目录（Directory）的概念。</li>
+<li>对象（Objects）：S3 中存储的基本实体，由对象数据和元数据组成，元数据是描述对象的一组键值对。在存储中的对象由键和版本 ID 唯一标识。</li>
+<li>键（Keys）：存储桶中对象的唯一标识符。</li>
+<li>区域（Regions）：地理区域。</li>
+</ol>
+<blockquote>
+<p>S3 中的对象映射：存储桶 + 键 + 版本 –&gt; 对象</p>
+</blockquote>
+<h2 id="API-1-0"><a href="#API-1-0" class="headerlink" title="API 1.0"></a>API 1.0</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="身份验证错误"><a href="#身份验证错误" class="headerlink" title="身份验证错误"></a>身份验证错误</h3><p>BasicProfileConfigLoader - Your profile name includes a ‘profile ‘ prefix. This is considered part of the profile name in the Java SDK, so you will need to include this prefix in your profile name when you reference this profile from your Java code.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-language/日語/日語漢字" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -2019,170 +2148,6 @@ ga('send', 'pageview');
             </p></thead></table></div>   
             <div class="article-more-link">
                 <a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-history/澳門編年史 - 二十世紀(1900-1949) " class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/history/">history</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/History/">History</a>, <a class="tag-link" href="/tags/澳門/">澳門</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /">
-            <time datetime="2018-12-04T15:21:55.000Z" itemprop="datePublished">2018-12-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/history/澳門編年史 - 二十世紀(1900-1949) .md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/history/澳門編年史 - 二十世紀(1900-1949) .md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/history/澳門編年史 - 二十世紀(1900-1949) .md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /">澳門編年史 - 二十世紀(1900-1949)</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><table>
-<thead>
-<tr>
-<th>KEY</th>
-<th>VALUE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>作者/編者</td>
-<td>施白蒂著、金國平譯</td>
-</tr>
-<tr>
-<td>出版日期</td>
-<td>01/04/1999</td>
-</tr>
-<tr>
-<td>頁數</td>
-<td>368</td>
-</tr>
-<p>
-                
-            
-        
-        
-            </p></tbody></table></p></div>   
-            <div class="article-more-link">
-                <a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /#more">Read More</a>
             </div>
         
         <footer class="article-footer">

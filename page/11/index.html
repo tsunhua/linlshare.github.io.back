@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                128
+                129
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -616,7 +616,7 @@ ga('send', 'pageview');
                             &nbsp;
                             recipe
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  <li class="file"><a href="/2019/02/08/recipe/为什么带饭/">为什么带饭</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -708,6 +708,147 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/android/使用 RxJava 进行嵌套串行网络请求的一种方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/android/">android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">
+            <time datetime="2018-09-03T12:15:00.000Z" itemprop="datePublished">2018-09-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>有这样一个列表数据，它包含了商店+订单的信息，获取订单列表时，订单实体中会包含商店的 ID，而列表显示时需要商店的名称和 logo，这时候就需要进行嵌套串行网络请求了。</p>
+<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p><code>flatMap</code> 、<code>缓存</code> 、<code>Retrofit</code>、<code>RxJava</code></p>
+<h2 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h2><h3 id="（1）使用-Retrofit-定义网络接口"><a href="#（1）使用-Retrofit-定义网络接口" class="headerlink" title="（1）使用 Retrofit 定义网络接口"></a>（1）使用 Retrofit 定义网络接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RemoteService.java</span></span><br><span class="line"><span class="comment">// 请求订单信息</span></span><br><span class="line"><span class="meta">@POST</span>(<span class="string">"/order/v1/order_history"</span>)</span><br><span class="line">Single&lt;List&lt;OrderResponse&gt;&gt; queryOrderList(<span class="meta">@Body</span> FetchOrderHistoryRequest request);</span><br><span class="line"><span class="comment">// 请求商店信息</span></span><br><span class="line"><span class="meta">@POST</span>(<span class="string">"/store/v1/store_query"</span>)</span><br><span class="line"><span class="function">Single&lt;StoreResponse&gt; <span class="title">queryStore</span><span class="params">(@Body StoreQueryRequest request)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="（2）使用-DataManager-管理数据"><a href="#（2）使用-DataManager-管理数据" class="headerlink" title="（2）使用 DataManager 管理数据"></a>（2）使用 DataManager 管理数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DataManager.java</span></span><br><span class="line"><span class="comment">// 请求订单信息</span></span><br><span class="line"><span class="keyword">public</span> Single&lt;List&lt;OrderResponse&gt;&gt; queryOrderList(String status) &#123;</span><br><span class="line">    FetchOrderHistoryRequest request = <span class="keyword">new</span> FetchOrderHistoryRequest();</span><br><span class="line">    request.setStatus(status);</span><br><span class="line">    <span class="keyword">return</span> mRemoteService.queryOrderList(request);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求商店信息，并缓存 5min，如果不作缓存可能导致多次重复请求同一数据</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CACHE_TIME_MILLIS = <span class="number">5</span> * <span class="number">60</span> * <span class="number">1000</span>; <span class="comment">// 5min</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Single&lt;StoreResponse&gt; <span class="title">queryStore</span><span class="params">(String storeId)</span> </span>&#123;</span><br><span class="line">    String storeKey = PrefConstant.getStoreKey(storeId);</span><br><span class="line">    String storeJson = mMemberPref.getString(storeKey, <span class="keyword">null</span>);</span><br><span class="line">    Single&lt;StoreResponse&gt; storeSingle;</span><br><span class="line">    <span class="keyword">if</span> (!TextUtils.isEmpty(storeJson)) &#123;</span><br><span class="line">        storeSingle = Single.just(Json.fromJson(storeJson, StoreResponse.class));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        StoreQueryRequest request = <span class="keyword">new</span> StoreQueryRequest();</span><br><span class="line">        request.setId(storeId);</span><br><span class="line">        storeSingle = mRemoteService.queryStore(request)</span><br><span class="line">            .doOnSuccess(storeResponse -&gt; mMemberPref.put(storeKey,</span><br><span class="line">                                                          Json.toJson(</span><br><span class="line">                                                              storeResponse),</span><br><span class="line">                                                          DEFAULT_CACHE_TIME_MILLIS));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> storeSingle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：</p>
+<ol>
+<li><code>mMemberPref</code> 是我写的一个使用 <code>SharedPreferences</code> 进行数据缓存的类，详情查看 <a href="https://gist.github.com/LinLshare/39ecd935e980fe1f4a729bb24b43a639" target="_blank" rel="noopener">Pref.java</a></li>
+</ol>
+<h3 id="（3）多次FlatMap"><a href="#（3）多次FlatMap" class="headerlink" title="（3）多次FlatMap"></a>（3）多次FlatMap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">dataManager.queryOrderList(status)</span><br><span class="line">           .flatMapObservable((Function&lt;List&lt;OrderResponse&gt;, ObservableSource&lt;OrderResponse&gt;&gt;) Observable::fromIterable)</span><br><span class="line">           .flatMap((Function&lt;OrderResponse, ObservableSource&lt;OrderHolder&gt;&gt;) orderResponse -&gt; &#123;</span><br><span class="line">             OrderHolder orderHolder = <span class="keyword">new</span> OrderHolder();</span><br><span class="line">             orderHolder.setOrder(orderResponse);</span><br><span class="line">             <span class="keyword">return</span> dataManager.queryStore(orderResponse.getStoreId())</span><br><span class="line">                               .flatMapObservable((Function&lt;StoreResponse, ObservableSource&lt;OrderHolder&gt;&gt;) storeResponse -&gt; &#123;</span><br><span class="line">                                 orderHolder.setStore(storeResponse);</span><br><span class="line">                                 <span class="keyword">return</span> Observable.just(orderHolder);</span><br><span class="line">                               &#125;);</span><br><span class="line">           &#125;)</span><br><span class="line">           .toList()</span><br><span class="line">           .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">           .subscribeOn(Schedulers.io())</span><br><span class="line">           .subscribe(<span class="keyword">new</span> SingleObserver&lt;List&lt;OrderHolder&gt;&gt;() &#123;</span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">               disposable = d;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(List&lt;OrderHolder&gt; orderHolders)</span> </span>&#123;</span><br><span class="line">               <span class="keyword">if</span> (orderHolders != <span class="keyword">null</span> &amp;&amp; !orderHolders.isEmpty()) &#123;</span><br><span class="line">                 getMvpView().showOrderList(orderHolders);</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 getMvpView().showEmpty();</span><br><span class="line">               &#125;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">               Timber.e(e);</span><br><span class="line">               getMvpView().showError();</span><br><span class="line">             &#125;</span><br><span class="line">           &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>第一次 <code>flatMapObservable</code> ，将 <code>List&lt;OrderResponse&gt;</code> 转为 <code>ObservableSource&lt;OrderResponse&gt;</code>；</li>
+<li>第二次 <code>flatMap</code>，将 <code>OrderResponse</code> 转为 <code>ObservableSource&lt;OrderHolder&gt;</code>；</li>
+<li>第三次  <code>flatMapObservable</code> ，将 <code>StoreResponse</code> 合并到 <code>OrderHolder</code>，再转为<code>ObservableSource&lt;OrderHolder&gt;</code>。</li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-language/漢語言/古代漢語/《古代漢語》上一·文選" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -2034,131 +2175,6 @@ ga('send', 'pageview');
             </p></ol></div>   
             <div class="article-more-link">
                 <a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/exception/从序列化到 GSON 排错记录" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/exception/">exception</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Gson/">Gson</a>, <a class="tag-link" href="/tags/Java/">Java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">
-            <time datetime="2018-08-10T15:15:00.000Z" itemprop="datePublished">2018-08-10</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/exception/从序列化到 GSON 排错记录.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/exception/从序列化到 GSON 排错记录.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/exception/从序列化到 GSON 排错记录.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h4 id="序列化、反序列化和持久化"><a href="#序列化、反序列化和持久化" class="headerlink" title="序列化、反序列化和持久化"></a>序列化、反序列化和持久化</h4><p>序列化的目的在于对象中携带的数据之传输（进程间通信、客户端 - 服务器通信等），反序列化的目的在于将传输过来的数据重组成对象进行调用，持久化的目的在于将对象中携带的数据持久化保存在文件或数据库中，序列化和持久化的区别就在于此。</p>
-<p>序列化的媒介有：对象输入输出流、JSON 字符串，以及 Android 独有的 Parcel。下面简述这几种方式。</p>
-<h4 id="第一种：对象输入输出流"><a href="#第一种：对象输入输出流" class="headerlink" title="第一种：对象输入输出流"></a>第一种：对象输入输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dog</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 序列化</span></span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line">Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">dog.name = <span class="string">"aDog"</span>;</span><br><span class="line">oos.writeObject(dog);</span><br><span class="line">oos.close();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"adog.tmp"</span>);</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line">Dog dog = (Dog) ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
-<h4 id="第二种：JSON-字符串"><a href="#第二种：JSON-字符串" class="headerlink" title="第二种：JSON 字符串"></a>第二种：JSON 字符串</h4><p>以广为使用的 GSON 库为例，GSON 是一个很常用的序列化和反序列化对象的 JSON 库。其最简单的使用方式是：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cat</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 序列化对象</span></span><br><span class="line">Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">cat.name = <span class="string">"aCat"</span>;</span><br><span class="line">String catStr = gson.toJson(cat);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化对象</span></span><br><span class="line">Cat cat = gson.fromJson(catStr, Cat.Class);</span><br></pre></td></tr></table></figure>
-<h4 id="第三种：Parcel"><a href="#第三种：Parcel" class="headerlink" title="第三种：Parcel"></a>第三种：Parcel</h4><p>Android 中的 Parcel，官方的文档中表明是为了提高 IPC 效率而生的，不建议进行持久化，因为一旦类的成员变量发生改变，旧的数据将不再可读。Parcel 对象存在于一段多进程共享的内存中，没有进行文件的读写操作，高效是显而易见的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hawk</span></span><br><span class="line"><span class="keyword">import</span> android.os.Parcel;</span><br><span class="line"><span class="keyword">import</span> android.os.Parcelable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hawk</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="title">Hawk</span><span class="params">(Parcel in)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 反序列化</span></span><br><span class="line">    name = in.readString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Creator&lt;Hawk&gt; CREATOR = <span class="keyword">new</span> Creator&lt;Hawk&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Hawk <span class="title">createFromParcel</span><span class="params">(Parcel in)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Hawk(in);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Hawk[] newArray(<span class="keyword">int</span> size) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Hawk[size];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 序列化</span></span><br><span class="line">    dest.writeString(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Github 上提供了<a href="https://gist.github.com/jacklt/6711967" target="_blank" rel="noopener">一种方式</a>将 Parcelable 对象字节化和反字节化，以便进行持久化，摘取如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParcelableUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] marshall(Parcelable parceable) &#123;</span><br><span class="line">        Parcel parcel = Parcel.obtain();</span><br><span class="line">        parceable.writeToParcel(parcel, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = parcel.marshall();</span><br><span class="line">        parcel.recycle(); <span class="comment">// not sure if needed or a good idea</span></span><br><span class="line">        <span class="keyword">return</span> bytes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Parcelable&gt; <span class="function">T <span class="title">unmarshall</span><span class="params">(<span class="keyword">byte</span>[] bytes, Parcelable.Creator&lt;T&gt; creator)</span> </span>&#123;</span><br><span class="line">        Parcel parcel = unmarshall(bytes);</span><br><span class="line">        <span class="keyword">return</span> creator.createFromParcel(parcel);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Parcel <span class="title">unmarshall</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">        Parcel parcel = Parcel.obtain();</span><br><span class="line">        parcel.unmarshall(bytes, <span class="number">0</span>, bytes.length);</span><br><span class="line">        parcel.setDataPosition(<span class="number">0</span>); <span class="comment">// this is extremely important!</span></span><br><span class="line">        <span class="keyword">return</span> parcel;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对象是千奇百怪的，导致我们序列化和反序列化的时候可能会出现一些不可思议的错误信息。下面就我遇到的一些情况为例，书写排错的血泪史。</p>
-<h3 id="1-AssertionError：Impossible"><a href="#1-AssertionError：Impossible" class="headerlink" title="1. AssertionError：Impossible"></a>1. AssertionError：Impossible</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>在对某广告 SDK 的 Ad 对象进行序列化时出现该错误，瞬间惊呆了，序列化一个实现了简单的对象怎么不可能了？</p>
-
             </div>
         
         <footer class="article-footer">
