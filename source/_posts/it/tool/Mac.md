@@ -1,12 +1,13 @@
+---
 title: Mac
 date: 2018-8-21 22:53:00
 tags: [Mac,OS]
 comments: true
-
+---
 
 本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。
 
-### 1. 快速移动网页到顶部或底部
+## 快速移动网页到顶部或底部
 
 用双指上下划触摸板吗？NO，我们有更骚的操作：
 
@@ -24,23 +25,7 @@ comments: true
 
 `fn + →` End，滚到底部
 
-### 2. Dock 中只显示打开的应用
-
-Mac 用着用着 Dock 上显示了一堆的图标，看着无法集中注意力，这时候可以打开 Terminal 输入：
-
-```shell
-defaults write com.apple.dock static-only -boolean true; killall Dock
-```
-
-回车就可以让 Dock 只显示打开的应用了，世界一下子清爽了。
-
-PS，如果想恢复原样，可以执行：
-
-```shell
-defaults delete com.apple.dock static-only; killall Dock
-```
-
-### 3. 粘贴文字时不要带样式
+## 粘贴文字时不要带样式
 
 有时候从网上看到不错的文字想要粘贴到 Word、Evernote 或者文字编辑应用上，但使用 `command + v`  会连文字样式都带过来，这时候就要使用骚一点的操作了，那就是：
 
@@ -48,7 +33,7 @@ defaults delete com.apple.dock static-only; killall Dock
 command + shift + v
 ```
 
-### 4. 输入英文时首字母不要自动大写
+## 输入英文时首字母不要自动大写
 
 当你在文字编辑软件上写英文时，Mac 会很贴心地识别首字母并自动大写。但常常让我觉得画蛇添足，明明我不想大写，特别是在博客中或写或改一些代码或脚本时更觉得是捣乱。这时候，我找到了一个禁止自动首字母自动大写的方法：
 
@@ -56,13 +41,13 @@ command + shift + v
 系统偏好设置 —> 键盘 —> 文本 —> 去除勾选【自动大写字词的首字母】
 ```
 
-### 5. 我要剪切或移动文件
+## 我要剪切或移动文件
 
 Mac 中，复制的快捷键是 `command + c`，粘贴的快捷键是 `command + v` ，但是剪切的快捷键可不是 `command + x` ，如果要移动文件，你是不是还在进行 *粘贴完再删除* 的复杂操作？
 
 NO，其实移动文件可以复制后使用快捷键 `command + option + v` 实现，快去试试吧。
 
-### 6. 快速转换中文简繁体
+## 快速转换中文简繁体
 
 确保简繁体转换服务已经开启，路径如下：
 
@@ -75,7 +60,15 @@ NO，其实移动文件可以复制后使用快捷键 `command + option + v` 实
 - `control + shift + command + c` 将文字转为繁体中文
 - `control + option + shift + command + c`  将文字转为简体中文
 
-### 7. 读写 ntfs 格式的移动硬盘
+## 读写 NTFS 格式的移动硬盘
+
+众所周知，NTFS 版权归属微软，Apple 没有购买版权，无法在 Mac 中进行 NTFS 格式磁盘的写入操作。网上的解决方案有：
+
+- 使用付费软件，如 NTFS for Mac 或者 Tuxera NTFS 等；缺点是价格略贵，无法通过终端进行读写操作；
+- 启用系统的 NTFS 写入功能，使用免费软件 Mounty 或者按其官网描述的原理手动执行命令；缺点是不稳定，文件会变灰色（如变灰色可需要通过 `xattr -c -r .` 恢复）；
+- 使用 **OSXFuse** 替换系统的 NTFS 驱动；缺点是操作稍微复杂，但可以通过终端进行读写操作，省心，本文推荐。
+
+以下罗列第三种方案的操作步骤：
 
 1. 重启 Mac 并在启动时点击 **Command + R** 进入恢复模式。
 2. 在恢复模式点击菜单栏的 “工具-->终端”，执行命令 `csrutil disable`，然后重启。
