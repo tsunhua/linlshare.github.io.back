@@ -1,9 +1,7 @@
----
 title: Mac
 date: 2018-8-21 22:53:00
 tags: [Mac,OS]
 comments: true
----
 
 
 本帖记录个人在使用 Mac 操作系统上的一些骚操作，不断更新，以飨读者。
@@ -76,3 +74,14 @@ NO，其实移动文件可以复制后使用快捷键 `command + option + v` 实
 
 - `control + shift + command + c` 将文字转为繁体中文
 - `control + option + shift + command + c`  将文字转为简体中文
+
+### 7. 读写 ntfs 格式的移动硬盘
+
+1. 重启 Mac 并在启动时点击 **Command + R** 进入恢复模式。
+2. 在恢复模式点击菜单栏的 “工具-->终端”，执行命令 `csrutil disable`，然后重启。
+3. 在终端执行 `brew cask install osxfuse` `。
+4. 紧接着执行 `brew install ntfs-3g` （如无sbin的写入权限可先执行 `sudo chown -R $(whoami) $(brew --prefix) `）。
+5. 然后执行 `sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original` 和 `sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs` 替换系统的 ntfs 驱动。
+6. 最后不要忘了再次进入恢复模式，然后执行 `csrutil enable` 启用系统完整性，避免系统数据被修改。
+
+参考：[Enable NTFS write support in MacOS High Sierra (10.13.x) - medium](https://medium.com/the-lazy-coders-journal/enable-ntfs-write-support-in-macos-high-sierra-10-13-x-3fc8c67b5c1)
