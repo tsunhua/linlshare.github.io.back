@@ -30,3 +30,18 @@ vim  ~/.oh-my-zsh/lib/misc.zsh
 #fi
 ```
 
+### 解决中文乱码
+
+在`~/.zshrc`添加
+
+```shell
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+```
+
+然后执行
+
+```shell
+source ~/.zshrc
+```
+
