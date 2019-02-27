@@ -92,6 +92,16 @@ comments: true
 | //title &#124;  //price              | 选取文档中的所有 title 和 price 元素。                       |
 | /bookstore/book/title &#124; //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
 
+### 交并选取
+
+XPath 支持使用 and 交并两个过滤条件过滤的元素。
+
+```xml
+/*/bar[position() >= 100 and not(position() > 200)]
+```
+
+参看：[What is the xpath to select a range of nodes? - Stack Overflow](https://stackoverflow.com/questions/3354987/what-is-the-xpath-to-select-a-range-of-nodes)
+
 ## 正则匹配（Regular Match）
 
 可以使用 `starts-with` 和 `ends-with` 进行简单的正则匹配。
