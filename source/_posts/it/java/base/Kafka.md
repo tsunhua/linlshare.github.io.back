@@ -117,6 +117,14 @@ listeners=PLAINTEXT://localhost:9092
 
 解决方案：发消息时设置同一个 Key 或者直接指定同一个 Partition 即可。
 
+### Kafka 日志过多问题
+
+调整日志级别为 info，在 logback.xml 文件中写入
+
+```xml
+<logger name="org.apache.kafka" level="INFO" />
+```
+
 ## 参考
 
 1. [Quickstart - kafka.apache.org](https://kafka.apache.org/quickstart)
