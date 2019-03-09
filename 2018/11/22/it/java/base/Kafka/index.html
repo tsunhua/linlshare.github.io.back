@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="覽月維基">
 <meta property="og:description" content="概念Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：  Topic（话题） Producer（生产者） Consumer（消费者） Broker（经纪人）  在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Top">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T04:02:35.375Z">
+<meta property="og:updated_time" content="2019-03-06T03:42:42.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka">
 <meta name="twitter:description" content="概念Kafka 是一个快速、可扩展和高可用的基于发布-订阅模式（pub-sub model）的消息系统，用作消息中间件，在系统之间传递消息。其核心概念有：  Topic（话题） Producer（生产者） Consumer（消费者） Broker（经纪人）  在 Kafka 中，所有的消息都由 Topic 来组织，Producer 把消息发送到特定的 Topic，Consumer 从特定的 Top">
@@ -100,7 +100,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -119,10 +119,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'pos',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -151,7 +151,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
     </div>
 
                 </td>
@@ -171,16 +171,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">IKUTI</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 131
-                <span>posts</span>
+                <span>pos</span>
             </div>
             <div class="article-info-block">
                 136
-                <span>tags</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -215,7 +215,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>kategori</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -769,8 +769,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动"><span class="toc-number">2.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止"><span class="toc-number">2.3.</span> <span class="toc-text">停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送消息"><span class="toc-number">2.4.</span> <span class="toc-text">发送消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接收消息"><span class="toc-number">2.5.</span> <span class="toc-text">接收消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-Topic-列表"><span class="toc-number">2.6.</span> <span class="toc-text">查看 Topic 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看指定-Topic-的信息"><span class="toc-number">2.7.</span> <span class="toc-text">查看指定 Topic 的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排错"><span class="toc-number">3.</span> <span class="toc-text">排错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KeeperException：NoNode-for-config-topics-xxx"><span class="toc-number">3.1.</span> <span class="toc-text">KeeperException：NoNode for /config/topics/xxx</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）背景"><span class="toc-number">3.1.1.</span> <span class="toc-text">（1）背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）查看-Zookeeper-终端日志"><span class="toc-number">3.1.2.</span> <span class="toc-text">（2）查看 Zookeeper 终端日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）修改-config-server-properties-文件"><span class="toc-number">3.1.3.</span> <span class="toc-text">（3）修改 config/server.properties  文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）重启-Zookeeper-和-Kafka"><span class="toc-number">3.1.4.</span> <span class="toc-text">（4）重启 Zookeeper 和 Kafka</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentModificationException-KafkaConsumer-is-not-safe-for-multi-threaded-access"><span class="toc-number">3.2.</span> <span class="toc-text">ConcurrentModificationException: KafkaConsumer is not safe for multi-threaded access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka-消息不按顺序消费"><span class="toc-number">3.3.</span> <span class="toc-text">Kafka 消息不按顺序消费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka-日志过多问题"><span class="toc-number">3.4.</span> <span class="toc-text">Kafka 日志过多问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                <strong class="toc-title">カタログ</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">2.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动"><span class="toc-number">2.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止"><span class="toc-number">2.3.</span> <span class="toc-text">停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送消息"><span class="toc-number">2.4.</span> <span class="toc-text">发送消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接收消息"><span class="toc-number">2.5.</span> <span class="toc-text">接收消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-Topic-列表"><span class="toc-number">2.6.</span> <span class="toc-text">查看 Topic 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看指定-Topic-的信息"><span class="toc-number">2.7.</span> <span class="toc-text">查看指定 Topic 的信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进一步学习"><span class="toc-number">3.</span> <span class="toc-text">进一步学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排错"><span class="toc-number">4.</span> <span class="toc-text">排错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KeeperException：NoNode-for-config-topics-xxx"><span class="toc-number">4.1.</span> <span class="toc-text">KeeperException：NoNode for /config/topics/xxx</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）背景"><span class="toc-number">4.1.1.</span> <span class="toc-text">（1）背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）查看-Zookeeper-终端日志"><span class="toc-number">4.1.2.</span> <span class="toc-text">（2）查看 Zookeeper 终端日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）修改-config-server-properties-文件"><span class="toc-number">4.1.3.</span> <span class="toc-text">（3）修改 config/server.properties  文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）重启-Zookeeper-和-Kafka"><span class="toc-number">4.1.4.</span> <span class="toc-text">（4）重启 Zookeeper 和 Kafka</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConcurrentModificationException-KafkaConsumer-is-not-safe-for-multi-threaded-access"><span class="toc-number">4.2.</span> <span class="toc-text">ConcurrentModificationException: KafkaConsumer is not safe for multi-threaded access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka-消息不按顺序消费"><span class="toc-number">4.3.</span> <span class="toc-text">Kafka 消息不按顺序消费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka-日志过多问题"><span class="toc-number">4.4.</span> <span class="toc-text">Kafka 日志过多问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
@@ -791,7 +791,7 @@ ga('send', 'pageview');
 <h3 id="接收消息"><a href="#接收消息" class="headerlink" title="接收消息"></a>接收消息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning</span><br></pre></td></tr></table></figure>
 <h3 id="查看-Topic-列表"><a href="#查看-Topic-列表" class="headerlink" title="查看 Topic 列表"></a>查看 Topic 列表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
 <h3 id="查看指定-Topic-的信息"><a href="#查看指定-Topic-的信息" class="headerlink" title="查看指定 Topic 的信息"></a>查看指定 Topic 的信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic</span><br></pre></td></tr></table></figure>
-<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="KeeperException：NoNode-for-config-topics-xxx"><a href="#KeeperException：NoNode-for-config-topics-xxx" class="headerlink" title="KeeperException：NoNode for /config/topics/xxx"></a>KeeperException：NoNode for /config/topics/xxx</h3><h4 id="（1）背景"><a href="#（1）背景" class="headerlink" title="（1）背景"></a>（1）背景</h4><p>在本机先后启动 Zookeeper 和 Kafka，然后发送 PING 主题。但消费失败，错误日志如下：</p>
+<h2 id="进一步学习"><a href="#进一步学习" class="headerlink" title="进一步学习"></a>进一步学习</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="KeeperException：NoNode-for-config-topics-xxx"><a href="#KeeperException：NoNode-for-config-topics-xxx" class="headerlink" title="KeeperException：NoNode for /config/topics/xxx"></a>KeeperException：NoNode for /config/topics/xxx</h3><h4 id="（1）背景"><a href="#（1）背景" class="headerlink" title="（1）背景"></a>（1）背景</h4><p>在本机先后启动 Zookeeper 和 Kafka，然后发送 PING 主题。但消费失败，错误日志如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:48:06,120] INFO Got user-level KeeperException when processing sessionid:0x1000a6787410000 type:setData cxid:0xcb zxid:0xc4 txntype:-1 reqpath:n/a Error Path:/config/topics/PONG Error:KeeperErrorCode = NoNode for /config/topics/PING (org.apache.zookeeper.server.PrepRequestProcessor)</span><br></pre></td></tr></table></figure>
 <h4 id="（2）查看-Zookeeper-终端日志"><a href="#（2）查看-Zookeeper-终端日志" class="headerlink" title="（2）查看 Zookeeper 终端日志"></a>（2）查看 Zookeeper 终端日志</h4><p>发现 host.name 不是 localhost 而是内网地址。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:21:18,687] INFO Server environment:host.name=192.168.1.2 (org.apache.zookeeper.server.ZooKeeperServer)</span><br></pre></td></tr></table></figure>
@@ -820,7 +820,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/11/23/it/java/cache/Guava Cache/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Lebih baru</strong>
             <div class="article-nav-title">
                 
                     Guava Cache
@@ -830,7 +830,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/22/it/java/base/NIO/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Lebih Tua</strong>
             <div class="article-nav-title">NIO</div>
         </a>
     

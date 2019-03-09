@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="覽月維基">
 <meta property="og:description" content="MongoDB 是一款开源的面向文档的数据库（document database）， NoSQL 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。 安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载对应的系统和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-26T08:19:41.000Z">
+<meta property="og:updated_time" content="2019-02-28T09:58:11.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB">
 <meta name="twitter:description" content="MongoDB 是一款开源的面向文档的数据库（document database）， NoSQL 中一种，同样使用文档存储实现 NoSQL 的 DB 还有 MarkLogic、OrientDB、CouchDB 等等。 安装Mac 用户可以直接使用 Homebrew 安装，命令如下： 1$ sudo brew install mongodb 也可以自己到 MongoDB 的下载中心 下载对应的系统和">
@@ -100,7 +100,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -119,10 +119,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'pos',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'kategori',
+            TAGS: 'tag',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -151,7 +151,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari">
     </div>
 
                 </td>
@@ -171,16 +171,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">IKUTI</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 131
-                <span>posts</span>
+                <span>pos</span>
             </div>
             <div class="article-info-block">
                 136
-                <span>tags</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -215,7 +215,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>kategori</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -769,7 +769,7 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">カタログ</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终端连接"><span class="toc-number">3.</span> <span class="toc-text">终端连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BSON"><span class="toc-number">4.1.</span> <span class="toc-text">BSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档（Document）"><span class="toc-number">4.2.</span> <span class="toc-text">文档（Document）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合（Collection）"><span class="toc-number">4.3.</span> <span class="toc-text">集合（Collection）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库（Database）"><span class="toc-number">4.4.</span> <span class="toc-text">数据库（Database）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell-操作"><span class="toc-number">5.</span> <span class="toc-text">Shell 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#database-级别"><span class="toc-number">5.1.</span> <span class="toc-text">database 级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#collection-级别"><span class="toc-number">5.2.</span> <span class="toc-text">collection 级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docuement-级别"><span class="toc-number">5.3.</span> <span class="toc-text">docuement 级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-操作"><span class="toc-number">6.</span> <span class="toc-text">Java 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块划分"><span class="toc-number">6.1.</span> <span class="toc-text">模块划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入依赖"><span class="toc-number">6.2.</span> <span class="toc-text">引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-v3-6-4-使用-MongoURI"><span class="toc-number">6.3.</span> <span class="toc-text">在 v3.6.4 使用 MongoURI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-v3-9-1-使用-MongoURI"><span class="toc-number">6.4.</span> <span class="toc-text">在  v3.9.1 使用 MongoURI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务支持"><span class="toc-number">6.5.</span> <span class="toc-text">事务支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">7.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一个服务中该使用一个还是多个-MongoClient？"><span class="toc-number">7.1.</span> <span class="toc-text">一个服务中该使用一个还是多个 MongoClient？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Invalid-BSON-field-name-id"><span class="toc-number">7.2.</span> <span class="toc-text">Invalid BSON field name id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readString-can-only-be-called-when-CurrentBSONType-is-STRING-not-when-CurrentBSONType-is-OBJECT-ID"><span class="toc-number">7.3.</span> <span class="toc-text">readString can only be called when CurrentBSONType is STRING, not when CurrentBSONType is OBJECT_ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">8.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
@@ -803,7 +803,7 @@ ga('send', 'pageview');
 </ol>
 <h2 id="Shell-操作"><a href="#Shell-操作" class="headerlink" title="Shell 操作"></a>Shell 操作</h2><h3 id="database-级别"><a href="#database-级别" class="headerlink" title="database 级别"></a>database 级别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 列出所有的数据库</span><br><span class="line"><span class="meta">&gt;</span> show dbs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看当前使用的数据库</span><br><span class="line"><span class="meta">&gt;</span> db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 切换当前使用的数据库</span><br><span class="line"><span class="meta">&gt;</span> use a_db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 创建数据库</span><br><span class="line"><span class="meta">&gt;</span> use new_db</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除数据库</span><br><span class="line"><span class="meta">&gt;</span> db.dropDatabase()</span><br></pre></td></tr></table></figure>
 <h3 id="collection-级别"><a href="#collection-级别" class="headerlink" title="collection 级别"></a>collection 级别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 显示数据库中的所有 collection</span><br><span class="line"><span class="meta">&gt;</span> show collections</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 列出 collection 中的所有列</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除 collection</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.drop()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 新建 collection</span><br><span class="line"><span class="meta">&gt;</span> db.createCollection("new_collection")</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重命名 collection</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.renameCollection("new_name")</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 清空 collection 中数据</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.drop(&#123;&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="docuement-级别"><a href="#docuement-级别" class="headerlink" title="docuement 级别"></a>docuement 级别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 插入文档</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.insert(&#123;</span><br><span class="line">    "a_key": "a_value",</span><br><span class="line">    "b_key": 100,</span><br><span class="line">    "c_key": true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 列出所有文档，并美化</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查询记录条数</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find().count()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> MongoDB AND 且过滤器</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;</span><br><span class="line">    "a_key": "a_value",</span><br><span class="line">    "c_key": true</span><br><span class="line">&#125;)</span><br><span class="line"><span class="meta">#</span> MongoDB OR 或过滤器</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;</span><br><span class="line"><span class="meta">   $</span>or:[</span><br><span class="line">       &#123; "a_key": "a_value"&#125;,</span><br><span class="line">       &#123; "a_key": "another_value" &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="meta">#</span> MongoDB 投影，只返回指定的字段</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;&#125;,&#123;"a_key", "c_key"&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 更新单个文档</span><br><span class="line">db.a_collection.update(&#123;"a_key": "a_value"&#125;,&#123;$set:&#123;"a_key": "another_value"&#125;&#125;)</span><br><span class="line"><span class="meta">#</span> 更新多个文档</span><br><span class="line">db.a_collection.update(&#123;"a_key": "a_value"&#125;,&#123;$set:&#123;"a_key": "another_value"&#125;&#125;,,&#123;multi: true&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除文档</span><br><span class="line">db.a_collection.remove(&#123;"a_key": "a_value"&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 后台执行创建单一复合索引操作</span><br><span class="line">db.a_collection.createIndex(&#123;"a_key": 1,"c_key": -1&#125;,&#123;unique: true,background: true&#125;)</span><br><span class="line"><span class="meta">#</span> 查询所有索引</span><br><span class="line">db.a_collection.getIndexes()</span><br></pre></td></tr></table></figure>
+<h3 id="docuement-级别"><a href="#docuement-级别" class="headerlink" title="docuement 级别"></a>docuement 级别</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 插入文档</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.insert(&#123;</span><br><span class="line">    "a_key": "a_value",</span><br><span class="line">    "b_key": 100,</span><br><span class="line">    "c_key": true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 列出所有文档，并美化</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find().pretty()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查询记录条数</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find().count()</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 略过前100条</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find().skip(100)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> MongoDB AND 且过滤器</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;</span><br><span class="line">    "a_key": "a_value",</span><br><span class="line">    "c_key": true</span><br><span class="line">&#125;)</span><br><span class="line"><span class="meta">#</span> MongoDB OR 或过滤器</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;</span><br><span class="line"><span class="meta">   $</span>or:[</span><br><span class="line">       &#123; "a_key": "a_value"&#125;,</span><br><span class="line">       &#123; "a_key": "another_value" &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="meta">#</span> MongoDB 投影，只返回指定的字段</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;&#125;,&#123;"a_key", "c_key"&#125;)</span><br><span class="line"><span class="meta">#</span> 查询存在某字段的文档</span><br><span class="line"><span class="meta">&gt;</span> db.a_collection.find(&#123;"a_key",&#123;"$exists":true&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 更新单个文档</span><br><span class="line">db.a_collection.update(&#123;"a_key": "a_value"&#125;,&#123;$set:&#123;"a_key": "another_value"&#125;&#125;)</span><br><span class="line"><span class="meta">#</span> 更新多个文档</span><br><span class="line">db.a_collection.update(&#123;"a_key": "a_value"&#125;,&#123;$set:&#123;"a_key": "another_value"&#125;&#125;,,&#123;multi: true&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除文档</span><br><span class="line">db.a_collection.remove(&#123;"a_key": "a_value"&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 后台执行创建单一复合索引操作</span><br><span class="line">db.a_collection.createIndex(&#123;"a_key": 1,"c_key": -1&#125;,&#123;unique: true,background: true&#125;)</span><br><span class="line"><span class="meta">#</span> 查询所有索引</span><br><span class="line">db.a_collection.getIndexes()</span><br></pre></td></tr></table></figure>
 <h2 id="Java-操作"><a href="#Java-操作" class="headerlink" title="Java 操作"></a>Java 操作</h2><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
 <li>bson：高性能的编码解码。</li>
 <li>mongodb-driver-core：核心库，抽取出来主要是用于自定义 API。</li>
@@ -840,7 +840,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/11/09/it/java/aws/aws/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Lebih baru</strong>
             <div class="article-nav-title">
                 
                     aws
@@ -850,7 +850,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/11/07/it/java/base/Gradle/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Lebih Tua</strong>
             <div class="article-nav-title">Gradle</div>
         </a>
     
