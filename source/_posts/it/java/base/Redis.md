@@ -143,6 +143,47 @@ jedis.set("foo", "bar");
 String value = jedis.get("foo");
 ```
 
+（3）使用 Hash
+
+Redis hash 是一个string类型的field和value的映射表，hash特别适合用于存储对象。Redis 中每个 hash 可以存储 2^32 - 1 键值对（40多亿）。
+
+```java
+// 设置映射表 key 中的字段 field 的值为 value
+jedis.hset(key, field, value);
+// 获取映射表 key 中的字段 field 的值
+jedis.hget(key, field);
+// 删除映射表 key 中的字段 field
+jedis.hdel(key, field);
+```
+
+（4）使用 Set
+
+Redis 的 Set 是 String 类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。Redis 中集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是 O(1)。集合中最大的成员数为 2^32 - 1 (4294967295, 每个集合可存储40多亿个成员)。
+
+```java
+// 向集合 key 中添加成员 member1 和 member2
+jedis.sadd(key, member1, member2);
+// 获取集合 key 中的所有成员
+jedis.smembers(key);
+```
+
+（5）使用 Set 的交并补
+
+```java
+// 交集
+jedis.sinter(key1, key2);
+// 交集并存储到新的 Set
+jedis.sinterstore(destination, key1, key2);
+// 并集
+jedis.sunion(key1, key2);
+// 并集并存储到新的 Set
+jedis.sunionstore(destination, key1, key2);
+// 补集
+jedis.sdiff(key1, key2);
+// 补集并存储到新的 Set
+jedis.sdiffstore(destination, key1, key2);
+```
+
 ## 排错
 
 ### 编译安装时出现：jemalloc/jemalloc.h: No such file or directory

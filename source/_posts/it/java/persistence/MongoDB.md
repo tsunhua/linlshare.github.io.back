@@ -137,6 +137,9 @@ MongoDB 的文件存储格式为 BSON，所谓 BSON，即是 Binary JSON，为 J
 # 查询记录条数
 > db.a_collection.find().count()
 
+# 略过前100条
+> db.a_collection.find().skip(100)
+
 # MongoDB AND 且过滤器
 > db.a_collection.find({
     "a_key": "a_value",
@@ -151,6 +154,9 @@ MongoDB 的文件存储格式为 BSON，所谓 BSON，即是 Binary JSON，为 J
 })
 # MongoDB 投影，只返回指定的字段
 > db.a_collection.find({},{"a_key", "c_key"})
+# 查询存在某字段的文档
+> db.a_collection.find({"a_key",{"$exists":true}})
+
 
 # 更新单个文档
 db.a_collection.update({"a_key": "a_value"},{$set:{"a_key": "another_value"}})

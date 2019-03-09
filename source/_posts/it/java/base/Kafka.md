@@ -70,6 +70,10 @@ bin/kafka-topics.sh --list --zookeeper localhost:2181
 bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
 ```
 
+## 进一步学习
+
+
+
 ## 排错
 
 ### KeeperException：NoNode for /config/topics/xxx
