@@ -184,6 +184,27 @@ jedis.sdiff(key1, key2);
 jedis.sdiffstore(destination, key1, key2);
 ```
 
+## 结构化查询
+
+合理设计 Redis 存储可以达到类似 SQL 的结构化查询的效果。具体可参见：[像查询DB一样查询redis - JQ棣](https://blog.csdn.net/w13528476101/article/details/70146064)。
+
+思路是这样的，先确定整个数据存储的唯一键，以以下格式存储完整数据：
+
+- key：data:[表名]:[主键]
+- value：json 字符串
+
+当需要全表查询时，我们第一个想到的通常是 scan，但 scan 的效率不高。我们可以通过构建主键索引集合来解决，如下：
+
+- key：idx:[表名]
+- value：[主键集合]
+
+当需要进行条件查询时，我们可以构建条件索引集合来解决，如下：
+
+- key：idx:[表名]:[字段名]:[字段值]
+- value：[主键集合]
+
+当需要进行多个条件筛选查询时，我们可以使用 Redis Set 的交并补集功能。
+
 ## 排错
 
 ### 编译安装时出现：jemalloc/jemalloc.h: No such file or directory
