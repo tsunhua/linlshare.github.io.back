@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="覽月維基">
 <meta property="og:description" content="概述 进程：程序的一次运行，操作系统分配内存资源和调度的基本的单位；有独立的内存地址；一个程序至少有一个进程； 线程：最小的执行单元，CPU 调度的单位；由线程ID、程序计数器、寄存器集合和栈组成；一个进程至少有一个线程，多个线程之间共享一段内存，且可并发执行  进程状态 就绪 执行 阻塞  线程间共享变量 互斥锁 信号量  CPU 调度 先到先服务调度（FIFS） 最短作业优先调度（SJF） 优">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-19T07:08:37.791Z">
+<meta property="og:updated_time" content="2019-03-11T08:56:02.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程和线程">
 <meta name="twitter:description" content="概述 进程：程序的一次运行，操作系统分配内存资源和调度的基本的单位；有独立的内存地址；一个程序至少有一个进程； 线程：最小的执行单元，CPU 调度的单位；由线程ID、程序计数器、寄存器集合和栈组成；一个进程至少有一个线程，多个线程之间共享一段内存，且可并发执行  进程状态 就绪 执行 阻塞  线程间共享变量 互斥锁 信号量  CPU 调度 先到先服务调度（FIFS） 最短作业优先调度（SJF） 优">
@@ -100,7 +100,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -119,10 +119,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -151,7 +151,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -171,16 +171,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 131
-                <span>Entradas</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 136
-                <span>Etiquetas</span>
+                <span>tags</span>
             </div>
         </div>
         
@@ -215,7 +215,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -769,8 +769,8 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catálogo</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程状态"><span class="toc-number">2.</span> <span class="toc-text">进程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程间共享变量"><span class="toc-number">3.</span> <span class="toc-text">线程间共享变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-调度"><span class="toc-number">4.</span> <span class="toc-text">CPU 调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程状态"><span class="toc-number">2.</span> <span class="toc-text">进程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程间共享变量"><span class="toc-number">3.</span> <span class="toc-text">线程间共享变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-调度"><span class="toc-number">4.</span> <span class="toc-text">CPU 调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问答"><span class="toc-number">5.</span> <span class="toc-text">问答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#When-is-a-Java-thread-alive"><span class="toc-number">5.1.</span> <span class="toc-text">When is a Java thread alive?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
@@ -796,6 +796,11 @@ ga('send', 'pageview');
 <li>多级队列调度</li>
 <li>多级反馈队列调度</li>
 </ul>
+<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h3 id="When-is-a-Java-thread-alive"><a href="#When-is-a-Java-thread-alive" class="headerlink" title="When is a Java thread alive?"></a><a href="https://stackoverflow.com/questions/17293304/when-is-a-java-thread-alive" target="_blank" rel="noopener">When is a Java thread alive?</a></h3><p>According to the Javadoc you mentionned:</p>
+<blockquote>
+<p>A thread is alive if it has been started and has not yet died.</p>
+</blockquote>
+<p>A thread “starts” when its <code>start()</code> method is invoked and “dies” at the end of its <code>run()</code> method, or when <code>stop()</code> (now deprecated) is invoked. So yes, a thread is “alive” when its <code>run()</code> method is still ongoing, but it is also “alive” in the time window between the invocation of <code>start()</code> and the implicit invocation of the <code>run()</code> method by the JVM.</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释 - 阮一峰的网络日志</a></li>
 <li><a href="https://huanghantao.github.io/2018/01/26/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E7%BA%BF%E7%A8%8B%E6%98%AFCPU%E8%B0%83%E5%BA%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8D%95%E4%BD%8D/" target="_blank" rel="noopener">为什么说线程是CPU调度的基本单位 - huanghantao.github.io</a></li>
@@ -816,7 +821,7 @@ ga('send', 'pageview');
     
     
         <a href="/2019/02/13/it/java/base/Java/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">Java</div>
         </a>
     

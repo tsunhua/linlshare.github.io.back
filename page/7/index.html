@@ -98,7 +98,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -117,10 +117,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -149,7 +149,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -169,16 +169,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 131
-                <span>Entradas</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 136
-                <span>Etiquetas</span>
+                <span>tags</span>
             </div>
         </div>
         
@@ -213,7 +213,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Categorias</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -964,16 +964,16 @@ ga('send', 'pageview');
 <h3 id="接收消息"><a href="#接收消息" class="headerlink" title="接收消息"></a>接收消息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning</span><br></pre></td></tr></table></figure>
 <h3 id="查看-Topic-列表"><a href="#查看-Topic-列表" class="headerlink" title="查看 Topic 列表"></a>查看 Topic 列表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
 <h3 id="查看指定-Topic-的信息"><a href="#查看指定-Topic-的信息" class="headerlink" title="查看指定 Topic 的信息"></a>查看指定 Topic 的信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic</span><br></pre></td></tr></table></figure>
-<h2 id="进一步学习"><a href="#进一步学习" class="headerlink" title="进一步学习"></a>进一步学习</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="KeeperException：NoNode-for-config-topics-xxx"><a href="#KeeperException：NoNode-for-config-topics-xxx" class="headerlink" title="KeeperException：NoNode for /config/topics/xxx"></a>KeeperException：NoNode for /config/topics/xxx</h3><h4 id="（1）背景"><a href="#（1）背景" class="headerlink" title="（1）背景"></a>（1）背景</h4><p>在本机先后启动 Zookeeper 和 Kafka，然后发送 PING 主题。但消费失败，错误日志如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:48:06,120] INFO Got user-level KeeperException when processing sessionid:0x1000a6787410000 type:setData cxid:0xcb zxid:0xc4 txntype:-1 reqpath:n/a Error Path:/config/topics/PONG Error:KeeperErrorCode = NoNode for /config/topics/PING (org.apache.zookeeper.server.PrepRequestProcessor)</span><br></pre></td></tr></table></figure>
-<h4 id="（2）查看-Zookeeper-终端日志"><a href="#（2）查看-Zookeeper-终端日志" class="headerlink" title="（2）查看 Zookeeper 终端日志"></a>（2）查看 Zookeeper 终端日志</h4><p>发现 host.name 不是 localhost 而是内网地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2018-12-06 16:21:18,687] INFO Server environment:host.name=192.168.1.2 (org.apache.zookeeper.server.ZooKeeperServer)</span><br></pre></td></tr></table></figure>
+<h2 id="进一步学习"><a href="#进一步学习" class="headerlink" title="进一步学习"></a>进一步学习</h2><h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><h3 id="Connection-to-node-1-could-not-be-established-Broker-may-not-be-available"><a href="#Connection-to-node-1-could-not-be-established-Broker-may-not-be-available" class="headerlink" title="Connection to node -1 could not be established. Broker may not be available."></a>Connection to node -1 could not be established. Broker may not be available.</h3><ol>
+<li>检查连接的 kafka 集群地址是否正确；</li>
+<li>检查 kafka 集群收发消息是否正常；</li>
+<li>检查 kafka 配置文件（server.properties）是否正确。</li>
 <p>
                 
             
         
         
-            </p></div>   
+            </p></ol></div>   
             <div class="article-more-link">
                 <a href="/2018/11/22/it/java/base/Kafka/#more">Read More</a>
             </div>
@@ -2098,7 +2098,7 @@ ga('send', 'pageview');
 
     
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">Siguiente  &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
         </nav>
     
 </section>
