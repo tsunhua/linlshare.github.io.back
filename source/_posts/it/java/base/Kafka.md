@@ -72,40 +72,21 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
 
 ## 进一步学习
 
-
-
 ## 排错
 
-### KeeperException：NoNode for /config/topics/xxx
+### Connection to node -1 could not be established. Broker may not be available.
 
-#### （1）背景
+1. 检查连接的 kafka 集群地址是否正确；
+2. 检查 kafka 集群收发消息是否正常；
+3. 检查 kafka 配置文件（server.properties）是否正确。
 
-在本机先后启动 Zookeeper 和 Kafka，然后发送 PING 主题。但消费失败，错误日志如下：
+默认配置如下：
 
-```
-[2018-12-06 16:48:06,120] INFO Got user-level KeeperException when processing sessionid:0x1000a6787410000 type:setData cxid:0xcb zxid:0xc4 txntype:-1 reqpath:n/a Error Path:/config/topics/PONG Error:KeeperErrorCode = NoNode for /config/topics/PING (org.apache.zookeeper.server.PrepRequestProcessor)
-```
-
-#### （2）查看 Zookeeper 终端日志
-
-发现 host.name 不是 localhost 而是内网地址。
-
-```
-[2018-12-06 16:21:18,687] INFO Server environment:host.name=192.168.1.2 (org.apache.zookeeper.server.ZooKeeperServer)
+```java
+listeners=PLAINTEXT://:9092
 ```
 
-#### （3）修改 `config/server.properties`  文件
-
-参看 [Kafka系列2-producer和consumer报错](https://blog.csdn.net/kuluzs/article/details/51577678) ，修改如下：
-
-```shell
-// 之前
-#listeners=PLAINTEXT://:9092
-// 现在
-listeners=PLAINTEXT://localhost:9092
-```
-
-#### （4）重启 Zookeeper 和 Kafka
+如果被修改为错误地址那么将无法连接。
 
 ### ConcurrentModificationException: KafkaConsumer is not safe for multi-threaded access
 
