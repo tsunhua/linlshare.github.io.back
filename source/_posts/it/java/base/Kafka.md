@@ -72,6 +72,14 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
 
 ## 进一步学习
 
+### Kafka Client 消息接收的三种模式
+
+| 模式                      | 特点                   | 设置                                                         |
+| ------------------------- | ---------------------- | ------------------------------------------------------------ |
+| At-most-once（最多一次）  | 消息最多被消费一次     | 让 Kafka 在特定时间间隔内自动提交，如网络中断恢复或程序重启可能会使消息未被处理完就被提交了。设置 `enable.auto.commit` 为 true，设置 `auto.commit.interval.ms` 为一个较小的时间间隔，不用手动调用 `commitSync()`。 |
+| At-least-once（最少一次） | 消息至少被消费一次     | 手动提交，如提交失败，则下次重复推送。设置 `enable.auto.commit` 为 false，然后调用 `commitSync()`。 |
+| Exactly-once（正好一次）  | 消息有且只有被消费一次 | 保证消息处理和提交反馈在同一个事务中（ACID，原子性、一致性、隔离性和持久性）。设置 `enable.auto.commit` 为 false，保存 `ConsumeRecord` 中的 offset 到数据库，实现 `ConsumerRebalanceListener` ，监听 Consumer Rebalance 事件，然后使用`seek` 方法将数据库的 offset 更新到 Kafka。 |
+
 ## 排错
 
 ### Connection to node -1 could not be established. Broker may not be available.

@@ -62,7 +62,7 @@ $ redis-cli -h host -p port -a password
 # 查找符合给定正则的 key
 > KEYS pattern
 
-# 删除某个 key
+# 删除某个 key (适用于各种数据结构的 key)
 > DEL a_key
 # 检查某个 key 是否存在
 > EXISTS a_key
@@ -204,6 +204,95 @@ jedis.sdiffstore(destination, key1, key2);
 - value：[主键集合]
 
 当需要进行多个条件筛选查询时，我们可以使用 Redis Set 的交并补集功能。
+
+## 查看 Redis 信息和状态
+
+```shell
+$ redis-cli
+$ redis 127.0.0.1:6379>info
+# 查看已连接客户端的信息
+$ redis 127.0.0.1:6379>info clients
+# 查看服务器的内存信息
+$ redis 127.0.0.1:6379>info memory
+# 查看 CPU 的计算量统计信息
+$ redis 127.0.0.1:6379>info cpu
+# 查看跟 RDB 持久化和 AOF 持久化有关的信息
+$ redis 127.0.0.1:6379>info persistence
+# 查看一般统计信息
+$ redis 127.0.0.1:6379>info stats
+# 查看主/从复制信息
+$ redis 127.0.0.1:6379>info replication
+# 查看各种不同类型的命令的执行统计信息
+$ redis 127.0.0.1:6379>info commandstats
+# 查看和集群有关的信息
+$ redis 127.0.0.1:6379>info cluster
+# 查看数据库相关的统计信息
+$ redis 127.0.0.1:6379>info keyspace
+```
+
+## 分析占用内存较大的 key
+
+使用以下命令会生成一个报表（非阻塞式），描述占用内存较大的 key
+
+```shell
+$ redis-cli -h host -p port -a password  --bigkeys
+```
+
+报表格式如下：
+
+```
+# Scanning the entire keyspace to find biggest keys as well as
+# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+# per 100 SCAN commands (not usually needed).
+
+[00.00%] Biggest string found so far 'jobflow_detail:9bc01d5d-b413-49c0-a08c-8cde2d04c7f1' with 36016 bytes
+[00.00%] Biggest set    found so far 'url_set:pro29`98404f7f-e1ad-42f6-96bc-cbeb6a8b1086`ae_job_product' with 50 members
+[00.00%] Biggest hash   found so far 'url:pro29`bc03f85a-c51e-45bf-9009-81d6cd021dd0`ae_job_product_detail' with 49 fields
+[00.01%] Biggest string found so far 'jobflow_detail:d184d3b1-3ac9-4261-b803-2bb8574f8888' with 36557 bytes
+[00.01%] Biggest set    found so far 'url_set:pro18`6cb2ec83-6ac0-4972-8a41-1360e834312b`ae_job_product_detail_mobile' with 95 members
+[00.01%] Biggest hash   found so far 'url:pro29`319c3190-77b1-4ff8-9c50-9757d29fc3aa`ae_job_product' with 50 fields
+[00.01%] Biggest list   found so far 'queue:pro29`a57f547d-bd77-4ae8-9d43-56827dee5c27`ae_job_product_feedback' with 49 items
+[00.16%] Biggest hash   found so far 'url:pro18`64985a16-2591-41c4-8e23-a3b792fd360c`ae_job_product_feedback' with 98 fields
+[00.20%] Biggest set    found so far 'url_set:pro18`ac4c49d2-5be4-4b90-92f5-151af1ff60f7`ae_job_product_wishes' with 99 members
+[00.21%] Biggest list   found so far 'queue:pro20`fafd935a-24a3-47bc-badc-78445a5668bc`ae_job_product_detail_mobile' with 92 items
+[00.33%] Biggest string found so far 'jobflow_detail:19e11854-5164-474f-a019-55e2629e681f' with 61682 bytes
+[00.35%] Biggest set    found so far 'url_set:pro18`e18a889e-e34e-44b1-b105-554777872635`ae_job_product_wishes' with 100 members
+[00.56%] Biggest list   found so far 'queue:pro20`933f6e17-ac03-4b76-889b-8ae637969402`ae_job_product' with 101 items
+[00.59%] Biggest string found so far 'jobflow_detail:5ea576de-3115-49e5-9d5e-26c0840e5be9' with 62154 bytes
+[00.78%] Biggest hash   found so far 'url:pro20`6e37acf7-5c16-48f5-a401-dc78e32ea1c9`ae_job_product' with 100 fields
+[03.07%] Biggest string found so far 'jobflow_detail:7a25da13-1355-4434-b77c-dcc9b223c5c7' with 62569 bytes
+[05.05%] Biggest hash   found so far 'url:shopee25`1c0bc59a-7d99-4282-9a62-9a9f52030aa2`shopee_job_product' with 650 fields
+[05.77%] Biggest hash   found so far 'url:pro36:1554090684190:ae_job_product_detail_mobile' with 438725 fields
+[11.43%] Biggest list   found so far 'queue:shopee25`1c0bc59a-7d99-4282-9a62-9a9f52030aa2`shopee_job_product_list' with 1351 items
+[12.06%] Biggest set    found so far 'url_set:pro20`5acdb283-f1e1-41df-8bc7-d9743fd4b67d`ae_job_product' with 101 members
+[12.87%] Biggest set    found so far 'url_set:shopee24`55ee626f-0730-4667-8b3b-bef873db2d9b`shopee_job_product' with 500 members
+[13.21%] Biggest string found so far 'jobflow_detail:f41e19b0-43e1-4cb2-b69f-b6f351a03e8f' with 62672 bytes
+[22.39%] Biggest set    found so far 'url_set:pro27`07102f9f-f146-4745-b338-33622f9785b6`shopee_job_product' with 2000 members
+[28.73%] Biggest string found so far 'jobflow_detail:4285b1b0-f8be-45b1-b0d5-348e1c481a27' with 62690 bytes
+[39.48%] Biggest set    found so far 'url_set:shopee27`196cf600-e029-428d-befc-09c0a3b2021b`shopee_job_product' with 64581 members
+[44.82%] Biggest list   found so far 'queue:pro27`07102f9f-f146-4745-b338-33622f9785b6`shopee_job_product' with 1863 items
+[44.96%] Biggest set    found so far 'url_set:pro36:1554090684190:ae_job_product_wishes' with 438725 members
+[74.38%] Biggest list   found so far 'queue:shopee27`196cf600-e029-428d-befc-09c0a3b2021b`shopee_job_product_comment' with 9053 items
+
+-------- summary -------
+
+Sampled 89371 keys in the keyspace!
+Total key length in bytes is 5801117 (avg len 64.91)
+
+Biggest string found 'jobflow_detail:4285b1b0-f8be-45b1-b0d5-348e1c481a27' has 62690 bytes
+Biggest   list found 'queue:shopee27`196cf600-e029-428d-befc-09c0a3b2021b`shopee_job_product_comment' has 9053 items
+Biggest    set found 'url_set:pro36:1554090684190:ae_job_product_wishes' has 438725 members
+Biggest   hash found 'url:pro36:1554090684190:ae_job_product_detail_mobile' has 438725 fields
+
+16862 strings with 298218397 bytes (18.87% of keys, avg size 17685.83)
+8286 lists with 407130 items (09.27% of keys, avg size 49.13)
+36026 sets with 3206394 members (40.31% of keys, avg size 89.00)
+28197 hashs with 3198477 fields (31.55% of keys, avg size 113.43)
+0 zsets with 0 members (00.00% of keys, avg size 0.00)
+0 streams with 0 entries (00.00% of keys, avg size 0.00)
+```
+
+
 
 ## 排错
 

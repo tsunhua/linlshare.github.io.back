@@ -55,6 +55,24 @@ tags: [Docker]
 > sudo apt-get install docker-ce
 ```
 
+### Amazon Linux 
+
+参考：[Amazon ECS 的 Docker 基本知识](https://docs.aws.amazon.com/zh_cn/AmazonECS/latest/developerguide/docker-basics.html)
+
+```shell
+# 更新实例上已安装的程序包和程序包缓存
+sudo yum update -y
+# 安装最新的 Docker Community Edition 程序包
+sudo yum install -y docker
+# 启动 Docker 服务
+sudo service docker start
+# 将 ec2-user 添加到 docker 组，以便您能够执行 Docker 命令，而无需使用 sudo
+sudo usermod -a -G docker ec2-user
+# 重新登录
+# 验证 ec2-user 是否能在没有 sudo 的情况下运行 Docker 命令
+docker info
+```
+
 ### 检查安装情况
 
 ```shell
@@ -126,7 +144,7 @@ tags: [Docker]
 - 删除
 - 暂停
 
-容器也采用分层存储，容器运行时，以镜像为基础层，在其上创建一个当前容器的存储层，称之为容器存储层。容器存储层的生命周期与容器同步，故不应向存储层写入任何数据，所有的文件写入操作，都应**使用数据卷（Volume）或者绑定宿主目录**。
+容器也采用分层存储（最多有127层），容器运行时，以镜像为基础层，在其上创建一个当前容器的存储层，称之为容器存储层。容器存储层的生命周期与容器同步，故不应向存储层写入任何数据，所有的文件写入操作，都应**使用数据卷（Volume）或者绑定宿主目录**。
 
 ### Registry
 

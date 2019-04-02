@@ -42,3 +42,17 @@ exec $SHELL -l
 echo ${JAVA_HOME}
 ```
 
+## What is the Limit to the Number of Threads You Can Create?
+
+The time it takes to create a thread increases as you create more thread. For the 32-bit JVM, the stack size appears to limit the number of threads you can create. This may be due to the limited address space. In any case, the memory used by each thread's stack add up. If you have a stack of 128KB and you have 20K threads it will use 2.5 GB of virtual memory.
+
+| Bitness | Stack Size | Max threads     |
+| :------ | :--------- | :-------------- |
+| 32-bit  | 64K        | 32,073          |
+| 32-bit  | 128K       | 20,549          |
+| 32-bit  | 256K       | 11,216          |
+| 64-bit  | 64K        | stack too small |
+| 64-bit  | 128K       | 32,072          |
+| 64-bit  | 512K       | 32,072          |
+
+参考：[Java: What is the Limit to the Number of Threads You Can Create?](https://dzone.com/articles/java-what-limit-number-threads)

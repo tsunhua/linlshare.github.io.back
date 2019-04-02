@@ -311,6 +311,22 @@ void updateEmployeeInfoWithRetry() {
 }
 ```
 
+## 备份与还原
+
+使用 Mongo 安装包 bin 目录下的 mongodump 进行备份，mongorestore 进行还原。
+
+### 备份
+
+```shell
+mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径 
+```
+
+### 还原
+
+```shell
+mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 --drop 文件存在路径
+```
+
 ## Q&A
 
 ### 一个服务中该使用一个还是多个 MongoClient？
@@ -326,6 +342,29 @@ void updateEmployeeInfoWithRetry() {
 ### readString can only be called when CurrentBSONType is STRING, not when CurrentBSONType is OBJECT_ID
 
 给名为 `id` 的字段添加注解 `@BsonProperty("id")` 即可。
+
+### MongoWaitQueueFullException
+
+错误日志：
+
+```
+com.mongodb.MongoWaitQueueFullException: Too many threads are already waiting for a connection. Max number of threads (maxWaitQueueSize) o
+f 500 has been exceeded.
+	at com.mongodb.internal.connection.DefaultConnectionPool.createWaitQueueFullException(DefaultConnectionPool.java:280)
+	at com.mongodb.internal.connection.DefaultConnectionPool.get(DefaultConnectionPool.java:99)
+	at com.mongodb.internal.connection.DefaultConnectionPool.get(DefaultConnectionPool.java:92)
+	at com.mongodb.internal.connection.DefaultServer.getConnection(DefaultServer.java:85)
+	at com.mongodb.binding.ClusterBinding$ClusterBindingConnectionSource.getConnection(ClusterBinding.java:115)
+	at com.mongodb.operation.OperationHelper.withReleasableConnection(OperationHelper.java:424)
+	at com.mongodb.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:192)
+	at com.mongodb.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:67)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:193)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeBulkWrite(MongoCollectionImpl.java:467)
+	at com.mongodb.client.internal.MongoCollectionImpl.bulkWrite(MongoCollectionImpl.java:447)
+	at com.mongodb.client.internal.MongoCollectionImpl.bulkWrite(MongoCollectionImpl.java:442)
+```
+
+
 
 ## 参考
 
