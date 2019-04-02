@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-03-11T08:56:02.286Z</updated>
+  <updated>2019-03-27T10:18:29.752Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Splash</title>
+    <link href="https://linlshare.github.io/2019/03/26/it/robot/Splash/"/>
+    <id>https://linlshare.github.io/2019/03/26/it/robot/Splash/</id>
+    <published>2019-03-26T03:38:59.000Z</published>
+    <updated>2019-03-27T10:18:29.752Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Linux-Docker"><a href="#Linux-Docker" class="headerlink" title="Linux + Docker"></a>Linux + Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 8050:8050 -p 5023:5023 scrapinghub/splash</span><br></pre></td></tr></table></figure><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://0.0.0.0:8050/</span><br></pre></td></tr></table></figure><h2 id="Splash-HTTP-API"><a href="#Splash-HTTP-API" class="headerlink" title="Splash HTTP API"></a>Splash HTTP API</h2><h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><ol><li>GET，将参数转为 URL 参数；</li><li>POST，将参数编码为 JSON 格式并使用 <code>Content-Type: application/json</code> 请求体。</li></ol><h2 id="获取-Cookie-的-Lua-脚本"><a href="#获取-Cookie-的-Lua-脚本" class="headerlink" title="获取 Cookie 的 Lua 脚本"></a>获取 Cookie 的 Lua 脚本</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span><span class="params">(splash, args)</span></span></span><br><span class="line">  splash.images_enabled = <span class="literal">false</span></span><br><span class="line">  splash.resource_timeout = <span class="number">90</span></span><br><span class="line">  splash:set_user_agent(args.ua)</span><br><span class="line">  splash:on_request(<span class="function"><span class="keyword">function</span><span class="params">(request)</span></span> request:set_proxy&#123;host = args.host, port = args.port&#125; <span class="keyword">end</span>)</span><br><span class="line">  <span class="built_in">assert</span>(splash:go(args.url))</span><br><span class="line">  <span class="built_in">assert</span>(splash:wait(<span class="number">0.5</span>))</span><br><span class="line">  <span class="keyword">local</span> cookie = splash:evaljs(<span class="string">'document.cookie'</span>)</span><br><span class="line">  <span class="keyword">return</span> cookie</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><h2 id="部署到生产环境"><a href="#部署到生产环境" class="headerlink" title="部署到生产环境"></a>部署到生产环境</h2><ol><li>作为守护进程启动；</li><li>奔溃重启；</li><li>控制内存消耗；</li><li>运行多个 Splash 实例；</li><li>请求队列应该放到负载均衡里面；</li><li>使用跟开发环境一致的版本。</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8050:8050 --memory=3G --restart=always scrapinghub/splash:3.3.1 --maxrss 4000 --max-timeout 300 --slots 5</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h3 id=&quot;Linux-Docker&quot;&gt;&lt;a href=&quot;#Linux-Docker&quot; class=&quot;headerlink&quot; title=&quot;L
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="Robot" scheme="https://linlshare.github.io/tags/Robot/"/>
+    
+      <category term="Splash" scheme="https://linlshare.github.io/tags/Splash/"/>
+    
+  </entry>
   
   <entry>
     <title>进程和线程</title>
@@ -52,9 +81,9 @@
     <link href="https://linlshare.github.io/2019/02/13/it/java/base/Java/"/>
     <id>https://linlshare.github.io/2019/02/13/it/java/base/Java/</id>
     <published>2019-02-13T01:48:14.000Z</published>
-    <updated>2019-02-13T02:48:37.701Z</updated>
+    <updated>2019-03-29T10:16:07.815Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装-JDK-环境"><a href="#安装-JDK-环境" class="headerlink" title="安装 JDK 环境"></a>安装 JDK 环境</h2><h3 id="在-Mac-下"><a href="#在-Mac-下" class="headerlink" title="在 Mac 下"></a>在 Mac 下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装 JDK 8</span><br><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装最新版本</span><br><span class="line">brew cask install java</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用 jenv 管理 JDK 版本</span><br><span class="line">brew install jenv</span><br><span class="line">ls -1 /Library/Java/JavaVirtualMachines </span><br><span class="line">mkdir ~/.jenv/versions</span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/</span><br><span class="line">jenv versions</span><br><span class="line">jenv global 1.8</span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 检测 jenv 是否正常安装</span><br><span class="line">jenv doctor</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 在 zsh 中启用</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span># 在末尾追加</span><br><span class="line">export JENV_ROOT="/usr/local/opt/jenv"</span><br><span class="line">if which jenv &gt; /dev/null; then eval "$(jenv init -)"; fi</span><br><span class="line"><span class="meta">#</span># 使其生效</span><br><span class="line">source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 设置 Java Home</span><br><span class="line">jenv enable-plugin export</span><br><span class="line">exec $SHELL -l</span><br><span class="line">echo $&#123;JAVA_HOME&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="安装-JDK-环境"><a href="#安装-JDK-环境" class="headerlink" title="安装 JDK 环境"></a>安装 JDK 环境</h2><h3 id="在-Mac-下"><a href="#在-Mac-下" class="headerlink" title="在 Mac 下"></a>在 Mac 下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装 JDK 8</span><br><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装最新版本</span><br><span class="line">brew cask install java</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用 jenv 管理 JDK 版本</span><br><span class="line">brew install jenv</span><br><span class="line">ls -1 /Library/Java/JavaVirtualMachines </span><br><span class="line">mkdir ~/.jenv/versions</span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/</span><br><span class="line">jenv versions</span><br><span class="line">jenv global 1.8</span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 检测 jenv 是否正常安装</span><br><span class="line">jenv doctor</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 在 zsh 中启用</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span># 在末尾追加</span><br><span class="line">export JENV_ROOT="/usr/local/opt/jenv"</span><br><span class="line">if which jenv &gt; /dev/null; then eval "$(jenv init -)"; fi</span><br><span class="line"><span class="meta">#</span># 使其生效</span><br><span class="line">source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 设置 Java Home</span><br><span class="line">jenv enable-plugin export</span><br><span class="line">exec $SHELL -l</span><br><span class="line">echo $&#123;JAVA_HOME&#125;</span><br></pre></td></tr></table></figure><h2 id="What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create"><a href="#What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create" class="headerlink" title="What is the Limit to the Number of Threads You Can Create?"></a>What is the Limit to the Number of Threads You Can Create?</h2><p>The time it takes to create a thread increases as you create more thread. For the 32-bit JVM, the stack size appears to limit the number of threads you can create. This may be due to the limited address space. In any case, the memory used by each thread’s stack add up. If you have a stack of 128KB and you have 20K threads it will use 2.5 GB of virtual memory.</p><table><thead><tr><th style="text-align:left">Bitness</th><th style="text-align:left">Stack Size</th><th style="text-align:left">Max threads</th></tr></thead><tbody><tr><td style="text-align:left">32-bit</td><td style="text-align:left">64K</td><td style="text-align:left">32,073</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">128K</td><td style="text-align:left">20,549</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">256K</td><td style="text-align:left">11,216</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">64K</td><td style="text-align:left">stack too small</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">128K</td><td style="text-align:left">32,072</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">512K</td><td style="text-align:left">32,072</td></tr></tbody></table><p>参考：<a href="https://dzone.com/articles/java-what-limit-number-threads" target="_blank" rel="noopener">Java: What is the Limit to the Number of Threads You Can Create?</a></p>]]></content>
     
     <summary type="html">
     
@@ -618,47 +647,6 @@
       <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
     
       <category term="荷马" scheme="https://linlshare.github.io/tags/%E8%8D%B7%E9%A9%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>埃德蒙·斯宾塞</title>
-    <link href="https://linlshare.github.io/2018/12/30/literature/%E5%9F%83%E5%BE%B7%E8%92%99%C2%B7%E6%96%AF%E5%AE%BE%E5%A1%9E/"/>
-    <id>https://linlshare.github.io/2018/12/30/literature/埃德蒙·斯宾塞/</id>
-    <published>2018-12-30T14:35:03.000Z</published>
-    <updated>2019-01-13T11:37:46.605Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>原名</td><td>Edmund Spenser</td></tr><tr><td>译名</td><td>埃德蒙·斯宾塞</td></tr><tr><td>出生地</td><td>英国伦敦</td></tr><tr><td>生卒</td><td>1552年－1599年1月13日</td></tr><tr><td>风格</td><td>斯宾塞诗节</td></tr><tr><td>身份</td><td>诗人</td></tr><tr><td>代表作</td><td>《仙后》（The Faerie Queene）</td></tr><tr><td>受影响于</td><td>乔叟的《坎特伯雷故事集》；维吉尔和他的《埃内阿斯纪》；12世纪吟游诗人的《亚瑟王传说》</td></tr><tr><td>影响力</td><td>英国著名诗人、桂冠诗人；影响了弥尔顿、雪莱、拜伦、丁尼生、蒲柏等诗人</td></tr></tbody></table><h2 id="《仙后》"><a href="#《仙后》" class="headerlink" title="《仙后》"></a>《仙后》</h2><p>《仙后》是斯宾塞于1590年出版的史诗，仙后喻指伊莉莎白一世女皇。</p><p>内容：描述骑士霍理士（圣洁）与公主优娜（真理）一同对抗恶龙（邪恶）的故事。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%BE%B7%E8%92%99%C2%B7%E6%96%AF%E5%AE%BE%E5%A1%9E" target="_blank" rel="noopener">埃德蒙·斯宾塞 - 维基百科</a></li><li><a href="https://zh.wikipedia.org/wiki/%E4%BB%99%E5%90%8E" target="_blank" rel="noopener">仙后 - 维基百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;原名&lt;/td&gt;
-&lt;td&gt;Edmund Spenser&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;译名&lt;/td&gt;
-&lt;td&gt;
-      
-    
-    </summary>
-    
-      <category term="literature" scheme="https://linlshare.github.io/categories/literature/"/>
-    
-    
-      <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
-    
-      <category term="埃德蒙·斯宾塞" scheme="https://linlshare.github.io/tags/%E5%9F%83%E5%BE%B7%E8%92%99%C2%B7%E6%96%AF%E5%AE%BE%E5%A1%9E/"/>
     
   </entry>
   
