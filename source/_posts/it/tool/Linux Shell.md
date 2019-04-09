@@ -295,7 +295,7 @@ tar 代表未压缩的 tar 文件，已经压缩的 tar 文件会附加压缩文
 # 解压 .tar.gz 文件到当前文件夹
 > tar -zxf a_file.tar.gz
 # 解压 .tar 文件到 tmp 文件夹
-> tar -xf b_file.tar tmp/
+> tar -xf b_file.tar -C tmp/
 # gzip 压缩文件 c_file 和目录 d_dir 到 out.tar.gz
 > tar -czvf out.tar.gz c_file d_dir
 ```

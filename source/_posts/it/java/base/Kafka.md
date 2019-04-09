@@ -80,6 +80,25 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
 | At-least-once（最少一次） | 消息至少被消费一次     | 手动提交，如提交失败，则下次重复推送。设置 `enable.auto.commit` 为 false，然后调用 `commitSync()`。 |
 | Exactly-once（正好一次）  | 消息有且只有被消费一次 | 保证消息处理和提交反馈在同一个事务中（ACID，原子性、一致性、隔离性和持久性）。设置 `enable.auto.commit` 为 false，保存 `ConsumeRecord` 中的 offset 到数据库，实现 `ConsumerRebalanceListener` ，监听 Consumer Rebalance 事件，然后使用`seek` 方法将数据库的 offset 更新到 Kafka。 |
 
+### Consumer Group 与 Partition
+
+1. 按照如上的算法，所以如果kafka的消费组需要增加组员，最多增加到和partition数量一致，超过的组员只会占用资源，而不起作用。
+2. kafka的partition的个数一定要大于消费组组员的个数，并且partition的个数对于消费组组员取模一定要为0，不然有些消费者会占用资源却不起作用。
+  3.如果需要增加消费组的组员个数，那么也需要根据上面的算法，调整partition的个数。
+
+> 作者：ens
+> 链接：https://juejin.im/post/5baca032e51d450e735e74af
+> 来源：掘金
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+ $ /bin/kafka-topics.sh --alter --topic A_TASK --zookeeper localhost:2181 --partitions 2
+WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affected
+Adding partitions succeeded!
+
+$ bin/kafka-topics.sh --list --zookeeper localhost:2181
+```
+
 ## 排错
 
 ### Connection to node -1 could not be established. Broker may not be available.

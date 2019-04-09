@@ -292,7 +292,10 @@ Biggest   hash found 'url:pro36:1554090684190:ae_job_product_detail_mobile' has 
 0 streams with 0 entries (00.00% of keys, avg size 0.00)
 ```
 
-
+## 批量删除指定键模板（key pattern）的 key
+```shell
+> redis-cli -h localhost -p 6379 KEYS abc* | xargs redis-cli -h localhost -p 6379 DEL
+```
 
 ## 排错
 
