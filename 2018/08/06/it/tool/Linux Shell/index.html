@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="覽月維基">
 <meta property="og:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T11:37:46.000Z">
+<meta property="og:updated_time" content="2019-04-02T14:00:36.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Shell">
 <meta name="twitter:description" content="SET 命令用途： 可以设置 shell 的执行方式，不带参数时输出环境变量。 1&amp;gt; set [+-abCdefhHklmnpPtuvx] 注： 1. [-] 表示设置参数 2. [+] 表示取消设置参数 示例： 1234567&amp;gt; tmp=&quot;nice day&quot;&amp;gt; $tmpnice day&amp;gt; set | grep tmptmp=&quot;nice day&quot;&amp;gt; unset tmp">
@@ -100,7 +100,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -119,9 +119,9 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Articles',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
@@ -151,7 +151,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
     </div>
 
                 </td>
@@ -171,16 +171,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SUIVRE</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 132
-                <span>Articles</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 137
-                <span>Tags</span>
+                <span>tags</span>
             </div>
         </div>
         
@@ -215,7 +215,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>Catégories</span>
+            <span>categories</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -916,7 +916,7 @@ ga('send', 'pageview');
 <li>[-f] –file 指定要处理的文件名</li>
 <li>[-t] –list 列出 tar 文件中包含的文件的信息</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 解压 .tar.gz 文件到当前文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -zxf a_file.tar.gz</span><br><span class="line"><span class="meta">#</span> 解压 .tar 文件到 tmp 文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -xf b_file.tar tmp/</span><br><span class="line"><span class="meta">#</span> gzip 压缩文件 c_file 和目录 d_dir 到 out.tar.gz</span><br><span class="line"><span class="meta">&gt;</span> tar -czvf out.tar.gz c_file d_dir</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 解压 .tar.gz 文件到当前文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -zxf a_file.tar.gz</span><br><span class="line"><span class="meta">#</span> 解压 .tar 文件到 tmp 文件夹</span><br><span class="line"><span class="meta">&gt;</span> tar -xf b_file.tar -C tmp/</span><br><span class="line"><span class="meta">#</span> gzip 压缩文件 c_file 和目录 d_dir 到 out.tar.gz</span><br><span class="line"><span class="meta">&gt;</span> tar -czvf out.tar.gz c_file d_dir</span><br></pre></td></tr></table></figure>
 <h4 id="awk-文本分析"><a href="#awk-文本分析" class="headerlink" title="awk 文本分析"></a>awk 文本分析</h4><p>文本处理语言和工具，用于在文件中查找与模式匹配的行并在这些行上执行指定的操作，名称取自三位创始人 Alfred <strong>A</strong>ho，Peter <strong>W</strong>einberger, 和 Brian <strong>K</strong>ernighan 的 Family Name 的首字符。可参见 <a href="https://awk.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">AWK程序设计语言</a> 、 <a href="https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_72/com.ibm.aix.cmds1/awk.htm" target="_blank" rel="noopener">awk命令 - IBM</a>  以及 <a href="http://www.runoob.com/linux/linux-comm-awk.html" target="_blank" rel="noopener">Linux awk 命令 - runoob.com</a> 进行完整的学习。下面简单介绍下语法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> awk '&#123;[pattern] action&#125;' &#123;filenames&#125;   # 行匹配语句 awk '' 只能用单引号</span><br></pre></td></tr></table></figure>
 <p>Pattern 支持：</p>
@@ -1061,7 +1061,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
         <a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus récent</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     Genesis 1 @Old Testament
@@ -1071,7 +1071,7 @@ ga('send', 'pageview');
     
     
         <a href="/2018/05/29/person/陆奇的故事/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">陆奇的故事</div>
         </a>
     
