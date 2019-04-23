@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-03-27T10:18:29.752Z</updated>
+  <updated>2019-04-23T03:35:10.943Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySql</title>
+    <link href="https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/"/>
+    <id>https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/</id>
+    <published>2019-04-23T03:35:09.000Z</published>
+    <updated>2019-04-23T03:35:10.943Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>mac下安装mysql</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure><h2 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">mysql.server stop</span><br></pre></td></tr></table></figure><h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password "new_password"</span><br></pre></td></tr></table></figure><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure><h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><ol><li>默认的端口号为 3306</li><li>Mac下简单易用的MySql管理工具：Sequel Pro</li></ol><h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><h3 id="Sequel-Pro-and-MySQL-connection-failed"><a href="#Sequel-Pro-and-MySQL-connection-failed" class="headerlink" title="Sequel Pro and MySQL connection failed"></a><a href="https://stackoverflow.com/questions/51179516/sequel-pro-and-mysql-connection-failed" target="_blank" rel="noopener">Sequel Pro and MySQL connection failed</a></h3><p><strong>问题描述：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQL said: Authentication plugin &apos;caching_sha2_password&apos; cannot be loaded: dlopen(/usr/local/lib/plugin/caching_sha2_password.so, 2): image not found</span><br></pre></td></tr></table></figure><p><strong>解决方案：</strong></p><p>This is because Sequel Pro is not ready yet for a new kind of user login, as the error states: there is no driver. Quick fix for non-homebrew installs:</p><p><code>Apple Logo &gt; System Preferences &gt; MySQL &gt; Initialize Database</code>, then type your new password and select ‘Use legacy password’</p><p>After restart you should be able to connect. Do it only on fresh installs, because you may lost your db tables otherwise.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;mac下安装mysql&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="java" scheme="https://linlshare.github.io/categories/it/java/"/>
+    
+      <category term="persistence" scheme="https://linlshare.github.io/categories/it/java/persistence/"/>
+    
+    
+      <category term="Java" scheme="https://linlshare.github.io/tags/Java/"/>
+    
+      <category term="MySql" scheme="https://linlshare.github.io/tags/MySql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zsh</title>
+    <link href="https://linlshare.github.io/2019/04/19/it/tool/zsh/"/>
+    <id>https://linlshare.github.io/2019/04/19/it/tool/zsh/</id>
+    <published>2019-04-19T03:24:52.000Z</published>
+    <updated>2019-04-19T03:24:54.328Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="快速安装"><a href="#快速安装" class="headerlink" title="快速安装"></a>快速安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 使用 curl</span><br><span class="line"><span class="meta">$</span> sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span><br><span class="line"><span class="meta">#</span> 或者使用 wget</span><br><span class="line"><span class="meta">$</span> sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"</span><br></pre></td></tr></table></figure><h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>从官网中可以预览各种主题，见 <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes。配置主题只需按一下步骤：" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes。配置主题只需按一下步骤：</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1）修改 ZSH_THEME 值为想要设置的主题，允许无主题</span><br><span class="line"><span class="meta">$</span> vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span> 2）使配置生效</span><br><span class="line"><span class="meta">$</span> source ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="禁止粘贴命令时自动对特殊字符进行转义"><a href="#禁止粘贴命令时自动对特殊字符进行转义" class="headerlink" title="禁止粘贴命令时自动对特殊字符进行转义"></a>禁止粘贴命令时自动对特殊字符进行转义</h3><p>（1）编辑 <code>misc.zsh</code> 文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim  ~/.oh-my-zsh/lib/misc.zsh</span><br></pre></td></tr></table></figure><p>（2）注释掉 <code>url-quote-magic</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#if [[ $ZSH_VERSION != 5.1.1 ]]; then</span><br><span class="line">#  for d in $fpath; do</span><br><span class="line">#       if [[ -e &quot;$d/url-quote-magic&quot; ]]; then</span><br><span class="line">#               if is-at-least 5.1; then</span><br><span class="line">#                       autoload -Uz bracketed-paste-magic</span><br><span class="line">#                       zle -N bracketed-paste bracketed-paste-magic</span><br><span class="line">#               fi</span><br><span class="line">#               autoload -Uz url-quote-magic</span><br><span class="line">#               zle -N self-insert url-quote-magic</span><br><span class="line">#      break</span><br><span class="line">#       fi</span><br><span class="line">#  done</span><br><span class="line">#fi</span><br></pre></td></tr></table></figure><h3 id="解决中文乱码"><a href="#解决中文乱码" class="headerlink" title="解决中文乱码"></a>解决中文乱码</h3><p>在<code>~/.zshrc</code>添加</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=en_US.UTF-8  </span><br><span class="line">export LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure><p>然后执行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="更换系统默认的-shell-为-zsh"><a href="#更换系统默认的-shell-为-zsh" class="headerlink" title="更换系统默认的 shell 为 zsh"></a>更换系统默认的 shell 为 zsh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> chsh -s /bin/zsh</span><br></pre></td></tr></table></figure><h3 id="无法手动更新-zsh"><a href="#无法手动更新-zsh" class="headerlink" title="无法手动更新 zsh"></a>无法手动更新 zsh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cd .oh-my-zsh/ ( to change to its root directory)</span><br><span class="line"><span class="meta">$</span>git status (now you should be in your oh-my-zsh root with master on it and do git status)</span><br><span class="line"><span class="meta">$</span>git stash/git add . (to stash the changes and head back to master/add the changes)</span><br><span class="line"><span class="meta">$</span>git commit -m (if you decided to add the changes)</span><br><span class="line"><span class="meta">$</span>upgrade_oh_my_zsh (you can now upgrade)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;快速安装&quot;&gt;&lt;a href=&quot;#快速安装&quot; class=&quot;headerlink&quot; title=&quot;快速安装&quot;&gt;&lt;/a&gt;快速安装&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="tool" scheme="https://linlshare.github.io/categories/it/tool/"/>
+    
+    
+      <category term="zsh" scheme="https://linlshare.github.io/tags/zsh/"/>
+    
+  </entry>
   
   <entry>
     <title>Splash</title>
@@ -81,9 +140,9 @@
     <link href="https://linlshare.github.io/2019/02/13/it/java/base/Java/"/>
     <id>https://linlshare.github.io/2019/02/13/it/java/base/Java/</id>
     <published>2019-02-13T01:48:14.000Z</published>
-    <updated>2019-03-29T10:16:07.815Z</updated>
+    <updated>2019-04-15T04:01:24.684Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装-JDK-环境"><a href="#安装-JDK-环境" class="headerlink" title="安装 JDK 环境"></a>安装 JDK 环境</h2><h3 id="在-Mac-下"><a href="#在-Mac-下" class="headerlink" title="在 Mac 下"></a>在 Mac 下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装 JDK 8</span><br><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装最新版本</span><br><span class="line">brew cask install java</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用 jenv 管理 JDK 版本</span><br><span class="line">brew install jenv</span><br><span class="line">ls -1 /Library/Java/JavaVirtualMachines </span><br><span class="line">mkdir ~/.jenv/versions</span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/</span><br><span class="line">jenv versions</span><br><span class="line">jenv global 1.8</span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 检测 jenv 是否正常安装</span><br><span class="line">jenv doctor</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 在 zsh 中启用</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span># 在末尾追加</span><br><span class="line">export JENV_ROOT="/usr/local/opt/jenv"</span><br><span class="line">if which jenv &gt; /dev/null; then eval "$(jenv init -)"; fi</span><br><span class="line"><span class="meta">#</span># 使其生效</span><br><span class="line">source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 设置 Java Home</span><br><span class="line">jenv enable-plugin export</span><br><span class="line">exec $SHELL -l</span><br><span class="line">echo $&#123;JAVA_HOME&#125;</span><br></pre></td></tr></table></figure><h2 id="What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create"><a href="#What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create" class="headerlink" title="What is the Limit to the Number of Threads You Can Create?"></a>What is the Limit to the Number of Threads You Can Create?</h2><p>The time it takes to create a thread increases as you create more thread. For the 32-bit JVM, the stack size appears to limit the number of threads you can create. This may be due to the limited address space. In any case, the memory used by each thread’s stack add up. If you have a stack of 128KB and you have 20K threads it will use 2.5 GB of virtual memory.</p><table><thead><tr><th style="text-align:left">Bitness</th><th style="text-align:left">Stack Size</th><th style="text-align:left">Max threads</th></tr></thead><tbody><tr><td style="text-align:left">32-bit</td><td style="text-align:left">64K</td><td style="text-align:left">32,073</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">128K</td><td style="text-align:left">20,549</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">256K</td><td style="text-align:left">11,216</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">64K</td><td style="text-align:left">stack too small</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">128K</td><td style="text-align:left">32,072</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">512K</td><td style="text-align:left">32,072</td></tr></tbody></table><p>参考：<a href="https://dzone.com/articles/java-what-limit-number-threads" target="_blank" rel="noopener">Java: What is the Limit to the Number of Threads You Can Create?</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="安装-JDK-环境"><a href="#安装-JDK-环境" class="headerlink" title="安装 JDK 环境"></a>安装 JDK 环境</h2><h3 id="在-Mac-下"><a href="#在-Mac-下" class="headerlink" title="在 Mac 下"></a>在 Mac 下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装 JDK 8</span><br><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装最新版本</span><br><span class="line">brew cask install java</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 使用 jenv 管理 JDK 版本</span><br><span class="line">brew install jenv</span><br><span class="line">ls -1 /Library/Java/JavaVirtualMachines </span><br><span class="line">mkdir ~/.jenv/versions</span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/</span><br><span class="line">jenv versions</span><br><span class="line">jenv global 1.8</span><br><span class="line">java -version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 检测 jenv 是否正常安装</span><br><span class="line">jenv doctor</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 在 zsh 中启用</span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="meta">#</span># 在末尾追加</span><br><span class="line">export JENV_ROOT="/usr/local/opt/jenv"</span><br><span class="line">if which jenv &gt; /dev/null; then eval "$(jenv init -)"; fi</span><br><span class="line"><span class="meta">#</span># 使其生效</span><br><span class="line">source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 设置 Java Home</span><br><span class="line">jenv enable-plugin export</span><br><span class="line">exec $SHELL -l</span><br><span class="line">echo $&#123;JAVA_HOME&#125;</span><br></pre></td></tr></table></figure><h2 id="What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create"><a href="#What-is-the-Limit-to-the-Number-of-Threads-You-Can-Create" class="headerlink" title="What is the Limit to the Number of Threads You Can Create?"></a>What is the Limit to the Number of Threads You Can Create?</h2><p>The time it takes to create a thread increases as you create more thread. For the 32-bit JVM, the stack size appears to limit the number of threads you can create. This may be due to the limited address space. In any case, the memory used by each thread’s stack add up. If you have a stack of 128KB and you have 20K threads it will use 2.5 GB of virtual memory.</p><table><thead><tr><th style="text-align:left">Bitness</th><th style="text-align:left">Stack Size</th><th style="text-align:left">Max threads</th></tr></thead><tbody><tr><td style="text-align:left">32-bit</td><td style="text-align:left">64K</td><td style="text-align:left">32,073</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">128K</td><td style="text-align:left">20,549</td></tr><tr><td style="text-align:left">32-bit</td><td style="text-align:left">256K</td><td style="text-align:left">11,216</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">64K</td><td style="text-align:left">stack too small</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">128K</td><td style="text-align:left">32,072</td></tr><tr><td style="text-align:left">64-bit</td><td style="text-align:left">512K</td><td style="text-align:left">32,072</td></tr></tbody></table><p>参考：<a href="https://dzone.com/articles/java-what-limit-number-threads" target="_blank" rel="noopener">Java: What is the Limit to the Number of Threads You Can Create?</a></p><h2 id="更新-Amazon-Linux-JDK-从-7-到-8"><a href="#更新-Amazon-Linux-JDK-从-7-到-8" class="headerlink" title="更新 Amazon Linux JDK 从 7 到 8"></a>更新 Amazon Linux JDK 从 7 到 8</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install java-1.8.0</span><br><span class="line">sudo yum remove java-1.7.0-openjdk</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -564,89 +623,6 @@
       <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
     
       <category term="狄兰·托马斯" scheme="https://linlshare.github.io/tags/%E7%8B%84%E5%85%B0%C2%B7%E6%89%98%E9%A9%AC%E6%96%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>蒲柏</title>
-    <link href="https://linlshare.github.io/2018/12/30/literature/%E8%92%B2%E6%9F%8F/"/>
-    <id>https://linlshare.github.io/2018/12/30/literature/蒲柏/</id>
-    <published>2018-12-30T15:20:22.000Z</published>
-    <updated>2019-01-13T11:37:46.608Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>原名</td><td>Alexander Pope</td></tr><tr><td>译名</td><td>亚历山大·蒲柏</td></tr><tr><td>出生地</td><td>英格兰伦敦</td></tr><tr><td>生卒</td><td>1688年5月21日-1744年5月30日</td></tr><tr><td>风格</td><td>英雄双行体</td></tr><tr><td>身份</td><td>诗人</td></tr><tr><td>代表作</td><td>《批评论》、《夺发记》、《伊利亚特》译本</td></tr><tr><td>受影响于</td><td>荷马、乔叟、莎士比亚等等</td></tr><tr><td>影响力</td><td>18世纪英国最伟大的诗人；影响了拜伦等诗人</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;原名&lt;/td&gt;
-&lt;td&gt;Alexander Pope&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;译名&lt;/td&gt;
-&lt;td&gt;
-      
-    
-    </summary>
-    
-      <category term="literature" scheme="https://linlshare.github.io/categories/literature/"/>
-    
-    
-      <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
-    
-      <category term="蒲柏" scheme="https://linlshare.github.io/tags/%E8%92%B2%E6%9F%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>荷马</title>
-    <link href="https://linlshare.github.io/2018/12/30/literature/%E8%8D%B7%E9%A9%AC/"/>
-    <id>https://linlshare.github.io/2018/12/30/literature/荷马/</id>
-    <published>2018-12-30T15:01:23.000Z</published>
-    <updated>2019-01-13T11:37:46.607Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>原名</td><td>Ὅμηρος</td></tr><tr><td>译名</td><td>荷马</td></tr><tr><td>国籍</td><td>古希腊</td></tr><tr><td>生卒</td><td>不详，约莫公元前8世纪</td></tr><tr><td>风格</td><td>荷马史诗</td></tr><tr><td>身份</td><td>吟游诗人</td></tr><tr><td>代表作</td><td>《伊利亚特》（希腊语：Ιλιάς，转写：Iliás）、《奥德赛》（古希腊语：Ὀδύσσεια，转写：Odýsseia，英语：Odyssey）</td></tr><tr><td>影响力</td><td>荷马被称为欧洲四大史诗诗人之一或之首（另外三人为维吉尔、但丁、米尔顿）；但丁称荷马为“诗人之王”</td></tr></tbody></table><h2 id="荷马史诗"><a href="#荷马史诗" class="headerlink" title="荷马史诗"></a>荷马史诗</h2><p>荷马史诗具有以下特质：</p><ol><li>轻快迅捷；</li><li>语言风格平易直接；</li><li>思想平易直接；</li><li>高贵。</li></ol><h2 id="《伊利亚特》"><a href="#《伊利亚特》" class="headerlink" title="《伊利亚特》"></a>《伊利亚特》</h2><p>被发现于18世纪的荷马史诗《伊利亚特》长15,693行，叙述希腊联军围攻小亚细亚的城市特洛伊（又称伊利昂、伊利亚特）的故事，以希腊联军统帅阿伽门农和猛将阿基里斯的争吵为中心，集中描写了战争结束前五十天发生的事情。</p><p>内容：《伊利亚特》叙述了特洛伊战争第十年（也是最后一年）中几个星期的活动。史诗以阿基里斯和阿伽门农的争吵开始，以赫克托耳的葬礼结束，故事的背景和最终的结局都没有直接叙述。 在希腊联军中，只有阿基里斯才是赫克托尔的对手，因此他拒绝参战就必然引起希腊联军的失利。希腊联军在此情况下抵御不了特洛亚军队的反攻，只好退而固守海滨的战船，在那里构筑了防守性的壁垒。阿伽门农这时后悔自己对阿基里斯不公，只好派奥德修和另一位希腊将领去向他求和。可是他愤怒未消，坚决不答应回到战争。阿基里斯只是在特洛亚军队已经突破希腊联军的壁垒纵火焚烧他们的战船的十分危急的情况下，才把他的盔甲和战马借给他的好友帕特洛克罗斯，让帕特洛克罗斯前去应敌。帕特洛克罗斯虽然击退了特洛亚军队的攻击，但终为赫克托耳所杀，因此阿基里斯借给他的盔甲也丢掉了，这盔甲原是他的母亲忒提斯女神请匠神制造的。战友之死与盔甲被丢引起阿基里斯的第二次愤怒，而使他与阿伽门农和解，并且在他母亲请匠神给他制造了一副新盔甲之后，重新回到战争，最后杀死了赫克托耳，取得了决定性的胜利。</p><h3 id="蒲柏译本"><a href="#蒲柏译本" class="headerlink" title="蒲柏译本"></a>蒲柏译本</h3><h3 id="罗念生、王焕之译本"><a href="#罗念生、王焕之译本" class="headerlink" title="罗念生、王焕之译本"></a>罗念生、王焕之译本</h3><h2 id="《奥德赛》"><a href="#《奥德赛》" class="headerlink" title="《奥德赛》"></a>《奥德赛》</h2><p>《奥德赛》共12,105行，叙述伊塔卡王奥德修斯（又称奥德赛斯、罗马神话中的尤利西斯）在攻陷特洛伊后归国途中十年漂泊的故事，集中描写的是这十年中最后一年零几十天的事情。</p><p>内容：主要是连接伊利亚特的剧情，话说经过特洛伊战争之后，在希腊军回家途中，因为英雄奥德修斯（Odysseus）激怒海神波赛顿，所以波赛顿降临灾祸于他，使他们遇到海难，全军覆没。奥德修斯虽因机智和勇敢逃过一劫，但波赛顿的愤怒未息，故使奥德修斯找不到回家的航线而在大海里漂流。而另一方面他的妻子不知奥德修斯的生死，面对着蛮横的求婚者就只有苦等着丈夫的回来。最后在诸神的帮忙下，经过十年漂流生活的奥德修斯终于回到家里与他的妻子团聚，并与儿子和仆人联手杀死了求婚者。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/%E8%8D%B7%E9%A9%AC" target="_blank" rel="noopener">荷马 - 维基百科</a></li><li><a href="https://zh.wikipedia.org/wiki/%E4%BC%8A%E5%88%A9%E4%BA%9A%E7%89%B9" target="_blank" rel="noopener">伊利亚特 - 维基百科</a></li><li><a href="http://www.spph.com.cn/jiaoyu/bkview.asp?bkid=226400&amp;cid=683352" target="_blank" rel="noopener">《伊利亚特》的译本 - 上海人民出版社</a></li><li><a href="https://zh.wikipedia.org/wiki/%E5%A5%A5%E5%BE%B7%E8%B5%9B" target="_blank" rel="noopener">奥德赛 - 维基百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;原名&lt;/td&gt;
-&lt;td&gt;Ὅμηρος&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;译名&lt;/td&gt;
-&lt;td&gt;荷马&lt;/td&gt;
-
-      
-    
-    </summary>
-    
-      <category term="literature" scheme="https://linlshare.github.io/categories/literature/"/>
-    
-    
-      <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
-    
-      <category term="荷马" scheme="https://linlshare.github.io/tags/%E8%8D%B7%E9%A9%AC/"/>
     
   </entry>
   
