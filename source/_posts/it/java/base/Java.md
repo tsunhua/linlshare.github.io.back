@@ -56,3 +56,11 @@ The time it takes to create a thread increases as you create more thread. For th
 | 64-bit  | 512K       | 32,072          |
 
 参考：[Java: What is the Limit to the Number of Threads You Can Create?](https://dzone.com/articles/java-what-limit-number-threads)
+
+## 更新 Amazon Linux JDK 从 7 到 8
+
+```shell
+sudo yum install java-1.8.0
+sudo yum remove java-1.7.0-openjdk
+```
+

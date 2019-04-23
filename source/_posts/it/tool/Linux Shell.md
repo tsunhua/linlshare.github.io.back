@@ -300,6 +300,12 @@ tar 代表未压缩的 tar 文件，已经压缩的 tar 文件会附加压缩文
 > tar -czvf out.tar.gz c_file d_dir
 ```
 
+#### gunzip 解压文件
+
+gzip -d all.gz
+
+gunzip all.gz
+
 #### awk 文本分析
 
 文本处理语言和工具，用于在文件中查找与模式匹配的行并在这些行上执行指定的操作，名称取自三位创始人 Alfred **A**ho，Peter **W**einberger, 和 Brian **K**ernighan 的 Family Name 的首字符。可参见 [AWK程序设计语言](https://awk.readthedocs.io/en/latest/index.html) 、 [awk命令 - IBM](https://www.ibm.com/support/knowledgecenter/zh/ssw_aix_72/com.ibm.aix.cmds1/awk.htm)  以及 [Linux awk 命令 - runoob.com](http://www.runoob.com/linux/linux-comm-awk.html) 进行完整的学习。下面简单介绍下语法：

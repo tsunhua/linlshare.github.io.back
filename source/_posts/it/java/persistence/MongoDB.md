@@ -31,7 +31,7 @@ $ export PATH={MONGODB_DIR}/bin:$PATH
 
 ```shell
 # {mongo_db_file_path} 为指定的数据库文件存放位置，不支持~符号。如果使用默认位置 /data/db ，也需要先手动创建。
-$ mongod --dbpath={mongo_db_file_path}
+$ mongod --dbpath={mongo_db_file_path} --bind_ip_all --fork --logpath ./mongo.log
 ```
 
 ## 终端连接
@@ -170,6 +170,8 @@ db.a_collection.remove({"a_key": "a_value"})
 db.a_collection.createIndex({"a_key": 1,"c_key": -1},{unique: true,background: true})
 # 查询所有索引
 db.a_collection.getIndexes()
+# 删除索引
+db.a_collection.dropIndex({"a_key":1})
 ```
 
 ##  Java 操作
@@ -325,6 +327,18 @@ mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存�
 
 ```shell
 mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 --drop 文件存在路径
+```
+
+当为还原 bson 文件为
+
+```shell
+mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 --drop bson文件路径 -d 表名
+```
+
+## 数据库迁移
+
+```shell
+db.copyDatabase("db_to_rename","db_renamed","localhost")
 ```
 
 ## Q&A

@@ -114,6 +114,32 @@ XPath 支持使用 and 交并两个过滤条件过滤的元素。
 
  表示获取 `div` 节点下的具备有属性为 `href `且值为 `stargazers` 结尾的 `a` 节点的文本内容。
 
+### 针对不规范的 XML 语法
+
+素材：
+
+```html
+<a>
+  <img src="xxx">
+</a>
+```
+
+XPath:
+
+```
+//a/img/@src
+```
+
+错误提示：
+
+```
+Unable to perform XPath operation. The element type "img" must be terminated by the matching end-tag "</img>".
+```
+
+解决方式：
+
+
+
 ## 测试我的 Xpath（Test Xpath）
 
  可以使用 freeformatter.com 上提供的 [Xpath Tester](https://www.freeformatter.com/xpath-tester.html) 进行在线测试。
