@@ -34,6 +34,10 @@ cd kafka_2.11-2.1.0
 bin/zookeeper-server-start.sh config/zookeeper.properties
 # 启动 kafka，默认监听端口 9092
 bin/kafka-server-start.sh config/server.properties
+
+# 启动 zookeeper & kafka，以守护进程方式
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+bin/kafka-server-start.sh -daemon config/server.properties
 ```
 
 ### 停止
@@ -70,6 +74,12 @@ bin/kafka-topics.sh --list --zookeeper localhost:2181
 bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic a_topic
 ```
 
+### 查看消费组情况(新版)
+
+```shell
+./kafka-consumer-groups.sh --bootstrap-server 172.16.0.4:9092 --describe --group console-consumer-85731
+```
+
 ## 进一步学习
 
 ### Kafka Client 消息接收的三种模式
@@ -98,6 +108,32 @@ Adding partitions succeeded!
 
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
+
+## 监控
+
+kafka 版本要求 <=1.1.0 ( wget "https://archive.apache.org/dist/kafka/1.1.0/kafka_2.11-1.1.0.tgz" )
+
+可以通过 [Morningstar/**kafka-offset-monitor**](Morningstar/**kafka-offset-monitor** )  监控  Kafka 偏移量，具体是
+
+1. 下载 [Jar](https://github.com/Morningstar/kafka-offset-monitor/releases/latest)
+
+2. 运行
+
+   ```shell
+   java -Djava.security.auth.login.config=conf/server-client-jaas.conf \
+   	-cp KafkaOffsetMonitor-assembly-0.4.6-SNAPSHOT.jar \
+          com.quantifind.kafka.offsetapp.OffsetGetterWeb \
+        --offsetStorage kafka \
+        --kafkaBrokers kafkabroker01:6667,kafkabroker02:6667 \
+        --kafkaSecurityProtocol SASL_PLAINTEXT \
+        --zk zkserver01,zkserver02 \
+        --port 8081 \
+        --refresh 10.seconds \
+        --retain 2.days \
+        --dbName offsetapp_kafka
+   ```
+
+3. 通过 http://{{HOST}}:9090 打开 web 页面监控。
 
 ## 排错
 

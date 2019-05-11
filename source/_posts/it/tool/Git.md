@@ -137,6 +137,17 @@ $ git push origin :dev-sth
 $ git push origin --delete dev-sth
 ```
 
+### 重命名分支
+
+```shell
+# 本地分支重命名
+git branch -m dev-old dev-new
+# 删除远程分支
+$ git push origin :dev-old
+# 推送到远程
+git push origin dev-new:dev-new
+```
+
 ### 撤销 git commit 但未 git push 的修改
 
 ```shell

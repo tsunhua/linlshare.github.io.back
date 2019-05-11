@@ -377,6 +377,9 @@ Pattern 支持：
 
 ```shell
 ssh server-a "cat ~/test.txt" > ~/Desktop/test.txt;scp ~/Desktop/run.sh server-b:~/test.txt
+
+# scp
+ scp root@172.34.2.7:/root/apps/web/app.mdeploy.config ~/Downloads
 ```
 
 ### Tree 命令中文乱码

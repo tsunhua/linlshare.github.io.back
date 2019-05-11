@@ -114,6 +114,8 @@ XPath 支持使用 and 交并两个过滤条件过滤的元素。
 
  表示获取 `div` 节点下的具备有属性为 `href `且值为 `stargazers` 结尾的 `a` 节点的文本内容。
 
+## 问题解决
+
 ### 针对不规范的 XML 语法
 
 素材：
@@ -138,7 +140,19 @@ Unable to perform XPath operation. The element type "img" must be terminated by 
 
 解决方式：
 
+使用正则！
 
+### 解析包含多个 class 的文本
+
+问题：
+
+> class为'a b c',对于a,b,c中的一个或者多个组合都能匹配到。
+>
+> — 来自 [Issue #815：使用xpath爬取，貌似默认情况下会使用模糊匹配](https://github.com/code4craft/webmagic/issues/815)
+
+解决方案：
+
+尽量使用特有的 class！如有有意义的 id，则用 id。
 
 ## 测试我的 Xpath（Test Xpath）
 

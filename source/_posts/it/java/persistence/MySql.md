@@ -7,10 +7,19 @@ comments: true
 
 ## 安装
 
-mac下安装mysql
+mac下安装mysql 5.7，参考：<https://gist.github.com/operatino/392614486ce4421063b9dece4dfe6c21>
 
 ```Shell
-brew install mysql
+brew info mysql@5.7
+brew install mysql@5.7
+
+brew tap homebrew/services
+brew services start mysql@5.7
+brew services list
+brew link mysql@5.7 --force
+mysql -V
+
+mysqladmin -u root password 'yourpassword'
 ```
 
 ## 启动和停止
