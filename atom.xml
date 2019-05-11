@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-04-23T03:35:10.943Z</updated>
+  <updated>2019-05-11T15:01:33.886Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -17,20 +17,183 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySql</title>
-    <link href="https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/"/>
-    <id>https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/</id>
-    <published>2019-04-23T03:35:09.000Z</published>
-    <updated>2019-04-23T03:35:10.943Z</updated>
+    <title>《人月神话》读后</title>
+    <link href="https://linlshare.github.io/2019/05/11/it/pm/%E3%80%8A%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E3%80%8B%E8%AF%BB%E5%90%8E/"/>
+    <id>https://linlshare.github.io/2019/05/11/it/pm/《人月神话》读后/</id>
+    <published>2019-05-11T13:39:27.000Z</published>
+    <updated>2019-05-11T15:01:33.886Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>mac下安装mysql</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure><h2 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">mysql.server stop</span><br></pre></td></tr></table></figure><h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password "new_password"</span><br></pre></td></tr></table></figure><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure><h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><ol><li>默认的端口号为 3306</li><li>Mac下简单易用的MySql管理工具：Sequel Pro</li></ol><h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><h3 id="Sequel-Pro-and-MySQL-connection-failed"><a href="#Sequel-Pro-and-MySQL-connection-failed" class="headerlink" title="Sequel Pro and MySQL connection failed"></a><a href="https://stackoverflow.com/questions/51179516/sequel-pro-and-mysql-connection-failed" target="_blank" rel="noopener">Sequel Pro and MySQL connection failed</a></h3><p><strong>问题描述：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQL said: Authentication plugin &apos;caching_sha2_password&apos; cannot be loaded: dlopen(/usr/local/lib/plugin/caching_sha2_password.so, 2): image not found</span><br></pre></td></tr></table></figure><p><strong>解决方案：</strong></p><p>This is because Sequel Pro is not ready yet for a new kind of user login, as the error states: there is no driver. Quick fix for non-homebrew installs:</p><p><code>Apple Logo &gt; System Preferences &gt; MySQL &gt; Initialize Database</code>, then type your new password and select ‘Use legacy password’</p><p>After restart you should be able to connect. Do it only on fresh installs, because you may lost your db tables otherwise.</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><h3 id="第一章-焦油坑"><a href="#第一章-焦油坑" class="headerlink" title="第一章 焦油坑"></a>第一章 焦油坑</h3><p>本章讲述了编程的产出以及编程的乐趣和苦恼。</p><p>编程的产出包含以下四种：</p><ol><li>程序，完整、可运行</li><li>编程产品，通用化、测试、文档和维护，成本是程序成本的 3 倍</li><li>编程系统，精心编制、IO 在语法和语义上与定义严格一致、符合预定义的资源限制等，成本是程序成本的 3 倍</li><li>编程系统产品，编程产品+编程系统，成本是程序成本的 9 倍</li></ol><p>编程的乐趣有：</p><ol><li>创造的快乐</li><li>利他的快乐</li><li>组装的快乐</li><li>持续学习的快乐</li><li>计算机的一致性确定性</li></ol><p>编程的苦恼有：</p><ol><li>编程不能有一丝疏忽</li><li>由他人制定目标、供给资源和提供信息</li><li>寻找琐碎的 bug</li><li>产品易于过时</li></ol><h3 id="第二章-人月神话"><a href="#第二章-人月神话" class="headerlink" title="第二章 人月神话"></a>第二章 人月神话</h3><p>本章指出软件项目进度滞后的原因是缺乏合理的进度安排，而缺乏合理的进度安排的原因是：</p><ol><li>对估算技术缺乏有效的研究，过于乐观主义</li><li>采用的估算技术不科学，将进度与工作量混淆，以为人月可互换</li><li>对估算缺乏信心，无法持续进行估算</li><li>对进度缺少跟踪和监督</li><li>当进度偏移时下意识地增加人力</li></ol><blockquote><p>用人月作为衡量一项工作的规模是一个危险和带有欺骗性的神话。 — 布鲁克斯(Brooks)</p></blockquote><p>这是因为，</p><ol><li>任务有先后次序</li><li>任务之间有相互沟通和交流的任务</li></ol><p>按照 Brooks 的经验，软件项目中的合理进度安排为：</p><blockquote><p>1/3 计划</p><p>1/6 编码</p><p>1/4 构建测试和早期系统测试</p><p>1/4 系统测试，所有的构件已完成</p></blockquote><p>可靠估算的基础是团队间共享的生产率图表、缺陷率图表和估算规则。</p><p>当项目进度落后时，再增加人手会使项目更加落后。因为增加的人手免不了培训和沟通的时间成本。</p><h3 id="第三章-外科手术队伍"><a href="#第三章-外科手术队伍" class="headerlink" title="第三章 外科手术队伍"></a>第三章 外科手术队伍</h3><p>本章在尝试解决这样的一个问题：如何高效地完成一个大型软件项目？</p><ol><li>系统应该由少数优秀程序员设计，因为优秀的程序员生产率高，少数能降低协作沟通成本，保证系统概念的完整性；</li><li>建立外科手术队伍。</li></ol><p>外科手术队伍由以下角色组成：</p><ol><li>外科医生，首席程序员，定义功能和性能技术说明书，设计程序，编制源代码，测试以及书写技术文档；</li><li>副手，作为设计的思考者、讨论者和评估人员；</li><li>管理员及其文秘，外科医生的老板，决定人员、薪酬和办公空间；</li><li>程序职员，维护编程产品库中所有团队的技术记录，包括运行情况存档；</li><li>工具维护人员，保证基本服务的可靠性；</li><li>测试人员，设计用例，设计调试数据，搭建测试平台；</li><li>编辑及其文秘，负责文档生成和版本维护；</li><li>语言专家，寻找一种简洁有效的使用语言的方法解决复杂、晦涩或棘手的问题。</li></ol><p>具体运作时要求：</p><ol><li>外科医生和副手要了解所有的设计和全部代码；</li><li>其余人按职能专业化分工，只需要简单而少量的交流成本。</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;mac下安装mysql&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+        &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;h3 id=&quot;第一章-焦油坑&quot;&gt;&lt;a href=&quot;#第一章-焦油坑&quot; class=&quot;headerlink&quot; title=&quot;第一章 焦油坑&quot;&gt;&lt;/
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="pm" scheme="https://linlshare.github.io/categories/it/pm/"/>
+    
+    
+      <category term="人月神话" scheme="https://linlshare.github.io/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/"/>
+    
+      <category term="项目管理" scheme="https://linlshare.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ATM</title>
+    <link href="https://linlshare.github.io/2019/05/10/word/ATM/"/>
+    <id>https://linlshare.github.io/2019/05/10/word/ATM/</id>
+    <published>2019-05-10T08:39:36.000Z</published>
+    <updated>2019-05-10T08:40:11.660Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="https://en.wikipedia.org/wiki/Automated_teller_machine" target="_blank" rel="noopener">Automated teller machine</a>, a cash dispenser or cash machine</li><li><a href="https://en.wikipedia.org/wiki/Asynchronous_transfer_mode" target="_blank" rel="noopener">Asynchronous transfer mode</a>, a telecommunications protocol used in networking</li><li><a href="https://en.wikipedia.org/wiki/Atmosphere_(unit" target="_blank" rel="noopener">Atmosphere (unit)</a>) or atm, a unit of atmospheric pressure</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Automated_teller_machine&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Automated teller machine&lt;/a&gt;, a cas
+      
+    
+    </summary>
+    
+      <category term="word" scheme="https://linlshare.github.io/categories/word/"/>
+    
+    
+      <category term="ATM" scheme="https://linlshare.github.io/tags/ATM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ADSL ProxyPool</title>
+    <link href="https://linlshare.github.io/2019/05/10/it/robot/ADSL%20ProxyPool/"/>
+    <id>https://linlshare.github.io/2019/05/10/it/robot/ADSL ProxyPool/</id>
+    <published>2019-05-10T07:12:24.000Z</published>
+    <updated>2019-05-10T12:15:37.550Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="ADSL-技术"><a href="#ADSL-技术" class="headerlink" title="ADSL 技术"></a>ADSL 技术</h3><p><strong>ADSL</strong> (<strong>A</strong>symmetric <strong>D</strong>igital <strong>S</strong>ubscriber <strong>L</strong>ine，非对称数字用户线路) 技术。</p><p>采用频分多路复用技术把普通电话线分成电话、上行和下行三个相对独立的信道，信道之间不会互相干扰。</p><p>技术局限：</p><ol><li>在不影响正常通话通信情况下，上行速度最高 3.5Mbps</li><li>在不影响正常通话通信情况下，下行速度最高 24Mbps</li><li>电信服务提供商接入设备和用户终端之间的距离不能超过 5 公里</li></ol><p>网络登录标准：</p><table><thead><tr><th>标准</th><th>含义</th><th>是否提供动态 IP</th></tr></thead><tbody><tr><td>STM</td><td>Synchronous Transport Module，同步传输模块</td><td>否</td></tr><tr><td>ATM</td><td>Asynchronous Transfer Mode，异步传输模式</td><td>否</td></tr><tr><td></td><td>Packet Transfer Mode (始于 ADSL 2版本，如下)</td><td></td></tr><tr><td>PPPoA</td><td><strong>P</strong>oint-to-<strong>P</strong>oint <strong>P</strong>rotocol <strong>o</strong>ver <strong>A</strong>TM，基于 ATM 的端对端协议</td><td>是</td></tr><tr><td>PPPoE</td><td><strong>P</strong>oint-to-<strong>P</strong>oint <strong>P</strong>rotocol <strong>o</strong>ver <strong>E</strong>thernet，基于以太网的端对端协议</td><td>是</td></tr></tbody></table><p>PPP，点对点协议：</p><p>工作在数据链路层，在两个节点之间创建直接的连接，并提供认证、传输加密和压缩功能。</p><p>PPP 应用：</p><ol><li>宽带接入，拨号接入，使用 PPPoE 和 PPPOA 协议解决 IP 报文在没有数据链路协议时在调制调节器线路传输的问题；</li><li>物理网络，包括串口线、电话线、移动电话和光纤等。</li></ol><blockquote><p>宽带（Broadband）：</p><ol><li>OECD2006年报告称，任何传输速率在256Kbps以上的互联网连接，可称为宽带。</li><li>FCC解释，任何传输速率在4Mbps以上的互联网连接，可称为宽带。</li></ol></blockquote><p>PPPoE：</p><p>将 PPP 协议封装在以太网框架中的一种网络隧道协议。</p><ul><li>有登录和口令，方便计费；</li><li>当连接时分配 IP 地址，方便 IP 地址动态复用。</li></ul><h3 id="动态拨号-VPS"><a href="#动态拨号-VPS" class="headerlink" title="动态拨号 VPS"></a>动态拨号 VPS</h3><p>VPS (Virtual Private Server，虚拟专用服务器)，将一台服务器分割成多个虚拟专享服务器的服务。</p><p>动态拨号 VPS 是基于 ADSL 拨号上网的虚拟专用主机。</p><p>不同的动态拨号 VPS 提供商提供不同的配置方法：</p><table><thead><tr><th>动态拨号 VPS 提供商</th><th>配置方式</th></tr></thead><tbody><tr><td><a href="http://www.yunlifang.cn/dynamicvps.asp" target="_blank" rel="noopener">云立方</a></td><td>1. 运行 <code>ppp.sh</code> 脚本，输入用户名密码即可；<br>2. <code>adsl-start</code> 进行开始拨号，网卡为 ppp0；<br>3. <code>adsl-stop</code> 停止拨号。</td></tr><tr><td><a href="http://cloud.871020.com/vpsadm/pppoe.html" target="_blank" rel="noopener">无极</a></td><td>1. 运行 <code>p.sh</code> 脚本，输入用户名密码即可；<br>2. <code>pppoe-start</code> 拨号；<br>3. <code>pppoe-stop</code> 停止拨号；<br> 4. <code>pppoe-status</code> 查看拨号状态。</td></tr></tbody></table><h2 id="设置代理服务器"><a href="#设置代理服务器" class="headerlink" title="设置代理服务器"></a>设置代理服务器</h2><p>在 Linux 下搭建代理服务器有两种简单的方式，TinyProxy 和 Squid。</p><h3 id="TinyProxy"><a href="#TinyProxy" class="headerlink" title="TinyProxy"></a>TinyProxy</h3><h4 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 在 Ubuntu 下</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;h3 id=&quot;ADSL-技术&quot;&gt;&lt;a href=&quot;#ADSL-技术&quot; class=&quot;headerlink&quot; title=&quot;ADSL 技术&quot;&gt;&lt;/
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
+    
+    
+      <category term="ADSL" scheme="https://linlshare.github.io/tags/ADSL/"/>
+    
+      <category term="ProxyPool" scheme="https://linlshare.github.io/tags/ProxyPool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>五四青年节</title>
+    <link href="https://linlshare.github.io/2019/05/04/days/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82/"/>
+    <id>https://linlshare.github.io/2019/05/04/days/五四青年节/</id>
+    <published>2019-05-04T03:23:26.000Z</published>
+    <updated>2019-05-04T04:06:21.917Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>1919 年 5 月 4 日，中华民国北洋政府治下的京兆地区，爆发以青年学生为主的运动，包含市民、工商人士等各阶层人士，史称五四运动。</p><p>1939 年，在纪念五四运动20周年的时候，陕甘宁边区西北青年救国联合会决定5月4日为中国青年节（又称“五四青年节”。</p><p>1949 年，中华人民共和国政务院正式宣布5月4日为中国青年节。</p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul><li>1919 年 1 月18 日，日本驻中国公使日置益与袁世凯密谈，提出”二十一条”。</li><li>1919 年 5 月 9 日，中日签署《中日民四条约》，与《二十一条》原案比较，中国损失相较于原案已尽可能减小到最低程度。</li><li>1919 年1 月 18 日开始的巴黎和会上，中国代表团（担任团长的外交总长<a href="https://zh.wikipedia.org/wiki/陸徵祥" target="_blank" rel="noopener">陆徵祥</a>、驻美公使<a href="https://zh.wikipedia.org/wiki/顧維鈞" target="_blank" rel="noopener">顾维钧</a>、南方政府代表<a href="https://zh.wikipedia.org/wiki/王正廷" target="_blank" rel="noopener">王正廷</a>、驻英公使<a href="https://zh.wikipedia.org/wiki/施肇基" target="_blank" rel="noopener">施肇基</a>、驻比公使<a href="https://zh.wikipedia.org/wiki/魏宸组" target="_blank" rel="noopener">魏宸组</a>，秘书<a href="https://zh.wikipedia.org/wiki/朱佛定" target="_blank" rel="noopener">朱佛定</a>）虽决绝签字，但仍是外交失败，既无法取消帝国主义在华特权，也无法无法废除”二十一条”、收回山东。</li></ul><h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><ol><li>“五四运动的声势大过它的实质，五四运动的火焰大过它的成就。” — “五四之子” 殷海光</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/%E4%BA%94%E5%9B%9B%E9%9D%92%E5%B9%B4%E8%8A%82" target="_blank" rel="noopener">五四青年节 - 维基百科</a></li><li><a href="https://zh.wikipedia.org/wiki/%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8" target="_blank" rel="noopener">五四运动 - 维基百科</a></li><li><a href="https://zh.wikipedia.org/wiki/%E5%B7%B4%E9%BB%8E%E5%92%8C%E4%BC%9A_(1919%E5%B9%B4" target="_blank" rel="noopener">巴黎和会 (1919年) - 维基百科</a>)</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;起源&quot;&gt;&lt;a href=&quot;#起源&quot; class=&quot;headerlink&quot; title=&quot;起源&quot;&gt;&lt;/a&gt;起源&lt;/h2&gt;&lt;p&gt;1919 年 5 月 4 日，中华民国北洋政府治下的京兆地区，爆发以青年学生为主的运动，包含市民、工商人士等各阶层人士，史称五四运动。&lt;/p
+      
+    
+    </summary>
+    
+      <category term="days" scheme="https://linlshare.github.io/categories/days/"/>
+    
+    
+      <category term="节日" scheme="https://linlshare.github.io/tags/%E8%8A%82%E6%97%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="https://linlshare.github.io/2019/05/02/it/code/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://linlshare.github.io/2019/05/02/it/code/正则表达式/</id>
+    <published>2019-05-01T16:22:43.000Z</published>
+    <updated>2019-05-01T16:24:12.779Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="排除特定字符串"><a href="#排除特定字符串" class="headerlink" title="排除特定字符串"></a>排除特定字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">查找不以baidu开头的字符串</span><br><span class="line"></span><br><span class="line">baidu.com</span><br><span class="line">sina.com.cn</span><br><span class="line">正则：^(?!baidu).*$  匹配结果就是第2行，也就是第1行被排除了</span><br><span class="line">这里使用了零宽度断言(?!exp),注意，我们有一个向前查找的语法(也叫顺序环视)  (?=exp)</span><br><span class="line">(?=exp) 会查找exp之前的【位置】如果将等号换成感叹号，就变成了否定语义，也就是说查找的位置的后面不能是exp</span><br><span class="line">一般情况下?!要与特定的锚点相结合，例如^行开头或者$行结尾，那么上面的例子的意思如下：</span><br><span class="line">^(?!baidu).*$ 先匹配一个行开头的位置，并且要求接下来的位置的后面不是baidu这个字符串。这样由于第一行^之后的位置后面是baidu所以匹配失败，被排除在外了。</span><br><span class="line"></span><br><span class="line">回到顶部</span><br><span class="line">查找不以com结尾的字符串</span><br><span class="line"></span><br><span class="line">www.sina.com.cn</span><br><span class="line">www.educ.org</span><br><span class="line">www.hao.cc</span><br><span class="line">www.baidu.com</span><br><span class="line">www.123.com</span><br><span class="line"></span><br><span class="line">正则 ^.*?(?&lt;!com)$  匹配前3行结果。</span><br><span class="line">如果查找以com结尾的字符串则使用正则 ^.*?(?&lt;=com)$或者 ^.*?com$  </span><br><span class="line">对正则表达式的解释：^.*?(?&lt;!com)$</span><br><span class="line">首先匹配行开头，然后是 .*? 这个是忽略优先，也就是优先忽略不匹配任何字符，(?&lt;!com) 这个是一个逆序环视的否定形式，意思是匹配一个位置此位置的前面不能是字符串com，最后是一个行结束。对于www.123.com来说，首先匹配行首，接着匹配w后面的位置，发现前面不是com，所以成功但紧接着要匹配行尾，失败，回溯让.*? 匹配一个w符号，接着(?&lt;com)匹配第二个w后面的位置，发现前面也不是com匹配成功，紧接着要匹配$对应的行尾失败，一直到.*?匹配了www.baidu.com的时候，此时(?&lt;!com)匹配m后面的位置，此时此位置的前面是com匹配直接失败,接着.*?匹配行末尾，(?&lt;!com)匹配$后面的位置，显然这次也失败了，所以整个全局匹配都失败。  www.123.com被排除到匹配之外。这里的.*后面加不加问号结果都一样。</span><br><span class="line"></span><br><span class="line">回到顶部</span><br><span class="line">查找不含有if的行</span><br><span class="line"></span><br><span class="line">if (a&gt;b)</span><br><span class="line">printf(&quot;hello&quot;);</span><br><span class="line">else if(a&lt;b)</span><br><span class="line">printf(&quot;hello2&quot;);</span><br><span class="line">else</span><br><span class="line">printf(&quot;hello3&quot;);</span><br><span class="line"></span><br><span class="line">正则 ^([^f]|[^i]f)+$</span><br><span class="line">其实这个匹配也是一个排除型字符串的匹配，但是不同于上面两种，因为这里的if可能既不在行开头，也不在行结尾，而是在字符串中间这样就给匹配带来了麻烦，在正则表达式中没有提供类似排除的功能。我们最容易想到的就是下面的正则：</span><br><span class="line">^[^if]+$ 这种写法看起来是那么回事，但是排除型字符组排除的是i和f两个字符，而不是if这个字符串，所以这个正则表达式匹配的是那些既没有i字符也不包含f字符的字符串。但是如果字符串中有一个i或多个i或者有一个或多个f，或者i和f字符都有只不过没有连在一起。这些情况都是我们需要匹配的情况，而我们不能匹配的情况是那些包含if字符串的行，而不是包含i或f字符的行，所以这种写法漏洞很大。</span><br><span class="line"></span><br><span class="line">^.*(?!if).*$ 这种写法使用了零宽度断言，表面意思看起来好像是说 任意字符+非if+任意字符 组成了整个字符串，但是仔细研究匹配过程就知道这个是错的，(?!if)匹配的是一个位置，所以对于字符串aifb他也是可以匹配到的，而实际上这样的字符正是我们不要的。按照这个正则表达式，对于aifb 首先匹配行首，其次.*是贪婪模式(匹配优先)，会一直匹配到字符串的末尾(此时传动装置定位在$位置前面)，此时(?!if)需要匹配一个位置，这个位置的后面不能是if，这个时候正好位置在b字符的后面，符合匹配条件，紧接着匹配行尾，到这里整个全局匹配成功。</span><br><span class="line"></span><br><span class="line">也就是说对于一个字符串例如我要排除abc这个字串，那么对于任意一个字符串   helloworld abc helloworld 在匹配的时候(?!abc)可以匹配h、e、l、l、o、w、o、r、l、d等这些字符后面的位置，都是成功的。所以匹配根本还没有进行到abc这个地方，(?!abc)就会匹配成功。这个时候根本起不到排除的作用，为什么上面的第1和第2个例子可以呢，因为他们的位置有行首和行尾限定。例如我要匹配行首不是abc的话，那么此时^(?!abc) 这个时候(?!abc)实际上在匹配的时候其传动装置的位置被行首进行了限定,所以对于那些以abc开头的字符串来说就会匹配失败了。</span><br><span class="line"></span><br><span class="line">对于正则表达式^.*(?!abc).*$怎么能让第一个.*匹配到 helloworldabcxxx中的helloworld的问题。</span><br><span class="line"></span><br><span class="line">对于上面的题目，我们的答案是^([^f]|[^i]f)+$  其实就将所有的匹配分成了2种情况，一种情况是假设字符串中没有f字符，    自然就不可能有if字符串了，这种情况下匹配的字符串中是不可能有if的。第二种情况就是有f字符，但是我们要求此时f的前面不能是i，所以在有f和没有f两种情况都考虑到的情况下，这个正则就应该可以满足所有的情况了。</span><br><span class="line"></span><br><span class="line">其实这个问题的解答是不完美的，对于排除的字符串if只有2个字符i和f字符，我们可以使用这种方式，但是如果我们要排除的是字符串helloworld，这种方法显然就不实用了，那要考虑到多少种情况呢?</span><br><span class="line"></span><br><span class="line">排除不含有某字符串的最终方案：在这种情况下我们使用  ^(?!.*helloworld).*$  正则表达式  我们将第一个.*移到了零宽度断言的里面。在匹配的时候首先匹配行首的位置，然后接下来是匹配行首后面的位置，要求此位置的后面不能是    .*helloworld 匹配的字符串，说白了要求此位置的后面不能是xxxxxxxxxxxxxxxxxxhelloworld 类似的字符串，这样就排除了从行首开始后面含有helloworld的情况了。</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.cnblogs.com/wangqiguo/archive/2012/05/08/2486548.html" target="_blank" rel="noopener">利用正则表达式排除特定字符串 - 薰衣草的旋律</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;排除特定字符串&quot;&gt;&lt;a href=&quot;#排除特定字符串&quot; class=&quot;headerlink&quot; title=&quot;排除特定字符串&quot;&gt;&lt;/a&gt;排除特定字符串&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="code" scheme="https://linlshare.github.io/categories/it/code/"/>
+    
+    
+      <category term="正则表达式" scheme="https://linlshare.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 基础</title>
+    <link href="https://linlshare.github.io/2019/04/28/it/android/Android%20%E5%9F%BA%E7%A1%80/"/>
+    <id>https://linlshare.github.io/2019/04/28/it/android/Android 基础/</id>
+    <published>2019-04-28T05:25:35.000Z</published>
+    <updated>2019-04-28T07:46:42.610Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="1-四大组件"><a href="#1-四大组件" class="headerlink" title="1 四大组件"></a>1 四大组件</h2><p>需要在 <code>AndroidMenifest.xml</code> 中声明，通过 Intent 调用。</p><h3 id="1-1-Activity"><a href="#1-1-Activity" class="headerlink" title="1.1 Activity"></a>1.1 Activity</h3><h4 id="1-1-1-定义"><a href="#1-1-1-定义" class="headerlink" title="1.1.1 定义"></a>1.1.1 定义</h4><blockquote><p>An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with <code>setContentView(View)</code>. While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows (via a theme with <code>R.attr.windowIsFloating</code> set) or embedded inside of another activity (using <code>ActivityGroup</code>).</p><p>— <a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><h4 id="1-1-2-生命周期"><a href="#1-1-2-生命周期" class="headerlink" title="1.1.2 生命周期"></a>1.1.2 生命周期</h4><blockquote><p>参见：<a href="https://developer.android.com/guide/components/activities/activity-lifecycle#java" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities/activity-lifecycle#java</a></p></blockquote><p><img src="/2019/04/28/it/android/Android 基础/activity_lifecycle.png" alt="activity_lifecycle"></p><h4 id="1-1-3-启动一个-Activity"><a href="#1-1-3-启动一个-Activity" class="headerlink" title="1.1.3 启动一个 Activity"></a>1.1.3 启动一个 Activity</h4><blockquote><p>参见：<a href="https://developer.android.com/training/basics/activity-lifecycle/starting.html" target="_blank" rel="noopener">https://developer.android.com/training/basics/activity-lifecycle/starting.html</a></p></blockquote><p>(1) Activity 启动流程</p><p><img src="/2019/04/28/it/android/Android 基础/basic-lifecycle.png" alt="basic-lifecycle"></p><p>(2) 指定一个Launcher Activity</p><p>Launcher(or Main) Activity（启动器 Activity，或主 Activity）：应用用户界面的主入口，在 Android 清单文件 <a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" target="_blank" rel="noopener"><code>AndroidManifest.xml</code></a> 中定义，如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span> <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure><p>(3) 创建一个新实例</p><ol><li>创建 Activity；</li><li>在 <code>AndroidManifest.xml</code> 中声明；</li><li>创建对应的布局文件(可选)；</li><li>处理生命周期方法。</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">TextView mTextView; <span class="comment">// Member variable for text view in the layout</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Set the user interface layout for this Activity</span></span><br><span class="line">    <span class="comment">// The layout file is defined in the project res/layout/main_activity.xml file</span></span><br><span class="line">    setContentView(R.layout.main_activity);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Initialize member TextView so we can manipulate it later</span></span><br><span class="line">    mTextView = (TextView) findViewById(R.id.text_message);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Make sure we're running on Honeycomb or higher to use ActionBar APIs</span></span><br><span class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) &#123;</span><br><span class="line">        <span class="comment">// For the main activity, make sure the app icon in the action bar</span></span><br><span class="line">        <span class="comment">// does not behave as a button</span></span><br><span class="line">        ActionBar actionBar = getActionBar();</span><br><span class="line">        actionBar.setHomeButtonEnabled(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-2-Service"><a href="#1-2-Service" class="headerlink" title="1.2 Service"></a>1.2 Service</h3><h4 id="1-2-1-定义"><a href="#1-2-1-定义" class="headerlink" title="1.2.1 定义"></a>1.2.1 定义</h4><blockquote><p><code>Service</code> 是一个可以在后台执行长时间运行操作而不提供用户界面的应用组件。服务可由其他应用组件启动，而且即使用户切换到其他应用，服务仍将在后台继续运行。 此外，组件可以绑定到服务，以与之进行交互，甚至是执行进程间通信 (IPC)。 例如，服务可以处理网络事务、播放音乐，执行文件 I/O 或与内容提供程序交互，而所有这一切均可在后台进行。</p><p>— <a href="https://developer.android.com/guide/components/services" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><h4 id="1-2-2-使用场景"><a href="#1-2-2-使用场景" class="headerlink" title="1.2.2 使用场景"></a>1.2.2 使用场景</h4><p><strong>用户未与应用进行交互但需在后台运行时</strong></p><blockquote><p> 如需在主线程外部执行工作，不过只是在用户正在与应用交互时才有此需要，则应创建新线程而非服务。 例如，如果您只是想在 Activity 运行的同时播放一些音乐，则可在 <code>onCreate()</code> 中创建线程，在 <code>onStart()</code> 中启动线程，然后在 <code>onStop()</code> 中停止线程。您还可以考虑使用 <code>AsyncTask</code> 或 <code>HandlerThread</code>，而非传统的 <code>Thread</code>类。如需了解有关线程的详细信息，请参阅<a href="https://developer.android.com/guide/components/processes-and-threads.html#Threads" target="_blank" rel="noopener">进程和线程</a>文档。</p><p>请记住，如果您确实要使用服务，则<strong>默认情况下，它仍会在应用的主线程中运</strong>行，因此，如果服务执行的是密集型或阻止性操作，则您仍应在服务内创建新线程。</p><p>— <a href="https://developer.android.com/guide/components/services" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><h4 id="1-2-3-分类"><a href="#1-2-3-分类" class="headerlink" title="1.2.3 分类"></a>1.2.3 分类</h4><ol><li><strong>启动服务</strong>，通过调用 <code>startService()</code> 启动服务时，服务即处于“启动”状态。一旦启动，服务即可在后台<strong>无限期</strong>运行，即使启动服务的组件已被销毁也不受影响。已启动的服务通常是执行单一操作，而且不会将结果返回给调用方。</li><li><strong>绑定服务</strong>，通过调用 <code>bindService()</code> 绑定到服务时，服务即处于“绑定”状态。绑定服务提供了一个客户端-服务器接口，允许组件与服务进行交互、发送请求、获取结果，甚至是利用进程间通信 (IPC) 跨进程执行这些操作。 仅当与另一个应用组件绑定时，绑定服务才会运行。 多个组件可以同时绑定到该服务，但全部取消绑定后，该服务即会被销毁。</li></ol><p>Service 下有一个重要的子类叫 <code>IntentService</code>，它使用一个工作线程队列，逐一地（<em>而不是同时处理</em>）处理所有请求，只需要实现 <code>onHandleIntent</code>方法即可。</p><h4 id="1-2-4-回调方法"><a href="#1-2-4-回调方法" class="headerlink" title="1.2.4 回调方法"></a>1.2.4 回调方法</h4><ol><li><a href="https://developer.android.com/reference/android/app/Service.html#onStartCommand(android.content.Intent, int, int" target="_blank" rel="noopener">onStartCommand()</a>)：当调用 <code>startService</code> 启动服务时，系统会调用该方法，可通过 <code>stopSelf()</code> 或 <code>stopService</code> 停止服务。（如果您只想提供绑定，则无需实现此方法。）</li><li><a href="https://developer.android.com/reference/android/app/Service.html#onBind(android.content.Intent" target="_blank" rel="noopener">onBind()</a>)：当另一个组件想通过调用 <code>bindService()</code> 与服务绑定（例如执行 RPC）时，系统将调用此方法。在此方法的实现中，您必须通过返回 <code>IBinder</code> 提供一个接口，供客户端用来与服务进行通信。请务必实现此方法，但如果您并不希望允许绑定，则应返回 null。</li><li><a href="https://developer.android.com/reference/android/app/Service.html#onCreate(" target="_blank" rel="noopener">onCreate()</a>)：首次创建服务时，系统在 <code>onStartCommand()</code> 或 <code>onBind</code> 之前调用该方法。</li><li><a href="https://developer.android.com/reference/android/app/Service.html#onDestroy(" target="_blank" rel="noopener">onDestroy()</a>)：当服务不再使用且将被销毁时，系统将调用此方法。</li></ol><h4 id="1-2-5-生命周期"><a href="#1-2-5-生命周期" class="headerlink" title="1.2.5 生命周期"></a>1.2.5 生命周期</h4><p><img src="/2019/04/28/it/android/Android 基础/service_lifecycle.png" alt="img"></p><h3 id="1-3-ContentProvider"><a href="#1-3-ContentProvider" class="headerlink" title="1.3 ContentProvider"></a>1.3 ContentProvider</h3><h3 id="1-4-BroadcastReceiver"><a href="#1-4-BroadcastReceiver" class="headerlink" title="1.4 BroadcastReceiver"></a>1.4 BroadcastReceiver</h3><h3 id="1-5-Intent"><a href="#1-5-Intent" class="headerlink" title="1.5 Intent"></a>1.5 Intent</h3><h4 id="1-5-1-定义"><a href="#1-5-1-定义" class="headerlink" title="1.5.1 定义"></a>1.5.1 定义</h4><blockquote><p>An intent is an abstract description of an operation to be performed. It can be used with <code>Context#startActivity(Intent)</code> to launch an <code>Activity</code>, <code>broadcastIntent</code> to send it to any interested <code>BroadcastReceiver</code> components, and <code>Context.startService(Intent)</code> or <code>Context.bindService(Intent, ServiceConnection, int)</code> to communicate with a background <code>Service</code>.</p><p>— <a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><h4 id="1-5-2-结构"><a href="#1-5-2-结构" class="headerlink" title="1.5.2 结构"></a>1.5.2 结构</h4><ol><li>action，操作，包括<code>ACTION_VIEW</code>, <code>ACTION_EDIT</code>, <code>ACTION_MAIN</code> 等等。</li><li>data（可选），操作值，符合  <a href="https://developer.android.com/reference/android/net/Uri.html" target="_blank" rel="noopener"><code>Uri</code></a> 规范。</li><li>category（可选），action 的附加描述，比如 <code>CATEGORY_LAUNCHER</code> 意味着它应该出现在启动器中作为顶层应用。</li><li>type（可选），指定 data 的数据类型，如不指定则系统会通过 data 进行值类型评估。</li><li>component（可选），指定使用该 Intent 的组件的类名。</li><li>extras（可选），附加的 <a href="https://developer.android.com/reference/android/os/Bundle.html" target="_blank" rel="noopener">Bundle</a> 类型数据，供 component 使用。</li></ol><h4 id="1-5-3-分类"><a href="#1-5-3-分类" class="headerlink" title="1.5.3 分类"></a>1.5.3 分类</h4><ol><li>显式 Intent，指定 component。</li><li>隐式 Intent，不指定 component。</li></ol><h4 id="1-5-4-使用示例：启动一个-Activity"><a href="#1-5-4-使用示例：启动一个-Activity" class="headerlink" title="1.5.4 使用示例：启动一个 Activity"></a>1.5.4 使用示例：启动一个 Activity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_SEND);</span><br><span class="line">intent.putExtra(Intent.EXTRA_EMAIL, recipientArray);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure><h2 id="2-布局"><a href="#2-布局" class="headerlink" title="2 布局"></a>2 布局</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><blockquote><p>布局定义用户界面的视觉结构，如<a href="https://developer.android.com/guide/components/activities.html?hl=zh-CN" target="_blank" rel="noopener">Activity</a>或<a href="https://developer.android.com/guide/topics/appwidgets/index.html?hl=zh-CN" target="_blank" rel="noopener">应用小部件</a>的 UI。您可以通过两种方式声明布局：</p><ul><li><strong>在 XML 中声明 UI 元素</strong>。Android 提供了对应于 View 类及其子类的简明 XML 词汇，如用于小部件和布局的词汇；</li><li><strong>运行时实例化布局元素</strong>。您的应用可以通过编程创建 View 对象和 ViewGroup 对象（并操纵其属性）。</li></ul><p>Android 框架让您可以灵活地使用以下一种或两种方法来声明和管理应用的 UI。例如，您可以在 XML 中声明应用的默认布局，包括将出现在布局中的屏幕元素及其属性。然后，您可以在应用中添加可在运行时修改屏幕对象（包括那些已在 XML 中声明的对象）状态的代码。</p><p>— <a href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=zh-CN" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><h3 id="2-2-布局参数"><a href="#2-2-布局参数" class="headerlink" title="2.2 布局参数"></a>2.2 布局参数</h3><blockquote><p>名为 <code>layout_*something*</code> 的 XML 布局属性可为视图定义与其所在的 ViewGroup 相适的布局参数。</p><p>每个 ViewGroup 类都会实现一个扩展 <code>ViewGroup.LayoutParams</code> 的嵌套类。此子类包含的属性类型会根据需要为视图组的每个子视图定义尺寸和位置。 正如您在图 1 中所见，父视图组为每个子视图（包括子视图组）定义布局参数。</p><p>— <a href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=zh-CN" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><p><img src="/2019/04/28/it/android/Android 基础/layoutparams.png" alt="img"></p><h3 id="2-3-布局位置"><a href="#2-3-布局位置" class="headerlink" title="2.3 布局位置"></a>2.3 布局位置</h3><h3 id="2-4-View"><a href="#2-4-View" class="headerlink" title="2.4 View"></a>2.4 View</h3><h3 id="2-5-ViewGroup"><a href="#2-5-ViewGroup" class="headerlink" title="2.5 ViewGroup"></a>2.5 ViewGroup</h3><h3 id="2-6-事件处理"><a href="#2-6-事件处理" class="headerlink" title="2.6 事件处理"></a>2.6 事件处理</h3><h2 id="3-存储"><a href="#3-存储" class="headerlink" title="3 存储"></a>3 存储</h2><h3 id="3-1-SharedPreferences"><a href="#3-1-SharedPreferences" class="headerlink" title="3.1 SharedPreferences"></a>3.1 SharedPreferences</h3><h4 id="3-1-1-定义"><a href="#3-1-1-定义" class="headerlink" title="3.1.1 定义"></a>3.1.1 定义</h4><blockquote><p>Interface for accessing and modifying preference data returned by <code>Context#getSharedPreferences</code>. For any particular set of preferences, there is a single instance of this class that all clients share. Modifications to the preferences must go through an <code>Editor</code> object to ensure the preference values remain in a consistent state and control when they are committed to storage. Objects that are returned from the various <code>get</code> methods must be treated as immutable by the application.</p><p>— <a href="https://developer.android.com/reference/android/content/SharedPreferences" target="_blank" rel="noopener">Android Developer Guide</a></p></blockquote><p>底层存储采用一个 XML 文件。</p><h4 id="3-1-2-操作"><a href="#3-1-2-操作" class="headerlink" title="3.1.2 操作"></a>3.1.2 操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）写入数据：</span><br><span class="line">     <span class="comment">//步骤1：创建一个SharedPreferences对象</span></span><br><span class="line">     SharedPreferences sharedPreferences= getSharedPreferences(<span class="string">"data"</span>,Context.MODE_PRIVATE);</span><br><span class="line">     <span class="comment">//步骤2： 实例化SharedPreferences.Editor对象</span></span><br><span class="line">     SharedPreferences.Editor editor = sharedPreferences.edit();</span><br><span class="line">     <span class="comment">//步骤3：将获取过来的值放入文件</span></span><br><span class="line">     editor.putString(<span class="string">"name"</span>, “Tom”);</span><br><span class="line">     editor.putInt(<span class="string">"age"</span>, <span class="number">28</span>);</span><br><span class="line">     editor.putBoolean(<span class="string">"marrid"</span>,<span class="keyword">false</span>);</span><br><span class="line">     <span class="comment">//步骤4：提交               </span></span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="number">2</span>）读取数据：</span><br><span class="line">     SharedPreferences sharedPreferences= getSharedPreferences(<span class="string">"data"</span>, Context .MODE_PRIVATE);</span><br><span class="line">     String userId=sharedPreferences.getString(<span class="string">"name"</span>,<span class="string">""</span>);</span><br><span class="line">  </span><br><span class="line"><span class="number">3</span>）删除指定数据</span><br><span class="line">     editor.remove(<span class="string">"name"</span>);</span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）清空数据</span><br><span class="line">     editor.clear();</span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line">作者：ghroosk</span><br><span class="line">链接：https:<span class="comment">//juejin.im/post/5adc444df265da0b886d00bc</span></span><br><span class="line">来源：掘金</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure><h3 id="3-2-ContentProvider"><a href="#3-2-ContentProvider" class="headerlink" title="3.2 ContentProvider"></a>3.2 ContentProvider</h3><h3 id="3-3-SQLite、Room-等等"><a href="#3-3-SQLite、Room-等等" class="headerlink" title="3.3 SQLite、Room 等等"></a>3.3 SQLite、Room 等等</h3><h3 id="3-4-文件"><a href="#3-4-文件" class="headerlink" title="3.4 文件"></a>3.4 文件</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;1-四大组件&quot;&gt;&lt;a href=&quot;#1-四大组件&quot; class=&quot;headerlink&quot; title=&quot;1 四大组件&quot;&gt;&lt;/a&gt;1 四大组件&lt;/h2&gt;&lt;p&gt;需要在 &lt;code&gt;AndroidMenifest.xml&lt;/code&gt; 中声明，
+      
+    
+    </summary>
+    
+      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
+    
+      <category term="android" scheme="https://linlshare.github.io/categories/it/android/"/>
+    
+    
+      <category term="Android" scheme="https://linlshare.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql</title>
+    <link href="https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/"/>
+    <id>https://linlshare.github.io/2019/04/23/it/java/persistence/MySql/</id>
+    <published>2019-04-23T03:35:09.000Z</published>
+    <updated>2019-04-23T06:54:14.097Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>mac下安装mysql 5.7，参考：<a href="https://gist.github.com/operatino/392614486ce4421063b9dece4dfe6c21" target="_blank" rel="noopener">https://gist.github.com/operatino/392614486ce4421063b9dece4dfe6c21</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">brew info mysql@5.7</span><br><span class="line">brew install mysql@5.7</span><br><span class="line"></span><br><span class="line">brew tap homebrew/services</span><br><span class="line">brew services start mysql@5.7</span><br><span class="line">brew services list</span><br><span class="line">brew link mysql@5.7 --force</span><br><span class="line">mysql -V</span><br><span class="line"></span><br><span class="line">mysqladmin -u root password 'yourpassword'</span><br></pre></td></tr></table></figure><h2 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">mysql.server stop</span><br></pre></td></tr></table></figure><h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot password "new_password"</span><br></pre></td></tr></table></figure><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure><h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><ol><li>默认的端口号为 3306</li><li>Mac下简单易用的MySql管理工具：Sequel Pro</li></ol><h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><h3 id="Sequel-Pro-and-MySQL-connection-failed"><a href="#Sequel-Pro-and-MySQL-connection-failed" class="headerlink" title="Sequel Pro and MySQL connection failed"></a><a href="https://stackoverflow.com/questions/51179516/sequel-pro-and-mysql-connection-failed" target="_blank" rel="noopener">Sequel Pro and MySQL connection failed</a></h3><p><strong>问题描述：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQL said: Authentication plugin &apos;caching_sha2_password&apos; cannot be loaded: dlopen(/usr/local/lib/plugin/caching_sha2_password.so, 2): image not found</span><br></pre></td></tr></table></figure><p><strong>解决方案：</strong></p><p>This is because Sequel Pro is not ready yet for a new kind of user login, as the error states: there is no driver. Quick fix for non-homebrew installs:</p><p><code>Apple Logo &gt; System Preferences &gt; MySQL &gt; Initialize Database</code>, then type your new password and select ‘Use legacy password’</p><p>After restart you should be able to connect. Do it only on fresh installs, because you may lost your db tables otherwise.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;mac下安装mysql 5.7，参考：&lt;a href=&quot;https://gist.github.com/operatino/39261448
       
     
     </summary>
@@ -413,216 +576,6 @@
     
     
       <category term="JSONPath" scheme="https://linlshare.github.io/tags/JSONPath/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>瘦肉粥</title>
-    <link href="https://linlshare.github.io/2019/01/14/recipe/%E7%98%A6%E8%82%89%E7%B2%A5/"/>
-    <id>https://linlshare.github.io/2019/01/14/recipe/瘦肉粥/</id>
-    <published>2019-01-13T16:21:18.000Z</published>
-    <updated>2019-01-27T04:58:42.288Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="食材準備"><a href="#食材準備" class="headerlink" title="食材準備"></a>食材準備</h2><table><thead><tr><th>材料</th><th>參考量</th><th>參考單價</th><th>參考價格</th></tr></thead><tbody><tr><td>瘦肉</td><td></td><td>?</td><td>2.2元</td></tr><tr><td>米</td><td>80ML（煮成約3碗粥）</td><td>4元/斤</td><td>&lt;1元</td></tr></tbody></table><h2 id="烹飪過程"><a href="#烹飪過程" class="headerlink" title="烹飪過程"></a>烹飪過程</h2><ol><li>淘米，根據具體電飯煲的要求加入適量的水，煮粥；</li><li>將瘦肉切成細長狀肉絲，加鹽爪拌，醃製10分鐘；</li><li>粥快熟了，加入預備好的瘦肉，攪拌，繼續煮10分鐘；</li><li>開鍋享用。</li></ol><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol><li><a href="https://www.xiachufang.com/recipe/1043759/" target="_blank" rel="noopener">皮蛋瘦肉粥 - 下厨房</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;食材準備&quot;&gt;&lt;a href=&quot;#食材準備&quot; class=&quot;headerlink&quot; title=&quot;食材準備&quot;&gt;&lt;/a&gt;食材準備&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;材料&lt;/th&gt;
-&lt;th&gt;參考量&lt;/th&gt;
-&lt;th&gt;參考單價&lt;/th&gt;
-&lt;th&gt;參
-      
-    
-    </summary>
-    
-      <category term="recipe" scheme="https://linlshare.github.io/categories/recipe/"/>
-    
-    
-      <category term="Recipe" scheme="https://linlshare.github.io/tags/Recipe/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>明清時期澳門華人社會研究論文集</title>
-    <link href="https://linlshare.github.io/2019/01/13/history/%E6%98%8E%E6%B8%85%E6%99%82%E6%9C%9F%E6%BE%B3%E9%96%80%E8%8F%AF%E4%BA%BA%E7%A4%BE%E6%9C%83%E7%A0%94%E7%A9%B6%E8%AB%96%E6%96%87%E9%9B%86/"/>
-    <id>https://linlshare.github.io/2019/01/13/history/明清時期澳門華人社會研究論文集/</id>
-    <published>2019-01-13T11:37:46.356Z</published>
-    <updated>2019-01-13T11:37:46.356Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>作者/編者</td><td>林廣志 陳文源</td></tr><tr><td>出版社</td><td>澳門基金會</td></tr><tr><td>出版日期</td><td>2018年03月</td></tr><tr><td>ISBN</td><td>978-99937-1-247-3</td></tr><tr><td>頁數</td><td>775</td></tr></tbody></table><p><a href="https://www.macaudata.com/upload_files/pdf/2018/04/27/2018041524791737819.pdf" target="_blank" rel="noopener">在線閱讀</a></p><h2 id="前言──明清時期澳門華人社會研究的回顧與前瞻"><a href="#前言──明清時期澳門華人社會研究的回顧與前瞻" class="headerlink" title="前言──明清時期澳門華人社會研究的回顧與前瞻"></a>前言──明清時期澳門華人社會研究的回顧與前瞻</h2><blockquote><p>金國平、吳志良認為，兩宋時期澳門已是客家先民從中原遷徙、開發華南的歷史足跡之一。</p></blockquote><p>客家人足跡遍佈大半個中國，了不起。</p><blockquote><p>總體而言，目前澳門華商家族的研究，大多關注晚清居澳華商的經濟狀況、社會地位以及參與社會公益、國內政治活動，對於<strong>由葡國管治下傳統華人家族觀念、家族維繫因素、家族企業經營方式以及家族與社會勾聯</strong>等極具特色的內容，仍需進行學理性的梳理，這種梳理對深入理解澳門近代社會的構成和發展無疑具有重要意義。</p></blockquote><p>從家族社會或者說熟人社會，往現代社會發展的過程是重點。</p><blockquote><p>居澳華人在澳門經濟發展過程中的角色，經歷由<strong>葡商附庸型</strong>到<strong>澳門經濟主控型</strong>的轉變。在鴉片戰爭前，華人主要是從事通事、買辦、小商販、手工、僕役等葡商附庸性的工作…… 19 世紀初，清政府兩次修訂對外策，對日漸增強的澳門華商團體予以沉重的打擊:一是實施禁煙政策，懲辦了一批華人鴉片商;二是為抗擊葡國在澳門推行強硬的殖民政策，廣東政府實施了“以商制夷”策略，將居澳華商遷至黃埔港。經歷了這兩次重大事件，剛剛萌生的澳門華商財團勢力嚴重受挫。</p><p>19 世紀 40 年代，葡國政府為了挽回澳門貿易被邊緣化的危機，追隨英國在香港的政策，<strong>擅自宣佈澳門為自由港</strong>，並在澳門推行強硬的殖民政策，強拆中方官署。由於洋船駛往香港，居澳華商遷至黃埔，澳門並沒能因其“自由”而繁榮起來，反而因失去華商而陷入衰落，致使澳葡政府財政陷入危機。為了扭轉日益惡化的財政狀況，澳葡政府開始對<strong>賭博業與一些重要民生物資 (如豬肉等) 實施專營制度</strong>。 50 年代，由於國內民亂，大批華人攜資避難澳門，而澳葡政府的專營制度為這些新移民者提供了新的營商機會。在這樣的環境下，華人以其資本與勇氣，逐漸壟斷了澳門大部分專營行業，大至賭博經營、鴉片貿易、苦力貿易，小至食品經營、手工車服務、街燈管理等等，華人成為澳門經濟發展最重要的力量。</p></blockquote><p>怎麼做到的？時運輪轉。</p><p>清政府嚴禁鴉片，轉移居澳華商 –&gt; 40年代葡國殖民澳門，陷入財政危機 –&gt; 實施賭博業和重要民生物資專營制度  –&gt; 50年代國內民亂，華人攜資避難澳門 –&gt; 華人壟斷大部分專營行業。</p><blockquote><p>1582 年，澳門議事會成立，此後逐漸形成華葡分治的政治格局。葡王於 1589年發佈訓令，明確規定議事會不得干預華人事務，但華人天主教徒例外……</p><p>華葡分治”是明清時期澳門社會管治的特徵，但明清政府主要是管主權、管邊防、管稅收。亞馬留事件後，儘管澳葡政府極力拉攏居澳華人，但對居澳華人的社會生活卻力不從心。因此，實質上華人社會長期處於“管而不理”的狀態，澳門華人社會內部更多地依賴中葡之外的“第三權力”進行調節。湯開建認為，鏡湖醫院是由當時華人精英籌建，在華人社會中具有極高的公信力，鏡湖醫院不僅從事一般性的慈善公益活動，也是華人集議商事的重要機構……林廣志對華人社會組織進行了歷史考察，認為澳門華人組織從漁農社會到近代商業社會的發展歷經了五個階段:第一是以<strong>媽閣廟、蓮峰廟</strong>為代表的神緣性組織;第二是以<strong>三街會館</strong>為代表的業緣性組織;第三是以<strong>鏡湖醫院、同善堂</strong>為代表的慈善性組織;第四是以<strong>宜安公司</strong>等為代表的聯誼性組織;第五是以<strong>澳門商會</strong>為代表的政商性組織，這些組織大多承擔起華人社會解決糾紛、集議商事的功能，逐漸形成華人社會管的“第三權力”。</p></blockquote><p>華人的事務明清政府不管，葡人又管不了，只能靠民間團體自治了。聯繫澳門華人的紐帶由神、職業、慈善組織、聯誼組織變化到政商組織。原來設立澳門行政區是有其自治背景的。</p><blockquote><p><strong>孫中山在澳門行醫</strong>得到了一眾華商的熱心支持，但在其尋覓革命的“熱心同志”時卻遭受“冷遇”，原因是澳門華商普遍不贊成孫之“激烈之主張”。</p></blockquote><p>據<a href="http://www.takungpao.com.hk/paper/2017/0328/69970.html" target="_blank" rel="noopener">孫中山澳門行醫足跡 - 大公網</a>，孫先生1892年畢業于香港西醫書院，后到澳門鏡湖醫院為華人義診，成為該院首位西醫。</p><blockquote><p>澳門社會的複雜性是眾所周知的，所謂“小澳門，多內涵;表象單純，深層複雜”。</p></blockquote><h2 id="一、人口家族"><a href="#一、人口家族" class="headerlink" title="一、人口家族"></a>一、人口家族</h2><h3 id="晚清澳門華人巨商盧九家族事跡考述-林廣志"><a href="#晚清澳門華人巨商盧九家族事跡考述-林廣志" class="headerlink" title="晚清澳門華人巨商盧九家族事跡考述 - 林廣志"></a>晚清澳門華人巨商盧九家族事跡考述 - 林廣志</h3><blockquote><p>盧九(1848 - 1907)，原名華紹，字育諾，號焯之，小名 ，廣東新會潮連鄉人。盧九是 19 世紀下半葉澳門的“一代賭王”，也是當時澳門政治、經濟及社會生活中最有影響的華商代表之一。幾十年間，盧九及其家族縱橫省澳，際會風雲，專擅煙賭，旁及其餘，熱心社群，樂善好施，在華葡社會享有極高的聲譽。</p></blockquote><p>盧家大屋</p><p>盧廉若公園</p><h2 id="文字比較"><a href="#文字比較" class="headerlink" title="文字比較"></a>文字比較</h2><table><thead><tr><th>大陆简体</th><th>台灣繁體</th><th>澳門繁體</th></tr></thead><tbody><tr><td>研究</td><td>研究</td><td>硏究</td></tr><tr><td>打拼</td><td>打拼</td><td>打<img src="/2019/01/13/history/明清時期澳門華人社會研究論文集/pin.png" alt=""></td></tr><tr><td>节假</td><td>節假</td><td>節假</td></tr><tr><td>判断</td><td>判斷</td><td><img src="/2019/01/13/history/明清時期澳門華人社會研究論文集/pan.png" alt="pan">斷</td></tr><tr><td>学者</td><td>學者</td><td>學者</td></tr><tr><td>价值</td><td>價值</td><td>價値</td></tr><tr><td>读书</td><td>讀書</td><td><img src="/2019/01/13/history/明清時期澳門華人社會研究論文集/du.png" alt="">書</td></tr><tr><td>契约</td><td>契約</td><td><img src="/2019/01/13/history/明清時期澳門華人社會研究論文集/qi.png" alt=""><img src="/2019/01/13/history/明清時期澳門華人社會研究論文集/yue.png" alt=""></td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;作者/編者&lt;/td&gt;
-&lt;td&gt;林廣志 陳文源&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;出版社&lt;/td&gt;
-&lt;td&gt;澳門基
-      
-    
-    </summary>
-    
-      <category term="history" scheme="https://linlshare.github.io/categories/history/"/>
-    
-    
-      <category term="History" scheme="https://linlshare.github.io/tags/History/"/>
-    
-      <category term="澳門" scheme="https://linlshare.github.io/tags/%E6%BE%B3%E9%96%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>薑絲黃酒炒花蛤</title>
-    <link href="https://linlshare.github.io/2019/01/13/recipe/%E8%96%91%E7%B5%B2%E9%BB%83%E9%85%92%E7%82%92%E8%8A%B1%E8%9B%A4/"/>
-    <id>https://linlshare.github.io/2019/01/13/recipe/薑絲黃酒炒花蛤/</id>
-    <published>2019-01-13T10:59:07.000Z</published>
-    <updated>2019-01-13T11:37:46.780Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="食材準備"><a href="#食材準備" class="headerlink" title="食材準備"></a>食材準備</h2><table><thead><tr><th>材料</th><th>參考量</th><th>參考單價</th><th>參考價格</th></tr></thead><tbody><tr><td>花蛤（花甲、蜆）</td><td>半斤多一點</td><td>11元/斤</td><td>6元</td></tr><tr><td>黃酒（紹酒）</td><td>半勺（約40ML）</td><td>約25元/瓶（2.5L）</td><td>0.4元</td></tr><tr><td>薑絲</td><td>一小塊</td><td>？</td><td>？</td></tr><tr><td>食用油</td><td>半勺</td><td>？</td><td>？</td></tr></tbody></table><h2 id="烹飪過程"><a href="#烹飪過程" class="headerlink" title="烹飪過程"></a>烹飪過程</h2><ol><li>先將花蛤泡水洗淨，約10分鐘；</li><li>先將薑絲切成小細條狀；</li><li>鍋底下油，油起泡后下薑絲，煎至金黃；</li><li>下花蛤，蓋上蓋子，至花蛤開口即可，約3分鐘；</li><li>連同乳白色的湯一起出鍋；</li><li>可加少量芹菜配色。</li></ol><blockquote><p>提示：</p><ol><li>花蛤生活在灘塗中，含沙較多，建議購買用水沖過一點時間的以避免洗花蛤的麻煩；</li><li>花甲本身含水較多，所以整個過程無需加水；</li></ol></blockquote><h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p><img src="/2019/01/13/recipe/薑絲黃酒炒花蛤/薑絲黃酒炒花蛤-結果.png" alt=""></p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ol><li><a href="https://www.youtube.com/watch?v=23oCDoDJ5Kk" target="_blank" rel="noopener">名廚家常菜｜薑絲黃酒炒花蛤 - YouTube.com（看完需1分19秒）</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;食材準備&quot;&gt;&lt;a href=&quot;#食材準備&quot; class=&quot;headerlink&quot; title=&quot;食材準備&quot;&gt;&lt;/a&gt;食材準備&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;材料&lt;/th&gt;
-&lt;th&gt;參考量&lt;/th&gt;
-&lt;th&gt;參考單價&lt;/th&gt;
-&lt;th&gt;參
-      
-    
-    </summary>
-    
-      <category term="recipe" scheme="https://linlshare.github.io/categories/recipe/"/>
-    
-    
-      <category term="Recipe" scheme="https://linlshare.github.io/tags/Recipe/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拯救大兵瑞恩</title>
-    <link href="https://linlshare.github.io/2019/01/06/movie/%E6%8B%AF%E6%95%91%E5%A4%A7%E5%85%B5%E7%91%9E%E6%81%A9/"/>
-    <id>https://linlshare.github.io/2019/01/06/movie/拯救大兵瑞恩/</id>
-    <published>2019-01-06T06:57:22.000Z</published>
-    <updated>2019-01-13T11:37:46.608Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2019/01/06/movie/拯救大兵瑞恩/ryan_earn_this.png" alt="米勒上尉对瑞恩说"></p><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"IMDb编码"</span>: <span class="string">"tt0120815"</span>,</span><br><span class="line">  <span class="attr">"原名"</span>: <span class="string">"Saving Private Ryan"</span>,</span><br><span class="line">  <span class="attr">"又名"</span>: [<span class="string">"拯救大兵瑞恩"</span>, <span class="string">"雷霆救兵(港)"</span>, <span class="string">"抢救雷恩大兵(台)"</span>],</span><br><span class="line">  <span class="attr">"上映日期"</span>: [<span class="string">"1998-07-24(美国)"</span>],</span><br><span class="line">  <span class="attr">"片长"</span>:<span class="string">"169分钟"</span>,</span><br><span class="line">  <span class="attr">"语言"</span>: [<span class="string">"英语"</span>, <span class="string">"法语"</span>, <span class="string">"德语"</span>, <span class="string">"捷克语"</span>],</span><br><span class="line">  <span class="attr">"制片国家/地区"</span>: <span class="string">"美国"</span>,</span><br><span class="line">  <span class="attr">"官方网站"</span>: <span class="string">"http://www.rzm.com/pvt.ryan/index.html"</span>,</span><br><span class="line">  <span class="attr">"类型"</span>: [<span class="string">"剧情"</span>, <span class="string">"历史"</span>, <span class="string">"战争"</span>],</span><br><span class="line">  <span class="attr">"导演"</span>: <span class="string">"史蒂文·斯皮尔伯格"</span>,</span><br><span class="line">  <span class="attr">"编剧"</span>: <span class="string">"罗伯特·罗达特"</span>,</span><br><span class="line">  <span class="attr">"主演"</span>: [</span><br><span class="line">    <span class="string">"汤姆·汉克斯"</span>,</span><br><span class="line">    <span class="string">"汤姆·塞兹摩尔"</span>,</span><br><span class="line">    <span class="string">"爱德华·伯恩斯"</span>,</span><br><span class="line">    <span class="string">"巴里·佩珀"</span>,</span><br><span class="line">    <span class="string">"亚当·戈德堡"</span>,</span><br><span class="line">    <span class="string">"范·迪塞尔"</span>,</span><br><span class="line">    <span class="string">"吉奥瓦尼·瑞比西"</span>,</span><br><span class="line">    <span class="string">"杰瑞米·戴维斯"</span>,</span><br><span class="line">    <span class="string">"马特·达蒙"</span>,</span><br><span class="line">    <span class="string">"特德·丹森"</span>,</span><br><span class="line">    <span class="string">"保罗·吉亚玛提"</span>,</span><br><span class="line">    <span class="string">"丹尼斯·法里纳"</span>,</span><br><span class="line">    <span class="string">"马克斯·马蒂尼"</span>,</span><br><span class="line">    <span class="string">"丹兰·布鲁诺"</span>,</span><br><span class="line">    <span class="string">"安德鲁·斯科特"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自问自答"><a href="#自问自答" class="headerlink" title="自问自答"></a>自问自答</h2><h3 id="拯救大兵瑞恩是确有其事吗？"><a href="#拯救大兵瑞恩是确有其事吗？" class="headerlink" title="拯救大兵瑞恩是确有其事吗？"></a>拯救大兵瑞恩是确有其事吗？</h3><p>首先这是电影的虚构，但虚构并非无所凭据，二战时期兄弟参军皆阵亡的事多如牛毛。流传广泛的有苏利文五兄弟事件：</p><p>1942年的1月3日，乔、法兰克、艾尔、麦特以及乔治这五兄弟共同加入了美国海军，随后在11月12日，苏利文五兄弟所服役的朱诺号轻型巡洋舰经过三个多月的瓜岛战役舰身受损，在退回埃斯皮里图桑托岛途中受日军舰艇鱼雷攻击，五兄弟相继阵亡。</p><p>其实电影是基于来自纽约州托纳旺达市奈兰德兄弟的故事，詹姆斯·瑞恩（马特·达蒙 饰）的原型就是弗莱德里克·奈兰德。</p><table><thead><tr><th>名字</th><th>年龄</th><th>军衔</th><th>部门</th><th>战斗地点</th><th>关键事件</th></tr></thead><tbody><tr><td>罗伯特·奈兰德(Robert “Bob” Niland)</td><td>25</td><td>中士</td><td>第82空降师，第505空降步兵团</td><td>德国圣迈瑞.埃格利斯镇（诺曼底）</td><td>D-Day（诺曼底登陆日，1944年6月6日）阵亡</td></tr><tr><td>普列思顿·奈兰德(Preston Niland)</td><td>29</td><td>中尉</td><td>第22步兵团，第4步兵师</td><td>德国犹他州滩头（诺曼底）</td><td>1944年6月7日，阵亡</td></tr><tr><td>艾德华·奈兰德(Edward Niland)</td><td>31</td><td>中士</td><td>美国陆军航空兵</td><td>缅甸</td><td>1944年5月16日，被俘，美军误以为阵亡</td></tr><tr><td>弗莱德里克·奈兰德(Frederick “Fritz” Niland)</td><td>24</td><td>中士</td><td>第101空降师，第501伞兵团</td><td>诺曼底</td><td>D-Day 后的几天，辗转英国，回到美国。</td></tr></tbody></table><h3 id="二战后美军如何避免瑞恩式的家庭悲剧？"><a href="#二战后美军如何避免瑞恩式的家庭悲剧？" class="headerlink" title="二战后美军如何避免瑞恩式的家庭悲剧？"></a>二战后美军如何避免瑞恩式的家庭悲剧？</h3><p>美军在二战后制定了仅存者政策（Sole Survivor Policy），以用来在某一人士遭逢家中成员（如兄弟姐妹）于从军期间殉职的变故时，保护其得以不被征召入伍、或免除参加战斗任务。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://en.wikipedia.org/wiki/Niland_brothers" target="_blank" rel="noopener">Niland brothers - Wikipedia</a></li><li><a href="http://wemedia.ifeng.com/74599400/wemedia.shtml" target="_blank" rel="noopener">电影《拯救大兵瑞恩》中的“瑞恩”到底是谁？ - 凤凰网</a></li><li><a href="https://zh.wikipedia.org/wiki/%E5%83%85%E5%AD%98%E8%80%85%E6%94%BF%E7%AD%96" target="_blank" rel="noopener">仅存者政策 - 维基百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/2019/01/06/movie/拯救大兵瑞恩/ryan_earn_this.png&quot; alt=&quot;米勒上尉对瑞恩说&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;基本信息&quot;&gt;&lt;a href=&quot;#基本信息&quot; class=&quot;headerlink&quot; title=&quot;基本信息&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="movie" scheme="https://linlshare.github.io/categories/movie/"/>
-    
-    
-      <category term="电影" scheme="https://linlshare.github.io/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>T·S·艾略特</title>
-    <link href="https://linlshare.github.io/2018/12/31/literature/T%C2%B7S%C2%B7%E8%89%BE%E7%95%A5%E7%89%B9/"/>
-    <id>https://linlshare.github.io/2018/12/31/literature/T·S·艾略特/</id>
-    <published>2018-12-31T14:38:19.000Z</published>
-    <updated>2019-01-13T11:37:46.604Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>原名</td><td>Thomas Stearns Eliot</td></tr><tr><td>译名</td><td>T·S·艾略特</td></tr><tr><td>出生地</td><td>美国密苏里州圣路易斯</td></tr><tr><td>生卒</td><td>1888年9月26日 - 1965年1月4日</td></tr><tr><td>风格</td><td></td></tr><tr><td>身份</td><td>诗人、剧作家、评论家、编辑</td></tr><tr><td>代表作</td><td>《荒原》（The Waste Land，1922年）</td></tr><tr><td>影响力</td><td>1948年获得诺贝尔文学奖；诗作《荒原》被视为英美文学的里程碑</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/T%C2%B7S%C2%B7%E8%89%BE%E7%95%A5%E7%89%B9" target="_blank" rel="noopener">T·S·艾略特 - 维基百科</a></li><li><a href="https://zh.wikisource.org/wiki/%E8%8D%92%E5%8E%9F" target="_blank" rel="noopener">荒原 - 维基文库</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;原名&lt;/td&gt;
-&lt;td&gt;Thomas Stearns Eliot&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;译名&lt;/td
-      
-    
-    </summary>
-    
-      <category term="literature" scheme="https://linlshare.github.io/categories/literature/"/>
-    
-    
-      <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
-    
-      <category term="T·S·艾略特" scheme="https://linlshare.github.io/tags/T%C2%B7S%C2%B7%E8%89%BE%E7%95%A5%E7%89%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>狄兰·托马斯</title>
-    <link href="https://linlshare.github.io/2018/12/31/literature/%E7%8B%84%E5%85%B0%C2%B7%E6%89%98%E9%A9%AC%E6%96%AF/"/>
-    <id>https://linlshare.github.io/2018/12/31/literature/狄兰·托马斯/</id>
-    <published>2018-12-31T13:21:19.000Z</published>
-    <updated>2019-01-13T11:37:46.606Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th>KEY</th><th>VALUE</th></tr></thead><tbody><tr><td>原名</td><td>Dylan Thomas</td></tr><tr><td>译名</td><td>狄兰·托马斯</td></tr><tr><td>出生地</td><td>英国威尔士</td></tr><tr><td>生卒</td><td>1914年10月27日－1953年11月9日</td></tr><tr><td>风格</td><td>超现实主义</td></tr><tr><td>身份</td><td>诗人</td></tr><tr><td>代表作</td><td>诗集《诗十八首》、《死亡和出场》；《不要温和地走进那个良夜》、《穿过绿色茎管催动花朵的力》、《挽歌》、《而死亡也不得统治万物》</td></tr></tbody></table><h2 id="之外"><a href="#之外" class="headerlink" title="之外"></a>之外</h2><ol><li>喝酒、再喝酒；写诗、不写诗；</li><li>《不要温和地走进那个良夜》在电影《星际穿越》中不时吟唱，很有力量。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/%E7%8B%84%E5%85%B0%C2%B7%E6%89%98%E9%A9%AC%E6%96%AF" target="_blank" rel="noopener">狄兰·托马斯 - 维基百科</a></li><li><a href="http://www.dylanthomas.com/dylan/" target="_blank" rel="noopener">Dylan - dylanthomas.com</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;KEY&lt;/th&gt;
-&lt;th&gt;VALUE&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;原名&lt;/td&gt;
-&lt;td&gt;Dylan Thomas&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;译名&lt;/td&gt;
-&lt;td&gt;狄兰
-      
-    
-    </summary>
-    
-      <category term="literature" scheme="https://linlshare.github.io/categories/literature/"/>
-    
-    
-      <category term="literature" scheme="https://linlshare.github.io/tags/literature/"/>
-    
-      <category term="狄兰·托马斯" scheme="https://linlshare.github.io/tags/%E7%8B%84%E5%85%B0%C2%B7%E6%89%98%E9%A9%AC%E6%96%AF/"/>
     
   </entry>
   

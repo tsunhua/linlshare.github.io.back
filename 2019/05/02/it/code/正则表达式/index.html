@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>正则表达式 | 覽月維基</title>
+    
+    
+        <meta name="keywords" content="正则表达式">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="排除特定字符串12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849查找不以baidu开头的字符串baidu.comsina.com.cn正则：^(?!baidu).*$  匹配结果就是第2行，也就是第1行被排除了这里使用了零宽度断言(?!exp),注意，我们有一个向前查找的">
+<meta name="keywords" content="正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://linlshare.github.io/2019/05/02/it/code/正则表达式/index.html">
+<meta property="og:site_name" content="覽月維基">
+<meta property="og:description" content="排除特定字符串12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849查找不以baidu开头的字符串baidu.comsina.com.cn正则：^(?!baidu).*$  匹配结果就是第2行，也就是第1行被排除了这里使用了零宽度断言(?!exp),注意，我们有一个向前查找的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-01T16:24:12.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="排除特定字符串12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849查找不以baidu开头的字符串baidu.comsina.com.cn正则：^(?!baidu).*$  匹配结果就是第2行，也就是第1行被排除了这里使用了零宽度断言(?!exp),注意，我们有一个向前查找的">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="覽月維基" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128207704-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">覽月維基</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/54fbf902d38cde01242a454967020c86">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Articles',
+            PAGES: 'Pages',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://www.gravatar.com/avatar/54fbf902d38cde01242a454967020c86?s=128">
+            <h2 id="name">Lshare</h2>
+            <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SUIVRE</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                138
+                <span>Articles</span>
+            </div>
+            <div class="article-info-block">
+                144
+                <span>Tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/linlshare/" target="_blank" title="github" class="tooltip">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Catégories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中国文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/culture/中国文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日本文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            days
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/04/days/五四青年节/">五四青年节</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            health
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/31/health/养生自律清单/">养生自律清单</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            history
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/12/history/澳門博彩業簡史/">澳門博彩業簡史</a></li>  <li class="file"><a href="/2019/01/13/history/明清時期澳門華人社會研究論文集/">明清時期澳門華人社會研究論文集</a></li>  <li class="file"><a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /">澳門編年史 - 二十世紀(1900-1949)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  <li class="file"><a href="/2019/04/28/it/android/Android 基础/">Android 基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file active"><a href="/2019/05/02/it/code/正则表达式/">正则表达式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            concept
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/12/27/it/concept/WebHook/">WebHook</a></li>  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/12/24/it/concept/复合任务及其状态/">复合任务及其状态</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  <li class="file"><a href="/2019/02/19/it/concept/进程和线程/">进程和线程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/design/RESTful API/">RESTful API</a></li>  <li class="file"><a href="/2018/11/26/it/design/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arch
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/14/it/java/aws/Amazon S3/">Amazon S3</a></li>  <li class="file"><a href="/2019/01/19/it/java/aws/DynamoDB/">DynamoDB</a></li>  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws/">aws</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            base
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Kafka/">Kafka</a></li>  <li class="file"><a href="/2018/11/28/it/java/base/Logback/">Logback</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/12/15/it/java/base/Package & Deploy/">Package & Deploy</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  <li class="file"><a href="/2018/11/29/it/java/base/ZooKeeper/">ZooKeeper</a></li>  <li class="file"><a href="/2018/11/27/it/java/base/etcd/">etcd</a></li>  <li class="file"><a href="/2019/02/13/it/java/base/Java/">Java</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            cache
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/cache/Guava Cache/">Guava Cache</a></li>  <li class="file"><a href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            exception
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            persistence
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/JPA/">JPA</a></li>  <li class="file"><a href="/2018/11/09/it/java/persistence/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2019/04/23/it/java/persistence/MySql/">MySql</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/Spring Data JPA/">Spring Data JPA</a></li>  <li class="file"><a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">Spring Data MongoDB</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            schedule
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a></li>  <li class="file"><a href="/2018/12/03/it/java/schedule/Quartz/">Quartz</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            media
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/15/it/media/CSV/">CSV</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            net
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/19/it/net/Port/">Port</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            node
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/node/Node.js/">Node.js</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            pm
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/11/it/pm/《人月神话》读后/">《人月神话》读后</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/14/it/robot/JSONPath/">JSONPath</a></li>  <li class="file"><a href="/2018/12/20/it/robot/Proxy/">Proxy</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  <li class="file"><a href="/2018/11/20/it/robot/XPath/">XPath</a></li>  <li class="file"><a href="/2019/03/26/it/robot/Splash/">Splash</a></li>  <li class="file"><a href="/2019/05/10/it/robot/ADSL ProxyPool/">ADSL ProxyPool</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            secure
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/secure/服务鉴权机制/">服务鉴权机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            serverless
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/17/it/serverless/AWS Lambda 服务/">AWS Lambda 服务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/tool/Alfred/">Alfred</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/11/27/it/tool/Docker/">Docker</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/12/12/it/tool/FunnyTool/">FunnyTool</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/12/03/it/tool/Groovy/">Groovy</a></li>  <li class="file"><a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/">Hexo + Github Page = 个人 WiKi</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/12/13/it/tool/Jconsole/">Jconsole</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac/">Mac</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH/">SSH</a></li>  <li class="file"><a href="/2019/01/29/it/tool/Ubuntu/">Ubuntu</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  <li class="file"><a href="/2019/04/19/it/tool/zsh/">zsh</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  <li class="file"><a href="/2018/12/14/language/日語/日語漢字/">日語漢字</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  <li class="file"><a href="/2019/01/16/language/漢語言/漢字雜談/">漢字雜談</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            literature
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/31/literature/T·S·艾略特/">T·S·艾略特</a></li>  <li class="file"><a href="/2018/12/30/literature/埃德蒙·斯宾塞/">埃德蒙·斯宾塞</a></li>  <li class="file"><a href="/2018/12/30/literature/乔叟/">乔叟</a></li>  <li class="file"><a href="/2018/12/31/literature/狄兰·托马斯/">狄兰·托马斯</a></li>  <li class="file"><a href="/2018/12/30/literature/荷马/">荷马</a></li>  <li class="file"><a href="/2018/12/30/literature/蒲柏/">蒲柏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/06/movie/拯救大兵瑞恩/">拯救大兵瑞恩</a></li>  <li class="file"><a href="/2018/12/08/movie/海蒂和爷爷/">海蒂和爷爷</a></li>  <li class="file"><a href="/2018/08/19/movie/海街日记/">海街日记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            music
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/09/music/Bach/">Bach</a></li>  <li class="file"><a href="/2018/12/19/music/Beatles/">Beatles</a></li>  <li class="file"><a href="/2018/12/29/music/Trio/">Trio</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            person
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            philosophy
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/25/philosophy/金剛般若波羅蜜經/">金剛般若波羅蜜經</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            photography
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            reading
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/27/reading/瓦尔登湖/">瓦尔登湖</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            recipe
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/02/08/recipe/为什么带饭/">为什么带饭</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            weekly
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/21/thinking/weekly/周记 20181021/">周记 20181021</a></li>  <li class="file"><a href="/2018/10/28/thinking/weekly/周记 20181028/">周记 20181028</a></li>  <li class="file"><a href="/2018/11/04/thinking/weekly/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            word
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/10/word/ATM/">ATM</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/code/正则表达式" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/code/">code</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/正则表达式/">正则表达式</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/05/02/it/code/正则表达式/">
+            <time datetime="2019-05-01T16:22:43.000Z" itemprop="datePublished">2019-05-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/code/正则表达式.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/code/正则表达式.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/code/正则表达式.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            正则表达式
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排除特定字符串"><span class="toc-number">1.</span> <span class="toc-text">排除特定字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="排除特定字符串"><a href="#排除特定字符串" class="headerlink" title="排除特定字符串"></a>排除特定字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">查找不以baidu开头的字符串</span><br><span class="line"></span><br><span class="line">baidu.com</span><br><span class="line">sina.com.cn</span><br><span class="line">正则：^(?!baidu).*$  匹配结果就是第2行，也就是第1行被排除了</span><br><span class="line">这里使用了零宽度断言(?!exp),注意，我们有一个向前查找的语法(也叫顺序环视)  (?=exp)</span><br><span class="line">(?=exp) 会查找exp之前的【位置】如果将等号换成感叹号，就变成了否定语义，也就是说查找的位置的后面不能是exp</span><br><span class="line">一般情况下?!要与特定的锚点相结合，例如^行开头或者$行结尾，那么上面的例子的意思如下：</span><br><span class="line">^(?!baidu).*$ 先匹配一个行开头的位置，并且要求接下来的位置的后面不是baidu这个字符串。这样由于第一行^之后的位置后面是baidu所以匹配失败，被排除在外了。</span><br><span class="line"></span><br><span class="line">回到顶部</span><br><span class="line">查找不以com结尾的字符串</span><br><span class="line"></span><br><span class="line">www.sina.com.cn</span><br><span class="line">www.educ.org</span><br><span class="line">www.hao.cc</span><br><span class="line">www.baidu.com</span><br><span class="line">www.123.com</span><br><span class="line"></span><br><span class="line">正则 ^.*?(?&lt;!com)$  匹配前3行结果。</span><br><span class="line">如果查找以com结尾的字符串则使用正则 ^.*?(?&lt;=com)$或者 ^.*?com$  </span><br><span class="line">对正则表达式的解释：^.*?(?&lt;!com)$</span><br><span class="line">首先匹配行开头，然后是 .*? 这个是忽略优先，也就是优先忽略不匹配任何字符，(?&lt;!com) 这个是一个逆序环视的否定形式，意思是匹配一个位置此位置的前面不能是字符串com，最后是一个行结束。对于www.123.com来说，首先匹配行首，接着匹配w后面的位置，发现前面不是com，所以成功但紧接着要匹配行尾，失败，回溯让.*? 匹配一个w符号，接着(?&lt;com)匹配第二个w后面的位置，发现前面也不是com匹配成功，紧接着要匹配$对应的行尾失败，一直到.*?匹配了www.baidu.com的时候，此时(?&lt;!com)匹配m后面的位置，此时此位置的前面是com匹配直接失败,接着.*?匹配行末尾，(?&lt;!com)匹配$后面的位置，显然这次也失败了，所以整个全局匹配都失败。  www.123.com被排除到匹配之外。这里的.*后面加不加问号结果都一样。</span><br><span class="line"></span><br><span class="line">回到顶部</span><br><span class="line">查找不含有if的行</span><br><span class="line"></span><br><span class="line">if (a&gt;b)</span><br><span class="line">printf(&quot;hello&quot;);</span><br><span class="line">else if(a&lt;b)</span><br><span class="line">printf(&quot;hello2&quot;);</span><br><span class="line">else</span><br><span class="line">printf(&quot;hello3&quot;);</span><br><span class="line"></span><br><span class="line">正则 ^([^f]|[^i]f)+$</span><br><span class="line">其实这个匹配也是一个排除型字符串的匹配，但是不同于上面两种，因为这里的if可能既不在行开头，也不在行结尾，而是在字符串中间这样就给匹配带来了麻烦，在正则表达式中没有提供类似排除的功能。我们最容易想到的就是下面的正则：</span><br><span class="line">^[^if]+$ 这种写法看起来是那么回事，但是排除型字符组排除的是i和f两个字符，而不是if这个字符串，所以这个正则表达式匹配的是那些既没有i字符也不包含f字符的字符串。但是如果字符串中有一个i或多个i或者有一个或多个f，或者i和f字符都有只不过没有连在一起。这些情况都是我们需要匹配的情况，而我们不能匹配的情况是那些包含if字符串的行，而不是包含i或f字符的行，所以这种写法漏洞很大。</span><br><span class="line"></span><br><span class="line">^.*(?!if).*$ 这种写法使用了零宽度断言，表面意思看起来好像是说 任意字符+非if+任意字符 组成了整个字符串，但是仔细研究匹配过程就知道这个是错的，(?!if)匹配的是一个位置，所以对于字符串aifb他也是可以匹配到的，而实际上这样的字符正是我们不要的。按照这个正则表达式，对于aifb 首先匹配行首，其次.*是贪婪模式(匹配优先)，会一直匹配到字符串的末尾(此时传动装置定位在$位置前面)，此时(?!if)需要匹配一个位置，这个位置的后面不能是if，这个时候正好位置在b字符的后面，符合匹配条件，紧接着匹配行尾，到这里整个全局匹配成功。</span><br><span class="line"></span><br><span class="line">也就是说对于一个字符串例如我要排除abc这个字串，那么对于任意一个字符串   helloworld abc helloworld 在匹配的时候(?!abc)可以匹配h、e、l、l、o、w、o、r、l、d等这些字符后面的位置，都是成功的。所以匹配根本还没有进行到abc这个地方，(?!abc)就会匹配成功。这个时候根本起不到排除的作用，为什么上面的第1和第2个例子可以呢，因为他们的位置有行首和行尾限定。例如我要匹配行首不是abc的话，那么此时^(?!abc) 这个时候(?!abc)实际上在匹配的时候其传动装置的位置被行首进行了限定,所以对于那些以abc开头的字符串来说就会匹配失败了。</span><br><span class="line"></span><br><span class="line">对于正则表达式^.*(?!abc).*$怎么能让第一个.*匹配到 helloworldabcxxx中的helloworld的问题。</span><br><span class="line"></span><br><span class="line">对于上面的题目，我们的答案是^([^f]|[^i]f)+$  其实就将所有的匹配分成了2种情况，一种情况是假设字符串中没有f字符，    自然就不可能有if字符串了，这种情况下匹配的字符串中是不可能有if的。第二种情况就是有f字符，但是我们要求此时f的前面不能是i，所以在有f和没有f两种情况都考虑到的情况下，这个正则就应该可以满足所有的情况了。</span><br><span class="line"></span><br><span class="line">其实这个问题的解答是不完美的，对于排除的字符串if只有2个字符i和f字符，我们可以使用这种方式，但是如果我们要排除的是字符串helloworld，这种方法显然就不实用了，那要考虑到多少种情况呢?</span><br><span class="line"></span><br><span class="line">排除不含有某字符串的最终方案：在这种情况下我们使用  ^(?!.*helloworld).*$  正则表达式  我们将第一个.*移到了零宽度断言的里面。在匹配的时候首先匹配行首的位置，然后接下来是匹配行首后面的位置，要求此位置的后面不能是    .*helloworld 匹配的字符串，说白了要求此位置的后面不能是xxxxxxxxxxxxxxxxxxhelloworld 类似的字符串，这样就排除了从行首开始后面含有helloworld的情况了。</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.cnblogs.com/wangqiguo/archive/2012/05/08/2486548.html" target="_blank" rel="noopener">利用正则表达式排除特定字符串 - 薰衣草的旋律</a></li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2019/05/04/days/五四青年节/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus récent</strong>
+            <div class="article-nav-title">
+                
+                    五四青年节
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2019/04/28/it/android/Android 基础/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus ancien</strong>
+            <div class="article-nav-title">Android 基础</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

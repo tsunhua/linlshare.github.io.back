@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Android 基础 | 覽月維基</title>
+    
+    
+        <meta name="keywords" content="Android">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="[TOC] 1 四大组件需要在 AndroidMenifest.xml 中声明，通过 Intent 调用。 1.1 Activity1.1.1 定义 An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity cl">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 基础">
+<meta property="og:url" content="https://linlshare.github.io/2019/04/28/it/android/Android 基础/index.html">
+<meta property="og:site_name" content="覽月維基">
+<meta property="og:description" content="[TOC] 1 四大组件需要在 AndroidMenifest.xml 中声明，通过 Intent 调用。 1.1 Activity1.1.1 定义 An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity cl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://linlshare.github.io/2019/04/28/it/android/Android%20基础/activity_lifecycle.png">
+<meta property="og:image" content="https://linlshare.github.io/2019/04/28/it/android/Android%20基础/basic-lifecycle.png">
+<meta property="og:image" content="https://linlshare.github.io/2019/04/28/it/android/Android%20基础/service_lifecycle.png">
+<meta property="og:image" content="https://linlshare.github.io/2019/04/28/it/android/Android%20基础/layoutparams.png">
+<meta property="og:updated_time" content="2019-04-28T07:46:42.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 基础">
+<meta name="twitter:description" content="[TOC] 1 四大组件需要在 AndroidMenifest.xml 中声明，通过 Intent 调用。 1.1 Activity1.1.1 定义 An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity cl">
+<meta name="twitter:image" content="https://linlshare.github.io/2019/04/28/it/android/Android%20基础/activity_lifecycle.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="覽月維基" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-128207704-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">覽月維基</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/54fbf902d38cde01242a454967020c86">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Articles',
+            PAGES: 'Pages',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://www.gravatar.com/avatar/54fbf902d38cde01242a454967020c86?s=128">
+            <h2 id="name">Lshare</h2>
+            <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SUIVRE</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                138
+                <span>Articles</span>
+            </div>
+            <div class="article-info-block">
+                144
+                <span>Tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/linlshare/" target="_blank" title="github" class="tooltip">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>Catégories</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            culture
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中国文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2016/04/06/culture/中国文化/干支纪年与六十进制/">干支纪年与六十进制</a></li>  <li class="file"><a href="/2016/04/04/culture/中国文化/从十进制数谈到巴比伦数字系统/">从十进制数谈到巴比伦数字系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日本文化
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/19/culture/日本文化/日本喪葬法事/">日本喪葬法事</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            days
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/04/days/五四青年节/">五四青年节</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typeface
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/25/design/typeface/关于字体的一些小知识/">关于字体的一些小知识</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            health
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/31/health/养生自律清单/">养生自律清单</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            history
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/12/history/澳門博彩業簡史/">澳門博彩業簡史</a></li>  <li class="file"><a href="/2019/01/13/history/明清時期澳門華人社會研究論文集/">明清時期澳門華人社會研究論文集</a></li>  <li class="file"><a href="/2018/12/04/history/澳門編年史 - 二十世紀(1900-1949) /">澳門編年史 - 二十世紀(1900-1949)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            it
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/01/20/it/android/APP启动优化/">APP启动优化</a></li>  <li class="file"><a href="/2018/09/04/it/android/Android 打包时 Keep 住某些方法或类/">Android 打包时 Keep 住某些方法或类</a></li>  <li class="file"><a href="/2018/09/10/it/android/MVP架构下解决 RxJava 自动解绑问题/">MVP架构下解决 RxJava 自动解绑问题</a></li>  <li class="file"><a href="/2018/09/03/it/android/使用 RxJava 进行嵌套串行网络请求的一种方法/">使用 RxJava 进行嵌套串行网络请求的一种方法</a></li>  <li class="file"><a href="/2018/09/13/it/android/Android 使用 DiffUtil 处理 RecyclerView 数据更新问题/">Android 使用 DiffUtil 处理 RecyclerView 数据更新问题</a></li>  <li class="file"><a href="/2018/08/21/it/android/解决 Android 中出现依赖多个版本支持库的问题/">解决 Android 中出现依赖多个版本支持库的问题</a></li>  <li class="file active"><a href="/2019/04/28/it/android/Android 基础/">Android 基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            code
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/22/it/code/代码质量控制/">代码质量控制</a></li>  <li class="file"><a href="/2018/11/21/it/code/FSM/">FSM</a></li>  <li class="file"><a href="/2018/08/13/it/code/开发一个第三方库的一般性和团队特定规则/">开发一个第三方库的一般性和团队特定规则</a></li>  <li class="file"><a href="/2019/05/02/it/code/正则表达式/">正则表达式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            concept
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/concept/NAS/">NAS</a></li>  <li class="file"><a href="/2018/12/27/it/concept/WebHook/">WebHook</a></li>  <li class="file"><a href="/2018/11/28/it/concept/分布式与集群/">分布式与集群</a></li>  <li class="file"><a href="/2018/12/24/it/concept/复合任务及其状态/">复合任务及其状态</a></li>  <li class="file"><a href="/2018/11/28/it/concept/服务发现/">服务发现</a></li>  <li class="file"><a href="/2019/02/19/it/concept/进程和线程/">进程和线程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            design
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/design/RESTful API/">RESTful API</a></li>  <li class="file"><a href="/2018/11/26/it/design/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arch
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/04/it/java/arch/Pipeline 模型/">Pipeline 模型</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            aws
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/14/it/java/aws/Amazon S3/">Amazon S3</a></li>  <li class="file"><a href="/2019/01/19/it/java/aws/DynamoDB/">DynamoDB</a></li>  <li class="file"><a href="/2018/08/19/it/java/aws/S3 Select for Java 使用记录/">S3 Select for Java 使用记录</a></li>  <li class="file"><a href="/2018/11/09/it/java/aws/aws/">aws</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            base
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/07/it/java/base/Gradle/">Gradle</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/JSP/">JSP</a></li>  <li class="file"><a href="/2018/10/29/it/java/base/Java EE/">Java EE</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Kafka/">Kafka</a></li>  <li class="file"><a href="/2018/11/28/it/java/base/Logback/">Logback</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Maven/">Maven</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/NIO/">NIO</a></li>  <li class="file"><a href="/2018/11/22/it/java/base/Netty/">Netty</a></li>  <li class="file"><a href="/2017/12/28/it/java/base/Nginx/">Nginx</a></li>  <li class="file"><a href="/2018/12/15/it/java/base/Package & Deploy/">Package & Deploy</a></li>  <li class="file"><a href="/2018/10/28/it/java/base/Redis/">Redis</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Servlet/">Servlet</a></li>  <li class="file"><a href="/2018/01/07/it/java/base/Spring Boot/">Spring Boot</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring MVC/">Spring MVC</a></li>  <li class="file"><a href="/2018/01/05/it/java/base/Spring/">Spring</a></li>  <li class="file"><a href="/2017/12/29/it/java/base/Tomcat/">Tomcat</a></li>  <li class="file"><a href="/2018/11/29/it/java/base/ZooKeeper/">ZooKeeper</a></li>  <li class="file"><a href="/2018/11/27/it/java/base/etcd/">etcd</a></li>  <li class="file"><a href="/2019/02/13/it/java/base/Java/">Java</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            cache
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/23/it/java/cache/Guava Cache/">Guava Cache</a></li>  <li class="file"><a href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            exception
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/10/it/java/exception/从序列化到 GSON 排错记录/">从序列化到 Gson 排错记录</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            persistence
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/JPA/">JPA</a></li>  <li class="file"><a href="/2018/11/09/it/java/persistence/MongoDB/">MongoDB</a></li>  <li class="file"><a href="/2019/04/23/it/java/persistence/MySql/">MySql</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/MyBatis/">MyBatis</a></li>  <li class="file"><a href="/2018/12/04/it/java/persistence/Spring Data JPA/">Spring Data JPA</a></li>  <li class="file"><a href="/2018/12/05/it/java/persistence/Spring Data MongoDB/">Spring Data MongoDB</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            schedule
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a></li>  <li class="file"><a href="/2018/12/03/it/java/schedule/Quartz/">Quartz</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            kotlin
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2017/12/17/it/kotlin/Kotlin的特性/">Kotlin的特性</a></li>  <li class="file"><a href="/2017/12/16/it/kotlin/Kotlin函数/">Kotlin 函数</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            media
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/15/it/media/CSV/">CSV</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            net
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/19/it/net/Port/">Port</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            node
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/18/it/node/Node.js/">Node.js</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            pm
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/11/it/pm/《人月神话》读后/">《人月神话》读后</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            robot
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/14/it/robot/JSONPath/">JSONPath</a></li>  <li class="file"><a href="/2018/12/20/it/robot/Proxy/">Proxy</a></li>  <li class="file"><a href="/2018/11/20/it/robot/Selenium/">Selenium</a></li>  <li class="file"><a href="/2018/12/07/it/robot/WebMagic/">WebMagic</a></li>  <li class="file"><a href="/2018/11/20/it/robot/XPath/">XPath</a></li>  <li class="file"><a href="/2019/03/26/it/robot/Splash/">Splash</a></li>  <li class="file"><a href="/2019/05/10/it/robot/ADSL ProxyPool/">ADSL ProxyPool</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            secure
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/21/it/secure/服务鉴权机制/">服务鉴权机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            serverless
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/17/it/serverless/AWS Lambda 服务/">AWS Lambda 服务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tool
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/04/it/tool/Alfred/">Alfred</a></li>  <li class="file"><a href="/2018/09/11/it/tool/Axure/">Axure</a></li>  <li class="file"><a href="/2018/11/27/it/tool/Docker/">Docker</a></li>  <li class="file"><a href="/2018/10/23/it/tool/Draw.io/">Draw.io</a></li>  <li class="file"><a href="/2018/12/12/it/tool/FunnyTool/">FunnyTool</a></li>  <li class="file"><a href="/2017/12/02/it/tool/Github/">Github</a></li>  <li class="file"><a href="/2018/10/17/it/tool/Git/">Git</a></li>  <li class="file"><a href="/2018/12/03/it/tool/Groovy/">Groovy</a></li>  <li class="file"><a href="/2018/10/28/it/tool/Hexo + Github Page = 个人 WiKi/">Hexo + Github Page = 个人 WiKi</a></li>  <li class="file"><a href="/2018/09/07/it/tool/IDEA/">IDEA</a></li>  <li class="file"><a href="/2018/12/13/it/tool/Jconsole/">Jconsole</a></li>  <li class="file"><a href="/2018/08/06/it/tool/Linux Shell/">Linux Shell</a></li>  <li class="file"><a href="/2018/08/21/it/tool/Mac/">Mac</a></li>  <li class="file"><a href="/2018/11/20/it/tool/Markdown/">Markdown</a></li>  <li class="file"><a href="/2018/09/26/it/tool/SSH/">SSH</a></li>  <li class="file"><a href="/2019/01/29/it/tool/Ubuntu/">Ubuntu</a></li>  <li class="file"><a href="/2018/09/05/it/tool/Vim/">Vim</a></li>  <li class="file"><a href="/2019/04/19/it/tool/zsh/">zsh</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            language
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bible
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/09/language/English/Bible/Genesis 1 @Old Testament/">Genesis 1 @Old Testament</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/05/language/日語/《日語自遊行の最和味》第一課 秋葉原/">《日語自遊行の最和味》第一課 秋葉原</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第三課 七夕/">《日語自遊行の最和味》第三課 七夕</a></li>  <li class="file"><a href="/2018/09/10/language/日語/《日語自遊行の最和味》第二課 梅雨季節結束/">《日語自遊行の最和味》第二課 梅雨季節結束</a></li>  <li class="file"><a href="/2018/09/12/language/日語/《日語自遊行の最和味》第四課 名古屋相撲大會/">《日語自遊行の最和味》第四課 名古屋相撲大會</a></li>  <li class="file"><a href="/2018/09/03/language/日語/伊呂波歌/">伊呂波歌</a></li>  <li class="file"><a href="/2018/09/04/language/日語/日語五十音考/">日語五十音考</a></li>  <li class="file"><a href="/2018/12/14/language/日語/日語漢字/">日語漢字</a></li>  <li class="file"><a href="/2018/09/29/language/日語/日语一周七天的记忆方法/">日语一周七天的记忆方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            漢語言
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            古代漢語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/08/20/language/漢語言/古代漢語/《古代漢語》上一·常用字/">《古代漢語》上一·文選</a></li>  <li class="file"><a href="/2018/08/30/language/漢語言/古代漢語/《古代漢語》上一·文選/">《古代漢語》上一·常用字</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            字源
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/14/language/漢語言/字源/讀懂漢字偏旁部首/">讀懂漢字偏旁部首</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2018/09/28/language/漢語言/汉语音韵中的四声八调及平仄/">汉语音韵中的四声八调及平仄</a></li>  <li class="file"><a href="/2019/01/16/language/漢語言/漢字雜談/">漢字雜談</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            閩南語
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/09/10/language/閩南語/閩南語俚語小記/">閩南語俚語小記</a></li>  <li class="file"><a href="/2018/09/08/language/閩南語/閩南語拼音方案/">閩南語拼音方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            literature
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/31/literature/T·S·艾略特/">T·S·艾略特</a></li>  <li class="file"><a href="/2018/12/30/literature/埃德蒙·斯宾塞/">埃德蒙·斯宾塞</a></li>  <li class="file"><a href="/2018/12/30/literature/乔叟/">乔叟</a></li>  <li class="file"><a href="/2018/12/31/literature/狄兰·托马斯/">狄兰·托马斯</a></li>  <li class="file"><a href="/2018/12/30/literature/荷马/">荷马</a></li>  <li class="file"><a href="/2018/12/30/literature/蒲柏/">蒲柏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            movie
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/06/movie/拯救大兵瑞恩/">拯救大兵瑞恩</a></li>  <li class="file"><a href="/2018/12/08/movie/海蒂和爷爷/">海蒂和爷爷</a></li>  <li class="file"><a href="/2018/08/19/movie/海街日记/">海街日记</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            music
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/09/music/Bach/">Bach</a></li>  <li class="file"><a href="/2018/12/19/music/Beatles/">Beatles</a></li>  <li class="file"><a href="/2018/12/29/music/Trio/">Trio</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            person
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/05/29/person/陆奇的故事/">陆奇的故事</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            philosophy
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/25/philosophy/金剛般若波羅蜜經/">金剛般若波羅蜜經</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            photography
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/24/photography/广州生物岛摄影 20181124/">广州生物岛摄影 20181124</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            reading
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/01/27/reading/瓦尔登湖/">瓦尔登湖</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            recipe
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/02/08/recipe/为什么带饭/">为什么带饭</a></li>  <li class="file"><a href="/2019/01/14/recipe/瘦肉粥/">瘦肉粥</a></li>  <li class="file"><a href="/2019/01/13/recipe/薑絲黃酒炒花蛤/">薑絲黃酒炒花蛤</a></li>  <li class="file"><a href="/2019/01/27/recipe/電飯煲仔/">電飯煲仔</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            thinking
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            weekly
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/10/21/thinking/weekly/周记 20181021/">周记 20181021</a></li>  <li class="file"><a href="/2018/10/28/thinking/weekly/周记 20181028/">周记 20181028</a></li>  <li class="file"><a href="/2018/11/04/thinking/weekly/周记 20181104/">周记 20181140</a></li>  <li class="file"><a href="/2018/11/18/thinking/weekly/周记 20181118/">周记 20181118</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            word
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/10/word/ATM/">ATM</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-it/android/Android 基础" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/android/">android</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/04/28/it/android/Android 基础/">
+            <time datetime="2019-04-28T05:25:35.000Z" itemprop="datePublished">2019-04-28</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/android/Android 基础.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/android/Android 基础.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/android/Android 基础.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Android 基础
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-四大组件"><span class="toc-number">1.</span> <span class="toc-text">1 四大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Activity"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-定义"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-生命周期"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2 生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-启动一个-Activity"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.1.3 启动一个 Activity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Service"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Service</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-定义"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-使用场景"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2 使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-分类"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.2.3 分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-回调方法"><span class="toc-number">1.2.4.</span> <span class="toc-text">1.2.4 回调方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-5-生命周期"><span class="toc-number">1.2.5.</span> <span class="toc-text">1.2.5 生命周期</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-ContentProvider"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 ContentProvider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-BroadcastReceiver"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 BroadcastReceiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Intent"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Intent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-定义"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.5.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-结构"><span class="toc-number">1.5.2.</span> <span class="toc-text">1.5.2 结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-3-分类"><span class="toc-number">1.5.3.</span> <span class="toc-text">1.5.3 分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-4-使用示例：启动一个-Activity"><span class="toc-number">1.5.4.</span> <span class="toc-text">1.5.4 使用示例：启动一个 Activity</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-布局"><span class="toc-number">2.</span> <span class="toc-text">2 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-定义"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-布局参数"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 布局参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-布局位置"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 布局位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-View"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 View</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-ViewGroup"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 ViewGroup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-事件处理"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 事件处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-存储"><span class="toc-number">3.</span> <span class="toc-text">3 存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-SharedPreferences"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 SharedPreferences</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-定义"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-操作"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-ContentProvider"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 ContentProvider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-SQLite、Room-等等"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 SQLite、Room 等等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-文件"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 文件</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>[TOC]</p>
+<h2 id="1-四大组件"><a href="#1-四大组件" class="headerlink" title="1 四大组件"></a>1 四大组件</h2><p>需要在 <code>AndroidMenifest.xml</code> 中声明，通过 Intent 调用。</p>
+<h3 id="1-1-Activity"><a href="#1-1-Activity" class="headerlink" title="1.1 Activity"></a>1.1 Activity</h3><h4 id="1-1-1-定义"><a href="#1-1-1-定义" class="headerlink" title="1.1.1 定义"></a>1.1.1 定义</h4><blockquote>
+<p>An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with <code>setContentView(View)</code>. While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows (via a theme with <code>R.attr.windowIsFloating</code> set) or embedded inside of another activity (using <code>ActivityGroup</code>).</p>
+<p>— <a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<h4 id="1-1-2-生命周期"><a href="#1-1-2-生命周期" class="headerlink" title="1.1.2 生命周期"></a>1.1.2 生命周期</h4><blockquote>
+<p>参见：<a href="https://developer.android.com/guide/components/activities/activity-lifecycle#java" target="_blank" rel="noopener">https://developer.android.com/guide/components/activities/activity-lifecycle#java</a></p>
+</blockquote>
+<p><img src="/2019/04/28/it/android/Android 基础/activity_lifecycle.png" alt="activity_lifecycle"></p>
+<h4 id="1-1-3-启动一个-Activity"><a href="#1-1-3-启动一个-Activity" class="headerlink" title="1.1.3 启动一个 Activity"></a>1.1.3 启动一个 Activity</h4><blockquote>
+<p>参见：<a href="https://developer.android.com/training/basics/activity-lifecycle/starting.html" target="_blank" rel="noopener">https://developer.android.com/training/basics/activity-lifecycle/starting.html</a></p>
+</blockquote>
+<p>(1) Activity 启动流程</p>
+<p><img src="/2019/04/28/it/android/Android 基础/basic-lifecycle.png" alt="basic-lifecycle"></p>
+<p>(2) 指定一个Launcher Activity</p>
+<p>Launcher(or Main) Activity（启动器 Activity，或主 Activity）：应用用户界面的主入口，在 Android 清单文件 <a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" target="_blank" rel="noopener"><code>AndroidManifest.xml</code></a> 中定义，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span> <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>(3) 创建一个新实例</p>
+<ol>
+<li>创建 Activity；</li>
+<li>在 <code>AndroidManifest.xml</code> 中声明；</li>
+<li>创建对应的布局文件(可选)；</li>
+<li>处理生命周期方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">TextView mTextView; <span class="comment">// Member variable for text view in the layout</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Set the user interface layout for this Activity</span></span><br><span class="line">    <span class="comment">// The layout file is defined in the project res/layout/main_activity.xml file</span></span><br><span class="line">    setContentView(R.layout.main_activity);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Initialize member TextView so we can manipulate it later</span></span><br><span class="line">    mTextView = (TextView) findViewById(R.id.text_message);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Make sure we're running on Honeycomb or higher to use ActionBar APIs</span></span><br><span class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) &#123;</span><br><span class="line">        <span class="comment">// For the main activity, make sure the app icon in the action bar</span></span><br><span class="line">        <span class="comment">// does not behave as a button</span></span><br><span class="line">        ActionBar actionBar = getActionBar();</span><br><span class="line">        actionBar.setHomeButtonEnabled(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Service"><a href="#1-2-Service" class="headerlink" title="1.2 Service"></a>1.2 Service</h3><h4 id="1-2-1-定义"><a href="#1-2-1-定义" class="headerlink" title="1.2.1 定义"></a>1.2.1 定义</h4><blockquote>
+<p><code>Service</code> 是一个可以在后台执行长时间运行操作而不提供用户界面的应用组件。服务可由其他应用组件启动，而且即使用户切换到其他应用，服务仍将在后台继续运行。 此外，组件可以绑定到服务，以与之进行交互，甚至是执行进程间通信 (IPC)。 例如，服务可以处理网络事务、播放音乐，执行文件 I/O 或与内容提供程序交互，而所有这一切均可在后台进行。</p>
+<p>— <a href="https://developer.android.com/guide/components/services" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<h4 id="1-2-2-使用场景"><a href="#1-2-2-使用场景" class="headerlink" title="1.2.2 使用场景"></a>1.2.2 使用场景</h4><p><strong>用户未与应用进行交互但需在后台运行时</strong></p>
+<blockquote>
+<p> 如需在主线程外部执行工作，不过只是在用户正在与应用交互时才有此需要，则应创建新线程而非服务。 例如，如果您只是想在 Activity 运行的同时播放一些音乐，则可在 <code>onCreate()</code> 中创建线程，在 <code>onStart()</code> 中启动线程，然后在 <code>onStop()</code> 中停止线程。您还可以考虑使用 <code>AsyncTask</code> 或 <code>HandlerThread</code>，而非传统的 <code>Thread</code>类。如需了解有关线程的详细信息，请参阅<a href="https://developer.android.com/guide/components/processes-and-threads.html#Threads" target="_blank" rel="noopener">进程和线程</a>文档。</p>
+<p>请记住，如果您确实要使用服务，则<strong>默认情况下，它仍会在应用的主线程中运</strong>行，因此，如果服务执行的是密集型或阻止性操作，则您仍应在服务内创建新线程。</p>
+<p>— <a href="https://developer.android.com/guide/components/services" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<h4 id="1-2-3-分类"><a href="#1-2-3-分类" class="headerlink" title="1.2.3 分类"></a>1.2.3 分类</h4><ol>
+<li><strong>启动服务</strong>，通过调用 <code>startService()</code> 启动服务时，服务即处于“启动”状态。一旦启动，服务即可在后台<strong>无限期</strong>运行，即使启动服务的组件已被销毁也不受影响。已启动的服务通常是执行单一操作，而且不会将结果返回给调用方。</li>
+<li><strong>绑定服务</strong>，通过调用 <code>bindService()</code> 绑定到服务时，服务即处于“绑定”状态。绑定服务提供了一个客户端-服务器接口，允许组件与服务进行交互、发送请求、获取结果，甚至是利用进程间通信 (IPC) 跨进程执行这些操作。 仅当与另一个应用组件绑定时，绑定服务才会运行。 多个组件可以同时绑定到该服务，但全部取消绑定后，该服务即会被销毁。</li>
+</ol>
+<p>Service 下有一个重要的子类叫 <code>IntentService</code>，它使用一个工作线程队列，逐一地（<em>而不是同时处理</em>）处理所有请求，只需要实现 <code>onHandleIntent</code>方法即可。</p>
+<h4 id="1-2-4-回调方法"><a href="#1-2-4-回调方法" class="headerlink" title="1.2.4 回调方法"></a>1.2.4 回调方法</h4><ol>
+<li><a href="https://developer.android.com/reference/android/app/Service.html#onStartCommand(android.content.Intent, int, int" target="_blank" rel="noopener">onStartCommand()</a>)：当调用 <code>startService</code> 启动服务时，系统会调用该方法，可通过 <code>stopSelf()</code> 或 <code>stopService</code> 停止服务。（如果您只想提供绑定，则无需实现此方法。）</li>
+<li><a href="https://developer.android.com/reference/android/app/Service.html#onBind(android.content.Intent" target="_blank" rel="noopener">onBind()</a>)：当另一个组件想通过调用 <code>bindService()</code> 与服务绑定（例如执行 RPC）时，系统将调用此方法。在此方法的实现中，您必须通过返回 <code>IBinder</code> 提供一个接口，供客户端用来与服务进行通信。请务必实现此方法，但如果您并不希望允许绑定，则应返回 null。</li>
+<li><a href="https://developer.android.com/reference/android/app/Service.html#onCreate(" target="_blank" rel="noopener">onCreate()</a>)：首次创建服务时，系统在 <code>onStartCommand()</code> 或 <code>onBind</code> 之前调用该方法。</li>
+<li><a href="https://developer.android.com/reference/android/app/Service.html#onDestroy(" target="_blank" rel="noopener">onDestroy()</a>)：当服务不再使用且将被销毁时，系统将调用此方法。</li>
+</ol>
+<h4 id="1-2-5-生命周期"><a href="#1-2-5-生命周期" class="headerlink" title="1.2.5 生命周期"></a>1.2.5 生命周期</h4><p><img src="/2019/04/28/it/android/Android 基础/service_lifecycle.png" alt="img"></p>
+<h3 id="1-3-ContentProvider"><a href="#1-3-ContentProvider" class="headerlink" title="1.3 ContentProvider"></a>1.3 ContentProvider</h3><h3 id="1-4-BroadcastReceiver"><a href="#1-4-BroadcastReceiver" class="headerlink" title="1.4 BroadcastReceiver"></a>1.4 BroadcastReceiver</h3><h3 id="1-5-Intent"><a href="#1-5-Intent" class="headerlink" title="1.5 Intent"></a>1.5 Intent</h3><h4 id="1-5-1-定义"><a href="#1-5-1-定义" class="headerlink" title="1.5.1 定义"></a>1.5.1 定义</h4><blockquote>
+<p>An intent is an abstract description of an operation to be performed. It can be used with <code>Context#startActivity(Intent)</code> to launch an <code>Activity</code>, <code>broadcastIntent</code> to send it to any interested <code>BroadcastReceiver</code> components, and <code>Context.startService(Intent)</code> or <code>Context.bindService(Intent, ServiceConnection, int)</code> to communicate with a background <code>Service</code>.</p>
+<p>— <a href="https://developer.android.com/reference/android/content/Intent" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<h4 id="1-5-2-结构"><a href="#1-5-2-结构" class="headerlink" title="1.5.2 结构"></a>1.5.2 结构</h4><ol>
+<li>action，操作，包括<code>ACTION_VIEW</code>, <code>ACTION_EDIT</code>, <code>ACTION_MAIN</code> 等等。</li>
+<li>data（可选），操作值，符合  <a href="https://developer.android.com/reference/android/net/Uri.html" target="_blank" rel="noopener"><code>Uri</code></a> 规范。</li>
+<li>category（可选），action 的附加描述，比如 <code>CATEGORY_LAUNCHER</code> 意味着它应该出现在启动器中作为顶层应用。</li>
+<li>type（可选），指定 data 的数据类型，如不指定则系统会通过 data 进行值类型评估。</li>
+<li>component（可选），指定使用该 Intent 的组件的类名。</li>
+<li>extras（可选），附加的 <a href="https://developer.android.com/reference/android/os/Bundle.html" target="_blank" rel="noopener">Bundle</a> 类型数据，供 component 使用。</li>
+</ol>
+<h4 id="1-5-3-分类"><a href="#1-5-3-分类" class="headerlink" title="1.5.3 分类"></a>1.5.3 分类</h4><ol>
+<li>显式 Intent，指定 component。</li>
+<li>隐式 Intent，不指定 component。</li>
+</ol>
+<h4 id="1-5-4-使用示例：启动一个-Activity"><a href="#1-5-4-使用示例：启动一个-Activity" class="headerlink" title="1.5.4 使用示例：启动一个 Activity"></a>1.5.4 使用示例：启动一个 Activity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_SEND);</span><br><span class="line">intent.putExtra(Intent.EXTRA_EMAIL, recipientArray);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h2 id="2-布局"><a href="#2-布局" class="headerlink" title="2 布局"></a>2 布局</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><blockquote>
+<p>布局定义用户界面的视觉结构，如<a href="https://developer.android.com/guide/components/activities.html?hl=zh-CN" target="_blank" rel="noopener">Activity</a>或<a href="https://developer.android.com/guide/topics/appwidgets/index.html?hl=zh-CN" target="_blank" rel="noopener">应用小部件</a>的 UI。您可以通过两种方式声明布局：</p>
+<ul>
+<li><strong>在 XML 中声明 UI 元素</strong>。Android 提供了对应于 View 类及其子类的简明 XML 词汇，如用于小部件和布局的词汇；</li>
+<li><strong>运行时实例化布局元素</strong>。您的应用可以通过编程创建 View 对象和 ViewGroup 对象（并操纵其属性）。</li>
+</ul>
+<p>Android 框架让您可以灵活地使用以下一种或两种方法来声明和管理应用的 UI。例如，您可以在 XML 中声明应用的默认布局，包括将出现在布局中的屏幕元素及其属性。然后，您可以在应用中添加可在运行时修改屏幕对象（包括那些已在 XML 中声明的对象）状态的代码。</p>
+<p>— <a href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=zh-CN" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<h3 id="2-2-布局参数"><a href="#2-2-布局参数" class="headerlink" title="2.2 布局参数"></a>2.2 布局参数</h3><blockquote>
+<p>名为 <code>layout_*something*</code> 的 XML 布局属性可为视图定义与其所在的 ViewGroup 相适的布局参数。</p>
+<p>每个 ViewGroup 类都会实现一个扩展 <code>ViewGroup.LayoutParams</code> 的嵌套类。此子类包含的属性类型会根据需要为视图组的每个子视图定义尺寸和位置。 正如您在图 1 中所见，父视图组为每个子视图（包括子视图组）定义布局参数。</p>
+<p>— <a href="https://developer.android.com/guide/topics/ui/declaring-layout?hl=zh-CN" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<p><img src="/2019/04/28/it/android/Android 基础/layoutparams.png" alt="img"></p>
+<h3 id="2-3-布局位置"><a href="#2-3-布局位置" class="headerlink" title="2.3 布局位置"></a>2.3 布局位置</h3><h3 id="2-4-View"><a href="#2-4-View" class="headerlink" title="2.4 View"></a>2.4 View</h3><h3 id="2-5-ViewGroup"><a href="#2-5-ViewGroup" class="headerlink" title="2.5 ViewGroup"></a>2.5 ViewGroup</h3><h3 id="2-6-事件处理"><a href="#2-6-事件处理" class="headerlink" title="2.6 事件处理"></a>2.6 事件处理</h3><h2 id="3-存储"><a href="#3-存储" class="headerlink" title="3 存储"></a>3 存储</h2><h3 id="3-1-SharedPreferences"><a href="#3-1-SharedPreferences" class="headerlink" title="3.1 SharedPreferences"></a>3.1 SharedPreferences</h3><h4 id="3-1-1-定义"><a href="#3-1-1-定义" class="headerlink" title="3.1.1 定义"></a>3.1.1 定义</h4><blockquote>
+<p>Interface for accessing and modifying preference data returned by <code>Context#getSharedPreferences</code>. For any particular set of preferences, there is a single instance of this class that all clients share. Modifications to the preferences must go through an <code>Editor</code> object to ensure the preference values remain in a consistent state and control when they are committed to storage. Objects that are returned from the various <code>get</code> methods must be treated as immutable by the application.</p>
+<p>— <a href="https://developer.android.com/reference/android/content/SharedPreferences" target="_blank" rel="noopener">Android Developer Guide</a></p>
+</blockquote>
+<p>底层存储采用一个 XML 文件。</p>
+<h4 id="3-1-2-操作"><a href="#3-1-2-操作" class="headerlink" title="3.1.2 操作"></a>3.1.2 操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）写入数据：</span><br><span class="line">     <span class="comment">//步骤1：创建一个SharedPreferences对象</span></span><br><span class="line">     SharedPreferences sharedPreferences= getSharedPreferences(<span class="string">"data"</span>,Context.MODE_PRIVATE);</span><br><span class="line">     <span class="comment">//步骤2： 实例化SharedPreferences.Editor对象</span></span><br><span class="line">     SharedPreferences.Editor editor = sharedPreferences.edit();</span><br><span class="line">     <span class="comment">//步骤3：将获取过来的值放入文件</span></span><br><span class="line">     editor.putString(<span class="string">"name"</span>, “Tom”);</span><br><span class="line">     editor.putInt(<span class="string">"age"</span>, <span class="number">28</span>);</span><br><span class="line">     editor.putBoolean(<span class="string">"marrid"</span>,<span class="keyword">false</span>);</span><br><span class="line">     <span class="comment">//步骤4：提交               </span></span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="number">2</span>）读取数据：</span><br><span class="line">     SharedPreferences sharedPreferences= getSharedPreferences(<span class="string">"data"</span>, Context .MODE_PRIVATE);</span><br><span class="line">     String userId=sharedPreferences.getString(<span class="string">"name"</span>,<span class="string">""</span>);</span><br><span class="line">  </span><br><span class="line"><span class="number">3</span>）删除指定数据</span><br><span class="line">     editor.remove(<span class="string">"name"</span>);</span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）清空数据</span><br><span class="line">     editor.clear();</span><br><span class="line">     editor.commit();</span><br><span class="line"></span><br><span class="line">作者：ghroosk</span><br><span class="line">链接：https:<span class="comment">//juejin.im/post/5adc444df265da0b886d00bc</span></span><br><span class="line">来源：掘金</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-ContentProvider"><a href="#3-2-ContentProvider" class="headerlink" title="3.2 ContentProvider"></a>3.2 ContentProvider</h3><h3 id="3-3-SQLite、Room-等等"><a href="#3-3-SQLite、Room-等等" class="headerlink" title="3.3 SQLite、Room 等等"></a>3.3 SQLite、Room 等等</h3><h3 id="3-4-文件"><a href="#3-4-文件" class="headerlink" title="3.4 文件"></a>3.4 文件</h3>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2019/05/02/it/code/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus récent</strong>
+            <div class="article-nav-title">
+                
+                    正则表达式
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2019/04/23/it/java/persistence/MySql/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus ancien</strong>
+            <div class="article-nav-title">MySql</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lshare &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
