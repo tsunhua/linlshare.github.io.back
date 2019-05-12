@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://linlshare.github.io/"/>
-  <updated>2019-05-11T15:09:20.490Z</updated>
+  <updated>2019-05-12T10:41:19.508Z</updated>
   <id>https://linlshare.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国际母亲节</title>
+    <link href="https://linlshare.github.io/2019/05/12/days/%E5%9B%BD%E9%99%85%E6%AF%8D%E4%BA%B2%E8%8A%82/"/>
+    <id>https://linlshare.github.io/2019/05/12/days/国际母亲节/</id>
+    <published>2019-05-12T01:27:16.000Z</published>
+    <updated>2019-05-12T10:41:19.508Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>美国人安娜·贾维斯 ( Anna Jarvis, 1864~1948) 发起，其母善良和富有同情心，喜康乃馨。贾维斯终身未婚，侍奉左右，其母死后，为成立法定节日纪念母亲奔走。终于，1908 5 月 10 日，美国西弗吉尼亚州和宾夕法尼亚州正式开始了母亲节。1913 年，国会确定将每年 5 月的第二个星期日定为法定母亲节，并要求这一天家家户户都要悬挂国旗，以示对母亲的尊敬。贾维斯母亲喜欢的康乃馨成为了母亲节的象征。</p><p>后因母亲节过于商业化，贾维斯又到处奔走呼告，希望母亲节回归单纯地对母亲的赞颂中。</p><h2 id="其他母亲节"><a href="#其他母亲节" class="headerlink" title="其他母亲节"></a>其他母亲节</h2><table><thead><tr><th>时间</th><th>国家</th><th>典故</th><th>状态</th></tr></thead><tbody><tr><td>农历七月十五日（盂兰节）</td><td>越南</td><td>目连救母</td><td>已确定</td></tr><tr><td>夏历四月初二</td><td>中国</td><td>孟母三迁</td><td>待定</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;起源&quot;&gt;&lt;a href=&quot;#起源&quot; class=&quot;headerlink&quot; title=&quot;起源&quot;&gt;&lt;/a&gt;起源&lt;/h2&gt;&lt;p&gt;美国人安娜·贾维斯 ( Anna Jarvis, 1864~1948) 发起，其母善良和富有同情心，喜康乃馨。贾维斯终身未婚，侍奉左右，其母
+      
+    
+    </summary>
+    
+      <category term="days" scheme="https://linlshare.github.io/categories/days/"/>
+    
+    
+      <category term="节日" scheme="https://linlshare.github.io/tags/%E8%8A%82%E6%97%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>《人月神话》读后</title>
@@ -548,34 +573,6 @@
     
     
       <category term="漢字" scheme="https://linlshare.github.io/tags/%E6%BC%A2%E5%AD%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSONPath</title>
-    <link href="https://linlshare.github.io/2019/01/14/it/robot/JSONPath/"/>
-    <id>https://linlshare.github.io/2019/01/14/it/robot/JSONPath/</id>
-    <published>2019-01-14T11:16:57.000Z</published>
-    <updated>2019-01-14T11:33:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>JSONPath，XPath for JSON，是仿造 XPath 进行 JSON 定位的一套语法。</p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><table><thead><tr><th><strong>XPath</strong></th><th><strong>JSONPath</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td>/</td><td>$</td><td>根对象或元素</td></tr><tr><td>.</td><td>@</td><td>当前对象或元素</td></tr><tr><td>/</td><td>. or []</td><td>子操作</td></tr><tr><td>..</td><td>n/a</td><td>父操作</td></tr><tr><td>//</td><td>..</td><td>向下遍历，创意来自 E4X</td></tr><tr><td>*</td><td>*</td><td>通配</td></tr><tr><td>@</td><td>n/a</td><td>获取属性，但 JSON 结构没有任何属性</td></tr><tr><td>[]</td><td>[]</td><td>下标操作。XPath 用来迭代元素集合和断言，在 Javascript 和 JSON 中则是数组操作</td></tr><tr><td>\</td><td></td><td>[,]</td><td>连结操作。在 XPath 中为将节点集合并。 JSONPath 允许选择名称和索引作为集合。</td></tr><tr><td>n/a</td><td><code>[start:end:step]</code></td><td>数组切片操作。创意来自 ES4</td></tr><tr><td>[]</td><td>?()</td><td>执行一个过滤脚本表达式</td></tr><tr><td>n/a</td><td>()</td><td>脚本表达式</td></tr><tr><td>()</td><td>n/a</td><td>XPath 中的分组操作</td></tr></tbody></table><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://goessner.net/articles/JsonPath/" target="_blank" rel="noopener">JsonPath - goessner.net</a>（详细介绍了 JSONPath 语法）</li><li><a href="https://jsonpath.curiousconcept.com/" target="_blank" rel="noopener">JSONPATH Expression Tester - jsonpath.curiousconcept.com</a>（绝好的测试 JSONPath 语法的在线工具）</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;JSONPath，XPath for JSON，是仿造 XPath 进行 JSON 定位的一套语法。&lt;/p&gt;
-&lt;h2 id=&quot;基本语法&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="it" scheme="https://linlshare.github.io/categories/it/"/>
-    
-      <category term="robot" scheme="https://linlshare.github.io/categories/it/robot/"/>
-    
-    
-      <category term="JSONPath" scheme="https://linlshare.github.io/tags/JSONPath/"/>
     
   </entry>
   

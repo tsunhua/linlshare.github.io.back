@@ -173,7 +173,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                138
+                139
                 <span>Entradas</span>
             </div>
             <div class="article-info-block">
@@ -256,7 +256,7 @@ ga('send', 'pageview');
                             &nbsp;
                             days
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/04/days/五四青年节/">五四青年节</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2019/05/04/days/五四青年节/">五四青年节</a></li>  <li class="file"><a href="/2019/05/12/days/国际母亲节/">国际母亲节</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -735,6 +735,170 @@ ga('send', 'pageview');
 </aside>
             
             <section id="main">
+        <article id="post-it/java/cache/Spring Cache" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/cache/">cache</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Cache/">Cache</a>, <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/Spring/">Spring</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/05/it/java/cache/Spring Cache/">
+            <time datetime="2018-12-05T14:46:21.000Z" itemprop="datePublished">2018-12-05</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/cache/Spring Cache.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/cache/Spring Cache.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/cache/Spring Cache.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/05/it/java/cache/Spring Cache/">Spring Cache</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="为什么要使用-Spring-Cache-管理缓存？"><a href="#为什么要使用-Spring-Cache-管理缓存？" class="headerlink" title="为什么要使用 Spring Cache 管理缓存？"></a>为什么要使用 Spring Cache 管理缓存？</h2><p>让 Spring 来管理 Bean 的缓存具有以下优势：</p>
+<ol>
+<li>Spring 支持 HashMap 缓存，Redis 缓存以及自定义的缓存方式；</li>
+<li>Spring 缓存几乎不需要写代码，只需要配置好并声明好注解。</li>
+</ol>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="（1）依赖引入"><a href="#（1）依赖引入" class="headerlink" title="（1）依赖引入"></a>（1）依赖引入</h3><p>这里使用 Spring 的依赖管理器来管理 Spring Cache 的版本，会自动处理内部的模块间依赖，这也是推荐的方式。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'org.springframework.boot'</span></span><br><span class="line">apply <span class="string">plugin:</span> <span class="string">'io.spring.dependency-management'</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile(<span class="string">"org.springframework.boot:spring-boot-starter-cache"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（2）启用缓存"><a href="#（2）启用缓存" class="headerlink" title="（2）启用缓存"></a>（2）启用缓存</h3><p>在 SpringApplication 配置类的地方添加以下注解以启用缓存功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableCaching</span></span><br></pre></td></tr></table></figure>
+<h3 id="（3）ConcurrentHashMap-缓存"><a href="#（3）ConcurrentHashMap-缓存" class="headerlink" title="（3）ConcurrentHashMap 缓存"></a>（3）ConcurrentHashMap 缓存</h3><p>当没有配置其他缓存库时，默认使用 <code>ConcurrentHashMap</code> 作为缓存仓库。</p>
+<h4 id="（3-1）一个简单的实体类"><a href="#（3-1）一个简单的实体类" class="headerlink" title="（3.1）一个简单的实体类"></a>（3.1）一个简单的实体类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">    <span class="keyword">public</span> String firstName;</span><br><span class="line">    <span class="keyword">public</span> String lastName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">        <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（3-2）一个-Repository"><a href="#（3-2）一个-Repository" class="headerlink" title="（3.2）一个 Repository"></a>（3.2）一个 Repository</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerRepository</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Cachable</span></span><br><span class="line">    <span class="function">Customer <span class="title">getByFirstName</span><span class="params">(String firstName)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 这里应该是从数据库查询数据，DEMO 简省成直接新建了。</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Customer(firstName, <span class="string">"Jobs"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（3-3）测试一下"><a href="#（3-3）测试一下" class="headerlink" title="（3.3）测试一下"></a>（3.3）测试一下</h4><p>如果缓存成功了，那么以下代码执行结果的 HashCode 是一致的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppRunner</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(AppRunner.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> CustomerRepository customerRepository;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AppRunner</span><span class="params">(CustomerRepository customerRepository)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.customerRepository = customerRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"John --&gt;"</span> + customerRepository.getByFirstName(<span class="string">"John"</span>).hashCode());</span><br><span class="line">        logger.info(<span class="string">"John --&gt;"</span> + customerRepository.getByFirstName(<span class="string">"John"</span>).hashCode());</span><br><span class="line">        logger.info(<span class="string">"John --&gt;"</span> + customerRepository.getByFirstName(<span class="string">"John"</span>).hashCode());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="（4）配合-Redis-缓存"><a href="#（4）配合-Redis-缓存" class="headerlink" title="（4）配合 Redis 缓存"></a>（4）配合 Redis 缓存</h3><h4 id="（4-1）添加-Redis-依赖"><a href="#（4-1）添加-Redis-依赖" class="headerlink" title="（4.1）添加 Redis 依赖"></a>（4.1）添加 Redis 依赖</h4><p>在前面的依赖之下再额外新增 Redis 相关的依赖，如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本环境中的 spring-data-redis 为 1.8.7.RELEASE 版本</span></span><br><span class="line"><span class="comment">// 高版本的配置略有不同，请留意</span></span><br><span class="line">compile (<span class="string">"org.springframework.data:spring-data-redis"</span>) </span><br><span class="line">compile <span class="string">"redis.clients:jedis:2.9.0"</span></span><br></pre></td></tr></table></figure>
+<h4 id="（4-2）配置-Redis"><a href="#（4-2）配置-Redis" class="headerlink" title="（4.2）配置 Redis"></a>（4.2）配置 Redis</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger LOGGER = LoggerFactory.getLogger(RedisConfig.class);</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Map&lt;String, Long&gt; CACHE_EXPIRE_MAP = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">    CACHE_EXPIRE_MAP.put(<span class="string">"cache1"</span>, <span class="number">5</span> * <span class="number">60L</span>); <span class="comment">//second</span></span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function">RedisConnectionFactory <span class="title">redisConnectionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    JedisConnectionFactory jedisConFactory = <span class="keyword">new</span> JedisConnectionFactory();</span><br><span class="line">    jedisConFactory.setHostName(<span class="string">"localhost"</span>);</span><br><span class="line">    jedisConFactory.setPort(<span class="number">6379</span>);</span><br><span class="line">    <span class="keyword">return</span> jedisConFactory;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function">StringRedisTemplate <span class="title">stringRedisTemplate</span><span class="params">(RedisConnectionFactory redisConnectionFactory)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> StringRedisTemplate(redisConnectionFactory);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function">RedisTemplate <span class="title">redisTemplate</span><span class="params">(RedisConnectionFactory redisConnectionFactory)</span> </span>&#123;</span><br><span class="line">    RedisTemplate template = <span class="keyword">new</span> RedisTemplate();</span><br><span class="line">    template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">    template.afterPropertiesSet();</span><br><span class="line">    <span class="comment">// 默认为 JdkSerializationRedisSerializer, 配合 @Cacheable 时 KEY 会有序列化值在中间</span></span><br><span class="line">    <span class="comment">// 使用 StringRedisSerializer 则不会如此</span></span><br><span class="line">    template.setKeySerializer(<span class="keyword">new</span> StringRedisSerializer());</span><br><span class="line">    <span class="keyword">return</span> template;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> RedisCacheManager <span class="title">cacheManager</span><span class="params">(RedisTemplate redisTemplate)</span> </span>&#123;</span><br><span class="line">    RedisCacheManager cm = <span class="keyword">new</span> RedisCacheManager(redisTemplate);</span><br><span class="line">    cm.setCacheNames(CACHE_EXPIRE_MAP.keySet());</span><br><span class="line">    cm.setExpires(CACHE_EXPIRE_MAP);</span><br><span class="line">    cm.setUsePrefix(<span class="keyword">true</span>);</span><br><span class="line">    cm.setCachePrefix(cacheName -&gt; (cacheName + <span class="string">":"</span>).getBytes());</span><br><span class="line">    <span class="keyword">return</span> cm;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（4-2）序列化实体类"><a href="#（4-2）序列化实体类" class="headerlink" title="（4.2）序列化实体类"></a>（4.2）序列化实体类</h4><p>Spring 在将实体类缓存到 Redis 中时进行了序列化操作，如果不对实体类进行序列化将会报错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">    <span class="keyword">public</span> String firstName;</span><br><span class="line">    <span class="keyword">public</span> String lastName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">        <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（4-3）在需要缓存的位置使用注解，并指定缓存名"><a href="#（4-3）在需要缓存的位置使用注解，并指定缓存名" class="headerlink" title="（4.3）在需要缓存的位置使用注解，并指定缓存名"></a>（4.3）在需要缓存的位置使用注解，并指定缓存名</h4><p>如果在使用 Redis 缓存时，没有指定缓存名，将会报错：<code>no cache could be resolved for at least one cache should be provided per cache operation</code>。</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/2018/12/05/it/java/cache/Spring Cache/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/java/persistence/Spring Data MongoDB" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1488,147 +1652,6 @@ ga('send', 'pageview');
 
 
     
-        <article id="post-it/java/persistence/JDBC" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JDBC/">JDBC</a>, <a class="tag-link" href="/tags/Java/">Java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/04/it/java/persistence/JDBC/">
-            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JDBC.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JDBC.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JDBC.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h2 id="JDBC-是干什么的？"><a href="#JDBC-是干什么的？" class="headerlink" title="JDBC 是干什么的？"></a>JDBC 是干什么的？</h2><p>是 Java 语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如<strong>查询和更新</strong>数据库中数据的方法。JDBC 是面向<strong>关系型数据库</strong>的。</p>
-<h3 id="JPA-与-JDBC-的异同？"><a href="#JPA-与-JDBC-的异同？" class="headerlink" title="JPA 与 JDBC 的异同？"></a>JPA 与 JDBC 的异同？</h3><p><strong>（1）相同点</strong></p>
-<ul>
-<li>都是面向关系型数据库的；</li>
-<li>都具备查询保存数据的能力。</li>
-</ul>
-<p><strong>（2）不同点</strong></p>
-<ul>
-<li>JPA 是 Java 持久化 API 的规范，关注将数据库中的表与实体类做映射；</li>
-<li>JDBC 是 Java 数据库访问的接口，将数据访问与具体的关系型数据库分离，使用驱动完成具体的数据操作。</li>
-</ul>
-<p>参看 <a href="https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different" target="_blank" rel="noopener">JPA or JDBC, how are they different? - stackoverfow</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">Java 数据库连接 - 维基百科</a></li>
-</ol>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-it/java/persistence/MyBatis" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1774,6 +1797,147 @@ ga('send', 'pageview');
 
 
     
+        <article id="post-it/java/persistence/JDBC" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/persistence/">persistence</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JDBC/">JDBC</a>, <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/04/it/java/persistence/JDBC/">
+            <time datetime="2018-12-04T07:51:06.000Z" itemprop="datePublished">2018-12-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/persistence/JDBC.md"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/persistence/JDBC.md"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/persistence/JDBC.md"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/12/04/it/java/persistence/JDBC/">JDBC</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="JDBC-是干什么的？"><a href="#JDBC-是干什么的？" class="headerlink" title="JDBC 是干什么的？"></a>JDBC 是干什么的？</h2><p>是 Java 语言中用来规范客户端程序如何来访问数据库的应用程序接口，提供了诸如<strong>查询和更新</strong>数据库中数据的方法。JDBC 是面向<strong>关系型数据库</strong>的。</p>
+<h3 id="JPA-与-JDBC-的异同？"><a href="#JPA-与-JDBC-的异同？" class="headerlink" title="JPA 与 JDBC 的异同？"></a>JPA 与 JDBC 的异同？</h3><p><strong>（1）相同点</strong></p>
+<ul>
+<li>都是面向关系型数据库的；</li>
+<li>都具备查询保存数据的能力。</li>
+</ul>
+<p><strong>（2）不同点</strong></p>
+<ul>
+<li>JPA 是 Java 持久化 API 的规范，关注将数据库中的表与实体类做映射；</li>
+<li>JDBC 是 Java 数据库访问的接口，将数据访问与具体的关系型数据库分离，使用驱动完成具体的数据操作。</li>
+</ul>
+<p>参看 <a href="https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different" target="_blank" rel="noopener">JPA or JDBC, how are they different? - stackoverfow</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zh.wikipedia.org/zh-cn/Java%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5" target="_blank" rel="noopener">Java 数据库连接 - 维基百科</a></li>
+</ol>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-it/tool/Groovy" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1878,87 +2042,6 @@ ga('send', 'pageview');
 <li><a href="http://www.zhyea.com/2018/02/08/gradle-exclude-dependencies.html" target="_blank" rel="noopener">Gradle 依赖排除</a></li>
 </ol>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-it/java/schedule/CompletableFuture" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/it/">it</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/it/java/schedule/">schedule</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CompletableFuture/">CompletableFuture</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/12/03/it/java/schedule/CompletableFuture/">
-            <time datetime="2018-12-03T02:49:29.000Z" itemprop="datePublished">2018-12-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/raw/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/edit/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/linlshare/linlshare.github.io/commits/hexo/source/_posts/it/java/schedule/CompletableFuture.md"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/12/03/it/java/schedule/CompletableFuture/">CompletableFuture</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            
             </div>
         
         <footer class="article-footer">
