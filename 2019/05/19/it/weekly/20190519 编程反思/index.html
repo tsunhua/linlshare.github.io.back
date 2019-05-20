@@ -9,18 +9,20 @@
         <meta name="keywords" content="技术反思">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Linux 命令CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示mv -f 可以直接覆盖同名的文件sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟使用反引号进行命令替换，比如1pid=`ps aux | grep chrome | grep -v grep | awk &apos;&amp;#123;print $2&amp;#125;&apos;` tar 打包可以指定 -C 解决打包全路径的">
+    <meta name="description" content="1 Linux Shell 命令shell 编程不能被打断，确认提示、输入密码提示这些都是要我们想办法避免的。 1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟1.4 使用反引号进行命令替换，比如1pid=`ps aux | grep">
 <meta name="keywords" content="技术反思">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20190519 编程反思">
 <meta property="og:url" content="https://linlshare.github.io/2019/05/19/it/weekly/20190519 编程反思/index.html">
 <meta property="og:site_name" content="覽月維基">
-<meta property="og:description" content="Linux 命令CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示mv -f 可以直接覆盖同名的文件sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟使用反引号进行命令替换，比如1pid=`ps aux | grep chrome | grep -v grep | awk &apos;&amp;#123;print $2&amp;#125;&apos;` tar 打包可以指定 -C 解决打包全路径的">
+<meta property="og:description" content="1 Linux Shell 命令shell 编程不能被打断，确认提示、输入密码提示这些都是要我们想办法避免的。 1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟1.4 使用反引号进行命令替换，比如1pid=`ps aux | grep">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-20T03:16:27.115Z">
+<meta property="og:image" content="https://linlshare.github.io/2019/05/19/it/weekly/20190519%20编程反思/git%20detached%20HEAD.png">
+<meta property="og:updated_time" content="2019-05-20T16:39:47.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20190519 编程反思">
-<meta name="twitter:description" content="Linux 命令CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示mv -f 可以直接覆盖同名的文件sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟使用反引号进行命令替换，比如1pid=`ps aux | grep chrome | grep -v grep | awk &apos;&amp;#123;print $2&amp;#125;&apos;` tar 打包可以指定 -C 解决打包全路径的">
+<meta name="twitter:description" content="1 Linux Shell 命令shell 编程不能被打断，确认提示、输入密码提示这些都是要我们想办法避免的。 1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟1.4 使用反引号进行命令替换，比如1pid=`ps aux | grep">
+<meta name="twitter:image" content="https://linlshare.github.io/2019/05/19/it/weekly/20190519%20编程反思/git%20detached%20HEAD.png">
     
 
     
@@ -100,7 +102,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -119,10 +121,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -151,7 +153,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar">
     </div>
 
                 </td>
@@ -171,16 +173,16 @@ ga('send', 'pageview');
             <h2 id="name">Lshare</h2>
             <h3 id="title">Programmer &amp; Chinese Character Lover</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Guangzhou, China</span>
-            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://twitter.com/Oqqo0_0o">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 142
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 146
-                <span>tags</span>
+                <span>Etiquetas</span>
             </div>
         </div>
         
@@ -215,7 +217,7 @@ ga('send', 'pageview');
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>Categorias</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -823,17 +825,82 @@ ga('send', 'pageview');
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-命令"><span class="toc-number">1.</span> <span class="toc-text">Linux 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示"><span class="toc-number">1.1.</span> <span class="toc-text">CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-f-可以直接覆盖同名的文件"><span class="toc-number">1.2.</span> <span class="toc-text">mv -f 可以直接覆盖同名的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟"><span class="toc-number">1.3.</span> <span class="toc-text">sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用反引号进行命令替换，比如"><span class="toc-number">1.4.</span> <span class="toc-text">使用反引号进行命令替换，比如</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-打包可以指定-C-解决打包全路径的问题"><span class="toc-number">1.5.</span> <span class="toc-text">tar 打包可以指定 -C 解决打包全路径的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-a-可以-ssh-登录后自动执行设定命令"><span class="toc-number">1.6.</span> <span class="toc-text">ssh -a 可以 ssh 登录后自动执行设定命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器"><span class="toc-number">1.7.</span> <span class="toc-text">ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl-x-可以指定使用代理访问，-o-可以保存为文件"><span class="toc-number">1.8.</span> <span class="toc-text">curl -x 可以指定使用代理访问，-o 可以保存为文件</span></a></li></ol></li></ol>
+                <strong class="toc-title">Catálogo</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Linux-Shell-命令"><span class="toc-number">1.</span> <span class="toc-text">1 Linux Shell 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-mv-f-可以直接覆盖同名的文件，避免覆盖的确认提示"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-使用反引号进行命令替换，比如"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 使用反引号进行命令替换，比如</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-tar-打包可以指定-C-解决打包全路径的问题"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 tar 打包可以指定 -C 解决打包全路径的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-ssh-a-可以-ssh-登录后自动执行设定命令"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 ssh -a 可以 ssh 登录后自动执行设定命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-curl-x-可以指定使用代理访问，-o-可以保存为文件"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 curl -x 可以指定使用代理访问，-o 可以保存为文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DocumentDB-读取负载均衡问题"><span class="toc-number">2.</span> <span class="toc-text">2 DocumentDB 读取负载均衡问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Git-Submodule"><span class="toc-number">3.</span> <span class="toc-text">3 Git Submodule</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-git-submodule-detached-HEAD"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 git submodule detached HEAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-在主项目查看子模块的改变"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 在主项目查看子模块的改变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-foreach-骚操作"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 foreach 骚操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Jenkins-打包流程"><span class="toc-number">4.</span> <span class="toc-text">4 Jenkins 打包流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-ssh-私钥登录-Linux-服务器仍提示输入密码的问题"><span class="toc-number">5.</span> <span class="toc-text">5 ssh 私钥登录 Linux 服务器仍提示输入密码的问题</span></a></li></ol>
                 </div>
             
         
         
-            <h2 id="Linux-命令"><a href="#Linux-命令" class="headerlink" title="Linux 命令"></a>Linux 命令</h2><h3 id="CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示"><a href="#CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示" class="headerlink" title="CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示"></a>CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示</h3><h3 id="mv-f-可以直接覆盖同名的文件"><a href="#mv-f-可以直接覆盖同名的文件" class="headerlink" title="mv -f 可以直接覆盖同名的文件"></a>mv -f 可以直接覆盖同名的文件</h3><h3 id="sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟"><a href="#sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟" class="headerlink" title="sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟"></a>sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟</h3><h3 id="使用反引号进行命令替换，比如"><a href="#使用反引号进行命令替换，比如" class="headerlink" title="使用反引号进行命令替换，比如"></a>使用反引号进行命令替换，比如</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pid=`ps aux | grep chrome | grep -v grep | awk '&#123;print $2&#125;'`</span><br></pre></td></tr></table></figure>
-<h3 id="tar-打包可以指定-C-解决打包全路径的问题"><a href="#tar-打包可以指定-C-解决打包全路径的问题" class="headerlink" title="tar 打包可以指定 -C 解决打包全路径的问题"></a>tar 打包可以指定 -C 解决打包全路径的问题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 不使用 -C，打包后的将保留全路径</span><br><span class="line">tar -czvf adsl-abot.tar.gz ~/git/ms/abot-adsl</span><br><span class="line"><span class="meta">#</span> 使用 -C，打包后只保留路径 abot-adsl</span><br><span class="line">tar -czvf adsl-abot.tar.gz -C ~/git/ms abot-adsl</span><br></pre></td></tr></table></figure>
-<h3 id="ssh-a-可以-ssh-登录后自动执行设定命令"><a href="#ssh-a-可以-ssh-登录后自动执行设定命令" class="headerlink" title="ssh -a 可以 ssh 登录后自动执行设定命令"></a>ssh -a 可以 ssh 登录后自动执行设定命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh server1 -a 'python run.py &gt; /dev/null &amp;'</span><br></pre></td></tr></table></figure>
-<h3 id="ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器"><a href="#ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器" class="headerlink" title="ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器"></a>ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成 ssh key，注意不要设定 passphrase，直接回车即可</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C "user@example.com"</span><br><span class="line"><span class="meta">#</span> 拷贝公钥到服务器</span><br><span class="line">ssh-copy-id  -i ~/.ssh/id_rsa  -p &lt;port&gt; &lt;name&gt;@&lt;host&gt;</span><br><span class="line"><span class="meta">#</span> 配置 ~/.ssh/config</span><br><span class="line">Host server1</span><br><span class="line">User &lt;name&gt;</span><br><span class="line">HostName &lt;host&gt;</span><br><span class="line">Port &lt;port&gt;</span><br><span class="line">IdentityFile ./id_rsa</span><br><span class="line"><span class="meta">#</span> shell 访问</span><br><span class="line">ssh server1</span><br></pre></td></tr></table></figure>
-<h3 id="curl-x-可以指定使用代理访问，-o-可以保存为文件"><a href="#curl-x-可以指定使用代理访问，-o-可以保存为文件" class="headerlink" title="curl -x 可以指定使用代理访问，-o 可以保存为文件"></a>curl -x 可以指定使用代理访问，-o 可以保存为文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 代理访问</span><br><span class="line">curl -x 120.83.121.55:8881 https://readhub.cn/topics</span><br><span class="line"><span class="meta">#</span> 下载文件</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span><br></pre></td></tr></table></figure>
+            <h2 id="1-Linux-Shell-命令"><a href="#1-Linux-Shell-命令" class="headerlink" title="1 Linux Shell 命令"></a>1 Linux Shell 命令</h2><p>shell 编程不能被打断，确认提示、输入密码提示这些都是要我们想办法避免的。</p>
+<h3 id="1-1-CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示"><a href="#1-1-CentOS-yum-安装软件时，用-y-可以避免安装软件时的确认提示" class="headerlink" title="1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示"></a>1.1 CentOS yum 安装软件时，用 -y 可以避免安装软件时的确认提示</h3><h3 id="1-2-mv-f-可以直接覆盖同名的文件，避免覆盖的确认提示"><a href="#1-2-mv-f-可以直接覆盖同名的文件，避免覆盖的确认提示" class="headerlink" title="1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示"></a>1.2 mv -f 可以直接覆盖同名的文件，避免覆盖的确认提示</h3><h3 id="1-3-sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟"><a href="#1-3-sleep-可以加后缀，比如-sleep-1m-休眠-1-分钟" class="headerlink" title="1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟"></a>1.3 sleep 可以加后缀，比如 sleep 1m 休眠 1 分钟</h3><h3 id="1-4-使用反引号进行命令替换，比如"><a href="#1-4-使用反引号进行命令替换，比如" class="headerlink" title="1.4 使用反引号进行命令替换，比如"></a>1.4 使用反引号进行命令替换，比如</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pid=`ps aux | grep chrome | grep -v grep | awk '&#123;print $2&#125;'`</span><br></pre></td></tr></table></figure>
+<h3 id="1-5-tar-打包可以指定-C-解决打包全路径的问题"><a href="#1-5-tar-打包可以指定-C-解决打包全路径的问题" class="headerlink" title="1.5 tar 打包可以指定 -C 解决打包全路径的问题"></a>1.5 tar 打包可以指定 -C 解决打包全路径的问题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 不使用 -C，打包后的将保留全路径</span><br><span class="line">tar -czvf adsl-abot.tar.gz ~/git/ms/abot-adsl</span><br><span class="line"><span class="meta">#</span> 使用 -C，打包后只保留路径 abot-adsl</span><br><span class="line">tar -czvf adsl-abot.tar.gz -C ~/git/ms abot-adsl</span><br></pre></td></tr></table></figure>
+<h3 id="1-6-ssh-a-可以-ssh-登录后自动执行设定命令"><a href="#1-6-ssh-a-可以-ssh-登录后自动执行设定命令" class="headerlink" title="1.6 ssh -a 可以 ssh 登录后自动执行设定命令"></a>1.6 ssh -a 可以 ssh 登录后自动执行设定命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh server1 -a 'python run.py &gt; /dev/null &amp;'</span><br></pre></td></tr></table></figure>
+<h3 id="1-7-ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器"><a href="#1-7-ssh-可通过-ssh-key-免密码登录，以便-shell-编程访问服务器" class="headerlink" title="1.7 ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器"></a>1.7 ssh 可通过 ssh key 免密码登录，以便 shell 编程访问服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成 ssh key，注意不要设定 passphrase，直接回车即可</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C "user@example.com"</span><br><span class="line"><span class="meta">#</span> 拷贝公钥到服务器</span><br><span class="line">ssh-copy-id  -i ~/.ssh/id_rsa  -p &lt;port&gt; &lt;name&gt;@&lt;host&gt;</span><br><span class="line"><span class="meta">#</span> 配置 ~/.ssh/config</span><br><span class="line">Host server1</span><br><span class="line">User &lt;name&gt;</span><br><span class="line">HostName &lt;host&gt;</span><br><span class="line">Port &lt;port&gt;</span><br><span class="line">IdentityFile ./id_rsa</span><br><span class="line"><span class="meta">#</span> shell 访问</span><br><span class="line">ssh server1</span><br></pre></td></tr></table></figure>
+<h3 id="1-8-curl-x-可以指定使用代理访问，-o-可以保存为文件"><a href="#1-8-curl-x-可以指定使用代理访问，-o-可以保存为文件" class="headerlink" title="1.8 curl -x 可以指定使用代理访问，-o 可以保存为文件"></a>1.8 curl -x 可以指定使用代理访问，-o 可以保存为文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 代理访问</span><br><span class="line">curl -x 120.83.121.55:8881 https://readhub.cn/topics</span><br><span class="line"><span class="meta">#</span> 下载文件</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span><br></pre></td></tr></table></figure>
+<h2 id="2-DocumentDB-读取负载均衡问题"><a href="#2-DocumentDB-读取负载均衡问题" class="headerlink" title="2 DocumentDB 读取负载均衡问题"></a>2 DocumentDB 读取负载均衡问题</h2><p>DocumentDB 设置了读取终端节点，发现大量的读取操作还是落在了写入终端节点。翻阅文档，发现：</p>
+<blockquote>
+<p>仅当 Amazon DocumentDB以副本集模式从集群终端节点读取数据时，才支持设置读取首选项。</p>
+<p>…</p>
+<p>如果您的客户端或驱动程序未在副本集模式下连接到 Amazon DocumentDB集群终端节点，则指定读取首选项的结果并不明确。</p>
+<p>— <a href="https://docs.aws.amazon.com/zh_cn/documentdb/latest/developerguide/how-it-works.html#durability-consistency-isolation.read-consistency" target="_blank" rel="noopener">Amazon DocumentDB 开发人员指南</a></p>
+</blockquote>
+<p>可见，实现读取负载均衡的必要条件是：</p>
+<ol>
+<li><p><strong>设置了副本集模式</strong></p>
+<p>DocumentDB 默认有名为 rs0 的副本集，通过 <code>mongodb://username:password@sample-cluster.cluster-123456789012.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0</code> 连接字符串设置。</p>
+</li>
+<li><p><strong>设置了合适的读取首选项</strong></p>
+<p>一般设置 secondaryPreferred 让读请求优先路由到只读副本。Java 代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MongoClientSettings settings = MongoClientSettings.builder().applyConnectionString(connectionString).codecRegistry(pojoCodecRegistry).readPreference(ReadPreference.secondaryPreferred()).build();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>官方文档中说明的可配置的读取首选项有：</p>
+<ol>
+<li><strong>primary</strong>：确保将所有读取请求路由到集群的主实例。</li>
+<li><strong>primaryPreferred</strong>：将读取请求路由到主实例。如果发生主实例故障转移，则客户端会将请求路由到副本。</li>
+<li><strong>secondary</strong>：确保只将读取路由到副本，从不路由到主实例。</li>
+<li><strong>secondaryPreferred</strong>：确保在一个或多个副本处于活动状态时将读取路由到只读副本。如果集群中没有活动的副本实例，则读取请求将路由到主实例。</li>
+<li><strong>nearest</strong>：仅基于客户端与 Amazon DocumentDB集群中所有实例之间测量的延迟路由读取。</li>
+</ol>
+<h2 id="3-Git-Submodule"><a href="#3-Git-Submodule" class="headerlink" title="3 Git Submodule"></a>3 Git Submodule</h2><h3 id="3-1-git-submodule-detached-HEAD"><a href="#3-1-git-submodule-detached-HEAD" class="headerlink" title="3.1 git submodule detached HEAD"></a>3.1 git submodule detached HEAD</h3><p>很好奇为什么拉取拉取代码并执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git submodule init # 在 zsh 中为 gsi</span><br><span class="line"><span class="meta">$</span> git submodule update # 在 zsh 中为 gsu</span><br></pre></td></tr></table></figure>
+<p>后到子模块文件夹查看 git 状态，然后就是 <code>detached HEAD status</code> 了。</p>
+<p><img src="/2019/05/19/it/weekly/20190519 编程反思/git detached HEAD.png" alt="git detached HEAD"></p>
+<p>查阅 git 官方文档，发现</p>
+<blockquote>
+<p>So far, when we’ve run the <code>git submodule update</code> command to fetch changes from the submodule repositories, Git would get the changes and update the files in the subdirectory but will leave the sub-repository in what’s called a “detached HEAD” state. </p>
+<p>—  <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git - Submodules</a> </p>
+</blockquote>
+<p>意味着这不是你的错，它本来就是这样的，你需要做的是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd &lt;子模块文件夹&gt;</span><br><span class="line"><span class="meta">$</span> git checkout &lt;你要的分支&gt; # 在 zsh 中为 gco</span><br></pre></td></tr></table></figure>
+<p>这样，你在子模块的修改就不会丢了，可以正常提交到子模块项目指定分支中。</p>
+<h3 id="3-2-在主项目查看子模块的改变"><a href="#3-2-在主项目查看子模块的改变" class="headerlink" title="3.2 在主项目查看子模块的改变"></a>3.2 在主项目查看子模块的改变</h3><p>在查阅官方文档过程中发现一个好用的命令，可以在主项目查看子模块的改变，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config status.submodulesummary 1</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> git status # 在 zsh 中为 gst</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with 'origin/master'.</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use "git add &lt;file&gt;..." to update what will be committed)</span><br><span class="line">  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">	modified:   .gitmodules</span><br><span class="line">	modified:   DbConnector (new commits)</span><br><span class="line"></span><br><span class="line">Submodules changed but not updated:</span><br><span class="line"></span><br><span class="line">* DbConnector c3f01dc...c87d55d (4):</span><br><span class="line"><span class="meta">  &gt;</span> catch non-null terminated lines</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-foreach-骚操作"><a href="#3-3-foreach-骚操作" class="headerlink" title="3.3 foreach 骚操作"></a>3.3 foreach 骚操作</h3><p>在官方文档中，我还发现 git 支持对所有 submodule 执行同一命令的骚操作，看下面的代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 将所有子模块的改变 stash</span><br><span class="line"><span class="meta">$</span> git submodule foreach 'git stash'</span><br><span class="line"><span class="meta">#</span> 将所有子模块切换到 master 分支</span><br><span class="line"><span class="meta">$</span> git submodule foreach 'git checkout -b master'</span><br></pre></td></tr></table></figure>
+<h2 id="4-Jenkins-打包流程"><a href="#4-Jenkins-打包流程" class="headerlink" title="4 Jenkins 打包流程"></a>4 Jenkins 打包流程</h2><ol>
+<li>拉取 master 分支及其子模块的代码</li>
+<li>然后切换到指定的分支</li>
+<li>开始打包</li>
+<li>包存储到指定的 s3 存储桶</li>
+</ol>
+<p>要注意上面的每一步都正确，最后才是佛光普照。在我的 case，master 分支上的 submodule 存在commit id 找不到的问题，虽然我在 release 分支已经解决，仍需要先将相关的改变同步到 master，因为在未将该改变回到 master 之前，第一步会失败。</p>
+<h2 id="5-ssh-私钥登录-Linux-服务器仍提示输入密码的问题"><a href="#5-ssh-私钥登录-Linux-服务器仍提示输入密码的问题" class="headerlink" title="5 ssh 私钥登录 Linux 服务器仍提示输入密码的问题"></a>5 ssh 私钥登录 Linux 服务器仍提示输入密码的问题</h2><p>ssh 私钥登录 Linux 服务器的关键有 4：</p>
+<ol>
+<li>生成私钥时<strong>不设定 passphrase</strong>；</li>
+<li><code>.ssh</code> 文件夹权限为 <strong>700</strong>，只对 root 用户可读可写可执行；</li>
+<li>本地私钥文件的权限为 <strong>600</strong>，只对 root 用户可读可写；</li>
+<li>服务器上 <code>.ssh/authorized_keys</code> 文件权限为 <strong>600</strong>，只对 root 用户可读可写。</li>
+</ol>
+<p>第 1 项需要我们自己保证，剩下的 3 项在使用 <code>ssh-copy-id</code> 时已经可以保证，如果检查了上述  4 项都没问题，但还是提示输入密码，那就很可能是服务器的问题了。在我的经历中，遇到过 2 项：</p>
+<ol>
+<li><p>服务器开启了 SELinux，这时只需要关闭即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编辑 selinux 配置</span><br><span class="line">vi /etc/sysconfig/selinux</span><br><span class="line"><span class="meta">#</span> 修改配置项目</span><br><span class="line">SELINUX=disabled</span><br><span class="line"><span class="meta">#</span> 保存退出，可能需要重启服务器</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务器 <code>/root</code> 的所属用户和所属组不是 root，这时改一下所属用户和所属组即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 改所属用户为 root</span><br><span class="line">chown root /root</span><br><span class="line"><span class="meta">#</span> 改所属组为 root</span><br><span class="line">chgrp root /root</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
             </div>
         
@@ -848,7 +915,7 @@ ga('send', 'pageview');
     
     
         <a href="/2019/05/16/it/os/Linux/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title"></div>
         </a>
     
