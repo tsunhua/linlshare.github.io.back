@@ -71,19 +71,53 @@ VPS (Virtual Private Server，虚拟专用服务器)，将一台服务器分割�
 #### （1）安装
 
 ```shell
-# 在 Ubuntu 下
-apt-get install -y epel-release
-apt-get update -y
-apt-get install -y tinyproxy
+# 在 CentOS 下
+yum update -y
+yum install -y epel-release
+yum -y install tinyproxy
+yum install vim -y
 ```
 
 #### （2）配置
 
 找到 `/etc/tinyproxy/tinyproxy.conf` 文件，将 `Allow 127.0.0.1`  改为允许外部连接的主机，如想任意主机都能连，只需要注释掉即可，即 `# Allow 127.0.0.1`。
 
-保存配置后，需要重启才能生效，即执行 `service tinyproxy start`。
+保存配置后，需要重启才能生效，即执行 
 
-#### （3）验证
+```shell
+systemctl restart  tinyproxy.service
+systemctl enable tinyproxy.service
+```
+
+#### （3）设置防火墙
+
+```shell
+# 禁用 firewall
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+# 安装 iptables
+yum -y install iptables-services
+# 编辑 iptables 配置
+vi /etc/sysconfig/iptables
+## 添加配置项
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+# 重启 iptables
+systemctl restart iptables.service #重启防火墙使配置生效
+systemctl enable iptables.service #设置防火墙开机启动
+# 重启系统
+```
+
+#### （4）关闭 SELinux
+
+```shell
+# 编辑 selinux 配置
+vi /etc/sysconfig/selinux
+# 修改配置项目
+SELINUX=disabled
+# 保存
+```
+
+#### （5）验证
 
 ```shell
 curl -x <主机地址> httpbin.org/get
@@ -94,4 +128,156 @@ curl -x <主机地址> httpbin.org/get
 使用一台远程主机作为接口，接收并保存拨号主机的 IP 变更，然后对外提供代理接口。具体时序图如下：
 
 ![自建代理时序图](ADSL ProxyPool/自建代理时序图.jpg)
+
+示例：自动拨号脚本
+
+> 环境：python3, pip3 install tornado requests apscheduler
+
+```python
+# sender.py
+# coding=utf-8
+import platform
+import re
+import time
+
+import requests
+from requests.exceptions import ConnectionError, ReadTimeout
+
+from adslproxy.config import *
+
+if platform.python_version().startswith('2.'):
+    import commands as subprocess
+elif platform.python_version().startswith('3.'):
+    import subprocess
+else:
+    raise ValueError('python version must be 2 or 3')
+
+
+class Sender():
+    def get_ip(self, ifname=ADSL_IFNAME):
+        """
+        获取本机IP
+        :param ifname: 网卡名称
+        :return:
+        """
+        (status, output) = subprocess.getstatusoutput('ifconfig')
+        if status == 0:
+            pattern = re.compile(ifname + '.*?inet.*?(\d+\.\d+\.\d+\.\d+).*?netmask', re.S)
+            result = re.search(pattern, output)
+            if result:
+                ip = result.group(1)
+                return ip
+
+    def test_proxy(self, proxy):
+        """
+        测试代理
+        :param proxy: 代理
+        :return: 测试结果
+        """
+        try:
+            response = requests.get(TEST_URL, proxies={
+                'http': 'http://' + proxy,
+                'https': 'https://' + proxy
+            }, timeout=TEST_TIMEOUT)
+            if response.status_code == 200:
+                return True
+        except (ConnectionError, ReadTimeout):
+            return False
+
+    def set_proxy(self, proxy):
+        """
+        设置代理
+        :param proxy: 代理
+        :return: None
+        """
+        try:
+            response = requests.post(
+                "{}?server={}".format(POSTBACK_URL, CLIENT_NAME), json=proxy)
+            if response.status_code == 200:
+                print('Successfully Set Proxy', proxy)
+                return True
+        except(ConnectionError, ReadTimeout):
+            return False
+
+    def adsl(self):
+        """
+        拨号主进程
+        :return: None
+        """
+        while True:
+            print('ADSL Start, Remove Proxy, Please wait')
+            (status, output) = subprocess.getstatusoutput(ADSL_BASH)
+            if status == 0:
+                print('ADSL Successfully')
+                ip = self.get_ip()
+                if ip:
+                    print('Now IP', ip)
+                    print('Testing Proxy, Please Wait')
+                    proxy = {"host": ip, "port": PROXY_PORT, "ttl": ADSL_CYCLE}
+                    if self.test_proxy(proxy):
+                        print('Valid Proxy')
+                        self.set_proxy(proxy)
+                        print('Sleeping')
+                        time.sleep(ADSL_CYCLE)
+                    else:
+                        print('Invalid Proxy')
+                else:
+                    print('Get IP Failed, Re Dialing')
+                    time.sleep(ADSL_ERROR_CYCLE)
+            else:
+                print('ADSL Failed, Please Check')
+                time.sleep(ADSL_ERROR_CYCLE)
+
+
+def run():
+    sender = Sender()
+    sender.adsl()
+
+
+if __name__ == '__main__':
+    run()
+
+```
+
+```python
+# config.py
+# coding=utf-8
+# 拨号间隔
+ADSL_CYCLE = 100
+
+# 拨号出错重试间隔
+ADSL_ERROR_CYCLE = 5
+
+# ADSL命令
+ADSL_BASH = 'adsl-stop;adsl-start'
+
+# 代理运行端口
+PROXY_PORT = 8888
+
+# 客户端唯一标识
+CLIENT_NAME = 'ylf_gd_lt_1'
+
+# 拨号网卡
+ADSL_IFNAME = 'ppp0'
+
+# 测试URL
+TEST_URL = 'http://www.baidu.com'
+
+# 测试超时时间
+TEST_TIMEOUT = 20
+
+# 回传 URL
+POSTBACK_URL = 'http://localhost:8081/v1/hook/adsl'
+
+```
+
+运行：
+
+```shell
+# 直接运行
+python3 sender.py
+# 守护运行
+(python3 sender.py > /dev/null &)
+(python3 sender.py > run.log &)
+```
 

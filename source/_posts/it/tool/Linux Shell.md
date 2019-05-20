@@ -60,6 +60,19 @@ IdentityFile ~/env/<username>.id_rsa
 
 可快速进行ssh连接，`ssh myhost` 。
 
+### SSHPASS 命令
+
+不用提示输入密码，直接使用配置的密码进行远程登录，适用于脚本。
+
+安装：
+
+```shell
+# Ubuntu
+apt-get install sshpass
+# Mac
+brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+```
+
 ### 进程管理命令
 
 #### 前后台切换命令 bg、fg 

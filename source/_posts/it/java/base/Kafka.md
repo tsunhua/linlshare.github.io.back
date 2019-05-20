@@ -137,6 +137,10 @@ kafka 版本要求 <=1.1.0 ( wget "https://archive.apache.org/dist/kafka/1.1.0/k
 
 ## 排错
 
+### kafka 占用磁盘过多
+
+设置 `log.retention.hours=6` ，只保存日志 6 小时，然后重启 kafka，这样之前保留的日志会被自动清除。
+
 ### Connection to node -1 could not be established. Broker may not be available.
 
 1. 检查连接的 kafka 集群地址是否正确；
@@ -172,6 +176,8 @@ listeners=PLAINTEXT://:9092
 ```xml
 <logger name="org.apache.kafka" level="INFO" />
 ```
+
+
 
 ## 参考
 

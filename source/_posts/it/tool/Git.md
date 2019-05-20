@@ -184,3 +184,30 @@ If you want to rename the current branch, you can do:
 ```
 git branch -m <newname>
 ```
+
+## 问题
+
+### Server does not allow request for unadvertised object
+
+日志：
+
+```
+Cloning into '/home/ec2-user/pack_workspace/dts-plugin-abot_default_jenkinsDefault/dts-plugin-abot/dts/common/build'...
+Cloning into '/home/ec2-user/pack_workspace/dts-plugin-abot_default_jenkinsDefault/dts-plugin-abot/dts/common/protocol'...
+error: Server does not allow request for unadvertised object 9cfd865e2e275dd6cf375efd734bc7d6b17da49f
+Fetched in submodule path 'dts/dts-plugin', but it did not contain 9cfd865e2e275dd6cf375efd734bc7d6b17da49f. Direct fetching of that commit failed.
+Failed to recurse into submodule path 'dts'
+```
+
+原因：
+
+子模块分支游离，需要
+
+```shell
+git pull
+git checkout <your branch>
+```
+
+然后提交下即可。
+
+记得确保解决完该问题后，合并到你的 master 分支上。
