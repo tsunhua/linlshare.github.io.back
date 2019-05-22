@@ -78,3 +78,18 @@ NO，其实移动文件可以复制后使用快捷键 `command + option + v` 实
 6. 最后不要忘了再次进入恢复模式，然后执行 `csrutil enable` 启用系统完整性，避免系统数据被修改。
 
 参考：[Enable NTFS write support in MacOS High Sierra (10.13.x) - medium](https://medium.com/the-lazy-coders-journal/enable-ntfs-write-support-in-macos-high-sierra-10-13-x-3fc8c67b5c1)
+
+## macOS mojave 10.14.1+ WiFi crash 导致菜单栏卡住
+
+当发生此类情况时除了重启还可以通过命令行解决，打开终端执行以下命令：
+
+```shell
+sudo kill -9 `ps aux | grep -v grep | grep /usr/libexec/airportd | awk '{print $2}'`
+```
+
+来自：[@Newbing](https://www.v2ex.com/member/Newbing) 
+
+更重要的是防止问题发生，V2EX 上 [@gongzhang](https://www.v2ex.com/member/gongzhang) 提供了以下[解决方案](https://www.v2ex.com/t/505737)：
+
+1. 在「网络」设置中，新建了一个位置，不再使用「自动」
+2. 在「安全性与隐私」里，「定位服务」->「系统服务」中，取消了「 Wifi 网络」的勾选  没确认是哪个操作避免了卡死的问题 
